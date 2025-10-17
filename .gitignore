@@ -1,0 +1,37 @@
+# WordPress core files
+/wp-admin/
+/wp-includes/
+/wp-*.php
+!/wp-content/
+
+# Config files with sensitive data
+wp-config.php
+.htaccess
+
+# Uploads and cache
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/backup*/
+/wp-content/upgrade/
+
+# Plugins (keep only custom plugins)
+/wp-content/plugins/*
+!/wp-content/plugins/nyc-stem-courses/
+
+# Themes (keep only custom themes)
+/wp-content/themes/*
+!/wp-content/themes/skola-child/
+
+# Temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Local development
+local-xdebuginfo.php
+create-courses.php
+delete-all-courses.php
+find_course.php
+migrate-woo-to-courses.php
+update_*.php
