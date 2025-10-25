@@ -6,6 +6,8 @@
 
 get_header(); ?>
 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 /* Reset theme styles for this page */
 .site-content {
@@ -77,17 +79,18 @@ article {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 17px;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 600 !important;
     line-height: 1.7;
-    color: #2c3e50;
-    background: #ffffff;
+    color: #333;
+    background: #f8f9fa;
 }
 
-/* Hero Section */
+/* Article Hero Section */
 .article-hero {
     background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
-    padding: 60px 20px 40px;
+    padding: 60px 20px 50px;
+    text-align: center;
     color: white;
     position: relative;
     overflow: hidden;
@@ -96,13 +99,18 @@ body {
 .article-hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 400px;
-    height: 400px;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 200%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
-    transform: translate(30%, -30%);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.3; }
 }
 
 .hero-content {
@@ -114,184 +122,177 @@ body {
 
 .announcement-badge {
     display: inline-block;
-    background: #FF7F07;
+    background: rgba(255, 127, 7, 0.9);
+    color: white;
     padding: 8px 20px;
-    border-radius: 24px;
+    border-radius: 20px;
     font-size: 14px;
     font-weight: 700;
-    letter-spacing: 0.5px;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    box-shadow: 0 4px 12px rgba(255, 127, 7, 0.3);
 }
 
 .article-title {
-    font-size: 2.75rem;
-    font-weight: 700;
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 16px;
     line-height: 1.2;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
+    color: white !important;
 }
 
 .article-subtitle {
-    font-size: 1.3rem;
+    font-size: 20px;
     opacity: 0.95;
-    font-weight: 400;
-    line-height: 1.5;
+    margin-bottom: 24px;
 }
 
 .timeline-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-block;
     background: rgba(255, 255, 255, 0.15);
-    padding: 10px 20px;
-    border-radius: 8px;
-    margin-top: 24px;
-    font-size: 15px;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-size: 16px;
     font-weight: 600;
+    backdrop-filter: blur(10px);
 }
 
-/* Main Content */
+/* Main Article Container */
 .article-container {
-    max-width: 900px;
-    margin: 0 auto !important;
-    padding: 60px 20px;
-    width: 100%;
-    box-sizing: border-box;
+    max-width: 1000px;
+    margin: -30px auto 60px;
+    padding: 0 20px;
 }
 
-/* Lead Introduction */
 .lead-intro {
-    font-size: 1.25rem;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
     line-height: 1.8;
-    color: #1e3a5f;
-    margin-bottom: 56px;
-    font-weight: 500;
+    margin-bottom: 50px;
+    border-left: 5px solid #28AFCF;
 }
 
-/* Numbered Steps Section */
+/* Changes List */
 .changes-list {
-    margin: 56px 0;
+    background: white;
+    padding: 25px 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
 }
 
 .changes-list h2 {
-    font-size: 2rem;
+    font-size: 32px;
     color: #134958;
     margin-bottom: 40px;
     text-align: center;
+    font-weight: 800;
 }
 
 .change-steps {
-    counter-reset: step-counter;
     list-style: none;
-    padding: 0;
+    counter-reset: change-counter;
 }
 
 .change-step {
-    counter-increment: step-counter;
-    padding: 48px 0;
-    border-bottom: 1px solid #e2e8f0;
+    counter-increment: change-counter;
+    margin-bottom: 50px;
+    padding-left: 0;
+}
+
+.change-step h3 {
+    font-size: 26px;
+    color: #28AFCF;
+    margin-bottom: 20px;
+    font-weight: 700;
     position: relative;
-    padding-left: 100px;
+    padding-left: 60px;
 }
 
-.change-step:last-child {
-    border-bottom: none;
-}
-
-.change-step::before {
-    content: counter(step-counter);
+.change-step h3::before {
+    content: counter(change-counter);
     position: absolute;
     left: 0;
-    top: 48px;
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, #28AFCF, #5DD3F0);
+    top: -5px;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #28AFCF, #134958);
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 2rem;
-    font-weight: 700;
-    box-shadow: 0 4px 16px rgba(40, 175, 207, 0.3);
-}
-
-.change-step h3 {
-    font-size: 1.75rem;
-    color: #134958;
-    margin-bottom: 20px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 800;
 }
 
 .change-step p {
-    color: #475569;
+    font-size: 18px;
     line-height: 1.8;
     margin-bottom: 20px;
-}
-
-.change-step strong {
-    color: #134958;
-    font-weight: 600;
+    padding-left: 60px;
 }
 
 /* Comparison Cards */
 .comparison-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    margin: 32px 0;
+    margin: 30px 0;
+    padding-left: 60px;
 }
 
 .comparison-card {
+    background: #f8f9fa;
     padding: 28px;
     border-radius: 12px;
+    text-align: center;
     position: relative;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.comparison-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .before-card {
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-    border: 2px solid #cbd5e1;
+    border-color: #ddd;
 }
 
 .after-card {
-    background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
-    border: 2px solid #28AFCF;
+    border-color: #28AFCF;
+    background: linear-gradient(135deg, rgba(40, 175, 207, 0.05), rgba(19, 73, 88, 0.05));
 }
 
 .card-label {
     display: inline-block;
-    padding: 4px 12px;
-    border-radius: 6px;
-    font-size: 12px;
+    background: #134958;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     margin-bottom: 16px;
 }
 
-.before-card .card-label {
-    background: #64748b;
-    color: white;
-}
-
 .after-card .card-label {
-    background: #28AFCF;
-    color: white;
+    background: linear-gradient(135deg, #28AFCF, #134958);
 }
 
 .card-stat {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #134958;
-    margin: 12px 0;
+    font-size: 42px;
+    font-weight: 800;
+    color: #28AFCF;
+    margin-bottom: 16px;
 }
 
 .card-description {
-    font-size: 0.95rem;
-    color: #64748b;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
 }
 
 /* Feature Grid */
@@ -299,228 +300,243 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    margin: 32px 0;
+    margin: 30px 0;
+    padding-left: 60px;
 }
 
 .feature-item {
-    background: white;
+    background: #f8f9fa;
     padding: 24px;
-    border-radius: 12px;
-    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #e9ecef;
     transition: all 0.3s ease;
 }
 
 .feature-item:hover {
     border-color: #28AFCF;
-    box-shadow: 0 4px 16px rgba(40, 175, 207, 0.15);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(40, 175, 207, 0.15);
 }
 
 .feature-icon {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 16px;
+    font-size: 36px;
+    margin-bottom: 12px;
 }
 
 .feature-title {
+    font-size: 17px;
     font-weight: 700;
     color: #134958;
     margin-bottom: 8px;
-    font-size: 1.05rem;
 }
 
 .feature-desc {
-    font-size: 0.9rem;
-    color: #64748b;
-    line-height: 1.6;
+    font-size: 14px;
+    color: #666;
 }
 
 /* Info Box */
 .info-box {
-    background: #fff7ed;
-    border-left: 4px solid #FF7F07;
-    padding: 24px 28px;
-    border-radius: 12px;
-    margin: 32px 0;
+    background: linear-gradient(135deg, rgba(255, 127, 7, 0.1), rgba(255, 159, 64, 0.1));
+    border-left: 5px solid #FF7F07;
+    padding: 28px;
+    border-radius: 10px;
+    margin: 30px 0 30px 60px;
 }
 
 .info-box-title {
+    font-size: 20px;
     font-weight: 700;
-    color: #134958;
-    font-size: 1.1rem;
+    color: #FF7F07;
     margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
 }
 
 .info-box p {
-    margin-bottom: 12px;
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
 }
 
 .info-box ul {
-    margin-top: 8px;
-    padding-left: 24px;
+    margin: 16px 0 0 20px;
+    padding: 0;
 }
 
 .info-box li {
-    margin-bottom: 8px;
-    color: #475569;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 10px;
 }
 
 /* Impact Section */
 .impact-section {
-    margin: 56px 0;
-    padding: 48px;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    border-radius: 16px;
+    background: white;
+    padding: 10px 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
 }
 
 .impact-section h2 {
-    font-size: 2rem;
+    font-size: 32px;
     color: #134958;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
     text-align: center;
+    font-weight: 800;
 }
 
-.impact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-}
-
-.impact-column h3 {
-    font-size: 1.5rem;
+.impact-section p {
+    font-size: 18px;
+    line-height: 1.8;
     margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
 }
 
-.impact-column.benefits h3 {
-    color: #059669;
+.key-points {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #28AFCF;
+    margin: 30px 0;
 }
 
-.impact-column.downsides h3 {
-    color: #dc2626;
+.key-points h3 {
+    font-size: 22px;
+    color: #28AFCF;
+    margin-bottom: 16px;
+    font-weight: 700;
 }
 
-.impact-column ul {
-    list-style: none;
-    padding: 0;
+.key-points ul {
+    margin: 0;
+    padding-left: 24px;
 }
 
-.impact-column li {
-    padding: 12px 0;
-    padding-left: 32px;
-    position: relative;
-    color: #475569;
-    line-height: 1.7;
+.key-points li {
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 12px;
 }
 
-.impact-column.benefits li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #10b981;
-    font-weight: bold;
-    font-size: 1.3rem;
-}
-
-.impact-column.downsides li::before {
-    content: '!';
-    position: absolute;
-    left: 0;
-    width: 24px;
-    height: 24px;
-    background: #fef2f2;
-    border: 2px solid #ef4444;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ef4444;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-/* Decision CTA */
+/* Decision Box */
 .decision-box {
-    background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
+    background: linear-gradient(135deg, #28AFCF 0%, #134958 100%);
     color: white;
-    padding: 48px;
-    border-radius: 16px;
-    margin: 56px 0;
-    box-shadow: 0 8px 32px rgba(19, 73, 88, 0.3);
+    padding: 50px 40px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(19, 73, 88, 0.3);
 }
 
 .decision-box h2 {
-    font-size: 2rem;
+    font-size: 32px;
     margin-bottom: 20px;
-    color: white;
-    text-align: center;
+    font-weight: 800;
 }
 
 .decision-box p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 19px;
     opacity: 0.95;
-    max-width: 700px;
-    margin: 0 auto 20px;
-    text-align: left;
-}
-
-.decision-box .cta-button-wrapper {
-    text-align: center;
-    margin-top: 32px;
+    margin-bottom: 30px;
+    line-height: 1.8;
 }
 
 .cta-button {
     display: inline-block;
     background: #FF7F07;
     color: white;
-    padding: 16px 40px;
-    border-radius: 8px;
-    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 30px;
+    font-size: 18px;
     font-weight: 700;
-    font-size: 1.1rem;
+    text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 16px rgba(255, 127, 7, 0.3);
+    box-shadow: 0 8px 20px rgba(255, 127, 7, 0.3);
 }
 
 .cta-button:hover {
-    background: #e67200;
+    background: #FF9F40;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 127, 7, 0.4);
+}
+
+/* Global CTA Button */
+.cta-btn {
+    background: #FF7F07;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.cta-btn:hover {
+    background: #e66f00;
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(255, 127, 7, 0.4);
+    box-shadow: 0 5px 20px rgba(255, 127, 7, 0.3);
+}
+
+/* CTA Buttons Container */
+.cta-buttons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Secondary CTA Button */
+.cta-btn-secondary {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 15px 40px;
+    border: 3px solid white;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.cta-btn-secondary:hover {
+    background: white;
+    color: #134958;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .article-title {
-        font-size: 2rem;
-    }
-
-    .change-step {
-        padding-left: 0;
-        padding-top: 90px;
-    }
-
-    .change-step::before {
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        font-size: 36px;
     }
 
     .comparison-cards,
-    .feature-grid,
-    .impact-grid {
+    .feature-grid {
         grid-template-columns: 1fr;
+    }
+
+    .change-step h3,
+    .change-step p,
+    .comparison-cards,
+    .feature-grid,
+    .info-box {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .change-step h3 {
+        padding-left: 55px;
     }
 
     .article-hero {
@@ -534,8 +550,7 @@ body {
 }
 </style>
 
-<?php while (have_posts()) : the_post(); ?>
-
+<div class="entry-content">
     <!-- Hero Section -->
     <div class="article-hero">
         <div class="hero-content">
@@ -552,27 +567,28 @@ body {
     <article class="article-container">
         <!-- Lead Introduction -->
         <p class="lead-intro">
-            <strong>As of January 2024, the College Board has successfully transitioned the Digital SAT.</strong> This significant shift revolutionizes how test-takers should prepare for the exam. So, what sets the Digital SAT apart from its traditional counterpart?
+            <strong>As of January 2024, the College Board has successfully transitioned the SAT to a fully digital format.</strong> This significant shift revolutionizes how test-takers should prepare for the exam. So, what sets the Digital SAT apart from its traditional counterpart?
         </p>
 
-        <!-- Major Changes - Numbered Steps -->
+        <!-- Major Changes -->
         <div class="changes-list">
             <h2>Understanding the Major Changes</h2>
 
             <ol class="change-steps">
                 <!-- Change 1: Format -->
                 <li class="change-step">
-                    <h3>Format</h3>
+                    <h3>Format: Shorter & More Efficient</h3>
 
-                    <p>The Digital SAT is now a <strong>shorter exam</strong>, completed in 2 hours and 14 minutes, as opposed to the traditional 3 hours and 15 minutes for the paper exam. The exam is divided into four modules—two each for Reading and Verbal, and two for Math.</p>
+                    <p>The Digital SAT is now a <strong>shorter exam</strong>, completed in 2 hours and 14 minutes, as opposed to the traditional 3 hours and 15 minutes for the paper exam. The exam is divided into four modules—two each for Reading & Writing, and two for Math.</p>
 
                     <div class="comparison-cards">
                         <div class="comparison-card before-card">
                             <span class="card-label">Paper SAT</span>
                             <div class="card-stat">3h 15m</div>
                             <div class="card-description">
+                                154 questions<br>
                                 Long passages<br>
-                                Single difficulty level<br>
+                                Single difficulty<br>
                                 Paper-based
                             </div>
                         </div>
@@ -580,121 +596,136 @@ body {
                             <span class="card-label">Digital SAT ✨</span>
                             <div class="card-stat">2h 14m</div>
                             <div class="card-description">
-                                Shorter format<br>
+                                98 questions<br>
+                                Shorter passages<br>
                                 Adaptive testing<br>
                                 Digital-first
                             </div>
                         </div>
                     </div>
 
-                    <p><strong>Module Breakdown:</strong> Each Reading and Verbal module consists of 27 questions, taking 32 minutes to complete. Each Math module comprises 22 questions, taking 35 minutes to complete.</p>
+                    <p><strong>Module Breakdown:</strong> Each Reading & Writing module consists of 27 questions (32 minutes each). Each Math module has 22 questions (35 minutes each).</p>
 
                     <div class="info-box">
-                        <div class="info-box-title">⚡ Adaptive Testing</div>
-                        <p>Crucially, the Digital SAT is an <strong>adaptive exam</strong>, where your performance in the first set of modules determines the difficulty level of the second set.</p>
-                        <p><strong>For instance:</strong> If you excel in the first Reading and Verbal module, you will encounter the advanced module for the second section. Conversely, scoring lower on the first module will result in encountering an easier module for the second section.</p>
+                        <div class="info-box-title">🎯 Adaptive Testing</div>
+                        <p>The Digital SAT uses <strong>section-level adaptive testing</strong>. Your performance in Module 1 determines the difficulty of Module 2:</p>
+                        <ul>
+                            <li>Perform well → Get harder questions with higher score potential</li>
+                            <li>Struggle initially → Get easier questions with adjusted scoring range</li>
+                            <li>Each test is uniquely tailored to your ability level</li>
+                        </ul>
                     </div>
                 </li>
 
-                <!-- Change 2: Content + Questions -->
+                <!-- Change 2: Content -->
                 <li class="change-step">
-                    <h3>Content + Questions</h3>
+                    <h3>Content: Shorter Passages, Focused Questions</h3>
 
-                    <p>Unlike the traditional paper SAT, the Digital SAT no longer utilizes long and dense passages for the Reading and Verbal section. Instead, it assesses reading comprehension and grammar skills using <strong>short paragraphs for every question</strong>.</p>
+                    <p>Unlike the traditional paper SAT with long, dense passages, the Digital SAT assesses reading comprehension and grammar skills using <strong>short paragraphs for every question</strong>. This makes the test less about stamina and more about skill.</p>
 
-                    <p>The skills tested are simplified into the following categories:</p>
+                    <p><strong>Reading & Writing Skills Assessed:</strong></p>
 
                     <div class="feature-grid">
                         <div class="feature-item">
                             <div class="feature-icon">💡</div>
                             <div class="feature-title">Information and Ideas</div>
-                            <div class="feature-desc">Comprehension and analysis</div>
+                            <div class="feature-desc">Comprehension and analysis of texts</div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">🎨</div>
                             <div class="feature-title">Craft and Structure</div>
-                            <div class="feature-desc">Writing techniques</div>
+                            <div class="feature-desc">Understanding writing techniques</div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">✍️</div>
                             <div class="feature-title">Expression of Ideas</div>
-                            <div class="feature-desc">Effective communication</div>
+                            <div class="feature-desc">Effective communication skills</div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">📝</div>
                             <div class="feature-title">Standard English Conventions</div>
-                            <div class="feature-desc">Grammar and usage</div>
+                            <div class="feature-desc">Grammar and usage rules</div>
                         </div>
                     </div>
 
                     <div class="info-box">
-                        <div class="info-box-title">🧮 Math Section Modifications</div>
-                        <p>The Math section has also been modified. <strong>You can now use the calculator for both sections</strong>, and the topics covered have been simplified into the following categories:</p>
-                        <ul>
-                            <li><strong>Algebra</strong></li>
-                            <li><strong>Advanced Math</strong></li>
-                            <li><strong>Problem-Solving and Data Analysis</strong></li>
-                            <li><strong>Geometry and Trigonometry</strong></li>
-                        </ul>
+                        <div class="info-box-title">🧮 Math Section Updates</div>
+                        <p><strong>Calculator allowed for BOTH math modules</strong> (previously only one section allowed calculators). You can use your own approved calculator or the built-in Desmos graphing calculator.</p>
+                        <p style="margin-top: 12px;"><strong>Math content remains similar:</strong> Algebra, Advanced Math, Problem-Solving & Data Analysis, and Geometry & Trigonometry.</p>
                     </div>
                 </li>
 
-                <!-- Change 3: Impact -->
+                <!-- Change 3: Testing Experience -->
                 <li class="change-step">
-                    <h3>How It Impacts YOU</h3>
+                    <h3>Testing Experience: Digital Tools & Flexibility</h3>
 
-                    <p>The Digital SAT aims to be <strong>more accessible for students</strong>, allowing you to focus on demonstrating proficiency rather than enduring a grueling 3-hour exam.</p>
+                    <p>Students can take the Digital SAT on their own laptop, a school-issued device, or borrow one from College Board (request 30 days in advance). The test is administered through the <strong>Bluebook™ app</strong>.</p>
 
-                    <p>In the past, students had to contend not only with the skills tested but also overcome factors like testing stamina, focus, and fatigue. With the Digital SAT, these concerns are reduced due to the shorter test duration and more straightforward questions.</p>
+                    <p><strong>Digital Features Include:</strong></p>
+                    <ul style="padding-left: 80px; margin-top: 20px;">
+                        <li style="margin-bottom: 12px; font-size: 17px;">Built-in timer for each module</li>
+                        <li style="margin-bottom: 12px; font-size: 17px;">Digital highlighting and annotation tools</li>
+                        <li style="margin-bottom: 12px; font-size: 17px;">Built-in Desmos calculator for all math questions</li>
+                        <li style="margin-bottom: 12px; font-size: 17px;">Flag questions for review</li>
+                        <li style="margin-bottom: 12px; font-size: 17px;">Work saved automatically (even if internet drops)</li>
+                    </ul>
 
-                    <p><strong>The biggest impact might be the reduction in anxiety.</strong> Students report that the Digital SAT is preferred over the paper exam, not only because it's shorter but also because the questions are perceived as fairer and more straightforward.</p>
+                    <div class="info-box">
+                        <div class="info-box-title">⚡ Faster Score Reporting</div>
+                        <p>Digital SAT scores are delivered in <strong>days instead of weeks</strong>. You'll receive your results much faster than the traditional paper SAT.</p>
+                    </div>
+                </li>
+
+                <!-- Change 4: Scoring -->
+                <li class="change-step">
+                    <h3>Scoring: Same Scale, New Approach</h3>
+
+                    <p>The Digital SAT maintains the <strong>200-1600 point scale</strong> (200-800 per section). However, because of adaptive testing, the same number of correct answers doesn't always equal the same score.</p>
+
+                    <p>The difficulty of questions you receive in Module 2 affects your final score. Higher-difficulty questions are worth more points, rewarding strong performance in Module 1.</p>
                 </li>
             </ol>
         </div>
 
         <!-- Impact Section -->
         <div class="impact-section">
-            <h2>Benefits & Downsides</h2>
+            <h2>How This Impacts Your Test Prep</h2>
 
-            <div class="impact-grid">
-                <div class="impact-column benefits">
-                    <h3>✅ Benefits</h3>
-                    <ul>
-                        <li>Shorter test duration (2h 14m vs 3h 15m)</li>
-                        <li>Reduced testing fatigue and anxiety</li>
-                        <li>More straightforward questions</li>
-                        <li>Fairer assessment of skills</li>
-                        <li>Better focus without stamina concerns</li>
-                        <li>Calculator allowed for all math sections</li>
-                    </ul>
-                </div>
+            <p>The transition to digital format requires strategic adjustments in how students prepare for the SAT:</p>
 
-                <div class="impact-column downsides">
-                    <h3>⚠️ Downsides</h3>
-                    <ul>
-                        <li>Limited preparation materials (only 4 practice tests)</li>
-                        <li>Stricter scoring curve - one mistake can cost 0-30 points</li>
-                        <li>Uncertainty in scoring system</li>
-                        <li>Requires strong foundational knowledge</li>
-                        <li>New format = less predictability</li>
-                        <li>Practice performance may differ from real exam</li>
-                    </ul>
-                </div>
+            <div class="key-points">
+                <h3>✅ What Stays the Same</h3>
+                <ul>
+                    <li>Core content areas (Reading, Writing, Math) are unchanged</li>
+                    <li>1600-point scoring scale remains</li>
+                    <li>Colleges accept Digital SAT scores the same as paper SAT</li>
+                    <li>Test-taking strategies fundamentally remain effective</li>
+                </ul>
+            </div>
+
+            <div class="key-points">
+                <h3>🔄 What You Need to Practice</h3>
+                <ul>
+                    <li><strong>Digital interface familiarity:</strong> Practice with Bluebook™ app regularly</li>
+                    <li><strong>Shorter reading passages:</strong> Quick comprehension is now critical</li>
+                    <li><strong>Module 1 strategy:</strong> Strong start = harder questions = higher score potential</li>
+                    <li><strong>Calculator efficiency:</strong> Master the Desmos calculator or your own</li>
+                    <li><strong>Digital annotation tools:</strong> Learn to highlight and take notes on-screen</li>
+                    <li><strong>Pacing with digital timer:</strong> Each module has its own countdown</li>
+                </ul>
             </div>
         </div>
 
-        <!-- Decision Section -->
+        <!-- CTA Section -->
         <div class="decision-box">
-            <h2>So, Should I Take the Digital SAT?</h2>
-            <p>The decision depends on the type of student and test-taker you are. If you struggle with long durations or feel anxious during high-stakes testing, the Digital SAT might be a good option.</p>
-            <p>However, it's crucial to note that, being a new format, uncertainties exist. There is no guarantee that you will score better on the Digital SAT than on the paper version. Furthermore, performance in practice might differ significantly from the real exam.</p>
-            <p><strong>One thing is clear though:</strong> just as you must practice for the paper SAT, targeted practice in content and strategies is also necessary for the digital version.</p>
-            <div class="cta-button-wrapper">
-                <a href="/student-enrollment/" class="cta-button">Inquire About Our Digital SAT Course →</a>
+            <h2>Ready to Master the Digital SAT?</h2>
+            <p>NYC STEM Club's expert instructors are fully trained on the Digital SAT format. Our comprehensive prep program combines content mastery with digital test-taking strategies to maximize your score.</p>
+            <div class="cta-buttons-container">
+                <a href="/student-enrollment/" class="cta-btn">Inquire Now</a>
+                <a href="/sat-act-test-prep/" class="cta-btn-secondary">View Programs</a>
             </div>
         </div>
     </article>
-
-<?php endwhile; ?>
+</div>
 
 <?php get_footer(); ?>

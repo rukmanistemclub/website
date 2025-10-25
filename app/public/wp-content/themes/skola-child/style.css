@@ -1,0 +1,736 @@
+/*
+Theme Name:        Skola Child
+Theme URI:         https://themeforest.net/user/madrasthemes/portfolio
+Author:            MadrasThemes
+Author URI:        https://themeforest.net/user/madrasthemes/
+Description:       Child Theme of Skola Multipurpose Busines Theme. A truly multipurpose WordPress Theme designed to facilitate the needs of businesses from different niches.
+Requires at least: WordPress 5.0
+Template:          skola
+Version:           1.0.18
+License:           GNU General Public License v3 or later
+License URI:       LICENSE
+Text Domain:       skola-child
+Tags:              two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, full-width-template, threaded-comments, accessibility-ready, rtl-language-support, footer-widgets, sticky-post, theme-options
+*/
+
+.elementor-widget-image{text-align:center}
+.elementor-widget-image a{display:inline-block}
+.elementor-widget-image a img[src$=".svg"]{width:48px}
+.elementor-widget-image img{vertical-align:middle;display:inline-block}
+
+.elementor-heading-title{padding:0;margin:0;line-height:1}
+.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}
+.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}
+.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}
+.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}
+.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}
+.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
+
+ul{ list-style:none !important;}
+body{font-size:17px;}
+
+a.button.product_type_external {
+    background-color: #154957;
+}
+
+.top-hd .elementor-element.elementor-widget-wp-widget-woocommerce_product_search {
+    text-align: right;
+}
+
+.paoc-popup-btn{ font-size:18px; padding:5px 25px !important;}
+
+.paoc-popup-inr .fserv-container label.fserv-label{ font-size:17px !important; color:#000 !important; font-weight:500;}
+.fs-webform-container .fserv-input-text{ font-size:16px !important; color:#000 !important; font-weight:500;}
+.paoc-popup-inr .fserv-container h2.fserv-form-name {
+    background-color: #0a242c;
+    color: #fff !important;
+    padding: 10px;
+}
+
+/* Popup Form */
+.std-form .fserv-container {
+    padding: 0 !important; box-shadow:none !important; border-radius:0 !important; max-width:100% !important;
+}
+.std-form .fserv-container h2.fserv-form-name {
+    padding: 0;
+    margin: 0;
+}
+.std-form .fserv-container .fserv-field {
+    padding: 0;
+    margin: 0 0 10px;
+}
+.std-form .fserv-container label.fserv-label {
+    padding: 0; font-size:14px !important;
+}
+.std-form .fserv-container input, .std-form .fserv-container textarea{ font-size:14px !important;}
+.std-form .fserv-container span.select2-selection.select2-selection--single{padding:0 10px !important;}
+.paoc-credit-wrp {
+    display: none;
+}
+.fserv-container .powered-by {
+    display: none !important;
+}
+.std-form .fs-webform-container .fserv-field+div:not(.fserv-field) {
+    border-top: 0px solid #e5e5e5;
+    margin-top: 0;
+    padding: 10px 0px 0;
+    text-align: center;
+}
+.std-form .fserv-container label.fserv-label{ font-size:17px !important; color:#000 !important; font-weight:500;}
+.std-form .fs-webform-container .fserv-container .fserv-input-text,
+.std-form .fs-webform-container .fserv-container .fserv-textarea,
+.std-form .fs-webform-container .fserv-container .select2-selection--multiple,
+.std-form .fs-webform-container .fserv-container .select2-selection__rendered{font-size:16px !important; font-weight:500;}
+
+/* Popup Form */
+.paoc-popup-inr .fserv-container {
+    padding: 0 !important; box-shadow:none !important; border-radius:0 !important;
+}
+.paoc-popup-inr .fserv-container h2.fserv-form-name {
+    padding: 0;
+    margin: 0;
+}
+.paoc-popup-inr .fserv-container .fserv-field {
+    padding: 0;
+    margin: 0 0 10px;
+}
+.paoc-popup-inr .fserv-container label.fserv-label {
+    padding: 0;
+}
+.paoc-credit-wrp {
+    display: none;
+}
+.fserv-container .powered-by {
+    display: none !important;
+}
+.paoc-popup-inr .fs-webform-container .fserv-field+div:not(.fserv-field) {
+    border-top: 0px solid #e5e5e5;
+    margin-top: 0;
+    padding: 10px 0px 0;
+    text-align: center;
+}
+.paoc-popup-inr .fserv-container label.fserv-label{ font-size:17px !important; color:#000 !important; font-weight:500;}
+.paoc-popup-inr .fs-webform-container .fserv-container .fserv-input-text,
+.paoc-popup-inr .fs-webform-container .fserv-container .fserv-textarea{font-size:16px !important; color:#000 !important; font-weight:500; border-color:#2BAFCF !important;}
+
+/* Contact Form */
+.cnt-form{}
+.cnt-form .fs-webform-container .fserv-container {
+    padding: 0 !important; box-shadow:none !important; border-radius:0 !important; background-color:transparent !important; margin:0 0 40px; max-width:100%;
+}
+.cnt-form .fs-webform-container .fserv-container form{ padding-top:0 !important;}
+.cnt-form .fs-webform-container .fserv-container h2.fserv-form-name {
+    padding: 0;
+    margin: 0; display:none !important;
+}
+.cnt-form .fserv-container .fserv-field {
+    padding: 0;
+    margin: 0 0 10px;
+}
+.cnt-form .fserv-container label.fserv-label {
+    padding: 0;
+}
+.cnt-form .fs-webform-container .fserv-field+div:not(.fserv-field) {
+    border-top: 0px solid #e5e5e5;
+    margin-top: 0;
+    padding: 10px 0px 0;
+    text-align: center;
+}
+.cnt-form .fserv-container label.fserv-label{ font-size:17px !important; color:#000 !important; font-weight:500;}
+.cnt-form .fs-webform-container .fserv-container .fserv-input-text,
+.cnt-form .fs-webform-container .fserv-container .fserv-textarea{font-size:16px !important; color:#000 !important; font-weight:500; border-color:#000 !important;}
+
+/* Career Form */
+
+.career-form .fs-webform-container .fserv-container {
+    padding: 0 !important; box-shadow:none !important; border-radius:0 !important; background-color:transparent !important; margin:0 0 40px; max-width:100%;
+}
+.career-form.fs-webform-container .fserv-container form{ padding-top:0 !important;}
+.career-form .fs-webform-container .fserv-container h2.fserv-form-name {
+    padding: 0;
+    margin: 0;
+}
+.career-form .fserv-container .fserv-field {
+    padding: 0;
+    margin: 0 0 10px;
+}
+.career-form .fserv-container label.fserv-label {
+    padding: 0;
+}
+.career-form .fs-webform-container .fserv-field+div:not(.fserv-field) {
+    border-top: 0px solid #e5e5e5;
+    margin-top: 0;
+    padding: 10px 0px 0;
+    text-align: center;
+}
+.career-form .fs-webform-container .fserv-field+.fserv-field {
+    margin-top: 0;
+}
+
+/* Subsrcribe Form */
+
+.subscribe-form .fs-webform-container .fserv-container {
+    margin: 0;
+    padding: 5px !important;
+    background: transparent !important;
+    box-shadow: none;
+}
+.subscribe-form .fs-webform-container .fserv-container form{ padding-top:0 !important;}
+.subscribe-form .fs-webform-container .fserv-container h2.fserv-form-name {
+    padding: 0;
+    margin: 0 0 25px; font-size:18px !important; font-family: "Jost", sans-serif; line-height:1; text-align:left !important; color: #2dafd1 !important;
+}
+.subscribe-form .fs-webform-container .fserv-form-description {
+    color: #fff !important;
+    margin-bottom: 10px;
+    padding: 0 0px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.subscribe-form .fserv-container .fserv-field {
+    padding: 0;
+    margin: 0 0 10px;
+}
+.subscribe-form .fs-webform-container .fserv-form {
+    display: flex;
+    align-items: baseline;
+}
+.subscribe-form .fserv-container .fserv-field.formserv-email-field {
+    width: 65%;
+}
+.subscribe-form .fs-webform-container .fserv-container button[type=submit] {
+    margin-right: 0;
+    padding: 2px 4px;
+    height: auto !important;
+    font-size: 13px !important;
+    box-shadow: none !important;
+}
+.subscribe-form .fserv-container label.fserv-label {
+    padding: 0; display:none;
+}
+.subscribe-form .fs-webform-container .fserv-field+div:not(.fserv-field) {
+    border-top: 0px solid #e5e5e5;
+    margin-top: 0;
+    padding: 10px 0px 0;
+    text-align: left;
+}
+
+a.button.addtocartbutton {
+    width: 100%;
+    text-align: center;
+    background-color: #154958;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    line-height:2.2;
+}
+   /* Very compact version */
+  .single-product .elementor-section.elementor-element-2055c03 {
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+      min-height: auto !important;
+  }
+
+  .single-product .elementor-element-78249c9 {
+      padding: 5px !important;
+  }
+
+  .single-product .elementor-element-6435f85 {
+      margin: 0 !important;
+  }
+  /* Reduce "Related products" heading font size */
+  .single-product .related.products h2 {
+      font-size: 24px !important;
+  }
+
+   /* Make both View Our Programs and Inquire Now buttons same width and font size */
+
+  /* View Our Programs button - fixed 200px width */
+  .elementor-button-link[href="#programs"],
+  .elementor-button-link[href*="programs"] {
+      white-space: nowrap !important;
+      padding: 12px 24px !important;
+      font-size: 18px !important;
+      font-weight: 700 !important;
+      text-align: center !important;
+      display: inline-block !important;
+      margin-bottom: 6px !important;
+      width: 200px !important;
+      min-width: 200px !important;
+      box-sizing: border-box !important;
+  }
+
+  /* NYC STEM Inquiry Button - already set to 200px in plugin code */
+  .nyc-stem-inquiry-btn,
+  a.nyc-stem-inquiry-btn {
+      /* Styles handled by inline styles in plugin */
+  }
+
+  /* Hero section button alignment - make symmetric */
+  /* Target the inner section containing both button columns */
+  .elementor-element-bd02305 {
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 0 !important;
+      column-gap: 0 !important;
+  }
+
+  .elementor-element-bd02305 .elementor-container {
+      gap: 0 !important;
+      column-gap: 0 !important;
+  }
+
+  /* Center align both button columns with 7.5px margin each (15px total gap) */
+  .elementor-element-d415932,
+  .elementor-element-34ea019 {
+      text-align: center !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      padding: 0 !important;
+  }
+
+  /* Add 7.5px margin to create 15px gap between buttons */
+  .elementor-element-d415932 {
+      margin-right: 7.5px !important;
+  }
+
+  .elementor-element-34ea019 {
+      margin-left: 7.5px !important;
+  }
+
+  /* Center the button wrappers */
+  .elementor-element-d415932 .elementor-widget-container,
+  .elementor-element-34ea019 .elementor-widget-container {
+      display: flex !important;
+      justify-content: center !important;
+      width: 100% !important;
+  }
+
+  /* Center the button wrapper specifically */
+  .elementor-element-b52c7aa .elementor-button-wrapper {
+      justify-content: center !important;
+  }
+
+  /* Make both buttons same height - match line-height */
+  .elementor-button-link[href="#programs"],
+  .elementor-button-link[href*="programs"],
+  .nyc-stem-inquiry-btn,
+  a.nyc-stem-inquiry-btn {
+      line-height: 1.8 !important;
+      height: auto !important;
+  }
+
+  /* Mobile responsive buttons - Hero section */
+  @media (max-width: 768px) {
+      /* Stack buttons vertically on mobile */
+      .elementor-element-bd02305 {
+          flex-direction: column !important;
+      }
+
+      .elementor-element-bd02305 .elementor-container {
+          flex-direction: column !important;
+      }
+
+      .elementor-element-d415932,
+      .elementor-element-34ea019 {
+          width: 100% !important;
+          max-width: 100% !important;
+          margin: 0 !important;
+          margin-bottom: 10px !important;
+      }
+
+      /* Make buttons full width on mobile */
+      .elementor-button-link[href="#programs"],
+      .elementor-button-link[href*="programs"] {
+          width: 100% !important;
+          max-width: 280px !important;
+          padding: 14px 20px !important;
+          font-size: 16px !important;
+      }
+
+      .nyc-stem-inquiry-btn,
+      a.nyc-stem-inquiry-btn {
+          width: 100% !important;
+          max-width: 280px !important;
+          padding: 14px 20px !important;
+          font-size: 16px !important;
+      }
+  }
+
+  @media (max-width: 480px) {
+      /* Even smaller on very small phones */
+      .elementor-button-link[href="#programs"],
+      .elementor-button-link[href*="programs"],
+      .nyc-stem-inquiry-btn,
+      a.nyc-stem-inquiry-btn {
+          max-width: 240px !important;
+          padding: 12px 18px !important;
+          font-size: 15px !important;
+      }
+  }
+
+  /* Override plugin inline styles on mobile */
+  @media (max-width: 768px) {
+      .nyc-stem-inquiry-btn[style],
+      a.nyc-stem-inquiry-btn[style] {
+          width: 100% !important;
+          max-width: 280px !important;
+      }
+  }
+
+  @media (max-width: 480px) {
+      .nyc-stem-inquiry-btn[style],
+      a.nyc-stem-inquiry-btn[style] {
+          max-width: 240px !important;
+      }
+  }
+
+/* ===========================
+   SHSAT SCHOOLS BADGES - Horizontal Flowing Layout
+   =========================== */
+
+.shsat-schools-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.school-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.2s ease;
+    position: relative;
+
+    /* 3D Remote Control Button Effect - Subtle */
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.18),
+        0 1px 3px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 4px rgba(0, 0, 0, 0.1);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.school-badge:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.3),
+        0 3px 6px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.school-badge:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        inset 0 2px 6px rgba(0, 0, 0, 0.3),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Different gradient colors for each school - muted theme colors */
+.school-badge:nth-child(1) {
+    background: linear-gradient(135deg, #1a8ba8 0%, #134958 100%);
+}
+
+.school-badge:nth-child(2) {
+    background: linear-gradient(135deg, #d9954a 0%, #c7833d 100%);
+}
+
+.school-badge:nth-child(3) {
+    background: linear-gradient(135deg, #134958 0%, #0d3540 100%);
+}
+
+.school-badge:nth-child(4) {
+    background: linear-gradient(135deg, #1a8ba8 0%, #176f89 100%);
+}
+
+.school-badge:nth-child(5) {
+    background: linear-gradient(135deg, #c7833d 0%, #a66f35 100%);
+}
+
+.school-badge:nth-child(6) {
+    background: linear-gradient(135deg, #176f89 0%, #134958 100%);
+}
+
+.school-badge:nth-child(7) {
+    background: linear-gradient(135deg, #0d3540 0%, #0a2a33 100%);
+}
+
+.school-badge:nth-child(8) {
+    background: linear-gradient(135deg, #a66f35 0%, #176f89 100%);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .shsat-schools-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .school-badge {
+        font-size: 13px;
+        padding: 7px 12px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .shsat-schools-container {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .school-badge {
+        font-size: 13px;
+        padding: 8px 14px;
+        text-align: center;
+    }
+}
+
+/* Reduce height of page title backgrounds across all pages - universal solution */
+  section.elementor-top-section.py-8.py-md-11 {
+      padding-top: 20px !important;
+      padding-bottom: 20px !important;
+      min-height: auto !important;
+  }
+
+  /* Reduce padding on columns with py-xl-2 class */
+  .elementor-top-column.py-xl-2 {
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+  }
+
+  /* Reduce spacing on heading widgets inside these sections */
+  section.py-8.py-md-11 .elementor-widget-heading {
+      margin: 0 !important;
+  }
+   /* Reduce gap after title section and before next section */
+  section.elementor-top-section.py-8.py-md-11 {
+      margin-bottom: 20px !important;
+  }
+
+  /* Also reduce top margin of the section that comes after */
+  section.elementor-top-section.py-8.py-md-11 + section {
+      margin-top: 0 !important;
+      padding-top: 20px !important;
+  }
+
+/* Single product "Inquire Now" button color override */
+.single_add_to_cart_button.btn-blue {
+    background-color: #154958 !important;
+}
+
+.single_add_to_cart_button.btn-blue:hover {
+    background-color: #0a242c !important;
+}
+
+/* Keep the text white */
+.single_add_to_cart_button .text-white {
+    color: #fff !important;
+}
+/* ==========================================================================
+   WooCommerce Product Cards - Transform Override Solution (FIXED)
+   ========================================================================== */
+
+/* Show full product titles - ONLY in WooCommerce products */
+.woocommerce .products .woocommerce-loop-product__title.line-clamp-1,
+.woocommerce .products h5.line-clamp-1 {
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    display: -webkit-box !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.3 !important;
+    min-height: 50px;
+}
+
+/* CRITICAL: Prevent transform animations ONLY on product cards */
+.woocommerce .products .product-wrapper,
+.woocommerce .products .product-wrapper > * {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Keep product-info in position - prevent sliding */
+.woocommerce .products .product-info,
+.woocommerce .products .product-item .product-info,
+.woocommerce .products .product-item:hover .product-info,
+.woocommerce .products .product-wrapper:hover .product-info {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    position: relative !important;
+    transition: none !important;
+}
+
+/* Force add-btn to stay hidden and out of flow */
+.woocommerce .products .add-btn,
+.woocommerce .products .product-item .add-btn,
+.woocommerce .products .product-item:hover .add-btn,
+.woocommerce .products .product-wrapper:hover .add-btn {
+    display: none !important;
+    transform: translateY(200px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    pointer-events: none !important;
+}
+
+/* Ensure links work in product cards */
+.woocommerce .products .product-info a {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* Title styling in product cards */
+.woocommerce .products .product-info .woocommerce-loop-product__title {
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+}
+
+/* Card hover effect */
+.woocommerce .products .product-item:hover .card {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Title color on hover */
+.woocommerce .products .product-item:hover .woocommerce-loop-product__title {
+    color: #28AFCF !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Override any position absolute on card-footer children in products */
+.woocommerce .products .card-footer > * {
+    position: relative !important;
+}
+
+/* ===========================
+   BLOG POST - COMPLETE RESET
+   Strip ALL Gutenberg inline styles
+   =========================== */
+
+/* NUCLEAR OPTION - Remove ALL inline font sizes */
+.nyc-blog-content-container p[style*="font-size"],
+.nyc-blog-content-container h2[style*="font-size"],
+.nyc-blog-content-container h3[style*="font-size"],
+.nyc-blog-content-container h4[style*="font-size"],
+.nyc-blog-content-container div[style*="font-size"],
+.nyc-blog-content-container span[style*="font-size"],
+.nyc-blog-content-container ul[style*="font-size"],
+.nyc-blog-content-container li[style*="font-size"] {
+    font-size: inherit !important;
+}
+
+/* Force consistent typography */
+.nyc-blog-content-container,
+.nyc-blog-content-container * {
+    font-family: "Jost", sans-serif !important;
+}
+
+.nyc-blog-content-container {
+    font-size: 18px !important;
+    line-height: 1.75 !important;
+    color: #333 !important;
+}
+
+.nyc-blog-content-container p {
+    font-size: 18px !important;
+    line-height: 1.75 !important;
+    margin: 0 0 1.5rem !important;
+}
+
+.nyc-blog-content-container h2 {
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    color: #134958 !important;
+    margin: 2.5rem 0 1.5rem !important;
+    padding-bottom: 0.75rem !important;
+    border-bottom: 3px solid #e9ecef !important;
+}
+
+.nyc-blog-content-container h3 {
+    font-size: 22px !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    color: #134958 !important;
+    margin: 2rem 0 1rem !important;
+}
+
+.nyc-blog-content-container h4 {
+    font-size: 19px !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    color: #134958 !important;
+    margin: 1.5rem 0 0.75rem !important;
+}
+
+.nyc-blog-content-container li {
+    font-size: 18px !important;
+    line-height: 1.75 !important;
+}
+
+.nyc-blog-content-container table,
+.nyc-blog-content-container table th,
+.nyc-blog-content-container table td {
+    font-size: 16px !important;
+}
+
+/* IMAGES - Force reasonable sizes */
+.nyc-blog-featured-image img,
+.nyc-blog-content-container img,
+.nyc-blog-content-container figure img,
+.nyc-blog-content-container .wp-block-image img {
+    max-width: 100% !important;
+    max-height: 450px !important;
+    height: auto !important;
+    width: auto !important;
+    object-fit: contain !important;
+    margin: 1.5rem auto !important;
+    display: block !important;
+}
+
+.nyc-blog-featured-image img {
+    max-height: 400px !important;
+}
+
+/* Remove excessive spacing from Gutenberg blocks */
+.nyc-blog-content-container .wp-block-spacer {
+    height: 2rem !important;
+    margin: 0 !important;
+}
+
+.nyc-blog-content-container .wp-block-group {
+    margin: 1.5rem 0 !important;
+}
+
+/* Clean up paddings from Gutenberg */
+.nyc-blog-content-container [style*="padding"] {
+    padding: 1.5rem !important;
+}
+
+.nyc-blog-content-container hr {
+    margin: 2.5rem 0 !important;
+    border: none !important;
+    border-top: 2px solid #e9ecef !important;
+}
