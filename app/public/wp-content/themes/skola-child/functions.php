@@ -300,6 +300,22 @@ function nycstemclub_enqueue_blog_styles() {
 
 /**
  * ==============================================================================
+ * NYC STEM Club Counter Badge Styles
+ * Make counter widgets smaller and more compact (trust badge style)
+ * ==============================================================================
+ */
+add_action('wp_enqueue_scripts', 'nycstemclub_enqueue_counter_badge_styles', 999);
+function nycstemclub_enqueue_counter_badge_styles() {
+    wp_enqueue_style(
+        'nyc-counter-badge-styles',
+        get_stylesheet_directory_uri() . '/counter-badge-styles.css',
+        array(),
+        filemtime(get_stylesheet_directory() . '/counter-badge-styles.css') // Cache busting
+    );
+}
+
+/**
+ * ==============================================================================
  * Redirect Product Categories to Course Categories
  * ==============================================================================
  */

@@ -3,7 +3,7 @@
  * Plugin Name: NYC STEM Club Courses
  * Plugin URI: https://nycstemclub.com
  * Description: Custom course management system for NYC STEM Club - replaces WooCommerce for course display with modern design and inquiry functionality.
- * Version: 1.7.2
+ * Version: 2.1.8
  * Author: NYC STEM Club
  * Author URI: https://nycstemclub.com
  * License: GPL v2 or later
@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('NYC_STEM_COURSES_VERSION', '1.7.2');
+define('NYC_STEM_COURSES_VERSION', '2.1.8');
 define('NYC_STEM_COURSES_PATH', plugin_dir_path(__FILE__));
 define('NYC_STEM_COURSES_URL', plugin_dir_url(__FILE__));
 
@@ -64,6 +64,9 @@ class NYC_STEM_Courses {
         add_shortcode('inquiry_button', array($this, 'inquiry_button_shortcode'));
         add_shortcode('course_category', array($this, 'course_category_shortcode'));
         add_shortcode('shsat_schools', array($this, 'shsat_schools_shortcode'));
+
+        // Register query vars (fixes 404 with ?course_name= parameter)
+        add_filter('query_vars', array($this, 'register_query_vars'));
     }
 
     /**
@@ -96,6 +99,19 @@ class NYC_STEM_Courses {
     }
 
     /**
+     * Register custom query variables
+     * Fixes 404 error when using ?course_name= parameter on enrollment page
+     * Note: Can't use ?course= as it conflicts with the 'course' post type
+     *
+     * @param array $vars Existing query vars
+     * @return array Modified query vars
+     */
+    public function register_query_vars($vars) {
+        $vars[] = 'course_name';
+        return $vars;
+    }
+
+    /**
      * Get inquiry button data (URL and text)
      * GLOBAL: Build Once, Run Everywhere - Works on ANY page, post, or widget
      * Change once in settings = updates ALL inquiry buttons site-wide instantly
@@ -116,8 +132,8 @@ class NYC_STEM_Courses {
             // Custom source provided (e.g., 'homepage', 'sidebar')
             $inquiry_url = add_query_arg('source', urlencode($source), $inquiry_url);
         } elseif (is_singular('course')) {
-            // On a course page - add course name
-            $inquiry_url = add_query_arg('course', urlencode(get_the_title()), $inquiry_url);
+            // On a course page - add course name (using 'course_name' to avoid conflict with 'course' post type)
+            $inquiry_url = add_query_arg('course_name', urlencode(get_the_title()), $inquiry_url);
         } elseif (is_page() || is_single()) {
             // On regular page or post - add page/post name
             $inquiry_url = add_query_arg('source', urlencode(get_the_title()), $inquiry_url);
@@ -366,6 +382,73 @@ class NYC_STEM_Courses {
             'sanitize_callback' => 'esc_url_raw',
             'default' => ''
         ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_color', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => 'orange'
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_rounded', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => 'yes'
+        ));
+
+        // Button styling settings
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_font_size', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '24px'
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_font_weight', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '700'
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_padding', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '12px 24px'
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_width', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '200px'
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_orange_color', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '#FF7F07'
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_teal_color', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '#28AFCF'
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_text_color', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '#FFFFFF'
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_sharp_radius', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '8px'
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_inquiry_button_rounded_radius', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '50px'
+        ));
     }
 
     /**
@@ -430,6 +513,160 @@ class NYC_STEM_Courses {
                                 <br>
                                 💡 Course name automatically added as: <code>?course=Course+Name</code>
                             </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_color">Button Color</label>
+                        </th>
+                        <td>
+                            <select id="nyc_stem_inquiry_button_color" name="nyc_stem_inquiry_button_color">
+                                <option value="orange" <?php selected(get_option('nyc_stem_inquiry_button_color', 'orange'), 'orange'); ?>>Orange (#FF7F07)</option>
+                                <option value="teal" <?php selected(get_option('nyc_stem_inquiry_button_color', 'orange'), 'teal'); ?>>Teal (#28AFCF)</option>
+                            </select>
+                            <p class="description">
+                                Default color for all inquiry buttons. Can be overridden per button using the shortcode.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_rounded">Button Style</label>
+                        </th>
+                        <td>
+                            <select id="nyc_stem_inquiry_button_rounded" name="nyc_stem_inquiry_button_rounded">
+                                <option value="yes" <?php selected(get_option('nyc_stem_inquiry_button_rounded', 'yes'), 'yes'); ?>>Rounded</option>
+                                <option value="no" <?php selected(get_option('nyc_stem_inquiry_button_rounded', 'yes'), 'no'); ?>>Sharp</option>
+                            </select>
+                            <p class="description">
+                                Default corner style for all inquiry buttons.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+                <h3>🎨 Advanced Button Styling</h3>
+                <table class="form-table">
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_font_size">Font Size</label>
+                        </th>
+                        <td>
+                            <input type="text"
+                                   id="nyc_stem_inquiry_button_font_size"
+                                   name="nyc_stem_inquiry_button_font_size"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_inquiry_button_font_size', '24px')); ?>"
+                                   class="small-text"
+                                   placeholder="24px">
+                            <p class="description">Button text size (e.g., 24px, 1.5rem)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_font_weight">Font Weight</label>
+                        </th>
+                        <td>
+                            <select id="nyc_stem_inquiry_button_font_weight" name="nyc_stem_inquiry_button_font_weight">
+                                <option value="400" <?php selected(get_option('nyc_stem_inquiry_button_font_weight', '700'), '400'); ?>>Normal (400)</option>
+                                <option value="500" <?php selected(get_option('nyc_stem_inquiry_button_font_weight', '700'), '500'); ?>>Medium (500)</option>
+                                <option value="600" <?php selected(get_option('nyc_stem_inquiry_button_font_weight', '700'), '600'); ?>>Semi-Bold (600)</option>
+                                <option value="700" <?php selected(get_option('nyc_stem_inquiry_button_font_weight', '700'), '700'); ?>>Bold (700)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_padding">Padding</label>
+                        </th>
+                        <td>
+                            <input type="text"
+                                   id="nyc_stem_inquiry_button_padding"
+                                   name="nyc_stem_inquiry_button_padding"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_inquiry_button_padding', '12px 24px')); ?>"
+                                   class="regular-text"
+                                   placeholder="12px 24px">
+                            <p class="description">Button padding (e.g., 12px 24px)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_width">Button Width</label>
+                        </th>
+                        <td>
+                            <input type="text"
+                                   id="nyc_stem_inquiry_button_width"
+                                   name="nyc_stem_inquiry_button_width"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_inquiry_button_width', '200px')); ?>"
+                                   class="small-text"
+                                   placeholder="200px">
+                            <p class="description">Button width (e.g., 200px, auto)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_orange_color">Orange Color</label>
+                        </th>
+                        <td>
+                            <input type="text"
+                                   id="nyc_stem_inquiry_button_orange_color"
+                                   name="nyc_stem_inquiry_button_orange_color"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_inquiry_button_orange_color', '#FF7F07')); ?>"
+                                   class="small-text color-picker">
+                            <p class="description">Hex color for orange buttons</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_teal_color">Teal Color</label>
+                        </th>
+                        <td>
+                            <input type="text"
+                                   id="nyc_stem_inquiry_button_teal_color"
+                                   name="nyc_stem_inquiry_button_teal_color"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_inquiry_button_teal_color', '#28AFCF')); ?>"
+                                   class="small-text color-picker">
+                            <p class="description">Hex color for teal buttons</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_text_color">Text Color</label>
+                        </th>
+                        <td>
+                            <input type="text"
+                                   id="nyc_stem_inquiry_button_text_color"
+                                   name="nyc_stem_inquiry_button_text_color"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_inquiry_button_text_color', '#FFFFFF')); ?>"
+                                   class="small-text color-picker">
+                            <p class="description">Text color on buttons</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_sharp_radius">Sharp Corner Radius</label>
+                        </th>
+                        <td>
+                            <input type="text"
+                                   id="nyc_stem_inquiry_button_sharp_radius"
+                                   name="nyc_stem_inquiry_button_sharp_radius"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_inquiry_button_sharp_radius', '8px')); ?>"
+                                   class="small-text"
+                                   placeholder="8px">
+                            <p class="description">Border radius for sharp style</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_inquiry_button_rounded_radius">Rounded Corner Radius</label>
+                        </th>
+                        <td>
+                            <input type="text"
+                                   id="nyc_stem_inquiry_button_rounded_radius"
+                                   name="nyc_stem_inquiry_button_rounded_radius"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_inquiry_button_rounded_radius', '50px')); ?>"
+                                   class="small-text"
+                                   placeholder="50px">
+                            <p class="description">Border radius for rounded style</p>
                         </td>
                     </tr>
                 </table>
@@ -534,19 +771,26 @@ class NYC_STEM_Courses {
      * @return string Button HTML
      */
     public function inquiry_button_shortcode($atts) {
+        // Get global defaults
+        $default_color = get_option('nyc_stem_inquiry_button_color', 'orange');
+        $default_rounded = get_option('nyc_stem_inquiry_button_rounded', 'yes');
+
         // Parse shortcode attributes
         $atts = shortcode_atts(array(
             'source' => '', // Optional: 'homepage', 'sidebar', 'footer', etc.
             'text' => '',   // Optional: Override button text
             'class' => '',  // Optional: Additional CSS classes
+            'color' => $default_color, // Use global default, can be overridden
+            'url' => '',    // Optional: Override button URL
+            'rounded' => $default_rounded, // Use global default, can be overridden
         ), $atts);
 
         // Get button data
         $button_data = self::get_inquiry_button_data($atts['source']);
 
-        // Use custom text if provided, otherwise use global setting
+        // Use custom text/URL if provided, otherwise use global settings
         $button_text = !empty($atts['text']) ? esc_html($atts['text']) : esc_html($button_data['text']);
-        $button_url = esc_url($button_data['url']);
+        $button_url = !empty($atts['url']) ? esc_url($atts['url']) : esc_url($button_data['url']);
 
         // Build CSS classes - using Elementor's native button classes
         $css_classes = 'elementor-button elementor-button-link elementor-size-sm nyc-stem-inquiry-btn';
@@ -554,8 +798,35 @@ class NYC_STEM_Courses {
             $css_classes .= ' ' . esc_attr($atts['class']);
         }
 
-        // Inline styles matching "View Our Programs" button exactly - same width
-        $button_style = 'background-color: #FF9574; color: #FFFFFF; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 700; padding: 12px 24px; border: none; text-decoration: none; display: inline-block; text-align: center; line-height: 1.8; transition: all 0.3s; cursor: pointer; -webkit-font-smoothing: antialiased; width: 200px; min-width: 200px; border-radius: 8px; box-sizing: border-box;';
+        // Get global styling settings
+        $orange_color = get_option('nyc_stem_inquiry_button_orange_color', '#FF7F07');
+        $teal_color = get_option('nyc_stem_inquiry_button_teal_color', '#28AFCF');
+        $text_color = get_option('nyc_stem_inquiry_button_text_color', '#FFFFFF');
+        $font_size = get_option('nyc_stem_inquiry_button_font_size', '24px');
+        $font_weight = get_option('nyc_stem_inquiry_button_font_weight', '700');
+        $padding = get_option('nyc_stem_inquiry_button_padding', '12px 24px');
+        $width = get_option('nyc_stem_inquiry_button_width', '200px');
+        $sharp_radius = get_option('nyc_stem_inquiry_button_sharp_radius', '8px');
+        $rounded_radius = get_option('nyc_stem_inquiry_button_rounded_radius', '50px');
+
+        // Determine button color
+        $bg_color = (strtolower($atts['color']) === 'teal') ? $teal_color : $orange_color;
+
+        // Determine border-radius based on rounded parameter
+        $border_radius = (strtolower($atts['rounded']) === 'yes') ? $rounded_radius : $sharp_radius;
+
+        // Inline styles - uses all global settings
+        $button_style = sprintf(
+            'background-color: %s; color: %s; font-family: Roboto, sans-serif; font-size: %s; font-weight: %s; padding: %s; border: none; text-decoration: none; display: inline-block; text-align: center; line-height: 1.8; transition: all 0.3s; cursor: pointer; -webkit-font-smoothing: antialiased; width: %s; min-width: %s; border-radius: %s; box-sizing: border-box;',
+            $bg_color,
+            $text_color,
+            $font_size,
+            $font_weight,
+            $padding,
+            $width,
+            $width,
+            $border_radius
+        );
 
         // Return button HTML with EXACT Elementor structure and inline styles
         return sprintf(

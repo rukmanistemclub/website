@@ -273,16 +273,7 @@ body {
     padding: 24px;
 }
 
-.level-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    background: linear-gradient(135deg, #28AFCF, #5DD3F0);
-    color: white;
-    border-radius: 20px;
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
+/* Level badges removed */
 
 .level-title {
     font-size: 20px;
@@ -415,36 +406,7 @@ body {
     position: relative;
 }
 
-.timeline-badge {
-    flex-shrink: 0;
-    width: 180px;
-    height: 180px;
-    background: white;
-    border: 5px solid #28AFCF;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    position: relative;
-    z-index: 2;
-    margin-bottom: 30px;
-}
-
-.timeline-grade {
-    font-size: 48px;
-    font-weight: 700;
-    color: #28AFCF;
-    line-height: 1;
-}
-
-.timeline-label {
-    font-size: 16px;
-    color: #666;
-    margin-top: 8px;
-    font-weight: 600;
-}
+/* Timeline badges removed */
 
 .timeline-content {
     width: 100%;
@@ -575,39 +537,12 @@ body {
     opacity: 0.95;
 }
 
-.cta-button {
-    display: inline-block;
-    margin-top: 16px;
-    padding: 16px 40px;
-    background: #FF7F07;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(255, 127, 7, 0.3);
-}
-
-.cta-button:hover {
-    background: #e67006;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255, 127, 7, 0.4);
-}
+/* CTA button styling removed - using global inquiry button */
 
 /* Responsive */
 @media (max-width: 1024px) {
     .timeline::before {
         left: 50px;
-    }
-
-    .timeline-badge {
-        width: 120px;
-        height: 80px;
-    }
-
-    .timeline-grade {
-        font-size: 24px;
     }
 }
 
@@ -627,12 +562,6 @@ body {
     .timeline-item {
         flex-direction: column;
         gap: 16px;
-    }
-
-    .timeline-badge {
-        width: 100%;
-        height: auto;
-        padding: 16px;
     }
 
     .timeline-title {
@@ -797,10 +726,6 @@ body {
             <div class="timeline">
                 <!-- SHSAT Timeline -->
                 <div class="timeline-item">
-                    <div class="timeline-badge">
-                        <div class="timeline-grade">6-7</div>
-                        <div class="timeline-label">Grade</div>
-                    </div>
                     <div class="timeline-content">
                         <div class="timeline-title">
                             <span class="test-emoji">🎓</span> SHSAT Preparation
@@ -824,10 +749,6 @@ body {
 
                 <!-- ISEE Timeline -->
                 <div class="timeline-item">
-                    <div class="timeline-badge" style="border-color: #5DD3F0;">
-                        <div class="timeline-grade" style="color: #5DD3F0;">1 Yr</div>
-                        <div class="timeline-label">Before</div>
-                    </div>
                     <div class="timeline-content" style="border-color: #5DD3F0;">
                         <div class="timeline-title">
                             <span class="test-emoji">🏫</span> ISEE Preparation
@@ -849,10 +770,6 @@ body {
 
                 <!-- ACT Timeline -->
                 <div class="timeline-item">
-                    <div class="timeline-badge" style="border-color: #FF7F07;">
-                        <div class="timeline-grade" style="color: #FF7F07;">10</div>
-                        <div class="timeline-label">Grade</div>
-                    </div>
                     <div class="timeline-content" style="border-color: #FF7F07;">
                         <div class="timeline-title">
                             <span class="test-emoji">📚</span> ACT Preparation
@@ -874,10 +791,6 @@ body {
 
                 <!-- SAT Timeline -->
                 <div class="timeline-item">
-                    <div class="timeline-badge" style="border-color: #FFB84D;">
-                        <div class="timeline-grade" style="color: #F59E0B;">10</div>
-                        <div class="timeline-label">Grade</div>
-                    </div>
                     <div class="timeline-content" style="border-color: #FFB84D;">
                         <div class="timeline-title">
                             <span class="test-emoji">✏️</span> SAT Preparation
@@ -912,7 +825,7 @@ body {
             <h2>Ready to Start Your Testing Journey?</h2>
             <p>At NYC STEM Club, we provide comprehensive support with personalized study plans, meticulously curated materials, abundant practice tests, and detailed test analysis reports.</p>
             <p><strong>Starting early and exploring various avenues paves the way for long-term academic success.</strong></p>
-            <a href="/student-enrollment/" class="cta-button">Inquire Now →</a>
+            <?php echo do_shortcode('[inquiry_button source="timeline-page"]'); ?>
         </div>
 
         <!-- Testimonials Section -->

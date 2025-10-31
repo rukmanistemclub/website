@@ -1,8 +1,66 @@
 /**
  * NYC STEM Club - Course Styles
  * Global reusable styling for all course pages
- * EXACT match to SHSAT Prep page design reference
+ * Standardized Typography System
  */
+
+/* ===========================
+   TYPOGRAPHY STANDARDS
+   =========================== */
+body, .course-single {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 400;
+}
+
+/* Headings */
+h1, .h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+h2, .h2, .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 16px;
+}
+
+h3, .h3 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+h4, .h4 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+/* Body Text */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* Small Text */
+.small-text, small {
+    font-size: 14px;
+}
+
+/* Large Body Text */
+.section-subtitle {
+    font-size: 20px;
+    line-height: 1.6;
+}
 
 /* Reset for course pages */
 .course-single * {
@@ -10,10 +68,6 @@
 }
 
 .course-single {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 600;
-    line-height: 1.6;
-    color: #333;
     overflow-x: hidden;
 }
 
@@ -21,7 +75,7 @@
    HERO SECTION
    =========================== */
 .course-hero {
-    min-height: 52vh;
+    min-height: 40vh;
     display: flex;
     align-items: center;
     position: relative;
@@ -62,7 +116,7 @@
     font-size: 48px !important;
     font-weight: 800 !important;
     color: #ffffff !important;
-    margin-bottom: 25px;
+    margin-bottom: 8px;
     line-height: 1.1;
     letter-spacing: -1px;
 }
@@ -75,7 +129,7 @@
 }
 
 .hero-excerpt {
-    font-size: 22px;
+    font-size: 19px;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 40px;
     font-weight: 400;
@@ -146,11 +200,11 @@
     gap: 10px;
     background: #FF7F07;
     color: white;
-    padding: 18px 36px;
+    padding: 8px 26px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 24px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 10px 40px rgba(255, 127, 7, 0.3);
     border: none;
@@ -177,37 +231,75 @@
     box-shadow: 0 15px 50px rgba(255, 255, 255, 0.2);
 }
 
+/* Teal Button Variation - Primary Brand Color */
+.cta-button-teal,
+.btn-teal {
+    background: #28AFCF !important;
+    color: white !important;
+    box-shadow: 0 10px 40px rgba(40, 175, 207, 0.3) !important;
+}
+
+.cta-button-teal:hover,
+.btn-teal:hover {
+    box-shadow: 0 15px 50px rgba(40, 175, 207, 0.5) !important;
+    transform: translateY(-3px);
+    color: white !important;
+}
+
+/* Compact Button - Slimmer for inline use */
+.cta-compact {
+    padding: 10px 20px !important;
+    font-size: 15px !important;
+    min-width: auto !important;
+    width: auto !important;
+}
+
+/* Orange Button Variation - Explicit class for Elementor */
+.cta-button-orange,
+.btn-orange {
+    background: #FF7F07 !important;
+    color: white !important;
+    box-shadow: 0 10px 40px rgba(255, 127, 7, 0.3) !important;
+}
+
+.cta-button-orange:hover,
+.btn-orange:hover {
+    box-shadow: 0 15px 50px rgba(255, 127, 7, 0.5) !important;
+    transform: translateY(-3px);
+    color: white !important;
+}
+
 /* Hero Card - Floating Stats */
 .hero-card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     border-radius: 20px;
-    padding: 28px 26px;
+    padding: 20px 18px;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.5);
     max-width: 340px;
 }
 
 .hero-card h3 {
-    font-size: 20px;
+    font-size: 16px;
     color: #134958;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     text-align: center;
     font-weight: 700;
 }
 
 .hero-card-grid {
     display: grid;
-    gap: 12px;
+    gap: 8px;
 }
 
 .card-stat-box {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 16px 18px;
+    gap: 12px;
+    padding: 10px 12px;
     background: linear-gradient(135deg, #f8f9fa, #ffffff);
-    border-radius: 12px;
+    border-radius: 10px;
     transition: all 0.3s ease;
     border: 1px solid #eee;
 }
@@ -219,10 +311,10 @@
 }
 
 .card-stat-icon {
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     background: linear-gradient(135deg, #28AFCF, #134958);
-    border-radius: 10px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -230,8 +322,8 @@
 }
 
 .card-stat-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     color: white;
 }
 
@@ -241,19 +333,19 @@
 }
 
 .card-stat-number {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 800;
     color: #134958;
     display: block;
     line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .card-stat-label {
-    font-size: 13px;
+    font-size: 11px;
     color: #666;
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 /* ===========================
@@ -308,11 +400,12 @@
    SECTION STYLES
    =========================== */
 .section {
-    padding: 60px 40px;
+    padding: 15px 30px 25px 30px;
 }
 
 .section-alt {
     background: #e8f5f7;
+    padding: 15px 30px 25px 30px;
 }
 
 .container {
@@ -323,7 +416,7 @@
 .section-header {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 60px;
+    margin: 0 auto 12px;
 }
 
 .section-badge {
@@ -342,111 +435,203 @@
 }
 
 .section-title {
-    font-size: 48px;
-    font-weight: 800;
     color: #134958;
-    margin-bottom: 20px;
-    line-height: 1.1;
-    text-shadow: 0 2px 4px rgba(19, 73, 88, 0.1);
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    font-weight: 700;
 }
 
 .section-subtitle {
-    font-size: 19px;
-    color: #555;
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    max-width: 650px;
+    margin: 0 auto;
     font-weight: 400;
-    line-height: 1.7;
 }
 
 /* ===========================
-   FEATURE CARDS - BENTO BOX
+   WHY CHOOSE - HORIZONTAL CARDS
    =========================== */
+.benefits-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.benefit-card {
+    background: white;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: left;
+    border-left: 3px solid #28AFCF;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.benefit-card:hover {
+    transform: translateX(3px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.benefit-card:nth-child(2) {
+    border-left-color: #F0B268;
+}
+
+.benefit-card:nth-child(3) {
+    border-left-color: #FF7F07;
+}
+
+.benefit-card:nth-child(4) {
+    border-left-color: #134958;
+}
+
+.benefit-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #28AFCF 0%, #1a8fa8 100%);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.benefit-card:nth-child(2) .benefit-icon {
+    background: linear-gradient(135deg, #F0B268 0%, #d89a4f 100%);
+}
+
+.benefit-card:nth-child(3) .benefit-icon {
+    background: linear-gradient(135deg, #FF7F07 0%, #e67000 100%);
+}
+
+.benefit-card:nth-child(4) .benefit-icon {
+    background: linear-gradient(135deg, #134958 0%, #0a2832 100%);
+}
+
+.benefit-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+
+.benefit-content h3 {
+    color: #134958;
+    font-size: 1.125rem;
+    margin-bottom: 3px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.benefit-content p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Legacy support for old class names */
 .features-bento {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 280px);
-    gap: 30px;
+    gap: 12px;
 }
 
 .feature-box {
     background: white;
-    border-radius: 25px;
-    padding: 45px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: left;
+    border-left: 3px solid #28AFCF;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 2px solid #28AFCF;
-    position: relative;
-    overflow: hidden;
-}
-
-.feature-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #28AFCF, #FF7F07);
-    transform: scaleX(1);
-    transition: transform 0.4s ease;
+    gap: 8px;
+    align-items: flex-start;
 }
 
 .feature-box:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    border-color: #FF7F07;
-}
-
-.feature-box:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 1;
+    transform: translateX(3px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
 
 .feature-box:nth-child(2) {
-    grid-column: span 2;
-    grid-row: span 1;
+    border-left-color: #F0B268;
 }
 
 .feature-box:nth-child(3) {
-    grid-column: span 2;
-    grid-row: span 1;
+    border-left-color: #FF7F07;
 }
 
 .feature-box:nth-child(4) {
-    grid-column: span 2;
-    grid-row: span 1;
+    border-left-color: #134958;
 }
 
 .feature-icon-large {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #28AFCF, #134958);
-    border-radius: 16px;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #28AFCF 0%, #1a8fa8 100%);
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.feature-box:nth-child(2) .feature-icon-large {
+    background: linear-gradient(135deg, #F0B268 0%, #d89a4f 100%);
+}
+
+.feature-box:nth-child(3) .feature-icon-large {
+    background: linear-gradient(135deg, #FF7F07 0%, #e67000 100%);
+}
+
+.feature-box:nth-child(4) .feature-icon-large {
+    background: linear-gradient(135deg, #134958 0%, #0a2832 100%);
 }
 
 .feature-icon-large svg {
-    width: 32px;
-    height: 32px;
-    color: white;
+    width: 16px;
+    height: 16px;
+    fill: white;
 }
 
 .feature-box h3 {
-    font-size: 24px;
     color: #134958;
-    margin-bottom: 12px;
+    font-size: 1.125rem;
+    margin-bottom: 3px;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .feature-box p {
-    font-size: 16px;
-    color: #333;
-    font-weight: 500;
-    line-height: 1.6;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Responsive - Benefits */
+@media (max-width: 1024px) {
+    .benefits-row,
+    .features-bento {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .benefits-row,
+    .features-bento {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
 }
 
 /* ===========================
@@ -506,6 +691,370 @@
     box-shadow: 0 10px 30px rgba(40, 175, 207, 0.3);
     position: relative;
     z-index: 2;
+}
+
+/* Compact Timeline Styles - Handout Format */
+.timeline-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.timeline-compact .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-badge-small {
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #28AFCF, #134958);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    min-width: 85px;
+}
+
+.timeline-compact .timeline-item:nth-child(2) .timeline-badge-small {
+    background: linear-gradient(135deg, #FF7F07, #e67106);
+}
+
+.timeline-compact .timeline-item:nth-child(3) .timeline-badge-small {
+    background: linear-gradient(135deg, #F0B268, #d9a05a);
+}
+
+.timeline-content-compact {
+    flex: 1;
+}
+
+.timeline-content-compact h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #134958;
+}
+
+.timeline-content-compact p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.course-details-compact {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+    border-left: 4px solid #28AFCF;
+}
+
+.course-details-compact p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.course-details-compact p:first-child {
+    margin-top: 0;
+}
+
+.course-details-compact p:last-child {
+    margin-bottom: 0;
+}
+
+/* Chevron Timeline Styles */
+.chevron-timeline {
+    margin: 40px auto !important;
+    max-width: 900px;
+    clear: both;
+}
+
+.chevron-bar {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 40px !important;
+    max-width: 100%;
+    position: relative;
+}
+
+/* Focus indicator for Foundation chevron */
+.chevron-bar::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    right: calc(66.66% - 10px);
+    top: -10px;
+    bottom: -10px;
+    border: 2px dashed #28AFCF;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.chevron {
+    flex: 1;
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%, 30px 50%);
+    padding: 0 40px 0 50px;
+}
+
+.chevron:first-child {
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%);
+    padding-left: 30px;
+}
+
+.chevron:last-child {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 30px 50%);
+    padding-right: 30px;
+}
+
+.chevron-1 {
+    background: #28AFCF;
+}
+
+.chevron-2 {
+    background: #F0B268;
+}
+
+.chevron-3 {
+    background: #FF7F07;
+}
+
+.chevron-content {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.chevron-date {
+    font-size: 0.9rem;
+    margin: 0 0 3px 0;
+    opacity: 0.95;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: block;
+}
+
+.chevron-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    display: block;
+}
+
+/* Phase Detail Cards */
+.phase-details {
+    display: flex;
+    gap: 0;
+    max-width: 100%;
+}
+
+.phase-detail {
+    text-align: center;
+    flex: 1;
+    padding: 20px 25px !important;
+    background: #e8edf2;
+    border-radius: 10px;
+    border-top: 4px solid #28AFCF;
+    margin: 0 10px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+}
+
+/* Highlight Foundation card (first one) */
+.phase-detail:first-child {
+    margin-left: 0 !important;
+    background: #ffffff;
+    border: 2px solid #28AFCF;
+    border-top: 4px solid #28AFCF;
+    box-shadow: 0 2px 8px rgba(40, 175, 207, 0.1);
+    position: relative;
+}
+
+/* Dashed outline around Foundation card */
+.phase-detail:first-child::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    right: -12px;
+    top: -12px;
+    bottom: -12px;
+    border: 2px dashed #28AFCF;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+/* Mute the other phase cards */
+.phase-detail:not(:first-child) {
+    opacity: 0.4;
+}
+
+.phase-detail:last-child {
+    margin-right: 0 !important;
+}
+
+.phase-detail:nth-child(2) {
+    border-top-color: #F0B268;
+}
+
+.phase-detail:nth-child(3) {
+    border-top-color: #FF7F07;
+}
+
+.phase-detail strong {
+    display: block;
+    color: #134958;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.phase-detail span {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .chevron-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .chevron {
+        clip-path: none;
+        border-radius: 10px;
+        height: 70px;
+        padding: 20px;
+    }
+
+    .chevron:first-child,
+    .chevron:last-child {
+        clip-path: none;
+        padding: 20px;
+    }
+
+    .phase-details {
+        flex-direction: column;
+    }
+}
+
+/* ===========================
+   BOOTCAMP FOCUS VARIANT
+   =========================== */
+/* Override for bootcamp-focused pages */
+.chevron-timeline.bootcamp-focus .chevron-bar::before {
+    /* Focus indicator for Bootcamp (middle chevron) */
+    left: calc(33.33% - 10px);
+    right: calc(33.33% - 10px);
+    border-color: #F0B268;
+}
+
+/* Reset Foundation card highlighting */
+.chevron-timeline.bootcamp-focus .phase-detail:first-child {
+    background: #e8edf2;
+    border: none;
+    border-top: 4px solid #28AFCF;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.chevron-timeline.bootcamp-focus .phase-detail:first-child::before {
+    display: none;
+}
+
+/* Highlight Bootcamp card (second one) */
+.chevron-timeline.bootcamp-focus .phase-detail:nth-child(2) {
+    background: #ffffff;
+    border: 2px solid #F0B268;
+    border-top: 4px solid #F0B268;
+    box-shadow: 0 2px 8px rgba(240, 178, 104, 0.1);
+    position: relative;
+    opacity: 1;
+}
+
+/* Dashed outline around Bootcamp card */
+.chevron-timeline.bootcamp-focus .phase-detail:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    right: -12px;
+    top: -12px;
+    bottom: -12px;
+    border: 2px dashed #F0B268;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+/* Mute the other phase cards */
+.chevron-timeline.bootcamp-focus .phase-detail:not(:nth-child(2)) {
+    opacity: 0.4;
+}
+
+/* ===========================
+   FINAL PUSH FOCUS VARIANT
+   =========================== */
+/* Override for final-push-focused pages */
+.chevron-timeline.final-push-focus .chevron-bar::before {
+    /* Focus indicator for Final Push (third chevron) */
+    left: calc(66.66% - 10px);
+    right: -10px;
+    border-color: #FF7F07;
+}
+
+/* Reset Foundation card highlighting */
+.chevron-timeline.final-push-focus .phase-detail:first-child {
+    background: #e8edf2;
+    border: none;
+    border-top: 4px solid #28AFCF;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.chevron-timeline.final-push-focus .phase-detail:first-child::before {
+    display: none;
+}
+
+/* Highlight Final Push card (third one) */
+.chevron-timeline.final-push-focus .phase-detail:nth-child(3) {
+    background: #ffffff;
+    border: 2px solid #FF7F07;
+    border-top: 4px solid #FF7F07;
+    box-shadow: 0 2px 8px rgba(255, 127, 7, 0.1);
+    position: relative;
+    opacity: 1;
+}
+
+/* Dashed outline around Final Push card */
+.chevron-timeline.final-push-focus .phase-detail:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    right: -12px;
+    top: -12px;
+    bottom: -12px;
+    border: 2px dashed #FF7F07;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+/* Mute the other phase cards */
+.chevron-timeline.final-push-focus .phase-detail:not(:nth-child(3)) {
+    opacity: 0.4;
 }
 
 .timeline-item:nth-child(2) .timeline-badge {
@@ -683,14 +1232,16 @@
     background: white;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
     border: 2px solid #f0f0f0;
     transition: all 0.3s ease;
+    transform: translateY(0);
 }
 
 .faq-card:hover {
     border-color: #28AFCF;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
 }
 
 .faq-header {
@@ -742,7 +1293,7 @@
 }
 
 .faq-card.active .faq-icon svg {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 .faq-answer {
@@ -752,12 +1303,48 @@
 }
 
 .faq-answer p {
-    padding: 0 30px 30px;
+    padding: 0 30px 0;
     font-size: 16px;
     color: #666;
     font-weight: 400;
     line-height: 1.8;
-    margin: 0;
+    margin: 0 0 8px 0;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 30px;
+}
+
+.faq-answer ul {
+    list-style: none;
+    padding: 0 30px 0 30px;
+    margin: 0 0 8px 0;
+}
+
+.faq-answer ul:last-child {
+    margin-bottom: 30px;
+}
+
+.faq-answer li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 2px;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.faq-answer li:last-child {
+    margin-bottom: 0;
+}
+
+.faq-answer li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #28AFCF;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 .faq-card.active .faq-answer {
@@ -805,7 +1392,7 @@
    =========================== */
 .cta-section {
     background: linear-gradient(135deg, #134958 0%, #1a5f73 50%, #28AFCF 100%);
-    padding: 60px 40px;
+    padding: 40px 40px;
     position: relative;
     overflow: hidden;
 }
@@ -850,7 +1437,7 @@
 .cta-title {
     font-size: 42px;
     font-weight: 800;
-    color: white;
+    color: white !important;
     margin-bottom: 20px;
     line-height: 1.2;
 }
@@ -904,6 +1491,11 @@
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 42px;
+    }
+
+    .hero-excerpt {
+        font-size: 17px;
+        line-height: 1.6;
     }
 
     .section-title {
@@ -1442,6 +2034,20 @@
     margin-bottom: 10px;
 }
 
+/* Remove top margin when list comes directly after heading */
+.course-description-content h3 + ul,
+.course-description-content h3 + ol,
+.course-description-content h2 + ul,
+.course-description-content h2 + ol {
+    margin-top: 10px;
+}
+
+/* No spacing class for compact lists */
+.course-description-content ul.no-para-spacing {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
 /* Remove inline styles where appropriate - let CSS handle it */
 .course-description-content div {
     margin-bottom: 0;
@@ -1452,7 +2058,11 @@
 }
 
 .course-description-content .course-intro {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
+}
+
+.course-description-content .course-intro + .chevron-timeline {
+    margin-top: 0;
 }
 
 /* Horizontal rules */
@@ -1586,4 +2196,58 @@
     box-shadow: 0 5px 20px rgba(255, 127, 7, 0.3);
     color: white;
     text-decoration: none;
+}
+
+/* ===========================
+   PROGRAM HIGHLIGHTS SECTION
+   =========================== */
+.program-highlights-section {
+    background: #f8f9fa;
+    padding: 40px 0;
+    margin: 40px 0;
+}
+
+.program-highlights-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.program-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.highlight-item {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #28AFCF;
+}
+
+.highlight-title {
+    color: #134958;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.highlight-content {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .program-highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .highlight-item {
+        padding: 20px;
+    }
 }
