@@ -7,8 +7,6 @@
 get_header();
 ?>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
     /* Reset WordPress theme styles */
     #primary.content-area,
@@ -36,10 +34,11 @@ get_header();
     }
 
     body {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 600;
-        line-height: 1.6;
-        color: #333;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.8;
+        color: #2d3748;
     }
 
     /* Hero Section */
@@ -51,7 +50,7 @@ get_header();
     }
 
     .faq-hero h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
         margin-bottom: 20px;
         line-height: 1.2;
         color: white;
@@ -117,8 +116,8 @@ get_header();
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 1.2rem;
-        font-weight: 700;
+        font-size: 1.1rem;
+        font-weight: 600;
         color: #134958;
         transition: all 0.3s;
     }
@@ -159,10 +158,10 @@ get_header();
 
     /* Paragraphs - tight spacing with small gap after */
     .faq-answer p {
-        margin: 0 0 3px 0 !important;
-        padding: 0 !important;
-        line-height: 1.3 !important;
-        color: #333 !important;
+        margin: 0 0 0.75rem 0 !important;
+        padding: 0 1.5rem !important;
+        line-height: 1.7 !important;
+        color: #64748b !important;
     }
 
     /* Paragraph after paragraph - no extra gap (bottom margin handles it) */
@@ -196,36 +195,38 @@ get_header();
         font-weight: 700;
     }
 
-    /* Lists - indented nicely with minimal spacing */
+    /* Lists - match SAT-ACT page spacing */
     .faq-answer ul,
     .faq-answer ol {
-        margin: 0 0 10px 35px;
-        padding: 0;
+        margin: 0 0 0.75rem 2rem;
+        padding: 0.5rem 1.5rem 0.5rem 1.5rem;
         list-style: none;
+        color: #64748b;
+        line-height: 1.7;
     }
 
-    /* List items - tight spacing */
+    /* List items - comfortable spacing like SAT-ACT page */
     .faq-answer ul li {
-        margin-bottom: 2px;
-        line-height: 1.4;
-        padding-left: 18px;
+        margin-bottom: 0.5rem;
+        line-height: 1.7;
+        padding-left: 1.5rem;
         position: relative;
     }
 
     .faq-answer ul li:before {
-        content: "▸";
+        content: "›";
         position: absolute;
         left: 0;
         color: #28AFCF;
-        font-weight: 400;
-        font-size: 0.9em;
+        font-size: 1.4em;
     }
 
     /* Ordered list items */
     .faq-answer ol li {
-        margin-bottom: 2px;
-        line-height: 1.4;
-        margin-left: 8px;
+        margin-bottom: 0.5rem;
+        line-height: 1.7;
+        padding-left: 1.5rem;
+        position: relative;
     }
 
     /* Remove extra margins on first/last elements */

@@ -7,8 +7,6 @@
 get_header();
 ?>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
     /* Reset WordPress theme styles for this custom page */
     #primary.content-area,
@@ -37,121 +35,243 @@ get_header();
     }
 
     body {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 600;
-        line-height: 1.6;
-        color: #333;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.8;
+        color: #2d3748;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Hero Section */
-    .hero {
-        background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
-        color: white;
-        padding: 80px 20px;
+    /* Hero Section - Course Style */
+    .course-hero {
+        min-height: 40vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #134958 0%, #1a5f73 50%, #28AFCF 100%);
+    }
+
+    .course-hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 80%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(40, 175, 207, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.1); opacity: 0.3; }
     }
 
     .hero-container {
-        max-width: 1200px;
+        max-width: 1400px;
         margin: 0 auto;
+        padding: 50px 40px;
+        position: relative;
+        z-index: 1;
         display: grid;
-        grid-template-columns: 70% 30%;
-        gap: 40px;
+        grid-template-columns: 1.857fr 1fr;
+        gap: 60px;
         align-items: center;
     }
 
-    .hero-content h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        line-height: 1.2;
+    .course-hero .hero-content h1 {
+        font-size: 48px !important;
+        font-weight: 800 !important;
+        color: #ffffff !important;
+        margin-bottom: 8px;
+        line-height: 1.1;
+        letter-spacing: -1px;
     }
 
-    .hero-content .subtitle {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-        opacity: 0.95;
+    .hero-content .highlight {
+        background: linear-gradient(135deg, #FF7F07, #F0B268);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-excerpt {
+        font-size: 19px;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 40px;
+        font-weight: 400;
+        line-height: 1.7;
     }
 
     .hero-stats-mini {
         display: flex;
-        gap: 20px;
+        gap: 16px;
         margin-bottom: 30px;
+        flex-wrap: wrap;
     }
 
     .stat-mini {
-        background: rgba(255, 255, 255, 0.15);
-        padding: 15px 20px;
-        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .stat-mini-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .stat-mini strong {
-        display: block;
-        font-size: 1.5rem;
-        color: #F0B268;
-    }
-
-    .stat-mini span {
-        font-size: 0.9rem;
-        opacity: 0.9;
-    }
-
-    .track-record-card {
-        background: white;
-        color: #134958;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    .track-record-card h3 {
-        color: #28AFCF;
-        margin-bottom: 20px;
-        font-size: 1.5rem;
-    }
-
-    .track-stat {
-        padding: 15px 0;
-        border-bottom: 1px solid #eee;
-    }
-
-    .track-stat:last-child {
-        border-bottom: none;
-    }
-
-    .track-stat .number {
-        font-size: 1.8rem;
+    .stat-mini-icon svg {
+        width: 22px;
+        height: 22px;
         color: #FF7F07;
-        font-weight: 700;
     }
 
-    .track-stat .label {
-        color: #666;
-        font-size: 0.95rem;
-    }
-
-    .cta-btn {
-        background: #FF7F07;
+    .stat-mini-text {
         color: white;
-        padding: 15px 40px;
-        border: none;
-        border-radius: 8px;
-        font-size: 1.1rem;
-        font-weight: 700;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-block;
-        transition: all 0.3s;
     }
 
-    .cta-btn:hover {
-        background: #e66f00;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 20px rgba(255, 127, 7, 0.3);
+    .stat-mini-number {
+        font-size: 24px;
+        font-weight: 700;
+        display: block;
+        line-height: 1;
+        margin-bottom: 3px;
     }
+
+    .stat-mini-label {
+        font-size: 12px;
+        opacity: 0.8;
+        font-weight: 400;
+    }
+
+    .cta-group {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .hero-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 20px 18px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        max-width: 340px;
+    }
+
+    .hero-card h3 {
+        font-size: 16px;
+        color: #134958;
+        margin-bottom: 12px;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .hero-card-grid {
+        display: grid;
+        gap: 8px;
+    }
+
+    .card-stat-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        background: linear-gradient(135deg, #f8f9fa, #ffffff);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        border: 1px solid #eee;
+    }
+
+    .card-stat-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(40, 175, 207, 0.15);
+        border-color: #28AFCF;
+    }
+
+    .card-stat-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, #28AFCF, #134958);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .card-stat-icon svg {
+        width: 20px;
+        height: 20px;
+        color: white;
+    }
+
+    .card-stat-text {
+        flex: 1;
+        text-align: left;
+    }
+
+    .card-stat-number {
+        font-size: 22px;
+        font-weight: 800;
+        color: #134958;
+        display: block;
+        line-height: 1;
+        margin-bottom: 2px;
+    }
+
+    .card-stat-label {
+        font-size: 11px;
+        color: #666;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+        .hero-container {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        .course-hero .hero-content h1 {
+            font-size: 36px !important;
+        }
+
+        .hero-excerpt {
+            font-size: 17px;
+        }
+
+        .hero-card {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .hero-stats-mini {
+            flex-direction: column;
+            gap: 12px;
+        }
+    }
+
+    /* Button styling controlled by course-styles.css */
 
     /* Trust Bar */
     .trust-bar {
-        background: #f8f9fa;
+        background: #e8f5f7;
         padding: 30px 20px;
     }
 
@@ -168,79 +288,278 @@ get_header();
     }
 
     .trust-item .icon {
-        font-size: 2rem;
-        margin-bottom: 10px;
+        display: none;
     }
 
     /* Main Content */
     .content-section {
-        max-width: 1000px;
-        margin: 60px auto;
-        padding: 0 20px;
+        max-width: 1200px;  /* Matches hero section width */
+        margin: 0 auto;
+        padding: 40px 0;  /* Removed horizontal padding - cards handle their own */
     }
 
     .content-section h2 {
         color: #134958;
         font-size: 2rem;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+        text-align: center;
     }
 
     .content-section h3 {
         color: #28AFCF;
-        font-size: 1.5rem;
-        margin: 30px 0 15px;
+        font-size: 1.3rem;
+        margin: 40px 0 15px;
     }
 
     .content-section p {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         line-height: 1.8;
+        font-size: 1.05rem;
     }
 
     .content-section ul {
         margin-left: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
 
     .content-section li {
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+        line-height: 1.7;
+    }
+
+    /* Section wrappers for alternating backgrounds */
+    .section-white {
+        background: white;
+    }
+
+    .section-light {
+        background: #e8f5f7;
+    }
+
+    .section-blue-light {
+        background: #e8f7fa;
+    }
+
+    /* Content cards */
+    .content-card {
+        background: white;
+        padding: 30px 20px;  /* Match hero's horizontal padding */
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        margin-bottom: 20px;
+    }
+
+    .content-card h3 {
+        margin-top: 0;
+    }
+
+    /* Step 2: Format Selection Styles */
+    .step-container {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 50px;
+        align-items: flex-start;
+    }
+
+    .step-number-large {
+        background: linear-gradient(135deg, #28AFCF, #134958);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+
+    .step-content {
+        flex: 1;
+    }
+
+    .step-content h3 {
+        font-size: 1.4em;
+        font-weight: 600;
+        color: #134958;
+        margin: 0 0 15px;
+    }
+
+    .step-content p {
+        margin-bottom: 15px;
+        line-height: 1.7;
+    }
+
+    .format-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 35px;
+        margin: 30px 0 0;
+        max-width: 100%;
+    }
+
+    .format-card {
+        background: white;
+        border-radius: 8px;
+        padding: 25px 15px 25px 20px;  /* Less left padding, content more flush */
+        box-shadow: 0 6px 24px rgba(0,0,0,0.15);  /* Stronger, more defined shadow */
+        border: 1px solid rgba(40, 175, 207, 0.2);  /* Subtle teal border */
+        border-top: 4px solid #28AFCF;  /* Prominent top accent */
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .format-card:hover {
+        box-shadow: 0 10px 35px rgba(0,0,0,0.22);  /* Even more pronounced on hover */
+        border-color: rgba(40, 175, 207, 0.4);  /* Border becomes more visible */
+        transform: translateY(-5px);  /* Lift higher */
+    }
+
+    .format-card h4 {
+        margin-top: 0;
+        margin-left: 0;  /* Flush to left edge */
+        font-size: 1.3em;
+        font-weight: 600;
+        color: #28AFCF;
+        margin-bottom: 15px;
+    }
+
+    .format-card .badge {
+        display: inline-block;
+        background: #F0B268;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        margin-left: 10px;
+        font-weight: 500;
+    }
+
+    .format-card > p {
+        margin-left: 0;  /* Paragraph flush to left */
+    }
+
+    .format-card ul {
+        margin: 15px 0;
+        padding-left: 18px;  /* Reduced indentation for bullets */
+    }
+
+    .format-card li {
+        margin-bottom: 8px;
+        line-height: 1.6;
+        padding-left: 2px;  /* Minimal extra spacing */
+    }
+
+    .best-for {
+        background: #f0f8ff;
+        border-left: 3px solid #28AFCF;
+        padding: 12px 12px;  /* Reduced left padding */
+        margin-top: 15px;
+        margin-left: 0;  /* Flush to card edge */
+        margin-right: 0;  /* Flush to card edge */
+        font-size: 0.95em;
+    }
+
+    .best-for strong {
+        color: #134958;
     }
 
     /* Why Choose Us */
     .why-choose {
-        background: #f8f9fa;
-        padding: 60px 20px;
+        background: white;
+        padding: 40px 20px;
+    }
+
+    .why-choose h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #134958;
+        font-size: 2rem;
     }
 
     .why-grid {
         max-width: 1200px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
     }
 
     .benefit-card {
         background: white;
-        padding: 30px;
+        padding: 20px;
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-left: 3px solid #28AFCF;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        transition: all 0.3s ease;
     }
 
-    .benefit-card .icon {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
+    .benefit-card:hover {
+        transform: translateX(3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
-    .benefit-card h3 {
+    .benefit-card:nth-child(2) { border-left-color: #F0B268; }
+    .benefit-card:nth-child(3) { border-left-color: #FF7F07; }
+    .benefit-card:nth-child(4) { border-left-color: #134958; }
+
+    .benefit-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, #28AFCF 0%, #1a8fa8 100%);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .benefit-card:nth-child(2) .benefit-icon {
+        background: linear-gradient(135deg, #F0B268 0%, #d89a4f 100%);
+    }
+
+    .benefit-card:nth-child(3) .benefit-icon {
+        background: linear-gradient(135deg, #FF7F07 0%, #e67000 100%);
+    }
+
+    .benefit-card:nth-child(4) .benefit-icon {
+        background: linear-gradient(135deg, #134958 0%, #0a2832 100%);
+    }
+
+    .benefit-icon svg {
+        width: 18px;
+        height: 18px;
+        fill: white;
+    }
+
+    .benefit-content h3 {
         color: #134958;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+
+    .benefit-content p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
     }
 
     /* FAQ Section */
     .faq-section {
         max-width: 1000px;
-        margin: 60px auto;
-        padding: 0 20px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    .faq-section h2 {
+        text-align: center;
+        margin-bottom: 35px;
+        color: #134958;
+        font-size: 2rem;
     }
 
     .faq-grid {
@@ -309,25 +628,38 @@ get_header();
     }
 
     .faq-answer p {
-        padding: 0 1.5rem 1.5rem;
+        padding: 0 1.5rem;
         color: #64748b;
         line-height: 1.7;
-        margin: 0;
+        margin: 0 0 0.75rem 0;
     }
 
     .faq-answer p + p {
-        padding-top: 0.5rem;
+        padding-top: 0;
     }
 
     .faq-answer ul {
         padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-        margin: 0 0 0 2rem;
+        margin: 0 0 0.75rem 2rem;
         color: #64748b;
         line-height: 1.7;
+        list-style: none;
     }
 
     .faq-answer ul li {
         margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .faq-answer ul li::before {
+        content: "›";
+        position: absolute;
+        left: 0;
+        color: #28AFCF;
+        font-size: 1.4em;
+        font-weight: 700;
+        line-height: 1;
     }
 
     .faq-card.active .faq-answer {
@@ -338,29 +670,40 @@ get_header();
     .final-cta {
         background: linear-gradient(135deg, #28AFCF 0%, #134958 100%);
         color: white;
-        padding: 80px 20px;
+        padding: 50px 20px;
         text-align: center;
     }
 
     .final-cta h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
+        font-size: 2.3rem;
+        margin-bottom: 25px;
+        color: white;
     }
 
     .final-cta p {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
+        font-size: 1.15rem;
+        margin-bottom: 35px;
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
+        line-height: 1.7;
+        color: white;
+        opacity: 0.95;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
         .hero-container,
-        .why-grid,
         .trust-container {
             grid-template-columns: 1fr;
+        }
+
+        .why-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .benefit-card {
+            padding: 18px;
         }
 
         .hero-stats-mini {
@@ -370,6 +713,14 @@ get_header();
         .hero-content h1 {
             font-size: 2rem;
         }
+
+        .step-container {
+            flex-direction: column;
+        }
+
+        .format-cards {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 
@@ -377,77 +728,265 @@ get_header();
     <main id="main" class="site-main">
         <article>
             <!-- Hero Section -->
-            <section class="hero">
+            <section class="course-hero">
                 <div class="hero-container">
+                    <!-- Left Column: Content -->
                     <div class="hero-content">
                         <h1>SAT & ACT Test Prep - Achieve Your Dream College Score</h1>
-                        <p class="subtitle">Join the program where 96% of students improve their scores - with an average 6-point ACT increase and 100-point SAT increase. Most of our students score high enough to get into Ivy League schools.</p>
+                        <p class="hero-excerpt">Join the program where 96% of students improve their scores - with an average 6-point ACT increase and 100-point SAT increase. Most of our students score high enough to get into Ivy League schools.</p>
 
+                        <!-- Mini Stats -->
                         <div class="hero-stats-mini">
                             <div class="stat-mini">
-                                <strong>10+</strong>
-                                <span>Years Experience</span>
+                                <div class="stat-mini-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-mini-text">
+                                    <span class="stat-mini-number">10+</span>
+                                    <span class="stat-mini-label">Years Experience</span>
+                                </div>
                             </div>
                             <div class="stat-mini">
-                                <strong>80%+</strong>
-                                <span>Score 34+ ACT or 1500+ SAT</span>
+                                <div class="stat-mini-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-mini-text">
+                                    <span class="stat-mini-number">80%+</span>
+                                    <span class="stat-mini-label">Score 34+ ACT or 1500+ SAT</span>
+                                </div>
                             </div>
                         </div>
 
-                        <a href="/student-enrollment/" class="cta-btn">Inquire Now</a>
+                        <!-- CTA Buttons -->
+                        <div class="cta-group">
+                            <?php echo do_shortcode('[inquiry_button]'); ?>
+                        </div>
                     </div>
 
-                    <div class="track-record-card">
+                    <!-- Right Column: Stats Card -->
+                    <div class="hero-card">
                         <h3>Our Track Record</h3>
-                        <div class="track-stat">
-                            <div class="number">📈 96%</div>
-                            <div class="label">Score Improvement Rate</div>
-                        </div>
-                        <div class="track-stat">
-                            <div class="number">🎯 6-9 Points</div>
-                            <div class="label">Average ACT Increase</div>
-                        </div>
-                        <div class="track-stat">
-                            <div class="number">📊 100+ Points</div>
-                            <div class="label">Average SAT Increase</div>
-                        </div>
-                        <div class="track-stat">
-                            <div class="number">🏆 Up to 13</div>
-                            <div class="label">Top ACT Student Improvement</div>
+                        <div class="hero-card-grid">
+                            <div class="card-stat-box">
+                                <div class="card-stat-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                    </svg>
+                                </div>
+                                <div class="card-stat-text">
+                                    <span class="card-stat-number">96%</span>
+                                    <span class="card-stat-label">Score Improvement Rate</span>
+                                </div>
+                            </div>
+                            <div class="card-stat-box">
+                                <div class="card-stat-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                    </svg>
+                                </div>
+                                <div class="card-stat-text">
+                                    <span class="card-stat-number">6-9 Points</span>
+                                    <span class="card-stat-label">Average ACT Increase</span>
+                                </div>
+                            </div>
+                            <div class="card-stat-box">
+                                <div class="card-stat-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                    </svg>
+                                </div>
+                                <div class="card-stat-text">
+                                    <span class="card-stat-number">100+ Points</span>
+                                    <span class="card-stat-label">Average SAT Increase</span>
+                                </div>
+                            </div>
+                            <div class="card-stat-box">
+                                <div class="card-stat-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                    </svg>
+                                </div>
+                                <div class="card-stat-text">
+                                    <span class="card-stat-number">Up to 13 Points</span>
+                                    <span class="card-stat-label">Top ACT Student Improvement</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Trust Bar -->
-            <section class="trust-bar">
-                <div class="trust-container">
-                    <div class="trust-item">
-                        <div class="icon">✅</div>
-                        <strong>Expert ACT/SAT Instructors</strong>
-                    </div>
-                    <div class="trust-item">
-                        <div class="icon">✅</div>
-                        <strong>96% Saw Score Improvement</strong>
-                    </div>
-                    <div class="trust-item">
-                        <div class="icon">✅</div>
-                        <strong>80%+ Score 34+ ACT or 1500+ SAT</strong>
-                    </div>
-                    <div class="trust-item">
-                        <div class="icon">✅</div>
-                        <strong>Flexible Scheduling</strong>
+            <!-- Your Path to Success -->
+            <section class="section-light">
+                <div class="content-section">
+                    <h2>Your Path to Success: A Strategic 3-Step Process</h2>
+                    <p style="text-align: center; max-width: 900px; margin: 0 auto 35px; line-height: 1.8; font-size: 1.05rem;">Achieving your target score isn't just about studying harder—it's about choosing the right test, the right format, and the right timeline. Here's how we guide you through each decision:</p>
+
+                    <div class="content-card">
+                        <h3 style="color: #28AFCF; margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+                            <span style="background: #28AFCF; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">1</span>
+                            Diagnostic Testing & Choosing Your Test
+                        </h3>
+                        <p style="margin-bottom: 20px;">We start with comprehensive diagnostic assessments for both SAT and ACT. This identifies your strengths, determines which test suits you best, and sets realistic score goals.</p>
+
+                        <h4 style="color: #134958; font-size: 1.15rem; margin: 30px 0 15px;">Understanding the Recent Changes (2025)</h4>
+                        <p style="margin-bottom: 20px;">Both tests have undergone significant changes. The SAT is now fully digital and adaptive, while the ACT introduced an "Enhanced" format. Here's what you need to know:</p>
+
+                        <div style="overflow-x: auto; margin: 25px 0;">
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                                <thead>
+                                    <tr style="background: #134958; color: white;">
+                                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Feature</th>
+                                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Digital SAT</th>
+                                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Enhanced ACT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Format</strong></td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Fully digital, adaptive</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Paper or digital, non-adaptive</td>
+                                    </tr>
+                                    <tr style="background: #f8f9fa;">
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Total Time</strong></td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">2hr 14min</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">2hr 5min (without science)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Questions</strong></td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">98 total</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">131 total (without science)</td>
+                                    </tr>
+                                    <tr style="background: #f8f9fa;">
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Reading Passages</strong></td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Short (1 question each)</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Long (multiple questions)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Math Weight</strong></td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">50% of score</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">25% of score</td>
+                                    </tr>
+                                    <tr style="background: #f8f9fa;">
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Science Section</strong></td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">No science section</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Optional (some colleges require)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Difficulty</strong></td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Module 2 harder if you do well</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Consistent throughout</td>
+                                    </tr>
+                                    <tr style="background: #f8f9fa;">
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Score Stability</strong></td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">More stable</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">More volatile (fewer questions)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 style="color: #134958; font-size: 1.15rem; margin: 30px 0 15px; font-weight: 700;"><strong>Which Test Should You Take?</strong></h4>
+                        <p style="margin-bottom: 15px;">Both tests are widely accepted by colleges, but they have distinct differences:</p>
+                        <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <li style="margin-bottom: 10px;"><strong>ACT:</strong> More straightforward with direct reading passages and consistent scoring</li>
+                            <li style="margin-bottom: 10px;"><strong>SAT:</strong> Provides more time per question but can have more ambiguous passages and answer choices</li>
+                        </ul>
+
+                        <p style="margin-bottom: 15px;"><span style="color: #FF7F07; font-weight: 700; font-size: 1.05rem;">Our recommendation process:</span> After your child takes diagnostic tests for both exams, we analyze performance and recommend the test where they'll reach their target score most efficiently. If performance is similar on both, we generally recommend starting with ACT prep because:</p>
+                        <ul style="margin-left: 30px; margin-bottom: 25px; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 1.2em; font-weight: 700;">›</span> ACT math covers more advanced topics (geometry, trigonometry), so mastering it makes switching to SAT easier</li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 1.2em; font-weight: 700;">›</span> The ACT has historically had more consistent scoring curves</li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 1.2em; font-weight: 700;">›</span> Reading passages are more straightforward</li>
+                        </ul>
+
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                            <a href="/sat-vs-act-2025-which-test-is-right-for-you/" style="display: inline-block; background: #28AFCF; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.3s;">
+                                SAT vs ACT: Complete Guide
+                            </a>
+                            <a href="/changes-to-the-new-digital-sat/" style="display: inline-block; background: #134958; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.3s;">
+                                What's New in Digital SAT
+                            </a>
+                            <a href="/whats-new-in-the-enhanced-act/" style="display: inline-block; background: #FF7F07; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.3s;">
+                                What's New in Enhanced ACT
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Main Content -->
-            <section class="content-section">
-                <h2 style="text-align: center; margin-bottom: 20px;">Choose Your Path</h2>
+            <!-- Step 2: Choose Your Format -->
+            <section class="section-white">
+                <div class="content-section">
+                    <div class="step-container">
+                        <div class="step-number-large">2</div>
+                        <div class="step-content">
+                            <h3>Choose Your Learning Format</h3>
+                            <p>Once we've identified your best test, we'll help you choose the learning format that matches your goals, timeline, and learning style:</p>
 
-                <p class="lead" style="text-align: left; font-size: 1.15rem; line-height: 1.8; color: #555; margin: 0 auto 20px; max-width: 900px;">Transform Your Test Scores with NYC's Most Effective College Entrance Exam Prep</p>
+                            <div class="format-cards">
+                                <div class="format-card">
+                                    <h4>Group Classes <span class="badge">Most Popular</span></h4>
+                                    <p>Small groups (max 8 students) provide:</p>
+                                    <ul>
+                                        <li>Collaborative learning and peer motivation</li>
+                                        <li>Structured curriculum and pacing</li>
+                                        <li>Regular practice test schedule</li>
+                                        <li>Cost-effective comprehensive preparation</li>
+                                    </ul>
+                                    <div class="best-for">
+                                        <strong>Best for:</strong> Self-motivated students who thrive with peers and prefer structured timelines
+                                    </div>
+                                </div>
 
-                <p style="text-align: left; max-width: 900px; margin: 0 auto 40px; line-height: 1.8;">At NYC STEM Club, we understand that achieving your target SAT or ACT score isn't just about knowing the content—it's about mastering test-taking strategies, building stamina, and learning to perform under pressure. Our comprehensive program has helped over 500 students achieve Ivy League-level scores, with <strong>96% seeing significant improvements</strong> and over <strong>80% reaching 1500+ on the SAT or 34+ on the ACT.</strong></p>
+                                <div class="format-card">
+                                    <h4>Private 1-on-1 Tutoring</h4>
+                                    <p>Personalized sessions provide:</p>
+                                    <ul>
+                                        <li>Flexible scheduling around your commitments</li>
+                                        <li>Customized focus on your specific weak areas</li>
+                                        <li>Accelerated pacing for advanced students</li>
+                                        <li>Intensive support for foundational gaps</li>
+                                    </ul>
+                                    <div class="best-for">
+                                        <strong>Best for:</strong> Students needing targeted help (either catching up or fine-tuning high scores)
+                                    </div>
+                                </div>
+
+                                <div class="format-card">
+                                    <h4>Hybrid Approach</h4>
+                                    <p>Many students combine formats:</p>
+                                    <ul>
+                                        <li>Group classes for comprehensive curriculum</li>
+                                        <li>Private sessions for specific weak topics</li>
+                                        <li>Flexible scheduling as test date approaches</li>
+                                        <li>Cost-effective balance of both approaches</li>
+                                    </ul>
+                                    <div class="best-for">
+                                        <strong>Best for:</strong> Students who want structure plus personalized attention
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Choose Your Path -->
+            <section class="section-light">
+                <div class="content-section">
+                    <h2 style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+                        <span style="background: #28AFCF; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">3</span>
+                        Choose Your Path
+                    </h2>
+
+                    <p class="lead" style="text-align: center; font-size: 1.15rem; line-height: 1.8; color: #555; margin: 0 auto 20px; max-width: 900px;">Transform Your Test Scores with NYC's Most Effective College Entrance Exam Prep</p>
+
+                    <p style="text-align: center; max-width: 900px; margin: 0 auto 30px; line-height: 1.8;">At NYC STEM Club, we understand that achieving your target SAT or ACT score isn't just about knowing the content—it's about mastering test-taking strategies, building stamina, and learning to perform under pressure. Our comprehensive program has helped over 500 students achieve Ivy League-level scores, with <strong>96% seeing significant improvements</strong> and over <strong>80% reaching 1500+ on the SAT or 34+ on the ACT.</strong></p>
 
                 <!-- Decision Tree Infographic -->
                 <div style="max-width: 1000px; margin: 0 auto 60px;">
@@ -466,63 +1005,63 @@ get_header();
                     </div>
 
                     <!-- Two Main Branches -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px; align-items: stretch;">
 
                         <!-- SOPHOMORE PATH -->
-                        <div style="text-align: center;">
+                        <div style="text-align: center; display: flex; flex-direction: column;">
                             <div style="background: #28AFCF; color: white; padding: 20px; border-radius: 15px 15px 0 0; font-size: 1.4rem; font-weight: 700;">
-                                🎓 SOPHOMORE
+                                SOPHOMORE
                             </div>
-                            <div style="background: #f0f9fc; border: 3px solid #28AFCF; border-top: none; border-radius: 0 0 15px 15px; padding: 25px; min-height: 520px;">
+                            <div style="background: #f0f9fc; border: 3px solid #28AFCF; border-top: none; border-radius: 0 0 15px 15px; padding: 25px; flex: 1; display: flex; flex-direction: column;">
                                 <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
                                     <strong style="color: #134958; display: block; margin-bottom: 5px; font-size: 1.1rem;">Foundational Program</strong>
-                                    <p style="margin: 5px 0; font-size: 0.95rem;">January - June (5-6 months)</p>
+                                    <p style="margin: 5px 0;">January - June (5-6 months)</p>
                                 </div>
 
-                                <div style="text-align: left; font-size: 0.9rem; line-height: 1.8;">
+                                <div style="text-align: left; line-height: 1.8;">
                                     <strong style="color: #28AFCF;">Suggested Timeline:</strong><br>
-                                    ➊ <strong>June</strong> - First attempt<br>
-                                    ➋ <strong>July</strong> - Bootcamp + ACT*<br>
+                                    1. <strong>June</strong> - First attempt<br>
+                                    2. <strong>July</strong> - Bootcamp + ACT*<br>
                                     &nbsp;&nbsp;&nbsp;OR <strong>August</strong> - SAT attempt<br>
-                                    ➌ <strong>Sept/Oct</strong> - Final attempt if needed<br><br>
+                                    3. <strong>Sept/Oct</strong> - Final attempt if needed<br><br>
 
-                                    <div style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">
+                                    <div style="color: #666; margin-bottom: 15px; font-size: 0.9rem;">
                                         *July ACT not offered in NY. Students can test in nearby states (NJ, CT).
                                     </div>
 
                                     <div style="background: #F0B268; color: #134958; padding: 15px; border-radius: 8px; font-weight: 600;">
-                                        💡 Added Benefit: Students also see improvement in their school math courses!
+                                        Added Benefit: Students also see improvement in their school math courses!
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- JUNIOR PATH -->
-                        <div style="text-align: center;">
+                        <div style="text-align: center; display: flex; flex-direction: column;">
                             <div style="background: #FF7F07; color: white; padding: 20px; border-radius: 15px 15px 0 0; font-size: 1.4rem; font-weight: 700;">
-                                🎓 JUNIOR
+                                JUNIOR
                             </div>
-                            <div style="background: #fff8f0; border: 3px solid #FF7F07; border-top: none; border-radius: 0 0 15px 15px; padding: 25px; min-height: 520px;">
+                            <div style="background: #fff8f0; border: 3px solid #FF7F07; border-top: none; border-radius: 0 0 15px 15px; padding: 25px; flex: 1; display: flex; flex-direction: column;">
 
                                 <!-- Junior Decision Point -->
                                 <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                                    <strong style="color: #134958; font-size: 1rem;">Do you have foundational gaps?</strong><br>
-                                    <span style="font-size: 0.85rem; color: #666;">(200+ pts below SAT goal or 6-9 pts below ACT goal, OR taking Algebra 2 now)</span>
+                                    <strong style="color: #134958;">Do you have foundational gaps?</strong><br>
+                                    <span style="font-size: 0.9rem; color: #666;">(200+ pts below SAT goal or 6-9 pts below ACT goal, OR taking Algebra 2 now)</span>
                                 </div>
 
                                 <!-- Two options -->
                                 <div style="display: flex; gap: 10px; margin-bottom: 15px;">
                                     <div style="flex: 1; text-align: center;">
-                                        <div style="background: #4CAF50; color: white; padding: 8px; border-radius: 8px 8px 0 0; font-weight: 700; font-size: 0.9rem;">YES</div>
-                                        <div style="background: white; border: 2px solid #4CAF50; border-top: none; padding: 15px; border-radius: 0 0 8px 8px; font-size: 0.85rem;">
+                                        <div style="background: #4CAF50; color: white; padding: 8px; border-radius: 8px 8px 0 0; font-weight: 700;">YES</div>
+                                        <div style="background: white; border: 2px solid #4CAF50; border-top: none; padding: 15px; border-radius: 0 0 8px 8px;">
                                             <strong>Foundational</strong><br>
                                             Jan-June<br>
                                             (5-6 months)
                                         </div>
                                     </div>
                                     <div style="flex: 1; text-align: center;">
-                                        <div style="background: #2196F3; color: white; padding: 8px; border-radius: 8px 8px 0 0; font-weight: 700; font-size: 0.9rem;">NO</div>
-                                        <div style="background: white; border: 2px solid #2196F3; border-top: none; padding: 15px; border-radius: 0 0 8px 8px; font-size: 0.85rem;">
+                                        <div style="background: #2196F3; color: white; padding: 8px; border-radius: 8px 8px 0 0; font-weight: 700;">NO</div>
+                                        <div style="background: white; border: 2px solid #2196F3; border-top: none; padding: 15px; border-radius: 0 0 8px 8px;">
                                             <strong>Bootcamp</strong><br>
                                             Year-round<br>
                                             (6-8 weeks)
@@ -530,150 +1069,78 @@ get_header();
                                     </div>
                                 </div>
 
-                                <div style="text-align: left; font-size: 0.9rem; line-height: 1.8;">
+                                <div style="text-align: left; line-height: 1.8;">
                                     <strong style="color: #FF7F07;">Suggested Timeline:</strong><br>
-                                    ➊ <strong>June</strong> - First attempt<br>
-                                    ➋ <strong>July/Aug</strong> - Second attempt<br>
-                                    ➌ <strong>Early Fall</strong> - Final before apps<br><br>
+                                    1. <strong>June</strong> - First attempt<br>
+                                    2. <strong>July/Aug</strong> - Second attempt<br>
+                                    3. <strong>Early Fall</strong> - Final before apps<br><br>
 
                                     <div style="background: #fff3e6; padding: 15px; border-radius: 8px; border-left: 3px solid #FF7F07;">
-                                        ⚠️ After fall, focus on applications.
+                                        After fall, focus on applications.
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Next Steps Arrow -->
-                    <div style="text-align: center; margin: 40px 0;">
-                        <div style="width: 2px; height: 50px; background: linear-gradient(to bottom, transparent, #134958); margin: 0 auto;"></div>
-                        <div style="background: #134958; color: white; padding: 15px 30px; border-radius: 50px; display: inline-block; font-weight: 700; margin-top: -10px;">
-                            📋 Next: Choose Format & Test
-                        </div>
-                    </div>
                 </div>
-
-                <h2 style="margin-top: 60px;">Step 1: Diagnostic Testing</h2>
-                <p>We start with comprehensive diagnostic assessments for both SAT and ACT. This identifies your strengths, determines which test suits you best, and sets realistic score goals.</p>
-
-                <h2 style="margin-top: 40px;">Step 2: Choose Your Format</h2>
-
-                <p style="margin-bottom: 8px;"><strong>Group Classes (Most Popular)</strong></p>
-                <p style="margin-bottom: 30px;">Small groups (max 8 students) provide accountability, peer learning, and affordability. Ideal for self-motivated students who benefit from collaborative learning and stay on track with structured schedules.</p>
-
-                <p style="margin-bottom: 8px;"><strong>Private 1-on-1 Tutoring</strong></p>
-                <p style="margin-bottom: 10px;">We recommend private tutoring in two scenarios:</p>
-                <ul style="margin-bottom: 30px; margin-top: 0;">
-                    <li style="margin-bottom: 8px;"><strong>Significant foundational gaps:</strong> Students needing intensive attention on core concepts that won't be addressed quickly enough in a group setting</li>
-                    <li style="margin-bottom: 0;"><strong>Advanced test-takers:</strong> Students already scoring high who need minimal, targeted help—making private sessions more cost-effective than a full group program</li>
-                </ul>
-
-                <h2 style="margin-top: 40px;">Step 3: ACT or SAT? Understanding the Recent Changes</h2>
-
-                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin-top: 30px;">
-                    <h3 style="margin-top: 0; color: #134958;">Quick Comparison: Digital SAT vs Enhanced ACT (2025)</h3>
-                    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-                        <thead>
-                            <tr style="background: #134958; color: white;">
-                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Feature</th>
-                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Digital SAT</th>
-                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Enhanced ACT</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Format</strong></td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">Fully digital, adaptive</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">Paper or digital, non-adaptive</td>
-                            </tr>
-                            <tr style="background: #f8f9fa;">
-                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Total Time</strong></td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">2hr 14min</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">2hr 5min (without science)</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Questions</strong></td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">98 total</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">131 total (without science)</td>
-                            </tr>
-                            <tr style="background: #f8f9fa;">
-                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Passages</strong></td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">Short (1 question each)</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">Long (multiple questions)</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Math Weight</strong></td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">50% of score</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">25% of score</td>
-                            </tr>
-                            <tr style="background: #f8f9fa;">
-                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Science</strong></td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">No science section</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">Optional (some colleges require)</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Difficulty</strong></td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">Module 2 harder if you do well</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">Consistent throughout</td>
-                            </tr>
-                            <tr style="background: #f8f9fa;">
-                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Score Stability</strong></td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">More stable</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">More volatile (fewer questions)</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
-
-                <div style="background: #e8f7fa; padding: 25px; border-radius: 12px; margin-top: 30px; margin-bottom: 0; border-left: 4px solid #28AFCF;">
-                    <strong style="color: #134958; font-size: 1.1rem;">💡 Our Recommendation:</strong> To understand the recent changes and compare the two tests in detail, explore these resources:
-                    <div style="margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="/sat-vs-act-2025-which-test-is-right-for-you/" style="display: inline-block; background: #28AFCF; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.3s;">
-                            📖 SAT vs ACT: Complete Guide
-                        </a>
-                        <a href="/changes-to-the-new-digital-sat/" style="display: inline-block; background: #134958; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.3s;">
-                            💻 What's New in Digital SAT
-                        </a>
-                        <a href="/whats-new-in-the-enhanced-act/" style="display: inline-block; background: #FF7F07; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.3s;">
-                            🔥 What's New in Enhanced ACT
-                        </a>
-                    </div>
-                </div>
-
             </section>
 
             <!-- Why Choose Us -->
-            <section class="why-choose" style="padding-top: 0; margin-top: 20px;">
-                <div class="content-section">
-                    <h2 style="text-align: center; margin-bottom: 30px;">Why Choose NYC STEM Club for SAT/ACT Prep?</h2>
-                </div>
+            <section class="why-choose">
+                <h2>Why Choose NYC STEM Club for SAT/ACT Prep?</h2>
                 <div class="why-grid">
                     <div class="benefit-card">
-                        <div class="icon">🎯</div>
-                        <h3>Proven Results That Matter</h3>
-                        <p>96% of our students improve their scores. Our average improvements (6-9 points ACT, 100+ points SAT) significantly outpace national averages. Some students improve by up to 13 points on the ACT.</p>
+                        <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Proven Results</h3>
+                            <p>96% of our students improve their scores. Average improvements: 6-9 points ACT, 100+ points SAT.</p>
+                        </div>
                     </div>
                     <div class="benefit-card">
-                        <div class="icon">👨‍🏫</div>
-                        <h3>Expert Instructors</h3>
-                        <p>Our instructors are test prep specialists with 15+ years of experience, advanced degrees, and proven track records. They don't just teach content—they teach test strategy and build confidence.</p>
+                        <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12M12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Expert Instructors</h3>
+                            <p>15+ years of experience teaching test strategy and building confidence.</p>
+                        </div>
                     </div>
                     <div class="benefit-card">
-                        <div class="icon">📊</div>
-                        <h3>Diagnostic-Driven Personalization</h3>
-                        <p>We assess both SAT and ACT to determine your best fit, then create a customized study plan. Every student receives strategies tailored to their learning style and score goals.</p>
+                        <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M9 11H7V9H9M13 11H11V9H13M17 11H15V9H17M19 3H18V1H16V3H8V1H6V3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M19 19H5V8H19V19Z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Personalized Approach</h3>
+                            <p>We assess both SAT and ACT to determine your best fit, then customize your study plan.</p>
+                        </div>
                     </div>
                     <div class="benefit-card">
-                        <div class="icon">⚡</div>
-                        <h3>Flexible Formats for Your Schedule</h3>
-                        <p>Choose from private 1-on-1 tutoring, small group classes (max 8 students), online live instruction, or in-person sessions at our Manhattan location. We adapt to your needs.</p>
+                        <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2M12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20M7 13H9V15H11V13H13V11H11V9H9V11H7V13Z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Flexible Formats</h3>
+                            <p>Private 1-on-1, small groups, online, or in-person at our Manhattan location.</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- FAQ Section -->
-            <section class="faq-section">
-                <h2 style="text-align: center; margin-bottom: 40px;">Frequently Asked Questions</h2>
+            <section class="section-light">
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
 
                 <div class="faq-grid">
                     <div class="faq-card">
@@ -824,6 +1291,7 @@ get_header();
                                 <li>Time management specific to the digital format</li>
                                 <li>Practice with the exact tools students will use on test day</li>
                             </ul>
+                            <p><a href="/resources/changes-to-the-new-digital-sat/" style="color: #28AFCF; font-weight: 600;">Learn more about Digital SAT changes →</a></p>
                         </div>
                     </div>
 
@@ -837,22 +1305,26 @@ get_header();
                             </div>
                         </button>
                         <div class="faq-answer">
-                            <p>The <strong>Enhanced ACT</strong> refers to the updated 2025 ACT format, which includes significant changes to test structure and content.</p>
+                            <p>The Enhanced ACT refers to the updated 2025 ACT format with significant structural changes that make the test shorter and more flexible.</p>
                             <p><strong>What's New:</strong></p>
                             <ul>
-                                <li><strong>Shorter, more streamlined test format</strong> - Reduced testing time without sacrificing content coverage</li>
-                                <li><strong>Updated content alignment</strong> - Reflects current high school curriculum standards more accurately</li>
-                                <li><strong>Science section evolution</strong> - Greater emphasis on data interpretation and scientific reasoning</li>
+                                <li><strong>Shorter test</strong> - 125 minutes (core) or 165 minutes (with optional Science) vs. 175 minutes previously</li>
+                                <li><strong>Fewer questions</strong> - 131 questions without Science, 171 with Science (vs. 215 before)</li>
+                                <li><strong>More time per question</strong> - 18% more time to think and reduce careless errors</li>
+                                <li><strong>Optional Science section</strong> - Science is now optional, like the Writing section</li>
+                                <li><strong>New Composite score</strong> - Based only on English, Math, and Reading (Science reported separately)</li>
                             </ul>
                             <p><strong>Our Enhanced ACT Prep:</strong></p>
                             <ul>
-                                <li>Custom proprietary materials designed specifically for the new format</li>
-                                <li>Comprehensive coverage of all four sections: English, Math, Reading, and Science</li>
-                                <li>Advanced strategies for the updated Science section</li>
+                                <li>Custom materials designed specifically for the Enhanced ACT format</li>
+                                <li>Comprehensive coverage of all three core sections: English, Math, and Reading</li>
+                                <li>Optional Science prep for STEM applicants or schools requiring Science scores</li>
+                                <li>Strategic guidance on whether to take the Science section</li>
                                 <li>Full-length practice tests in the Enhanced ACT format</li>
                                 <li>Timing and pacing techniques optimized for the new structure</li>
                             </ul>
                             <p>Students who complete Algebra 2 and have strong foundational skills tend to excel on the Enhanced ACT, as math comprises only 25% of the composite score, and the reading/grammar sections align well with high school English curriculum.</p>
+                            <p><a href="/whats-new-in-the-enhanced-act/" style="color: #28AFCF; font-weight: 600;">Learn more about the Enhanced ACT changes →</a></p>
                         </div>
                     </div>
 
@@ -876,8 +1348,10 @@ get_header();
                             </ul>
                             <p><strong>Our Philosophy:</strong><br>Different students have different strengths. Some excel with the ACT's fast pace and straightforward passages. Others prefer the SAT's extra time per question. <strong>Our goal is efficiency</strong>—we want your child to reach their target score in the shortest time possible so they can focus on school, extracurriculars, and enjoying their high school experience while building a strong college resume.</p>
                             <p><strong>Strategic Pivot Option:</strong><br>Many students start with ACT prep (which covers more advanced math and faster pacing) and can easily pivot to the SAT if needed. The reverse requires more effort, which is why we often recommend starting with the ACT when diagnostic scores are similar.</p>
+                            <p><a href="/resources/sat-vs-act-2025-which-test-is-right-for-you/" style="color: #28AFCF; font-weight: 600;">SAT vs ACT 2025: Which test is right for you? →</a></p>
                         </div>
                     </div>
+                </div>
                 </div>
             </section>
 
@@ -885,13 +1359,13 @@ get_header();
             <section class="final-cta">
                 <h2>Ready to Achieve Your Target Score?</h2>
                 <p>Join the program where 96% of students improve their scores and over 80% achieve Ivy League-level results. Our expert instructors, proven strategies, and personalized approach have helped hundreds of students gain admission to their dream colleges. Start your journey with a free consultation and diagnostic assessment.</p>
-                <a href="/student-enrollment/" class="cta-btn">Inquire Now</a>
+                <?php echo do_shortcode('[inquiry_button]'); ?>
             </section>
 
             <!-- Testimonials Section -->
-            <section style="background: #f8f9fa; padding: 60px 20px;">
+            <section class="section-light" style="padding: 40px 20px;">
                 <div style="max-width: 1200px; margin: 0 auto;">
-                    <h2 style="text-align: center; margin-bottom: 40px; color: #134958; font-size: 2rem;">What Parents & Students Say</h2>
+                    <h2 style="text-align: center; margin-bottom: 35px; color: #134958; font-size: 2rem;">What Parents & Students Say</h2>
                     <div style="margin: 0 auto;">
                         <?php
                         $reviews_shortcode = get_option('nyc_stem_reviews_shortcode', '[trustindex data-widget-id=d7ccd5b21eb1294a9186eebe1e6]');
@@ -922,3 +1396,4 @@ get_header();
 
 <?php
 get_footer();
+
