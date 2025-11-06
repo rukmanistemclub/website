@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: SAT ACT Prep - Full Width
- * Description: Custom template for SAT & ACT Test Preparation page
+ * Template Name: ACT-SAT Foundational Course - Full Width
+ * Description: Custom template for ACT-SAT Foundational Course page
  */
 
 get_header();
@@ -74,7 +74,7 @@ get_header();
     .hero-container {
         max-width: 1400px;
         margin: 0 auto;
-        padding: 50px 10px;
+        padding: 50px 40px;
         position: relative;
         z-index: 1;
         display: grid;
@@ -272,7 +272,7 @@ get_header();
     /* Trust Bar */
     .trust-bar {
         background: #e8f5f7;
-        padding: 30px 10px;
+        padding: 30px 20px;
     }
 
     .trust-container {
@@ -292,60 +292,37 @@ get_header();
     }
 
     /* Main Content */
-    /* Section light - consistent 1200px width */
-    .section-light {
-        padding: 40px 10px;
-    }
-
-    .section-light > *:not(.course-cards-section) {
-        max-width: 1200px;
+    .content-section {
+        max-width: 1200px;  /* Matches hero section width */
         margin: 0 auto;
+        padding: 40px 0;  /* Removed horizontal padding - cards handle their own */
     }
 
-    /* Course cards section - no expansion needed, already full width */
-    .section-light .course-cards-section {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1200px;
-        width: 100%;
-    }
-
-    .section-light h2 {
+    .content-section h2 {
         color: #134958;
-        font-size: 1.4em;
-        font-weight: 600;
+        font-size: 2rem;
         margin-bottom: 30px;
         text-align: center;
     }
 
-    .section-light h3 {
+    .content-section h3 {
         color: #28AFCF;
         font-size: 1.3rem;
         margin: 40px 0 15px;
     }
 
-    /* Override for course card titles - more specific selector */
-    .course-cards-section h3.course-card-title,
-    .section-light .course-card-title,
-    .section-light h3.course-card-title {
-        font-size: 1.1rem !important;
-        color: #1e3a5f !important;
-        margin: 0 0 14px 0 !important;
-        font-weight: 700 !important;
-    }
-
-    .section-light p {
+    .content-section p {
         margin-bottom: 20px;
         line-height: 1.8;
         font-size: 1.05rem;
     }
 
-    .section-light ul {
+    .content-section ul {
         margin-left: 20px;
         margin-bottom: 25px;
     }
 
-    .section-light li {
+    .content-section li {
         margin-bottom: 12px;
         line-height: 1.7;
     }
@@ -361,24 +338,15 @@ get_header();
 
     .section-blue-light {
         background: #e8f7fa;
-        padding: 40px 10px;
-    }
-
-    .section-blue-light > *:not(.course-cards-section) {
-        max-width: 1200px;
-        margin: 0 auto;
     }
 
     /* Content cards */
     .content-card {
         background: white;
-        padding: 25px 18px;  /* Reduced padding for more compact look */
+        padding: 30px 20px;  /* Match hero's horizontal padding */
         border-radius: 12px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
         margin-bottom: 20px;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .content-card h3 {
@@ -391,9 +359,6 @@ get_header();
         gap: 30px;
         margin-bottom: 50px;
         align-items: flex-start;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .step-number-large {
@@ -429,16 +394,15 @@ get_header();
     .format-cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;  /* Reduced from 35px for more compact layout */
-        margin: 30px auto 0;
-        padding-top: 20px;  /* Added 20px padding above cards */
-        max-width: 1200px;
+        gap: 35px;
+        margin: 30px 0 0;
+        max-width: 100%;
     }
 
     .format-card {
         background: white;
         border-radius: 8px;
-        padding: 15px 12px 8px 15px;  /* Compact: minimal top/sides, minimal bottom */
+        padding: 25px 15px 25px 20px;  /* Less left padding, content more flush */
         box-shadow: 0 6px 24px rgba(0,0,0,0.15);  /* Stronger, more defined shadow */
         border: 1px solid rgba(40, 175, 207, 0.2);  /* Subtle teal border */
         border-top: 4px solid #28AFCF;  /* Prominent top accent */
@@ -458,7 +422,7 @@ get_header();
         font-size: 1.3em;
         font-weight: 600;
         color: #28AFCF;
-        margin-bottom: 10px;  /* Reduced from 15px for compact look */
+        margin-bottom: 15px;
     }
 
     .format-card .badge {
@@ -477,23 +441,24 @@ get_header();
     }
 
     .format-card ul {
-        margin: 10px 0;  /* Reduced from 15px */
+        margin: 15px 0;
         padding-left: 18px;  /* Reduced indentation for bullets */
     }
 
     .format-card li {
-        margin-bottom: 6px;  /* Reduced from 8px */
-        line-height: 1.7;  /* Match default */
+        margin-bottom: 8px;
+        line-height: 1.6;
         padding-left: 2px;  /* Minimal extra spacing */
     }
 
     .best-for {
         background: #f0f8ff;
         border-left: 3px solid #28AFCF;
-        padding: 8px 10px;  /* More compact padding */
-        margin-top: 10px;  /* Reduced from 15px */
+        padding: 12px 12px;  /* Reduced left padding */
+        margin-top: 15px;
         margin-left: 0;  /* Flush to card edge */
         margin-right: 0;  /* Flush to card edge */
+        font-size: 0.95em;
     }
 
     .best-for strong {
@@ -503,13 +468,7 @@ get_header();
     /* Why Choose Us */
     .why-choose {
         background: white;
-        padding: 40px 10px;
-    }
-
-    .why-choose > * {
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
+        padding: 40px 20px;
     }
 
     .why-choose h2 {
@@ -589,47 +548,43 @@ get_header();
         margin: 0;
     }
 
-    /* FAQ Section - Modern with Dark Text */
+    /* FAQ Section */
     .faq-section {
-        max-width: 1200px;
+        max-width: 1000px;
         margin: 0 auto;
-        padding: 50px 10px;
-        background: transparent;
+        padding: 40px 20px;
     }
 
     .faq-section h2 {
         text-align: center;
-        margin-bottom: 40px;
-        color: #0f172a;
-        font-size: 2.2rem;
-        font-weight: 700;
-        font-family: 'Inter', sans-serif;
+        margin-bottom: 35px;
+        color: #134958;
+        font-size: 2rem;
     }
 
     .faq-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 0.25rem;
-        margin: 0.5rem 0;
+        gap: 1rem;
+        margin: 1.5rem 0;
     }
 
     .faq-card {
         background: white;
         border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-        border: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        border: 2px solid #e2e8f0;
         transition: all 0.3s ease;
     }
 
     .faq-card:hover {
-        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        transform: translateY(-4px);
+        border-color: #28AFCF;
     }
 
     .faq-header {
         width: 100%;
-        padding: 0 1.25rem;
+        padding: 1.5rem;
         background: none;
         border: none;
         cursor: pointer;
@@ -639,42 +594,27 @@ get_header();
         text-align: left;
         transition: background 0.3s ease;
         font-family: inherit;
-        min-height: 3rem;
     }
 
     .faq-header:hover {
-        background: #f1f5f9;
+        background: #f8fafc;
     }
 
     .faq-question {
-        font-size: 1.0625rem;
-        font-weight: 700;
-        color: #000000 !important;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #134958;
         margin: 0;
         flex: 1;
-        font-family: 'Inter', sans-serif;
-        line-height: 1.5;
-    }
-
-    /* Override any theme h3 styles in FAQ */
-    .faq-card h3,
-    .faq-header h3,
-    h3.faq-question {
-        color: #000000 !important;
-        font-size: 1.0625rem !important;
-        font-weight: 700 !important;
-        line-height: 1.5 !important;
     }
 
     .faq-icon {
         flex-shrink: 0;
-        margin-left: 1.25rem;
-        color: #28AFCF;
+        margin-left: 1rem;
+        color: #64748b;
         transition: transform 0.3s ease;
         display: flex;
         align-items: center;
-        font-weight: 700;
-        font-size: 1.3rem;
     }
 
     .faq-card.active .faq-icon {
@@ -685,24 +625,13 @@ get_header();
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
-        background: #fafbfc;
     }
 
     .faq-answer p {
-        padding: 0 1.25rem;
-        color: #334155;
+        padding: 0 1.5rem;
+        color: #64748b;
         line-height: 1.7;
         margin: 0 0 0.75rem 0;
-        font-size: 1.0625rem;
-    }
-
-    .faq-answer p:first-child {
-        padding-top: 0.3rem;
-    }
-
-    .faq-answer p:last-child {
-        padding-bottom: 0.4rem;
-        margin-bottom: 0;
     }
 
     .faq-answer p + p {
@@ -710,18 +639,17 @@ get_header();
     }
 
     .faq-answer ul {
-        padding: 0.5rem 1.25rem 0.75rem 1.25rem;
-        margin: 0 0 0.5rem 1.5rem;
-        color: #334155;
-        line-height: 1.8;
+        padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+        margin: 0 0 0.75rem 2rem;
+        color: #64748b;
+        line-height: 1.7;
         list-style: none;
     }
 
     .faq-answer ul li {
-        margin-bottom: 0.75rem;
-        padding-left: 1.75rem;
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
         position: relative;
-        font-size: 1.0625rem;
     }
 
     .faq-answer ul li::before {
@@ -729,7 +657,7 @@ get_header();
         position: absolute;
         left: 0;
         color: #28AFCF;
-        font-size: 1.5em;
+        font-size: 1.4em;
         font-weight: 700;
         line-height: 1;
     }
@@ -742,7 +670,7 @@ get_header();
     .final-cta {
         background: linear-gradient(135deg, #28AFCF 0%, #134958 100%);
         color: white;
-        padding: 50px 10px;
+        padding: 50px 20px;
         text-align: center;
     }
 
@@ -755,7 +683,7 @@ get_header();
     .final-cta p {
         font-size: 1.15rem;
         margin-bottom: 35px;
-        max-width: 1200px;
+        max-width: 800px;
         margin-left: auto;
         margin-right: auto;
         line-height: 1.7;
@@ -893,20 +821,20 @@ get_header();
             </section>
 
             <!-- Your Path to Success -->
-            <section class="section-light" style="padding-top: 0;">
-                <div style="max-width: 1200px; margin: 0 auto;">
+            <section class="section-light">
+                <div class="content-section">
                     <h2>Your Path to Success: A Strategic 3-Step Process</h2>
-                    <p style="text-align: center; margin: 0 auto 35px; line-height: 1.7;">Achieving your target score isn't just about studying harder—it's about choosing the right test, the right format, and the right timeline.</p>
-                </div>
+                    <p style="text-align: center; max-width: 900px; margin: 0 auto 35px; line-height: 1.8; font-size: 1.05rem;">Achieving your target score isn't just about studying harder—it's about choosing the right test, the right format, and the right timeline. Here's how we guide you through each decision:</p>
 
-                    <div class="step-container">
-                        <div class="step-number-large">1</div>
-                        <div class="step-content">
-                            <h3>Diagnostic Testing & Choosing Your Test</h3>
-                            <p>We start with comprehensive diagnostic assessments for both SAT and ACT. This identifies your strengths, determines which test suits you best, and sets realistic score goals.</p>
+                    <div class="content-card">
+                        <h3 style="color: #28AFCF; margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+                            <span style="background: #28AFCF; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">1</span>
+                            Diagnostic Testing & Choosing Your Test
+                        </h3>
+                        <p style="margin-bottom: 20px;">We start with comprehensive diagnostic assessments for both SAT and ACT. This identifies your strengths, determines which test suits you best, and sets realistic score goals.</p>
 
                         <h4 style="color: #134958; font-size: 1.15rem; margin: 30px 0 15px;">Understanding the Recent Changes (2025)</h4>
-                        <p style="margin-bottom: 15px;">Both tests have undergone significant changes. The SAT is now fully digital and adaptive, while the ACT introduced an "Enhanced" format. Here's what you need to know:</p>
+                        <p style="margin-bottom: 20px;">Both tests have undergone significant changes. The SAT is now fully digital and adaptive, while the ACT introduced an "Enhanced" format. Here's what you need to know:</p>
 
                         <div style="overflow-x: auto; margin: 25px 0;">
                             <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
@@ -969,7 +897,7 @@ get_header();
                             <li style="margin-bottom: 10px;"><strong>SAT:</strong> Provides more time per question but can have more ambiguous passages and answer choices</li>
                         </ul>
 
-                        <p style="margin-bottom: 15px;"><span style="color: #FF7F07; font-weight: 700;">Our recommendation process:</span> After your child takes diagnostic tests for both exams, we analyze performance and recommend the test where they'll reach their target score most efficiently. If performance is similar on both, we generally recommend starting with ACT prep because:</p>
+                        <p style="margin-bottom: 15px;"><span style="color: #FF7F07; font-weight: 700; font-size: 1.05rem;">Our recommendation process:</span> After your child takes diagnostic tests for both exams, we analyze performance and recommend the test where they'll reach their target score most efficiently. If performance is similar on both, we generally recommend starting with ACT prep because:</p>
                         <ul style="margin-left: 30px; margin-bottom: 25px; list-style: none; padding-left: 0;">
                             <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 1.2em; font-weight: 700;">›</span> ACT math covers more advanced topics (geometry, trigonometry), so mastering it makes switching to SAT easier</li>
                             <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 1.2em; font-weight: 700;">›</span> The ACT has historically had more consistent scoring curves</li>
@@ -987,8 +915,8 @@ get_header();
                                 What's New in Enhanced ACT
                             </a>
                         </div>
-                        </div>
                     </div>
+                </div>
             </section>
 
             <!-- Step 2: Choose Your Format -->
@@ -999,49 +927,49 @@ get_header();
                         <div class="step-content">
                             <h3>Choose Your Learning Format</h3>
                             <p>Once we've identified your best test, we'll help you choose the learning format that matches your goals, timeline, and learning style:</p>
-                        </div>
-                    </div>
 
-                    <div class="format-cards">
-                        <div class="format-card">
-                            <h4>Group Classes <span class="badge">Most Popular</span></h4>
-                            <p>Small groups (max 8 students) provide:</p>
-                            <ul>
-                                <li>Collaborative learning and peer motivation</li>
-                                <li>Structured curriculum and pacing</li>
-                                <li>Regular practice test schedule</li>
-                                <li>Cost-effective comprehensive preparation</li>
-                            </ul>
-                            <div class="best-for">
-                                <strong>Best for:</strong> Self-motivated students who thrive with peers and prefer structured timelines
-                            </div>
-                        </div>
+                            <div class="format-cards">
+                                <div class="format-card">
+                                    <h4>Group Classes <span class="badge">Most Popular</span></h4>
+                                    <p>Small groups (max 8 students) provide:</p>
+                                    <ul>
+                                        <li>Collaborative learning and peer motivation</li>
+                                        <li>Structured curriculum and pacing</li>
+                                        <li>Regular practice test schedule</li>
+                                        <li>Cost-effective comprehensive preparation</li>
+                                    </ul>
+                                    <div class="best-for">
+                                        <strong>Best for:</strong> Self-motivated students who thrive with peers and prefer structured timelines
+                                    </div>
+                                </div>
 
-                        <div class="format-card">
-                            <h4>Private 1-on-1 Tutoring</h4>
-                            <p>Personalized sessions provide:</p>
-                            <ul>
-                                <li>Flexible scheduling around your commitments</li>
-                                <li>Targeted support for weak areas</li>
-                                <li>Accelerated pacing for advanced students</li>
-                                <li>Intensive support for foundational gaps</li>
-                            </ul>
-                            <div class="best-for">
-                                <strong>Best for:</strong> Students needing targeted help (either catching up or fine-tuning high scores)
-                            </div>
-                        </div>
+                                <div class="format-card">
+                                    <h4>Private 1-on-1 Tutoring</h4>
+                                    <p>Personalized sessions provide:</p>
+                                    <ul>
+                                        <li>Flexible scheduling around your commitments</li>
+                                        <li>Customized focus on your specific weak areas</li>
+                                        <li>Accelerated pacing for advanced students</li>
+                                        <li>Intensive support for foundational gaps</li>
+                                    </ul>
+                                    <div class="best-for">
+                                        <strong>Best for:</strong> Students needing targeted help (either catching up or fine-tuning high scores)
+                                    </div>
+                                </div>
 
-                        <div class="format-card">
-                            <h4>Hybrid Approach</h4>
-                            <p>Many students combine formats:</p>
-                            <ul>
-                                <li>Group classes for comprehensive curriculum</li>
-                                <li>Private sessions for specific weak topics</li>
-                                <li>Flexible scheduling as test date approaches</li>
-                                <li>Cost-effective balance of both approaches</li>
-                            </ul>
-                            <div class="best-for">
-                                <strong>Best for:</strong> Students who want structure plus personalized attention
+                                <div class="format-card">
+                                    <h4>Hybrid Approach</h4>
+                                    <p>Many students combine formats:</p>
+                                    <ul>
+                                        <li>Group classes for comprehensive curriculum</li>
+                                        <li>Private sessions for specific weak topics</li>
+                                        <li>Flexible scheduling as test date approaches</li>
+                                        <li>Cost-effective balance of both approaches</li>
+                                    </ul>
+                                    <div class="best-for">
+                                        <strong>Best for:</strong> Students who want structure plus personalized attention
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1050,150 +978,212 @@ get_header();
 
             <!-- Step 3: Choose Your Path -->
             <section class="section-light">
-                <div class="step-container">
-                    <div class="step-number-large">3</div>
-                    <div class="step-content">
-                        <h3>Choose Your Path</h3>
-                        <p>Transform Your Test Scores with NYC's Most Effective College Entrance Exam Prep. At NYC STEM Club, we understand that achieving your target SAT or ACT score isn't just about knowing the content—it's about mastering test-taking strategies, building stamina, and learning to perform under pressure. Our comprehensive program has helped over 500 students achieve Ivy League-level scores, with <strong>96% seeing significant improvements</strong>.</p>
+                <div class="content-section">
+                    <h2 style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+                        <span style="background: #28AFCF; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">3</span>
+                        Choose Your Path
+                    </h2>
+
+                    <p class="lead" style="text-align: center; font-size: 1.15rem; line-height: 1.8; color: #555; margin: 0 auto 20px; max-width: 900px;">Transform Your Test Scores with NYC's Most Effective College Entrance Exam Prep</p>
+
+                    <p style="text-align: center; max-width: 900px; margin: 0 auto 30px; line-height: 1.8;">At NYC STEM Club, we understand that achieving your target SAT or ACT score isn't just about knowing the content—it's about mastering test-taking strategies, building stamina, and learning to perform under pressure. Our comprehensive program has helped over 500 students achieve Ivy League-level scores, with <strong>96% seeing significant improvements</strong> and over <strong>80% reaching 1500+ on the SAT or 34+ on the ACT.</strong></p>
+
+                <!-- Decision Tree Infographic -->
+                <div style="max-width: 1000px; margin: 0 auto 60px;">
+
+                    <!-- Start Node -->
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="background: linear-gradient(135deg, #28AFCF, #134958); color: white; padding: 15px 35px; border-radius: 50px; display: inline-block; font-size: 1.1rem; font-weight: 700; box-shadow: 0 4px 15px rgba(40, 175, 207, 0.3);">
+                            What Grade Are You In?
+                        </div>
                     </div>
-                </div>
 
-                <!-- Comparison Cards -->
-                <div style="max-width: 1200px; margin: 0 auto;">
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px;">
+                    <!-- Branching Arrows -->
+                    <div style="display: flex; justify-content: center; gap: 100px; margin-bottom: 30px;">
+                        <div style="text-align: center; width: 2px; height: 40px; background: #28AFCF;"></div>
+                        <div style="text-align: center; width: 2px; height: 40px; background: #FF7F07;"></div>
+                    </div>
 
-                        <!-- SOPHOMORE CARD -->
-                        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #28AFCF; display: flex; flex-direction: column; transition: transform 0.3s;">
-                            <div style="background: linear-gradient(135deg, #28AFCF 0%, #1d9bb8 100%); padding: 16px 18px; text-align: center; color: white;">
-                                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Sophomore Year</h3>
-                                <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0;">The Ideal Starting Point</p>
+                    <!-- Two Main Branches -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px; align-items: stretch;">
+
+                        <!-- SOPHOMORE PATH -->
+                        <div style="text-align: center; display: flex; flex-direction: column;">
+                            <div style="background: #28AFCF; color: white; padding: 20px; border-radius: 15px 15px 0 0; font-size: 1.4rem; font-weight: 700;">
+                                SOPHOMORE
                             </div>
-
-                            <div style="padding: 20px; flex: 1;">
-                                <div style="background: #f8f9fa; border-radius: 6px; padding: 14px; margin-bottom: 18px; text-align: center;">
-                                    <div style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; color: #134958; margin-bottom: 4px;">Foundational Program</div>
-                                    <div style="font-family: Georgia, serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.4;">January - June (5-6 months)</div>
+                            <div style="background: #f0f9fc; border: 3px solid #28AFCF; border-top: none; border-radius: 0 0 15px 15px; padding: 25px; flex: 1; display: flex; flex-direction: column;">
+                                <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                                    <strong style="color: #134958; display: block; margin-bottom: 5px; font-size: 1.1rem;">Foundational Program</strong>
+                                    <p style="margin: 5px 0;">January - June (5-6 months)</p>
                                 </div>
 
-                                <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
+                                <div style="text-align: left; line-height: 1.8;">
+                                    <strong style="color: #28AFCF;">Suggested Timeline:</strong><br>
+                                    1. <strong>June</strong> - First attempt<br>
+                                    2. <strong>July</strong> - Bootcamp + ACT*<br>
+                                    &nbsp;&nbsp;&nbsp;OR <strong>August</strong> - SAT attempt<br>
+                                    3. <strong>Sept/Oct</strong> - Final attempt if needed<br><br>
 
-                                <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: Georgia, serif;">
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➊ June:</strong> First attempt
-                                    </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➋ July:</strong> Bootcamp + ACT*<br>
-                                        <span style="margin-left: 16px; font-size: 0.95rem;">OR</span> <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">August:</strong> SAT attempt
-                                    </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➌ Sept/Oct:</strong> Final attempt if needed
-                                    </li>
-                                </ul>
-                                <p style="font-family: Georgia, serif; font-size: 0.875rem; color: #64748b; font-style: italic; margin-top: 0; margin-bottom: 14px; line-height: 1.4;">*July ACT not offered in NY. Students can test in nearby states (NJ, CT).</p>
+                                    <div style="color: #666; margin-bottom: 15px; font-size: 0.9rem;">
+                                        *July ACT not offered in NY. Students can test in nearby states (NJ, CT).
+                                    </div>
 
-                                <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 0; font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #28AFCF;">
-                                    <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #134958;">Added Benefit:</strong> Students also see improvement in their school math courses!
+                                    <div style="background: #F0B268; color: #134958; padding: 15px; border-radius: 8px; font-weight: 600;">
+                                        Added Benefit: Students also see improvement in their school math courses!
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- JUNIOR CARD -->
-                        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #FF7F07; display: flex; flex-direction: column; transition: transform 0.3s;">
-                            <div style="background: linear-gradient(135deg, #FF7F07 0%, #e66f00 100%); padding: 16px 18px; text-align: center; color: white;">
-                                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Junior Year</h3>
-                                <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0;">Critical Decision Point</p>
+                        <!-- JUNIOR PATH -->
+                        <div style="text-align: center; display: flex; flex-direction: column;">
+                            <div style="background: #FF7F07; color: white; padding: 20px; border-radius: 15px 15px 0 0; font-size: 1.4rem; font-weight: 700;">
+                                JUNIOR
                             </div>
+                            <div style="background: #fff8f0; border: 3px solid #FF7F07; border-top: none; border-radius: 0 0 15px 15px; padding: 25px; flex: 1; display: flex; flex-direction: column;">
 
-                            <div style="padding: 20px; flex: 1;">
-                                <div style="background: #fff9f0; border: 2px solid #FF7F07; border-radius: 6px; padding: 14px; margin-bottom: 14px;">
-                                    <div style="font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; color: #FF7F07; margin-bottom: 10px; text-align: center; line-height: 1.3;">Do you have foundational gaps?</div>
-                                    <p style="font-family: Georgia, serif; font-size: 0.875rem; color: #666; text-align: center; margin-bottom: 10px; line-height: 1.4;">(200+ pts below SAT goal or 6-9 pts below ACT goal, OR taking Algebra 2 now)</p>
+                                <!-- Junior Decision Point -->
+                                <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                                    <strong style="color: #134958;">Do you have foundational gaps?</strong><br>
+                                    <span style="font-size: 0.9rem; color: #666;">(200+ pts below SAT goal or 6-9 pts below ACT goal, OR taking Algebra 2 now)</span>
+                                </div>
 
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
-                                        <div style="background: white; border-radius: 5px; padding: 10px; text-align: center; border: 2px solid #28A745;">
-                                            <div style="font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 5px; color: white; background: #28A745;">YES</div>
-                                            <div style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; color: #1e293b; margin-bottom: 3px;">Foundational</div>
-                                            <div style="font-family: Georgia, serif; font-size: 0.8rem; color: #666; line-height: 1.3;">Jan-June (5-6 mo)</div>
+                                <!-- Two options -->
+                                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                    <div style="flex: 1; text-align: center;">
+                                        <div style="background: #4CAF50; color: white; padding: 8px; border-radius: 8px 8px 0 0; font-weight: 700;">YES</div>
+                                        <div style="background: white; border: 2px solid #4CAF50; border-top: none; padding: 15px; border-radius: 0 0 8px 8px;">
+                                            <strong>Foundational</strong><br>
+                                            Jan-June<br>
+                                            (5-6 months)
                                         </div>
-                                        <div style="background: white; border-radius: 5px; padding: 10px; text-align: center; border: 2px solid #007BFF;">
-                                            <div style="font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 5px; color: white; background: #007BFF;">NO</div>
-                                            <div style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; color: #1e293b; margin-bottom: 3px;">Bootcamp</div>
-                                            <div style="font-family: Georgia, serif; font-size: 0.8rem; color: #666; line-height: 1.3;">Year-round (6-8 wk)</div>
+                                    </div>
+                                    <div style="flex: 1; text-align: center;">
+                                        <div style="background: #2196F3; color: white; padding: 8px; border-radius: 8px 8px 0 0; font-weight: 700;">NO</div>
+                                        <div style="background: white; border: 2px solid #2196F3; border-top: none; padding: 15px; border-radius: 0 0 8px 8px;">
+                                            <strong>Bootcamp</strong><br>
+                                            Year-round<br>
+                                            (6-8 weeks)
                                         </div>
                                     </div>
                                 </div>
 
-                                <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
+                                <div style="text-align: left; line-height: 1.8;">
+                                    <strong style="color: #FF7F07;">Suggested Timeline:</strong><br>
+                                    1. <strong>June</strong> - First attempt<br>
+                                    2. <strong>July/Aug</strong> - Second attempt<br>
+                                    3. <strong>Early Fall</strong> - Final before apps<br><br>
 
-                                <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: Georgia, serif;">
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➊ June:</strong> First attempt
-                                    </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➋ July/Aug:</strong> Second attempt
-                                    </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➌ Early Fall:</strong> Final before applications
-                                    </li>
-                                </ul>
-
-                                <div style="background: #fff9f0; border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #FF7F07;">
-                                    <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #134958;">Important:</strong> After fall, focus shifts to applications. Plan accordingly.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- SENIOR CARD -->
-                        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #F0B268; display: flex; flex-direction: column; transition: transform 0.3s;">
-                            <div style="background: linear-gradient(135deg, #F0B268 0%, #d99d52 100%); padding: 16px 18px; text-align: center; color: white;">
-                                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Senior Year</h3>
-                                <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0;">Last Chance Only</p>
-                            </div>
-
-                            <div style="padding: 20px; flex: 1;">
-                                <div style="background: #f8f9fa; border-radius: 6px; padding: 14px; margin-bottom: 18px; text-align: center;">
-                                    <div style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; color: #134958; margin-bottom: 4px;">Summer or Fall Intensive</div>
-                                    <div style="font-family: Georgia, serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.4;">Summer: 3-6 weeks | Fall: 4-6 weeks</div>
-                                </div>
-
-                                <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Timeline Options</div>
-
-                                <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: Georgia, serif;">
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">Best Option - Summer:</strong> Prep during June-August, test in Aug/Sept/Oct
-                                    </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">Last Chance - Fall:</strong> Sept/Oct crash course, test Oct/Nov only
-                                    </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">December:</strong> Too late for most applications
-                                    </li>
-                                </ul>
-
-                                <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #28AFCF;">
-                                    <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #134958;">Summer Advantage:</strong> More time to prep before application season starts. Ideal for first-time test takers.
-                                </div>
-
-                                <div style="background: #fff3e0; border-radius: 6px; padding: 12px 14px; margin-top: 10px; font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #F0B268;">
-                                    <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #134958;">Fall Reality:</strong> Extremely difficult to balance test prep with applications, essays, and school. Only if absolutely necessary.
+                                    <div style="background: #fff3e6; padding: 15px; border-radius: 8px; border-left: 3px solid #FF7F07;">
+                                        After fall, focus on applications.
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                </div>
+                    <!-- Browse All SAT/ACT Courses -->
+                    <div class="course-cards-section">
+                        <h3>SAT & ACT Test Prep Programs</h3>
 
-                <!-- Browse All SAT/ACT Courses -->
-                <?php echo do_shortcode('[course_category category="sat-act-prep" title="SAT & ACT Test Prep Programs" columns="4"]'); ?>
+                        <div class="course-card-grid">
+                            <?php
+                            // Get all SAT/ACT courses (excluding SHSAT)
+                            $sat_act_courses = get_posts([
+                                'post_type' => 'course',
+                                'posts_per_page' => -1,
+                                'post_status' => 'publish',
+                                'orderby' => 'title',
+                                'order' => 'ASC'
+                            ]);
+
+                            foreach ($sat_act_courses as $course) {
+                                $title_lower = strtolower($course->post_title);
+
+                                // Only include courses that have SAT or ACT but NOT SHSAT or ISEE
+                                if ((strpos($title_lower, 'sat') !== false || strpos($title_lower, 'act') !== false) &&
+                                    strpos($title_lower, 'shsat') === false &&
+                                    strpos($title_lower, 'isee') === false) {
+
+                                    $course_url = get_permalink($course->ID);
+                                    $excerpt = get_field('short_description', $course->ID);
+                                    if (!$excerpt) {
+                                        $excerpt = wp_trim_words(get_the_excerpt($course->ID), 20, '...');
+                                    }
+
+                                    // Get duration and format from ACF fields, with fallbacks
+                                    $duration = get_field('duration', $course->ID);
+                                    $format = get_field('format', $course->ID);
+
+                                    // Fallback durations based on course title if not set
+                                    if (!$duration) {
+                                        if (strpos($title_lower, 'summer') !== false) {
+                                            $duration = '3 Weeks';
+                                        } elseif (strpos($title_lower, 'year-round') !== false) {
+                                            $duration = '4-8 Weeks';
+                                        } elseif (strpos($title_lower, 'foundational') !== false) {
+                                            $duration = 'Full Year';
+                                        }
+                                    }
+
+                                    // Fallback format if not set
+                                    if (!$format) {
+                                        $format = 'Group';
+                                    }
+
+                                    // Determine course type for styling
+                                    $is_bootcamp = strpos($title_lower, 'boot camp') !== false || strpos($title_lower, 'bootcamp') !== false;
+                                    $is_foundational = strpos($title_lower, 'foundational') !== false;
+
+                                    // Set card color class and button class
+                                    if ($is_bootcamp) {
+                                        $card_class = strpos($title_lower, 'year-round') !== false ? 'card-orange' : 'card-blue';
+                                        $btn_class = strpos($title_lower, 'year-round') !== false ? 'btn-orange' : 'btn-blue';
+                                    } elseif ($is_foundational) {
+                                        $card_class = 'card-tan';
+                                        $btn_class = 'btn-tan';
+                                    } else {
+                                        $card_class = 'card-blue';
+                                        $btn_class = 'btn-blue';
+                                    }
+                                    ?>
+                                    <div class="course-card <?php echo $card_class; ?>">
+                                        <h3 class="course-card-title"><?php echo esc_html($course->post_title); ?></h3>
+
+                                        <div class="course-card-meta">
+                                            <?php if ($duration): ?>
+                                                <span class="meta-badge">
+                                                    <span class="meta-icon">⏱️</span>
+                                                    <?php echo esc_html($duration); ?>
+                                                </span>
+                                            <?php endif; ?>
+                                            <?php if ($format): ?>
+                                                <span class="meta-badge">
+                                                    <span class="meta-icon">👥</span>
+                                                    <?php echo esc_html($format); ?>
+                                                </span>
+                                            <?php endif; ?>
+                                        </div>
+
+                                        <?php if ($excerpt): ?>
+                                            <p class="course-card-description">
+                                                <?php echo esc_html($excerpt); ?>
+                                            </p>
+                                        <?php endif; ?>
+
+                                        <a href="<?php echo esc_url($course_url); ?>" class="course-card-button <?php echo $btn_class; ?>">
+                                            Learn More →
+                                        </a>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </section>
 
             <!-- Why Choose Us -->
@@ -1473,7 +1463,7 @@ get_header();
             </section>
 
             <!-- Testimonials Section -->
-            <section class="section-light" style="padding: 40px 10px;">
+            <section class="section-light" style="padding: 40px 20px;">
                 <div style="max-width: 1200px; margin: 0 auto;">
                     <h2 style="text-align: center; margin-bottom: 35px; color: #134958; font-size: 2rem;">What Parents & Students Say</h2>
                     <div style="margin: 0 auto;">

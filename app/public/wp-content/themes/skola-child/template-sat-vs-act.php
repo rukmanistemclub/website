@@ -35,10 +35,11 @@ get_header();
     }
 
     body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 18px;
         font-weight: 400;
-        line-height: 1.7;
-        color: #333;
+        line-height: 1.8;
+        color: #2d3748;
         background: #f8f9fa;
     }
 

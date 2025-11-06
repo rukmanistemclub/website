@@ -771,34 +771,40 @@ class NYC_STEM_Courses {
      * @return string Button HTML
      */
     public function inquiry_button_shortcode($atts) {
-        // Get global defaults
+        // Get global defaults from WordPress settings
         $default_color = get_option('nyc_stem_inquiry_button_color', 'orange');
         $default_rounded = get_option('nyc_stem_inquiry_button_rounded', 'yes');
 
         // Parse shortcode attributes
         $atts = shortcode_atts(array(
-            'source' => '', // Optional: 'homepage', 'sidebar', 'footer', etc.
-            'text' => '',   // Optional: Override button text
-            'class' => '',  // Optional: Additional CSS classes
-            'color' => $default_color, // Use global default, can be overridden
-            'url' => '',    // Optional: Override button URL
-            'rounded' => $default_rounded, // Use global default, can be overridden
+            'source' => '',
+            'text' => '',
+            'class' => '',
+            'color' => $default_color,
+            'url' => '',
+            'rounded' => $default_rounded,
         ), $atts);
 
-        // Get button data
-        $button_data = self::get_inquiry_button_data($atts['source']);
+        // Get button text
+        $button_text = !empty($atts['text'])
+            ? $atts['text']
+            : get_option('nyc_stem_inquiry_button_text', 'Inquire Now');
 
-        // Use custom text/URL if provided, otherwise use global settings
-        $button_text = !empty($atts['text']) ? esc_html($atts['text']) : esc_html($button_data['text']);
-        $button_url = !empty($atts['url']) ? esc_url($atts['url']) : esc_url($button_data['url']);
+        // Get button URL
+        $button_url = !empty($atts['url'])
+            ? $atts['url']
+            : get_option('nyc_stem_inquiry_button_url', '/student-enrollment/');
 
-        // Build CSS classes - using Elementor's native button classes
-        $css_classes = 'elementor-button elementor-button-link elementor-size-sm nyc-stem-inquiry-btn';
-        if (!empty($atts['class'])) {
-            $css_classes .= ' ' . esc_attr($atts['class']);
+        // Add source tracking
+        if ($atts['source']) {
+            $separator = strpos($button_url, '?') !== false ? '&' : '?';
+            $button_url .= $separator . 'source=' . urlencode($atts['source']);
+        } elseif (is_singular('course')) {
+            $separator = strpos($button_url, '?') !== false ? '&' : '?';
+            $button_url .= $separator . 'course_name=' . urlencode(get_the_title());
         }
 
-        // Get global styling settings
+        // Get styling settings from WordPress
         $orange_color = get_option('nyc_stem_inquiry_button_orange_color', '#FF7F07');
         $teal_color = get_option('nyc_stem_inquiry_button_teal_color', '#28AFCF');
         $text_color = get_option('nyc_stem_inquiry_button_text_color', '#FFFFFF');
@@ -809,26 +815,28 @@ class NYC_STEM_Courses {
         $sharp_radius = get_option('nyc_stem_inquiry_button_sharp_radius', '8px');
         $rounded_radius = get_option('nyc_stem_inquiry_button_rounded_radius', '50px');
 
-        // Determine button color
+        // Determine colors
         $bg_color = (strtolower($atts['color']) === 'teal') ? $teal_color : $orange_color;
 
-        // Determine border-radius based on rounded parameter
+        // Determine border-radius
         $border_radius = (strtolower($atts['rounded']) === 'yes') ? $rounded_radius : $sharp_radius;
 
-        // Inline styles - uses all global settings
+        // Build CSS classes
+        $css_classes = 'elementor-button elementor-button-link elementor-size-sm nyc-stem-inquiry-btn';
+        if (strtolower($atts['color']) === 'teal') {
+            $css_classes .= ' btn-teal';
+        }
+        if ($atts['class']) {
+            $css_classes .= ' ' . esc_attr($atts['class']);
+        }
+
+        // Build inline styles from WordPress settings
         $button_style = sprintf(
-            'background-color: %s; color: %s; font-family: Roboto, sans-serif; font-size: %s; font-weight: %s; padding: %s; border: none; text-decoration: none; display: inline-block; text-align: center; line-height: 1.8; transition: all 0.3s; cursor: pointer; -webkit-font-smoothing: antialiased; width: %s; min-width: %s; border-radius: %s; box-sizing: border-box;',
-            $bg_color,
-            $text_color,
-            $font_size,
-            $font_weight,
-            $padding,
-            $width,
-            $width,
-            $border_radius
+            'background-color: %s; color: %s; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Helvetica Neue", sans-serif; font-size: %s; font-weight: %s; padding: %s; border: none; text-decoration: none; display: inline-block; text-align: center; line-height: 1.8; transition: all 0.3s; cursor: pointer; -webkit-font-smoothing: antialiased; width: %s; min-width: %s; border-radius: %s; box-sizing: border-box;',
+            $bg_color, $text_color, $font_size, $font_weight, $padding, $width, $width, $border_radius
         );
 
-        // Return button HTML with EXACT Elementor structure and inline styles
+        // Return button HTML with inline styles
         return sprintf(
             '<a class="%s" href="%s" style="%s">
                 <span class="elementor-button-content-wrapper">
@@ -836,9 +844,9 @@ class NYC_STEM_Courses {
                 </span>
             </a>',
             $css_classes,
-            $button_url,
+            esc_url($button_url),
             $button_style,
-            $button_text
+            esc_html($button_text)
         );
     }
 
@@ -906,55 +914,80 @@ class NYC_STEM_Courses {
             <div class="related-container">
                 <h2 class="related-title"><?php echo esc_html($atts['title']); ?></h2>
                 <div class="related-grid" style="grid-template-columns: repeat(<?php echo intval($atts['columns']); ?>, 1fr);">
-                    <?php foreach ($courses as $course_id) : ?>
-                        <div class="course-card">
-                            <div class="course-card-content">
-                                <h2 class="course-card-title">
-                                    <a href="<?php echo get_permalink($course_id); ?>">
-                                        <?php echo get_the_title($course_id); ?>
-                                    </a>
-                                </h2>
+                    <?php
+                    $card_colors = array('card-blue', 'card-orange', 'card-tan');
+                    $btn_colors = array('btn-blue', 'btn-orange', 'btn-tan');
+                    $color_index = 0;
 
-                                <?php if ($atts['show_excerpt'] === 'yes') :
-                                    $excerpt = get_the_excerpt($course_id);
-                                    if ($excerpt) :
-                                ?>
-                                    <div class="course-card-excerpt">
-                                        <?php echo wp_trim_words($excerpt, 20); ?>
-                                    </div>
-                                <?php endif; endif; ?>
+                    foreach ($courses as $course_id) :
+                        $card_class = $card_colors[$color_index % 3];
+                        $btn_class = $btn_colors[$color_index % 3];
+                        $color_index++;
+                    ?>
+                        <div class="course-card <?php echo $card_class; ?>">
+                            <h3 class="course-card-title"><?php echo get_the_title($course_id); ?></h3>
 
-                                <?php if ($atts['show_meta'] === 'yes') : ?>
-                                    <div class="course-card-meta">
-                                        <?php
-                                        $duration = get_field('course_duration', $course_id);
-                                        $formats = get_field('class_format', $course_id);
+                            <?php if ($atts['show_meta'] === 'yes') : ?>
+                                <div class="course-card-meta">
+                                    <?php
+                                    $duration = get_field('course_duration', $course_id);
+                                    $formats = get_field('class_format', $course_id);
 
-                                        if ($duration) {
-                                            echo '<span class="course-card-meta-item">⏱️ ' . esc_html($duration) . '</span>';
-                                        }
+                                    // Shorten duration labels for cleaner display
+                                    if ($duration) {
+                                        $duration_short = $duration;
+                                        // Map long durations to short versions
+                                        $duration_map = array(
+                                            'Year-Long (Rolling Admissions)' => 'Full Year',
+                                            'Year-Long' => 'Full Year',
+                                            'Year Long' => 'Full Year',
+                                            '12-15 weeks' => '12-15 Weeks',
+                                            '4-8 Weeks' => '4-8 Weeks',
+                                            '3 Weeks' => '3 Weeks',
+                                            '3-9 week session' => '3-9 Weeks',
+                                        );
 
-                                        if ($formats && is_array($formats)) {
-                                            $format_labels = array(
-                                                'private' => '1-on-1',
-                                                'group' => 'Group',
-                                            );
-                                            $format_text = array();
-                                            foreach ($formats as $format) {
-                                                if (isset($format_labels[$format])) {
-                                                    $format_text[] = $format_labels[$format];
-                                                }
-                                            }
-                                            if (!empty($format_text)) {
-                                                echo '<span class="course-card-meta-item">👥 ' . esc_html(implode(' • ', $format_text)) . '</span>';
+                                        foreach ($duration_map as $long => $short) {
+                                            if (stripos($duration, $long) !== false) {
+                                                $duration_short = $short;
+                                                break;
                                             }
                                         }
-                                        ?>
-                                    </div>
-                                <?php endif; ?>
 
-                                <a href="<?php echo get_permalink($course_id); ?>" class="course-card-button">Learn More</a>
-                            </div>
+                                        echo '<span class="meta-badge"><span class="meta-icon">⏱️</span> ' . esc_html($duration_short) . '</span>';
+                                    }
+
+                                    if ($formats && is_array($formats)) {
+                                        $format_labels = array(
+                                            'private' => '1-on-1',
+                                            'group' => 'Group',
+                                        );
+                                        $format_text = array();
+                                        foreach ($formats as $format) {
+                                            if (isset($format_labels[$format])) {
+                                                $format_text[] = $format_labels[$format];
+                                            }
+                                        }
+                                        if (!empty($format_text)) {
+                                            echo '<span class="meta-badge"><span class="meta-icon">👥</span> ' . esc_html(implode(' • ', $format_text)) . '</span>';
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ($atts['show_excerpt'] === 'yes') :
+                                $excerpt = get_the_excerpt($course_id);
+                                if ($excerpt) :
+                            ?>
+                                <p class="course-card-description">
+                                    <?php echo wp_trim_words($excerpt, 20); ?>
+                                </p>
+                            <?php endif; endif; ?>
+
+                            <a href="<?php echo get_permalink($course_id); ?>" class="course-card-button <?php echo $btn_class; ?>">
+                                Learn More →
+                            </a>
                         </div>
                     <?php endforeach; ?>
                 </div>

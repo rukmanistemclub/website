@@ -14,8 +14,6 @@ wp_enqueue_style('course-styles',
 );
 ?>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
     /* Reset WordPress theme styles for this custom page */
     #primary.content-area,
@@ -44,10 +42,11 @@ wp_enqueue_style('course-styles',
     }
 
     body {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 600;
-        line-height: 1.6;
-        color: #333;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.8;
+        color: #2d3748;
     }
 
     /* Hero Section */

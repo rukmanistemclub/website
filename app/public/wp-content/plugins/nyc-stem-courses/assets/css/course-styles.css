@@ -2126,54 +2126,9 @@ p {
 
 /* ===========================
    GLOBAL INQUIRY BUTTON
-   Used via [inquiry_button] shortcode
+   Controlled via WordPress Settings (Courses -> Settings)
+   No CSS needed - inline styles generated from settings
    =========================== */
-.nyc-stem-inquiry-btn {
-    background-color: #FF9574 !important;
-    color: #FFFFFF !important;
-    font-family: Roboto, sans-serif !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    padding: 12px 24px !important;
-    border-radius: 0 !important;
-    text-decoration: none !important;
-    display: inline-block !important;
-    text-align: center !important;
-    line-height: 1.8 !important;
-    transition: all 0.3s !important;
-    border: none !important;
-    cursor: pointer !important;
-    -webkit-font-smoothing: antialiased !important;
-    width: auto !important;
-}
-
-.nyc-stem-inquiry-btn:hover {
-    background-color: #FF7F5A !important;
-    color: #FFFFFF !important;
-    text-decoration: none !important;
-    opacity: 0.9;
-}
-
-.nyc-stem-inquiry-btn .elementor-button-text {
-    color: #FFFFFF !important;
-}
-
-/* Mobile responsive styles for inquiry button */
-@media (max-width: 768px) {
-    .nyc-stem-inquiry-btn {
-        padding: 10px 30px !important;
-        font-size: 16px !important;
-        width: 100%;
-        max-width: 280px;
-    }
-}
-
-@media (max-width: 480px) {
-    .nyc-stem-inquiry-btn {
-        padding: 10px 20px !important;
-        font-size: 15px !important;
-    }
-}
 
 /* Legacy button styles (keeping for backward compatibility) */
 .cta-btn {

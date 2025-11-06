@@ -6,8 +6,6 @@
 
 get_header(); ?>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700;800&display=swap" rel="stylesheet">
-
 <style>
 /* Reset theme styles for this page */
 .site-content {
@@ -79,10 +77,11 @@ article {
 }
 
 body {
-    font-family: 'Roboto', sans-serif !important;
-    font-weight: 600 !important;
-    line-height: 1.7;
-    color: #333;
+    font-family: Georgia, 'Times New Roman', serif !important;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #2d3748;
     background: #f8f9fa;
 }
 

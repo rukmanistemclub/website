@@ -316,6 +316,22 @@ function nycstemclub_enqueue_counter_badge_styles() {
 
 /**
  * ==============================================================================
+ * NYC STEM Club Global Course Card Styles
+ * Centralized course card styling used across all pages
+ * ==============================================================================
+ */
+add_action('wp_enqueue_scripts', 'nycstemclub_enqueue_course_card_styles', 999);
+function nycstemclub_enqueue_course_card_styles() {
+    wp_enqueue_style(
+        'nyc-course-cards',
+        get_stylesheet_directory_uri() . '/course-cards.css',
+        array(),
+        filemtime(get_stylesheet_directory() . '/course-cards.css') // Cache busting
+    );
+}
+
+/**
+ * ==============================================================================
  * Redirect Product Categories to Course Categories
  * ==============================================================================
  */

@@ -77,10 +77,11 @@ article {
 }
 
 body {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 600;
-    line-height: 1.6;
-    color: #333;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #2d3748;
     background: #f8f9fa;
 }
 
