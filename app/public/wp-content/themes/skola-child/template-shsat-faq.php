@@ -982,6 +982,18 @@ get_header();
 
         </div>
 
+        <!-- Why Choose NYC STEM Club Section -->
+        <?php
+        // Enqueue course styles if not already loaded
+        wp_enqueue_style(
+            'nyc-stem-course-styles',
+            plugin_dir_url(__FILE__) . '../../plugins/nyc-stem-courses/assets/css/course-styles.css',
+            array(),
+            filemtime(plugin_dir_path(__FILE__) . '../../plugins/nyc-stem-courses/assets/css/course-styles.css')
+        );
+        include(WP_PLUGIN_DIR . '/nyc-stem-courses/templates/parts/course-benefits.php');
+        ?>
+
         <!-- SHSAT Courses Section -->
         <?php echo do_shortcode('[course_category category="shsat" title="SHSAT Preparation Programs" columns="4"]'); ?>
 

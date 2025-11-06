@@ -1004,66 +1004,7 @@ a.button.addtocartbutton {
     }
 }
 
-/* ===========================
-   SHSAT PAGE - WHY CHOOSE NYC STEM CLUB SECTION
-   Match SAT-ACT page typography and card sizing
-   Page ID: 16709
-   =========================== */
-
-/* Override benefits grid layout */
-.page-id-16709 .benefits-row {
-    gap: 20px !important;
-}
-
-/* Override benefit cards to match SAT-ACT page */
-.page-id-16709 .benefit-card {
-    padding: 20px !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Keep the existing hover effect but adjust shadow */
-.page-id-16709 .benefit-card:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
-}
-
-/* Override typography in benefit cards */
-.page-id-16709 .benefit-card h3,
-.page-id-16709 .benefit-content h3 {
-    font-size: 1.1rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 10px !important;
-}
-
-.page-id-16709 .benefit-card p,
-.page-id-16709 .benefit-content p {
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
-    margin: 0 !important;
-}
-
-/* Keep the decorative icon but adjust sizing */
-.page-id-16709 .benefit-icon {
-    width: 36px !important;
-    height: 36px !important;
-}
-
-.page-id-16709 .benefit-icon svg {
-    width: 18px !important;
-    height: 18px !important;
-}
-
-/* Mobile responsive adjustments */
-@media (max-width: 768px) {
-    .page-id-16709 .benefits-row {
-        grid-template-columns: 1fr !important;
-        gap: 15px !important;
-    }
-
-    .page-id-16709 .benefit-card {
-        padding: 18px !important;
-    }
-}
+/* Page-specific overrides removed - now using global benefit card styles from course-styles.css */
 
 /* ==============================================================================
    GLOBAL CONTAINER WIDTH - 1200px
