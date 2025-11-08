@@ -1072,27 +1072,27 @@ get_header();
                             <div style="padding: 20px; flex: 1;">
                                 <div style="background: #f8f9fa; border-radius: 6px; padding: 14px; margin-bottom: 18px; text-align: center;">
                                     <div style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; color: #134958; margin-bottom: 4px;">Foundational Program</div>
-                                    <div style="font-family: Georgia, serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.4;">January - June (5-6 months)</div>
+                                    <div style="font-family: Georgia, serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.5;">January - June (5-6 months)</div>
                                 </div>
 
                                 <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
 
                                 <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: Georgia, serif;">
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
                                         <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➊ June:</strong> First attempt
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
                                         <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➋ July:</strong> Bootcamp + ACT*<br>
                                         <span style="margin-left: 16px; font-size: 0.95rem;">OR</span> <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">August:</strong> SAT attempt
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
                                         <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➌ Sept/Oct:</strong> Final attempt if needed
                                     </li>
                                 </ul>
-                                <p style="font-family: Georgia, serif; font-size: 0.875rem; color: #64748b; font-style: italic; margin-top: 0; margin-bottom: 14px; line-height: 1.4;">*July ACT not offered in NY. Students can test in nearby states (NJ, CT).</p>
+                                <p style="font-family: Georgia, serif; font-size: 0.875rem; color: #64748b; font-style: italic; margin-top: 0; margin-bottom: 14px; line-height: 1.5;">*July ACT not offered in NY. Students can test in nearby states (NJ, CT).</p>
 
                                 <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 0; font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #28AFCF;">
                                     <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #134958;">Added Benefit:</strong> Students also see improvement in their school math courses!
@@ -1110,7 +1110,7 @@ get_header();
                             <div style="padding: 20px; flex: 1;">
                                 <div style="background: #fff9f0; border: 2px solid #FF7F07; border-radius: 6px; padding: 14px; margin-bottom: 14px;">
                                     <div style="font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; color: #FF7F07; margin-bottom: 10px; text-align: center; line-height: 1.3;">Do you have foundational gaps?</div>
-                                    <p style="font-family: Georgia, serif; font-size: 0.875rem; color: #666; text-align: center; margin-bottom: 10px; line-height: 1.4;">(200+ pts below SAT goal or 6-9 pts below ACT goal, OR taking Algebra 2 now)</p>
+                                    <p style="font-family: Georgia, serif; font-size: 0.875rem; color: #666; text-align: center; margin-bottom: 10px; line-height: 1.5;">(200+ pts below SAT goal or 6-9 pts below ACT goal, OR taking Algebra 2 now)</p>
 
                                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
                                         <div style="background: white; border-radius: 5px; padding: 10px; text-align: center; border: 2px solid #28A745;">
@@ -1129,15 +1129,15 @@ get_header();
                                 <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
 
                                 <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: Georgia, serif;">
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
                                         <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➊ June:</strong> First attempt
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
                                         <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➋ July/Aug:</strong> Second attempt
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
                                         <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➌ Early Fall:</strong> Final before applications
                                     </li>
@@ -1159,21 +1159,21 @@ get_header();
                             <div style="padding: 20px; flex: 1;">
                                 <div style="background: #f8f9fa; border-radius: 6px; padding: 14px; margin-bottom: 18px; text-align: center;">
                                     <div style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; color: #134958; margin-bottom: 4px;">Summer or Fall Intensive</div>
-                                    <div style="font-family: Georgia, serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.4;">Summer: 3-6 weeks | Fall: 4-6 weeks</div>
+                                    <div style="font-family: Georgia, serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.5;">Summer: 3-6 weeks | Fall: 4-6 weeks</div>
                                 </div>
 
                                 <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Timeline Options</div>
 
                                 <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: Georgia, serif;">
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
                                         <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">Best Option - Summer:</strong> Prep during June-August, test in Aug/Sept/Oct
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
                                         <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">Last Chance - Fall:</strong> Sept/Oct crash course, test Oct/Nov only
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.4;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
                                         <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">December:</strong> Too late for most applications
                                     </li>

@@ -673,7 +673,7 @@ a.button.addtocartbutton {
 
 .nyc-blog-content-container h3 {
     font-size: 22px !important;
-    line-height: 1.4 !important;
+    line-height: 1.3 !important;
     font-weight: 600 !important;
     color: #134958 !important;
     margin: 2rem 0 1rem !important;
@@ -681,7 +681,7 @@ a.button.addtocartbutton {
 
 .nyc-blog-content-container h4 {
     font-size: 19px !important;
-    line-height: 1.4 !important;
+    line-height: 1.3 !important;
     font-weight: 600 !important;
     color: #134958 !important;
     margin: 1.5rem 0 0.75rem !important;
@@ -891,7 +891,7 @@ a.button.addtocartbutton {
     font-weight: 400 !important;
     color: #333 !important;
     font-size: 14px !important;
-    line-height: 1.4 !important;
+    line-height: 1.5 !important;
 }
 
 .elementor-element-78fc5ee ul li::before {
@@ -1040,7 +1040,7 @@ h2 {
 /* H3 - Subsection Headings */
 h3 {
     font-size: 28px !important;
-    line-height: 1.4 !important;
+    line-height: 1.3 !important;
     font-weight: 600 !important;
     color: #28AFCF !important;
     margin: 35px 0 5px !important;

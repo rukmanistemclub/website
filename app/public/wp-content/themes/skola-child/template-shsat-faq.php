@@ -2,12 +2,14 @@
 /**
  * Template Name: SHSAT FAQ - Redesigned
  * Description: Beautiful FAQ page matching site aesthetic
+ * Version: 1.3 - Chevron style standardization
  */
 
 get_header();
 ?>
 
 <style>
+    /* Typography Compliance Update - 2025-11-07 */
     /* Reset WordPress theme styles */
     #primary.content-area,
     .site-main,
@@ -34,11 +36,11 @@ get_header();
     }
 
     body {
-        font-family: Georgia, 'Times New Roman', serif;
-        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
         font-weight: 400;
-        line-height: 1.8;
-        color: #2d3748;
+        line-height: 1.7;
+        color: #333;
     }
 
     /* Hero Section */
@@ -51,13 +53,16 @@ get_header();
 
     .faq-hero h1 {
         font-size: 3rem;
+        font-weight: 800;
+        line-height: 1.1;
         margin-bottom: 20px;
-        line-height: 1.2;
         color: white;
     }
 
     .faq-hero .subtitle {
-        font-size: 1.2rem;
+        font-size: 18px;
+        line-height: 1.7;
+        color: white !important;
         opacity: 0.95;
         max-width: 800px;
         margin: 0 auto;
@@ -76,13 +81,16 @@ get_header();
     }
 
     .faq-intro h2 {
-        font-size: 2rem;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.3;
         color: #134958;
         margin-bottom: 15px;
     }
 
     .faq-intro p {
-        font-size: 1.1rem;
+        font-size: 16px;
+        line-height: 1.7;
         color: #666;
     }
 
@@ -116,9 +124,10 @@ get_header();
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 1.1rem;
+        font-size: 20px;
         font-weight: 600;
-        color: #134958;
+        line-height: 1.3;
+        color: #134958 !important;
         transition: all 0.3s;
     }
 
@@ -160,8 +169,11 @@ get_header();
     .faq-answer p {
         margin: 0 0 0.75rem 0 !important;
         padding: 0 1.5rem !important;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 400 !important;
         line-height: 1.7 !important;
-        color: #64748b !important;
+        color: #666 !important;
     }
 
     /* Paragraph after paragraph - no extra gap (bottom margin handles it) */
@@ -201,30 +213,40 @@ get_header();
         margin: 0 0 0.75rem 2rem;
         padding: 0.5rem 1.5rem 0.5rem 1.5rem;
         list-style: none;
-        color: #64748b;
-        line-height: 1.7;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        color: #666 !important;
+        line-height: 1.5 !important;
     }
 
     /* List items - comfortable spacing like SAT-ACT page */
     .faq-answer ul li {
         margin-bottom: 0.5rem;
-        line-height: 1.7;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        line-height: 1.5 !important;
         padding-left: 1.5rem;
         position: relative;
     }
 
     .faq-answer ul li:before {
-        content: "›";
+        content: "▸";
         position: absolute;
         left: 0;
         color: #28AFCF;
-        font-size: 1.4em;
+        font-weight: 700;
+        font-size: 18px;
     }
 
     /* Ordered list items */
     .faq-answer ol li {
         margin-bottom: 0.5rem;
-        line-height: 1.7;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        line-height: 1.5 !important;
         padding-left: 1.5rem;
         position: relative;
     }
@@ -317,8 +339,9 @@ get_header();
     }
 
     .nyc-testimonials-title {
-        font-size: 2.5rem;
+        font-size: 26px;
         font-weight: 700;
+        line-height: 1.3;
         color: #134958;
         text-align: center;
         margin-bottom: 40px;
@@ -338,12 +361,17 @@ get_header();
     }
 
     .faq-cta h2 {
-        font-size: 2rem;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.3;
         margin-bottom: 20px;
+        color: white !important;
     }
 
     .faq-cta p {
-        font-size: 1.1rem;
+        font-size: 18px;
+        line-height: 1.7;
+        color: white !important;
         margin-bottom: 30px;
         max-width: 700px;
         margin-left: auto;
@@ -987,9 +1015,9 @@ get_header();
         // Enqueue course styles if not already loaded
         wp_enqueue_style(
             'nyc-stem-course-styles',
-            plugin_dir_url(__FILE__) . '../../plugins/nyc-stem-courses/assets/css/course-styles.css',
+            plugins_url('nyc-stem-courses/assets/css/course-styles.css'),
             array(),
-            filemtime(plugin_dir_path(__FILE__) . '../../plugins/nyc-stem-courses/assets/css/course-styles.css')
+            filemtime(WP_PLUGIN_DIR . '/nyc-stem-courses/assets/css/course-styles.css')
         );
         include(WP_PLUGIN_DIR . '/nyc-stem-courses/templates/parts/course-benefits.php');
         ?>

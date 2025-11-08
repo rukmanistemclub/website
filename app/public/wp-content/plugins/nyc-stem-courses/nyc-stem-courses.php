@@ -933,28 +933,8 @@ class NYC_STEM_Courses {
                                     $duration = get_field('course_duration', $course_id);
                                     $formats = get_field('class_format', $course_id);
 
-                                    // Shorten duration labels for cleaner display
                                     if ($duration) {
-                                        $duration_short = $duration;
-                                        // Map long durations to short versions
-                                        $duration_map = array(
-                                            'Year-Long (Rolling Admissions)' => 'Full Year',
-                                            'Year-Long' => 'Full Year',
-                                            'Year Long' => 'Full Year',
-                                            '12-15 weeks' => '12-15 Weeks',
-                                            '4-8 Weeks' => '4-8 Weeks',
-                                            '3 Weeks' => '3 Weeks',
-                                            '3-9 week session' => '3-9 Weeks',
-                                        );
-
-                                        foreach ($duration_map as $long => $short) {
-                                            if (stripos($duration, $long) !== false) {
-                                                $duration_short = $short;
-                                                break;
-                                            }
-                                        }
-
-                                        echo '<span class="meta-badge"><span class="meta-icon">⏱️</span> ' . esc_html($duration_short) . '</span>';
+                                        echo '<span class="meta-badge"><span class="meta-icon">⏱️</span> ' . esc_html($duration) . '</span>';
                                     }
 
                                     if ($formats && is_array($formats)) {

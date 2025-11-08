@@ -99,7 +99,7 @@ get_header();
         font-weight: 600;
         color: #28AFCF;
         margin: 20px 0 12px;
-        line-height: 1.4;
+        line-height: 1.3;
     }
 
     p {
