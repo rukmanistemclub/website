@@ -35,11 +35,11 @@ get_header();
     }
 
     body {
-        font-family: Georgia, 'Times New Roman', serif;
-        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
         font-weight: 400;
-        line-height: 1.8;
-        color: #2d3748;
+        line-height: 1.7;
+        color: #333;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
@@ -74,7 +74,7 @@ get_header();
     .hero-container {
         max-width: 1400px;
         margin: 0 auto;
-        padding: 50px 10px;
+        padding: 50px 10px 0;
         position: relative;
         z-index: 1;
         display: grid;
@@ -100,7 +100,7 @@ get_header();
     }
 
     .hero-excerpt {
-        font-size: 19px;
+        font-size: 16px;
         color: rgba(255, 255, 255, 0.9);
         margin-bottom: 40px;
         font-weight: 400;
@@ -312,15 +312,18 @@ get_header();
 
     .section-light h2 {
         color: #134958;
-        font-size: 1.4em;
-        font-weight: 600;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.3;
         margin-bottom: 30px;
         text-align: center;
     }
 
     .section-light h3 {
-        color: #28AFCF;
-        font-size: 1.3rem;
+        color: #134958;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.3;
         margin: 40px 0 15px;
     }
 
@@ -403,11 +406,13 @@ get_header();
         height: 60px;
         border-radius: 50%;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         font-size: 1.8rem;
         font-weight: 700;
         flex-shrink: 0;
+        margin-top: -3px;
+        padding-top: 8px;
     }
 
     .step-content {
@@ -415,8 +420,9 @@ get_header();
     }
 
     .step-content h3 {
-        font-size: 1.4em;
+        font-size: 20px;
         font-weight: 600;
+        line-height: 1.3;
         color: #134958;
         margin: 0 0 15px;
     }
@@ -600,10 +606,10 @@ get_header();
     .faq-section h2 {
         text-align: center;
         margin-bottom: 40px;
-        color: #0f172a;
-        font-size: 2.2rem;
+        color: #134958;
+        font-size: 26px;
         font-weight: 700;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Roboto', sans-serif;
     }
 
     .faq-grid {
@@ -647,13 +653,13 @@ get_header();
     }
 
     .faq-question {
-        font-size: 1.0625rem;
-        font-weight: 700;
-        color: #000000 !important;
+        font-size: 20px;
+        font-weight: 600;
+        color: #134958 !important;
         margin: 0;
         flex: 1;
-        font-family: 'Inter', sans-serif;
-        line-height: 1.5;
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.3;
     }
 
     /* Override any theme h3 styles in FAQ */
@@ -905,7 +911,7 @@ get_header();
                             <h3>Diagnostic Testing & Choosing Your Test</h3>
                             <p>We start with comprehensive diagnostic assessments for both SAT and ACT. This identifies your strengths, determines which test suits you best, and sets realistic score goals.</p>
 
-                        <h4 style="color: #134958; font-size: 1.15rem; margin: 30px 0 15px;">Understanding the Recent Changes (2025)</h4>
+                        <h4 style="color: #134958; font-size: 18px; font-weight: 600; line-height: 1.3; margin: 30px 0 15px;">Understanding the Recent Changes (2025)</h4>
                         <p style="margin-bottom: 15px;">Both tests have undergone significant changes. The SAT is now fully digital and adaptive, while the ACT introduced an "Enhanced" format. Here's what you need to know:</p>
 
                         <div style="overflow-x: auto; margin: 25px 0;">
@@ -962,7 +968,7 @@ get_header();
                             </table>
                         </div>
 
-                        <h4 style="color: #134958; font-size: 1.15rem; margin: 30px 0 15px; font-weight: 700;"><strong>Which Test Should You Take?</strong></h4>
+                        <h4 style="color: #134958; font-size: 18px; font-weight: 600; line-height: 1.3; margin: 30px 0 15px;"><strong>Which Test Should You Take?</strong></h4>
                         <p style="margin-bottom: 15px;">Both tests are widely accepted by colleges, but they have distinct differences:</p>
                         <ul style="margin-left: 20px; margin-bottom: 20px;">
                             <li style="margin-bottom: 10px;"><strong>ACT:</strong> More straightforward with direct reading passages and consistent scoring</li>
@@ -1065,37 +1071,37 @@ get_header();
                         <!-- SOPHOMORE CARD -->
                         <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #28AFCF; display: flex; flex-direction: column; transition: transform 0.3s;">
                             <div style="background: linear-gradient(135deg, #28AFCF 0%, #1d9bb8 100%); padding: 16px 18px; text-align: center; color: white;">
-                                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Sophomore Year</h3>
+                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Sophomore Year</h3>
                                 <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0;">The Ideal Starting Point</p>
                             </div>
 
                             <div style="padding: 20px; flex: 1;">
                                 <div style="background: #f8f9fa; border-radius: 6px; padding: 14px; margin-bottom: 18px; text-align: center;">
-                                    <div style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; color: #134958; margin-bottom: 4px;">Foundational Program</div>
-                                    <div style="font-family: Georgia, serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.5;">January - June (5-6 months)</div>
+                                    <div style="font-family: 'Roboto', sans-serif; font-size: 1.05rem; font-weight: 700; color: #134958; margin-bottom: 4px;">Foundational Program</div>
+                                    <div style="font-family: 'Roboto', sans-serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.5;">January - June (5-6 months)</div>
                                 </div>
 
-                                <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
+                                <div style="font-family: 'Roboto', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
 
-                                <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: Georgia, serif;">
+                                <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: 'Roboto', sans-serif;">
                                     <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➊ June:</strong> First attempt
+                                        <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➊ June:</strong> First attempt
                                     </li>
                                     <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➋ July:</strong> Bootcamp + ACT*<br>
-                                        <span style="margin-left: 16px; font-size: 0.95rem;">OR</span> <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">August:</strong> SAT attempt
+                                        <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➋ July:</strong> Bootcamp + ACT*<br>
+                                        <span style="margin-left: 16px; font-size: 0.95rem;">OR</span> <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">August:</strong> SAT attempt
                                     </li>
                                     <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➌ Sept/Oct:</strong> Final attempt if needed
+                                        <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➌ Sept/Oct:</strong> Final attempt if needed
                                     </li>
                                 </ul>
-                                <p style="font-family: Georgia, serif; font-size: 0.875rem; color: #64748b; font-style: italic; margin-top: 0; margin-bottom: 14px; line-height: 1.5;">*July ACT not offered in NY. Students can test in nearby states (NJ, CT).</p>
+                                <p style="font-family: 'Roboto', sans-serif; font-size: 0.875rem; color: #64748b; font-style: italic; margin-top: 0; margin-bottom: 14px; line-height: 1.5;">*July ACT not offered in NY. Students can test in nearby states (NJ, CT).</p>
 
-                                <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 0; font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #28AFCF;">
-                                    <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #134958;">Added Benefit:</strong> Students also see improvement in their school math courses!
+                                <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 0; font-family: 'Roboto', sans-serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #28AFCF;">
+                                    <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #134958;">Added Benefit:</strong> Students also see improvement in their school math courses!
                                 </div>
                             </div>
                         </div>
@@ -1103,48 +1109,48 @@ get_header();
                         <!-- JUNIOR CARD -->
                         <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #FF7F07; display: flex; flex-direction: column; transition: transform 0.3s;">
                             <div style="background: linear-gradient(135deg, #FF7F07 0%, #e66f00 100%); padding: 16px 18px; text-align: center; color: white;">
-                                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Junior Year</h3>
+                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Junior Year</h3>
                                 <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0;">Critical Decision Point</p>
                             </div>
 
                             <div style="padding: 20px; flex: 1;">
                                 <div style="background: #fff9f0; border: 2px solid #FF7F07; border-radius: 6px; padding: 14px; margin-bottom: 14px;">
-                                    <div style="font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; color: #FF7F07; margin-bottom: 10px; text-align: center; line-height: 1.3;">Do you have foundational gaps?</div>
-                                    <p style="font-family: Georgia, serif; font-size: 0.875rem; color: #666; text-align: center; margin-bottom: 10px; line-height: 1.5;">(200+ pts below SAT goal or 6-9 pts below ACT goal, OR taking Algebra 2 now)</p>
+                                    <div style="font-family: 'Roboto', sans-serif; font-size: 0.95rem; font-weight: 700; color: #FF7F07; margin-bottom: 10px; text-align: center; line-height: 1.3;">Do you have foundational gaps?</div>
+                                    <p style="font-family: 'Roboto', sans-serif; font-size: 0.875rem; color: #666; text-align: center; margin-bottom: 10px; line-height: 1.5;">(200+ pts below SAT goal or 6-9 pts below ACT goal, OR taking Algebra 2 now)</p>
 
                                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
                                         <div style="background: white; border-radius: 5px; padding: 10px; text-align: center; border: 2px solid #28A745;">
-                                            <div style="font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 5px; color: white; background: #28A745;">YES</div>
-                                            <div style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; color: #1e293b; margin-bottom: 3px;">Foundational</div>
-                                            <div style="font-family: Georgia, serif; font-size: 0.8rem; color: #666; line-height: 1.3;">Jan-June (5-6 mo)</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 5px; color: white; background: #28A745;">YES</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.9rem; font-weight: 600; color: #1e293b; margin-bottom: 3px;">Foundational</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.8rem; color: #666; line-height: 1.3;">Jan-June (5-6 mo)</div>
                                         </div>
                                         <div style="background: white; border-radius: 5px; padding: 10px; text-align: center; border: 2px solid #007BFF;">
-                                            <div style="font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 5px; color: white; background: #007BFF;">NO</div>
-                                            <div style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; color: #1e293b; margin-bottom: 3px;">Bootcamp</div>
-                                            <div style="font-family: Georgia, serif; font-size: 0.8rem; color: #666; line-height: 1.3;">Year-round (6-8 wk)</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 5px; color: white; background: #007BFF;">NO</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.9rem; font-weight: 600; color: #1e293b; margin-bottom: 3px;">Bootcamp</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.8rem; color: #666; line-height: 1.3;">Year-round (6-8 wk)</div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
+                                <div style="font-family: 'Roboto', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
 
-                                <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: Georgia, serif;">
+                                <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: 'Roboto', sans-serif;">
                                     <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➊ June:</strong> First attempt
+                                        <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➊ June:</strong> First attempt
                                     </li>
                                     <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➋ July/Aug:</strong> Second attempt
+                                        <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➋ July/Aug:</strong> Second attempt
                                     </li>
                                     <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">➌ Early Fall:</strong> Final before applications
+                                        <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➌ Early Fall:</strong> Final before applications
                                     </li>
                                 </ul>
 
-                                <div style="background: #fff9f0; border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #FF7F07;">
-                                    <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #134958;">Important:</strong> After fall, focus shifts to applications. Plan accordingly.
+                                <div style="background: #fff9f0; border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-family: 'Roboto', sans-serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #FF7F07;">
+                                    <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #134958;">Important:</strong> After fall, focus shifts to applications. Plan accordingly.
                                 </div>
                             </div>
                         </div>
@@ -1152,39 +1158,39 @@ get_header();
                         <!-- SENIOR CARD -->
                         <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #F0B268; display: flex; flex-direction: column; transition: transform 0.3s;">
                             <div style="background: linear-gradient(135deg, #F0B268 0%, #d99d52 100%); padding: 16px 18px; text-align: center; color: white;">
-                                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Senior Year</h3>
+                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Senior Year</h3>
                                 <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0;">Last Chance Only</p>
                             </div>
 
                             <div style="padding: 20px; flex: 1;">
                                 <div style="background: #f8f9fa; border-radius: 6px; padding: 14px; margin-bottom: 18px; text-align: center;">
-                                    <div style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; color: #134958; margin-bottom: 4px;">Summer or Fall Intensive</div>
-                                    <div style="font-family: Georgia, serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.5;">Summer: 3-6 weeks | Fall: 4-6 weeks</div>
+                                    <div style="font-family: 'Roboto', sans-serif; font-size: 1.05rem; font-weight: 700; color: #134958; margin-bottom: 4px;">Summer or Fall Intensive</div>
+                                    <div style="font-family: 'Roboto', sans-serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.5;">Summer: 3-6 weeks | Fall: 4-6 weeks</div>
                                 </div>
 
-                                <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Timeline Options</div>
+                                <div style="font-family: 'Roboto', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Timeline Options</div>
 
-                                <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: Georgia, serif;">
+                                <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: 'Roboto', sans-serif;">
                                     <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">Best Option - Summer:</strong> Prep during June-August, test in Aug/Sept/Oct
+                                        <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">Best Option - Summer:</strong> Prep during June-August, test in Aug/Sept/Oct
                                     </li>
                                     <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">Last Chance - Fall:</strong> Sept/Oct crash course, test Oct/Nov only
+                                        <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">Last Chance - Fall:</strong> Sept/Oct crash course, test Oct/Nov only
                                     </li>
                                     <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
-                                        <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #1e293b;">December:</strong> Too late for most applications
+                                        <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">December:</strong> Too late for most applications
                                     </li>
                                 </ul>
 
-                                <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #28AFCF;">
-                                    <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #134958;">Summer Advantage:</strong> More time to prep before application season starts. Ideal for first-time test takers.
+                                <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-family: 'Roboto', sans-serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #28AFCF;">
+                                    <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #134958;">Summer Advantage:</strong> More time to prep before application season starts. Ideal for first-time test takers.
                                 </div>
 
-                                <div style="background: #fff3e0; border-radius: 6px; padding: 12px 14px; margin-top: 10px; font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #F0B268;">
-                                    <strong style="font-family: 'Inter', sans-serif; font-weight: 600; color: #134958;">Fall Reality:</strong> Extremely difficult to balance test prep with applications, essays, and school. Only if absolutely necessary.
+                                <div style="background: #fff3e0; border-radius: 6px; padding: 12px 14px; margin-top: 10px; font-family: 'Roboto', sans-serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #F0B268;">
+                                    <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #134958;">Fall Reality:</strong> Extremely difficult to balance test prep with applications, essays, and school. Only if absolutely necessary.
                                 </div>
                             </div>
                         </div>

@@ -34,11 +34,11 @@ get_header();
     }
 
     body {
-        font-family: Georgia, 'Times New Roman', serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 400;
-        line-height: 1.8;
-        color: #2d3748;
-        font-size: 18px;
+        line-height: 1.7;
+        color: #333;
+        font-size: 16px;
     }
 
     .container {
@@ -79,7 +79,7 @@ get_header();
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 26px;
         font-weight: 700;
         margin-bottom: 30px;
         color: #134958;
@@ -87,24 +87,25 @@ get_header();
     }
 
     h3 {
-        font-size: 1.5rem;
-        font-weight: 700;
+        font-size: 20px;
+        font-weight: 600;
         color: #134958;
         margin: 30px 0 20px;
         line-height: 1.3;
     }
 
     h4 {
-        font-size: 1.25rem;
+        font-size: 18px;
         font-weight: 600;
-        color: #28AFCF;
+        color: #134958;
         margin: 20px 0 12px;
         line-height: 1.3;
     }
 
     p {
         margin-bottom: 20px;
-        color: #2d3748;
+        color: #666;
+        line-height: 1.7;
     }
 
     strong {
@@ -118,7 +119,7 @@ get_header();
 
     li {
         margin-bottom: 12px;
-        line-height: 1.8;
+        line-height: 1.5;
     }
 
     /* Comparison Table */

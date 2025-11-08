@@ -35,11 +35,11 @@ get_header();
     }
 
     body {
-        font-family: Georgia, 'Times New Roman', serif;
-        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
         font-weight: 400;
-        line-height: 1.8;
-        color: #2d3748;
+        line-height: 1.7;
+        color: #333;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
