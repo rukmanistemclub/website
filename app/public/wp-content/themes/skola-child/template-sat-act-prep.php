@@ -34,6 +34,14 @@ get_header();
         box-sizing: border-box;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .cta-button.cta-primary:hover {
+        opacity: 0.9;
+    }
+
     body {
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
@@ -46,12 +54,13 @@ get_header();
 
     /* Hero Section - Course Style */
     .course-hero {
-        min-height: 40vh;
         display: flex;
         align-items: center;
         position: relative;
         overflow: hidden;
         background: linear-gradient(135deg, #134958 0%, #1a5f73 50%, #28AFCF 100%);
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     .course-hero::before {
@@ -74,7 +83,7 @@ get_header();
     .hero-container {
         max-width: 1400px;
         margin: 0 auto;
-        padding: 50px 10px 0;
+        padding: 50px 10px;
         position: relative;
         z-index: 1;
         display: grid;
@@ -100,7 +109,7 @@ get_header();
     }
 
     .hero-excerpt {
-        font-size: 16px;
+        font-size: 18px;
         color: rgba(255, 255, 255, 0.9);
         margin-bottom: 40px;
         font-weight: 400;
@@ -234,7 +243,7 @@ get_header();
     }
 
     .card-stat-label {
-        font-size: 11px;
+        font-size: 12px;
         color: #666;
         font-weight: 500;
         line-height: 1.2;
@@ -253,7 +262,7 @@ get_header();
         }
 
         .hero-excerpt {
-            font-size: 17px;
+            font-size: 18px;
         }
 
         .hero-card {
@@ -271,8 +280,7 @@ get_header();
 
     /* Trust Bar */
     .trust-bar {
-        background: #e8f5f7;
-        padding: 30px 10px;
+        display: none !important;
     }
 
     .trust-container {
@@ -295,6 +303,7 @@ get_header();
     /* Section light - consistent 1200px width */
     .section-light {
         padding: 40px 10px;
+        margin-top: 0 !important;
     }
 
     .section-light > *:not(.course-cards-section) {
@@ -331,16 +340,16 @@ get_header();
     .course-cards-section h3.course-card-title,
     .section-light .course-card-title,
     .section-light h3.course-card-title {
-        font-size: 1.1rem !important;
-        color: #1e3a5f !important;
+        font-size: 18px !important;
+        color: #134958 !important;
         margin: 0 0 14px 0 !important;
         font-weight: 700 !important;
     }
 
     .section-light p {
         margin-bottom: 20px;
-        line-height: 1.8;
-        font-size: 1.05rem;
+        line-height: 1.7;
+        font-size: 16px;
     }
 
     .section-light ul {
@@ -400,19 +409,7 @@ get_header();
     }
 
     .step-number-large {
-        background: linear-gradient(135deg, #28AFCF, #134958);
-        color: white;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        font-size: 1.8rem;
-        font-weight: 700;
-        flex-shrink: 0;
-        margin-top: -3px;
-        padding-top: 8px;
+        display: none;
     }
 
     .step-content {
@@ -425,6 +422,24 @@ get_header();
         line-height: 1.3;
         color: #134958;
         margin: 0 0 15px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .step-number-inline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #28AFCF 0%, #134958 100%);
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 24px;
+        font-weight: 700;
+        flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(40, 175, 207, 0.3);
     }
 
     .step-content p {
@@ -435,16 +450,16 @@ get_header();
     .format-cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;  /* Reduced from 35px for more compact layout */
-        margin: 30px auto 0;
-        padding-top: 20px;  /* Added 20px padding above cards */
+        gap: 20px;
+        margin: 0 auto;
+        padding-top: 0;
         max-width: 1200px;
     }
 
     .format-card {
         background: white;
         border-radius: 8px;
-        padding: 15px 12px 8px 15px;  /* Compact: minimal top/sides, minimal bottom */
+        padding: 5px 12px 18px 15px;
         box-shadow: 0 6px 24px rgba(0,0,0,0.15);  /* Stronger, more defined shadow */
         border: 1px solid rgba(40, 175, 207, 0.2);  /* Subtle teal border */
         border-top: 4px solid #28AFCF;  /* Prominent top accent */
@@ -461,9 +476,9 @@ get_header();
     .format-card h4 {
         margin-top: 0;
         margin-left: 0;  /* Flush to left edge */
-        font-size: 1.3em;
+        font-size: 18px;
         font-weight: 600;
-        color: #28AFCF;
+        color: #134958;
         margin-bottom: 10px;  /* Reduced from 15px for compact look */
     }
 
@@ -473,7 +488,7 @@ get_header();
         color: white;
         padding: 4px 12px;
         border-radius: 4px;
-        font-size: 0.85em;
+        font-size: 14px;
         margin-left: 10px;
         font-weight: 500;
     }
@@ -522,7 +537,7 @@ get_header();
         text-align: center;
         margin-bottom: 30px;
         color: #134958;
-        font-size: 2rem;
+        font-size: 26px;
     }
 
     .why-grid {
@@ -586,12 +601,12 @@ get_header();
     .benefit-content h3 {
         color: #134958;
         margin-bottom: 10px;
-        font-size: 1.1rem;
+        font-size: 20px;
     }
 
     .benefit-content p {
-        font-size: 0.9rem;
-        line-height: 1.6;
+        font-size: 16px;
+        line-height: 1.7;
         margin: 0;
     }
 
@@ -599,7 +614,7 @@ get_header();
     .faq-section {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 50px 10px;
+        padding: 0 10px 50px 10px;
         background: transparent;
     }
 
@@ -666,10 +681,11 @@ get_header();
     .faq-card h3,
     .faq-header h3,
     h3.faq-question {
-        color: #000000 !important;
-        font-size: 1.0625rem !important;
-        font-weight: 700 !important;
-        line-height: 1.5 !important;
+        color: #134958 !important;
+        font-size: 20px !important;
+        font-weight: 600 !important;
+        line-height: 1.3 !important;
+        font-family: 'Roboto', sans-serif !important;
     }
 
     .faq-icon {
@@ -690,16 +706,18 @@ get_header();
     .faq-answer {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        transition: max-height 0.4s ease;
         background: #fafbfc;
     }
 
     .faq-answer p {
         padding: 0 1.25rem;
-        color: #334155;
+        color: #333;
         line-height: 1.7;
         margin: 0 0 0.75rem 0;
-        font-size: 1.0625rem;
+        font-size: 16px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
     }
 
     .faq-answer p:first-child {
@@ -719,7 +737,7 @@ get_header();
         padding: 0.5rem 1.25rem 0.75rem 1.25rem;
         margin: 0 0 0.5rem 1.5rem;
         color: #334155;
-        line-height: 1.8;
+        line-height: 1.5;
         list-style: none;
     }
 
@@ -727,21 +745,17 @@ get_header();
         margin-bottom: 0.75rem;
         padding-left: 1.75rem;
         position: relative;
-        font-size: 1.0625rem;
+        font-size: 16px;
     }
 
     .faq-answer ul li::before {
-        content: "›";
+        content: "▸";
         position: absolute;
         left: 0;
         color: #28AFCF;
-        font-size: 1.5em;
+        font-size: 18px;
         font-weight: 700;
         line-height: 1;
-    }
-
-    .faq-card.active .faq-answer {
-        max-height: 1000px;
     }
 
     /* Final CTA */
@@ -753,13 +767,13 @@ get_header();
     }
 
     .final-cta h2 {
-        font-size: 2.3rem;
+        font-size: 26px;
         margin-bottom: 25px;
         color: white;
     }
 
     .final-cta p {
-        font-size: 1.15rem;
+        font-size: 18px;
         margin-bottom: 35px;
         max-width: 1200px;
         margin-left: auto;
@@ -841,6 +855,7 @@ get_header();
 
                         <!-- CTA Buttons -->
                         <div class="cta-group">
+                            <a href="#SATACTPrograms" class="cta-button cta-primary" style="background-color: #FF9574; color: #FFFFFF; padding: 12px 24px; border-radius: 3px; font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 700 !important; line-height: 1.8 !important; min-width: 180px !important; width: auto !important; display: inline-block !important; text-align: center !important; text-decoration: none; transition: all .3s;">View Our Programs</a>
                             <?php echo do_shortcode('[inquiry_button]'); ?>
                         </div>
                     </div>
@@ -899,87 +914,86 @@ get_header();
             </section>
 
             <!-- Your Path to Success -->
-            <section class="section-light" style="padding-top: 0;">
+            <section class="section-light" style="padding-top: 4px; margin-top: 0;">
                 <div style="max-width: 1200px; margin: 0 auto;">
                     <h2>Your Path to Success: A Strategic 3-Step Process</h2>
                     <p style="text-align: center; margin: 0 auto 35px; line-height: 1.7;">Achieving your target score isn't just about studying harder—it's about choosing the right test, the right format, and the right timeline.</p>
                 </div>
 
                     <div class="step-container">
-                        <div class="step-number-large">1</div>
                         <div class="step-content">
-                            <h3>Diagnostic Testing & Choosing Your Test</h3>
+                            <h3><span class="step-number-inline">1</span>Diagnostic Testing & Choosing Your Test</h3>
                             <p>We start with comprehensive diagnostic assessments for both SAT and ACT. This identifies your strengths, determines which test suits you best, and sets realistic score goals.</p>
 
                         <h4 style="color: #134958; font-size: 18px; font-weight: 600; line-height: 1.3; margin: 30px 0 15px;">Understanding the Recent Changes (2025)</h4>
-                        <p style="margin-bottom: 15px;">Both tests have undergone significant changes. The SAT is now fully digital and adaptive, while the ACT introduced an "Enhanced" format. Here's what you need to know:</p>
+                        <p style="margin-bottom: 2px;">Both tests have undergone significant changes. The SAT is now fully digital and adaptive, while the ACT introduced an "Enhanced" format. Here's what you need to know:</p>
 
-                        <div style="overflow-x: auto; margin: 25px 0;">
-                            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                        <div style="overflow-x: auto; margin: 0;">
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 4px; font-family: 'Roboto', sans-serif !important;">
                                 <thead>
                                     <tr style="background: #134958; color: white;">
-                                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Feature</th>
-                                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Digital SAT</th>
-                                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Enhanced ACT</th>
+                                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important; color: white !important;">Feature</th>
+                                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important; color: white !important;">Digital SAT</th>
+                                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important; color: white !important;">Enhanced ACT</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Format</strong></td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">Fully digital, adaptive</td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">Paper or digital, non-adaptive</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Format</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Fully digital, adaptive</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Paper or digital, non-adaptive</td>
                                     </tr>
                                     <tr style="background: #f8f9fa;">
-                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Total Time</strong></td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">2hr 14min</td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">2hr 5min (without science)</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Total Time</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">2hr 14min</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">2hr 5min (without science)</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Questions</strong></td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">98 total</td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">131 total (without science)</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Questions</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">98 total</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">131 total (without science)</td>
                                     </tr>
                                     <tr style="background: #f8f9fa;">
-                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Reading Passages</strong></td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">Short (1 question each)</td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">Long (multiple questions)</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Reading Passages</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Short (1 question each)</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Long (multiple questions)</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Math Weight</strong></td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">50% of score</td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">25% of score</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Math Weight</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">50% of score</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">25% of score</td>
                                     </tr>
                                     <tr style="background: #f8f9fa;">
-                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Science Section</strong></td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">No science section</td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">Optional (some colleges require)</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Science Section</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">No science section</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Optional (some colleges require)</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Difficulty</strong></td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">Module 2 harder if you do well</td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">Consistent throughout</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Difficulty</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Module 2 harder if you do well</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Consistent throughout</td>
                                     </tr>
                                     <tr style="background: #f8f9fa;">
-                                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Score Stability</strong></td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">More stable</td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">More volatile (fewer questions)</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 600 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">Score Stability</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">More stable</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; font-family: 'Roboto', sans-serif !important;">More volatile (fewer questions)</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <h4 style="color: #134958; font-size: 18px; font-weight: 600; line-height: 1.3; margin: 30px 0 15px;"><strong>Which Test Should You Take?</strong></h4>
-                        <p style="margin-bottom: 15px;">Both tests are widely accepted by colleges, but they have distinct differences:</p>
-                        <ul style="margin-left: 20px; margin-bottom: 20px;">
-                            <li style="margin-bottom: 10px;"><strong>ACT:</strong> More straightforward with direct reading passages and consistent scoring</li>
-                            <li style="margin-bottom: 10px;"><strong>SAT:</strong> Provides more time per question but can have more ambiguous passages and answer choices</li>
+                        <h4 style="color: #134958; font-size: 18px !important; font-weight: 600; line-height: 1.3; margin: 0 0 8px;">Which Test Should You Take?</h4>
+                        <p style="margin-bottom: 8px; font-family: 'Roboto', sans-serif !important; font-size: 16px !important; font-weight: 400; line-height: 1.7; color: #333;">Both tests are widely accepted by colleges, but they have distinct differences:</p>
+                        <ul style="margin-left: 20px; margin-bottom: 20px; font-family: 'Roboto', sans-serif !important; font-size: 16px !important; line-height: 1.7; color: #333;">
+                            <li style="margin-bottom: 10px; font-weight: 400; font-size: 16px !important;"><strong style="font-weight: 600;">ACT:</strong> More straightforward with direct reading passages and consistent scoring</li>
+                            <li style="margin-bottom: 10px; font-weight: 400; font-size: 16px !important;"><strong style="font-weight: 600;">SAT:</strong> Provides more time per question but can have more ambiguous passages and answer choices</li>
                         </ul>
 
-                        <p style="margin-bottom: 15px;"><span style="color: #FF7F07; font-weight: 700;">Our recommendation process:</span> After your child takes diagnostic tests for both exams, we analyze performance and recommend the test where they'll reach their target score most efficiently. If performance is similar on both, we generally recommend starting with ACT prep because:</p>
-                        <ul style="margin-left: 30px; margin-bottom: 25px; list-style: none; padding-left: 0;">
-                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 1.2em; font-weight: 700;">›</span> ACT math covers more advanced topics (geometry, trigonometry), so mastering it makes switching to SAT easier</li>
-                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 1.2em; font-weight: 700;">›</span> The ACT has historically had more consistent scoring curves</li>
-                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 1.2em; font-weight: 700;">›</span> Reading passages are more straightforward</li>
+                        <p style="margin-bottom: 15px; font-family: 'Roboto', sans-serif !important; font-size: 16px !important; font-weight: 400; line-height: 1.7; color: #333;"><span style="color: #FF7F07; font-weight: 600;">Our recommendation process:</span> After your child takes diagnostic tests for both exams, we analyze performance and recommend the test where they'll reach their target score most efficiently. If performance is similar on both, we generally recommend starting with ACT prep because:</p>
+                        <ul style="margin-left: 30px; margin-bottom: 25px; list-style: none; padding-left: 0; font-family: 'Roboto', sans-serif !important; font-size: 16px !important; line-height: 1.7; color: #333;">
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative; font-weight: 400; font-size: 16px !important;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 18px; font-weight: 700; line-height: 1;">▸</span> ACT math covers more advanced topics (geometry, trigonometry), so mastering it makes switching to SAT easier</li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative; font-weight: 400; font-size: 16px !important;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 18px; font-weight: 700; line-height: 1;">▸</span> The ACT has historically had more consistent scoring curves</li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative; font-weight: 400; font-size: 16px !important;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 18px; font-weight: 700; line-height: 1;">▸</span> Reading passages are more straightforward</li>
                         </ul>
 
                         <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
@@ -1000,17 +1014,16 @@ get_header();
             <!-- Step 2: Choose Your Format -->
             <section class="section-white">
                 <div class="content-section">
-                    <div class="step-container">
-                        <div class="step-number-large">2</div>
+                    <div class="step-container" style="margin-bottom: 0 !important; padding-bottom: 0 !important;">
                         <div class="step-content">
-                            <h3>Choose Your Learning Format</h3>
-                            <p>Once we've identified your best test, we'll help you choose the learning format that matches your goals, timeline, and learning style:</p>
+                            <h3><span class="step-number-inline">2</span>Choose Your Learning Format</h3>
+                            <p style="margin-bottom: 3px !important;">Once we've identified your best test, we'll help you choose the learning format that matches your goals, timeline, and learning style:</p>
                         </div>
                     </div>
 
-                    <div class="format-cards">
+                    <div class="format-cards" style="margin-top: 0; padding-top: 0; padding-bottom: 30px;">
                         <div class="format-card">
-                            <h4>Group Classes <span class="badge">Most Popular</span></h4>
+                            <h4 style="text-align: center;">Group Classes <span class="badge">Most Popular</span></h4>
                             <p>Small groups (max 8 students) provide:</p>
                             <ul>
                                 <li>Collaborative learning and peer motivation</li>
@@ -1024,7 +1037,7 @@ get_header();
                         </div>
 
                         <div class="format-card">
-                            <h4>Private 1-on-1 Tutoring</h4>
+                            <h4 style="text-align: center;">Private 1-on-1 Tutoring</h4>
                             <p>Personalized sessions provide:</p>
                             <ul>
                                 <li>Flexible scheduling around your commitments</li>
@@ -1038,7 +1051,7 @@ get_header();
                         </div>
 
                         <div class="format-card">
-                            <h4>Hybrid Approach</h4>
+                            <h4 style="text-align: center;">Hybrid Approach</h4>
                             <p>Many students combine formats:</p>
                             <ul>
                                 <li>Group classes for comprehensive curriculum</li>
@@ -1055,11 +1068,10 @@ get_header();
             </section>
 
             <!-- Step 3: Choose Your Path -->
-            <section class="section-light">
+            <section class="section-light" style="padding-top: 12px;">
                 <div class="step-container">
-                    <div class="step-number-large">3</div>
                     <div class="step-content">
-                        <h3>Choose Your Path</h3>
+                        <h3><span class="step-number-inline">3</span>Choose Your Path</h3>
                         <p>Transform Your Test Scores with NYC's Most Effective College Entrance Exam Prep. At NYC STEM Club, we understand that achieving your target SAT or ACT score isn't just about knowing the content—it's about mastering test-taking strategies, building stamina, and learning to perform under pressure. Our comprehensive program has helped over 500 students achieve Ivy League-level scores, with <strong>96% seeing significant improvements</strong>.</p>
                     </div>
                 </div>
@@ -1070,37 +1082,37 @@ get_header();
 
                         <!-- SOPHOMORE CARD -->
                         <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #28AFCF; display: flex; flex-direction: column; transition: transform 0.3s;">
-                            <div style="background: linear-gradient(135deg, #28AFCF 0%, #1d9bb8 100%); padding: 16px 18px; text-align: center; color: white;">
-                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Sophomore Year</h3>
-                                <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0;">The Ideal Starting Point</p>
+                            <div style="background: linear-gradient(135deg, #28AFCF 0%, #1d9bb8 100%); padding: 10px 14px; text-align: center;">
+                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: #134958 !important;">Sophomore Year</h3>
+                                <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0; color: white;">The Ideal Starting Point</p>
                             </div>
 
                             <div style="padding: 20px; flex: 1;">
                                 <div style="background: #f8f9fa; border-radius: 6px; padding: 14px; margin-bottom: 18px; text-align: center;">
                                     <div style="font-family: 'Roboto', sans-serif; font-size: 1.05rem; font-weight: 700; color: #134958; margin-bottom: 4px;">Foundational Program</div>
-                                    <div style="font-family: 'Roboto', sans-serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.5;">January - June (5-6 months)</div>
+                                    <div style="font-family: 'Roboto', sans-serif; font-size: 16px; color: #333; font-weight: 400; line-height: 1.7;">January - June (5-6 months)</div>
                                 </div>
 
                                 <div style="font-family: 'Roboto', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
 
                                 <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: 'Roboto', sans-serif;">
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 16px; line-height: 1.5; color: #333; font-weight: 400;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
                                         <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➊ June:</strong> First attempt
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 16px; line-height: 1.5; color: #333; font-weight: 400;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
                                         <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➋ July:</strong> Bootcamp + ACT*<br>
-                                        <span style="margin-left: 16px; font-size: 0.95rem;">OR</span> <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">August:</strong> SAT attempt
+                                        <span style="margin-left: 16px; font-size: 16px;">OR</span> <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">August:</strong> SAT attempt
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
+                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 16px; line-height: 1.5; color: #333; font-weight: 400;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #28AFCF;">→</span>
                                         <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➌ Sept/Oct:</strong> Final attempt if needed
                                     </li>
                                 </ul>
-                                <p style="font-family: 'Roboto', sans-serif; font-size: 0.875rem; color: #64748b; font-style: italic; margin-top: 0; margin-bottom: 14px; line-height: 1.5;">*July ACT not offered in NY. Students can test in nearby states (NJ, CT).</p>
+                                <p style="font-family: 'Roboto', sans-serif !important; font-size: 14px !important; color: #666 !important; font-style: italic; margin-top: 0; margin-bottom: 14px; line-height: 1.5 !important; font-weight: 400 !important;">*July ACT not offered in NY. Students can test in nearby states (NJ, CT).</p>
 
-                                <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 0; font-family: 'Roboto', sans-serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #28AFCF;">
+                                <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 0; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.7; border-left: 3px solid #28AFCF; color: #333; font-weight: 400;">
                                     <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #134958;">Added Benefit:</strong> Students also see improvement in their school math courses!
                                 </div>
                             </div>
@@ -1108,48 +1120,48 @@ get_header();
 
                         <!-- JUNIOR CARD -->
                         <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #FF7F07; display: flex; flex-direction: column; transition: transform 0.3s;">
-                            <div style="background: linear-gradient(135deg, #FF7F07 0%, #e66f00 100%); padding: 16px 18px; text-align: center; color: white;">
-                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Junior Year</h3>
-                                <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0;">Critical Decision Point</p>
+                            <div style="background: linear-gradient(135deg, #FF7F07 0%, #e66f00 100%); padding: 10px 14px; text-align: center;">
+                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: #134958 !important;">Junior Year</h3>
+                                <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0; color: white;">Critical Decision Point</p>
                             </div>
 
                             <div style="padding: 20px; flex: 1;">
-                                <div style="background: #fff9f0; border: 2px solid #FF7F07; border-radius: 6px; padding: 14px; margin-bottom: 14px;">
-                                    <div style="font-family: 'Roboto', sans-serif; font-size: 0.95rem; font-weight: 700; color: #FF7F07; margin-bottom: 10px; text-align: center; line-height: 1.3;">Do you have foundational gaps?</div>
-                                    <p style="font-family: 'Roboto', sans-serif; font-size: 0.875rem; color: #666; text-align: center; margin-bottom: 10px; line-height: 1.5;">(200+ pts below SAT goal or 6-9 pts below ACT goal, OR taking Algebra 2 now)</p>
+                                <div style="background: #fff9f0; border: 2px solid #FF7F07; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+                                    <div style="font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600; color: #FF7F07; margin-bottom: 8px; text-align: center; line-height: 1.3;">Do you have foundational gaps?</div>
+                                    <p style="font-family: 'Roboto', sans-serif !important; font-size: 14px !important; color: #666 !important; text-align: center; margin-bottom: 12px; line-height: 1.5 !important; font-weight: 400 !important;">(200+ pts below SAT goal or 6-9 pts below ACT goal, OR taking Algebra 2 now)</p>
 
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                                         <div style="background: white; border-radius: 5px; padding: 10px; text-align: center; border: 2px solid #28A745;">
-                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 5px; color: white; background: #28A745;">YES</div>
-                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.9rem; font-weight: 600; color: #1e293b; margin-bottom: 3px;">Foundational</div>
-                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.8rem; color: #666; line-height: 1.3;">Jan-June (5-6 mo)</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 3px; display: inline-block; margin-bottom: 6px; color: white; background: #28A745; line-height: 1;">YES</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600; color: #333; margin-bottom: 4px; line-height: 1.3;">Foundational</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 16px; color: #666; line-height: 1.3; font-weight: 400;">Jan-June<br>(5-6 mo)</div>
                                         </div>
                                         <div style="background: white; border-radius: 5px; padding: 10px; text-align: center; border: 2px solid #007BFF;">
-                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 5px; color: white; background: #007BFF;">NO</div>
-                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.9rem; font-weight: 600; color: #1e293b; margin-bottom: 3px;">Bootcamp</div>
-                                            <div style="font-family: 'Roboto', sans-serif; font-size: 0.8rem; color: #666; line-height: 1.3;">Year-round (6-8 wk)</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 3px; display: inline-block; margin-bottom: 6px; color: white; background: #007BFF; line-height: 1;">NO</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600; color: #333; margin-bottom: 4px; line-height: 1.3;">Bootcamp</div>
+                                            <div style="font-family: 'Roboto', sans-serif; font-size: 16px; color: #666; line-height: 1.3; font-weight: 400;">Year-round<br>(6-8 wk)</div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div style="font-family: 'Roboto', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
+                                <div style="font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 600; color: #64748b; margin: 16px 0 10px; padding-bottom: 6px; line-height: 1.3; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #e2e8f0;">Suggested Timeline</div>
 
                                 <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: 'Roboto', sans-serif;">
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
+                                    <li style="padding: 2px 0 2px 24px; position: relative; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.5; color: #333; font-weight: 400;">
+                                        <span style="position: absolute; left: 6px; font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 16px; color: #FF7F07;">→</span>
                                         <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➊ June:</strong> First attempt
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
+                                    <li style="padding: 2px 0 2px 24px; position: relative; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.5; color: #333; font-weight: 400;">
+                                        <span style="position: absolute; left: 6px; font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 16px; color: #FF7F07;">→</span>
                                         <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➋ July/Aug:</strong> Second attempt
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
-                                        <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #FF7F07;">→</span>
+                                    <li style="padding: 2px 0 2px 24px; position: relative; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.5; color: #333; font-weight: 400;">
+                                        <span style="position: absolute; left: 6px; font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 16px; color: #FF7F07;">→</span>
                                         <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">➌ Early Fall:</strong> Final before applications
                                     </li>
                                 </ul>
 
-                                <div style="background: #fff9f0; border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-family: 'Roboto', sans-serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #FF7F07;">
+                                <div style="background: #fff9f0; border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.5; border-left: 3px solid #FF7F07; color: #333; font-weight: 400;">
                                     <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #134958;">Important:</strong> After fall, focus shifts to applications. Plan accordingly.
                                 </div>
                             </div>
@@ -1157,39 +1169,37 @@ get_header();
 
                         <!-- SENIOR CARD -->
                         <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #F0B268; display: flex; flex-direction: column; transition: transform 0.3s;">
-                            <div style="background: linear-gradient(135deg, #F0B268 0%, #d99d52 100%); padding: 16px 18px; text-align: center; color: white;">
-                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: white;">Senior Year</h3>
-                                <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0;">Last Chance Only</p>
+                            <div style="background: linear-gradient(135deg, #F0B268 0%, #d99d52 100%); padding: 10px 14px; text-align: center;">
+                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: #134958 !important;">Senior Year</h3>
+                                <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0; color: white;">Last Chance</p>
                             </div>
 
                             <div style="padding: 20px; flex: 1;">
                                 <div style="background: #f8f9fa; border-radius: 6px; padding: 14px; margin-bottom: 18px; text-align: center;">
-                                    <div style="font-family: 'Roboto', sans-serif; font-size: 1.05rem; font-weight: 700; color: #134958; margin-bottom: 4px;">Summer or Fall Intensive</div>
-                                    <div style="font-family: 'Roboto', sans-serif; font-size: 0.95rem; color: #666; font-weight: 400; line-height: 1.5;">Summer: 3-6 weeks | Fall: 4-6 weeks</div>
+                                    <div style="font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 700; color: #333; margin-bottom: 4px; line-height: 1.7;">Summer or Fall Intensive</div>
+                                    <div style="font-family: 'Roboto', sans-serif; font-size: 16px; color: #333; font-weight: 400; line-height: 1.5;">Summer: 3-6 weeks | Fall: 4-6 weeks</div>
                                 </div>
 
-                                <div style="font-family: 'Roboto', sans-serif; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0;">Timeline Options</div>
-
                                 <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-family: 'Roboto', sans-serif;">
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
+                                    <li style="padding: 2px 0 2px 24px; position: relative; font-size: 16px; line-height: 1.5; color: #333; font-weight: 400;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
                                         <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">Best Option - Summer:</strong> Prep during June-August, test in Aug/Sept/Oct
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
+                                    <li style="padding: 2px 0 2px 24px; position: relative; font-size: 16px; line-height: 1.5; color: #333; font-weight: 400;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
                                         <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">Last Chance - Fall:</strong> Sept/Oct crash course, test Oct/Nov only
                                     </li>
-                                    <li style="padding: 8px 0 8px 24px; position: relative; font-size: 1.05rem; line-height: 1.5;">
+                                    <li style="padding: 2px 0 2px 24px; position: relative; font-size: 16px; line-height: 1.5; color: #333; font-weight: 400;">
                                         <span style="position: absolute; left: 6px; font-weight: 700; font-size: 1rem; color: #F0B268;">→</span>
                                         <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #1e293b;">December:</strong> Too late for most applications
                                     </li>
                                 </ul>
 
-                                <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-family: 'Roboto', sans-serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #28AFCF;">
+                                <div style="background: linear-gradient(135deg, rgba(40, 175, 207, 0.1), rgba(40, 175, 207, 0.05)); border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.7; border-left: 3px solid #28AFCF; color: #333; font-weight: 400;">
                                     <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #134958;">Summer Advantage:</strong> More time to prep before application season starts. Ideal for first-time test takers.
                                 </div>
 
-                                <div style="background: #fff3e0; border-radius: 6px; padding: 12px 14px; margin-top: 10px; font-family: 'Roboto', sans-serif; font-size: 0.95rem; line-height: 1.45; border-left: 3px solid #F0B268;">
+                                <div style="background: #fff3e0; border-radius: 6px; padding: 12px 14px; margin-top: 10px; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.7; border-left: 3px solid #F0B268; color: #333; font-weight: 400;">
                                     <strong style="font-family: 'Roboto', sans-serif; font-weight: 600; color: #134958;">Fall Reality:</strong> Extremely difficult to balance test prep with applications, essays, and school. Only if absolutely necessary.
                                 </div>
                             </div>
@@ -1199,59 +1209,12 @@ get_header();
                 </div>
 
                 <!-- Browse All SAT/ACT Courses -->
+                <div id="SATACTPrograms"></div>
                 <?php echo do_shortcode('[course_category category="sat-act-prep" title="SAT & ACT Test Prep Programs" columns="4"]'); ?>
             </section>
 
-            <!-- Why Choose Us -->
-            <section class="why-choose">
-                <h2>Why Choose NYC STEM Club for SAT/ACT Prep?</h2>
-                <div class="why-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                            </svg>
-                        </div>
-                        <div class="benefit-content">
-                            <h3>Proven Results</h3>
-                            <p>96% of our students improve their scores. Average improvements: 6-9 points ACT, 100+ points SAT.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12M12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
-                            </svg>
-                        </div>
-                        <div class="benefit-content">
-                            <h3>Expert Instructors</h3>
-                            <p>15+ years of experience teaching test strategy and building confidence.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 11H7V9H9M13 11H11V9H13M17 11H15V9H17M19 3H18V1H16V3H8V1H6V3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M19 19H5V8H19V19Z"/>
-                            </svg>
-                        </div>
-                        <div class="benefit-content">
-                            <h3>Personalized Approach</h3>
-                            <p>We assess both SAT and ACT to determine your best fit, then customize your study plan.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2M12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20M7 13H9V15H11V13H13V11H11V9H9V11H7V13Z"/>
-                            </svg>
-                        </div>
-                        <div class="benefit-content">
-                            <h3>Flexible Formats</h3>
-                            <p>Private 1-on-1, small groups, online, or in-person at our Manhattan location.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <!-- Why Choose NYC STEM Club - Reusable Shortcode -->
+            <?php echo do_shortcode('[why_choose_sat_act]'); ?>
 
             <!-- FAQ Section -->
             <section class="section-light">
@@ -1473,15 +1436,15 @@ get_header();
 
             <!-- Final CTA -->
             <section class="final-cta">
-                <h2>Ready to Achieve Your Target Score?</h2>
-                <p>Join the program where 96% of students improve their scores and over 80% achieve Ivy League-level results. Our expert instructors, proven strategies, and personalized approach have helped hundreds of students gain admission to their dream colleges. Start your journey with a free consultation and diagnostic assessment.</p>
+                <h2 style="font-family: 'Roboto', sans-serif !important; font-size: 26px !important; font-weight: 700 !important; color: white !important; line-height: 1.3 !important; margin-bottom: 20px !important;">Ready to Achieve Your Target Score?</h2>
+                <p style="font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 400 !important; color: white !important; line-height: 1.7 !important; max-width: 1200px !important; margin: 0 auto 30px auto !important;">Join the program where 96% of students improve their scores and over 80% achieve Ivy League-level results. Our expert instructors, proven strategies, and personalized approach have helped hundreds of students gain admission to their dream colleges. Start your journey with a free consultation and diagnostic assessment.</p>
                 <?php echo do_shortcode('[inquiry_button]'); ?>
             </section>
 
             <!-- Testimonials Section -->
             <section class="section-light" style="padding: 40px 10px;">
                 <div style="max-width: 1200px; margin: 0 auto;">
-                    <h2 style="text-align: center; margin-bottom: 35px; color: #134958; font-size: 2rem;">What Parents & Students Say</h2>
+                    <h2 style="text-align: center; margin-bottom: 35px; color: #134958; font-size: 26px;">What Parents & Students Say</h2>
                     <div style="margin: 0 auto;">
                         <?php
                         $reviews_shortcode = get_option('nyc_stem_reviews_shortcode', '[trustindex data-widget-id=d7ccd5b21eb1294a9186eebe1e6]');
@@ -1496,9 +1459,17 @@ get_header();
                     const faqCard = button.closest('.faq-card');
                     const isActive = faqCard.classList.contains('active');
                     const question = button.querySelector('.faq-question');
+                    const answer = faqCard.querySelector('.faq-answer');
 
                     // Toggle active class
                     faqCard.classList.toggle('active');
+
+                    // Set dynamic max-height based on content
+                    if (!isActive) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    } else {
+                        answer.style.maxHeight = '0';
+                    }
 
                     // Update aria-expanded attribute
                     if (question) {

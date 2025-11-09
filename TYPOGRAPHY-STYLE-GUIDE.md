@@ -1,5 +1,5 @@
 # NYC STEM Club - Typography Style Guide
-**Last Updated:** 2025-11-07
+**Last Updated:** 2025-11-09
 **Status:** ✅ APPROVED - Ready for Implementation
 
 ## Executive Summary - Approved Decisions
@@ -11,6 +11,7 @@
 - **Line Heights:** Body=1.7, Headings=1.3, Meta=1.5
 - **Colors:** All headings=#134958 (except white on dark)
 - **Small Text:** Standardize to 14px
+- **List Bullets:** Solid triangle "▸" (18px, #28AFCF, weight 700)
 - **Buttons:** No changes (keep current sizes)
 
 ---
@@ -615,6 +616,29 @@ border-radius: 6px;
 **Decision:** Simplified to 3 values - eliminates 1.4, 1.6, 1.8 mix
 
 **✅ IMPLEMENTED 2025-11-07:** All instances of line-height: 1.4 have been eliminated and replaced with appropriate values (1.3 for headings, 1.5 for meta/compact content). See implementation details below.
+
+---
+
+### **List Bullets/Chevrons**
+```css
+/* All list chevrons/bullets site-wide */
+content: "▸";           /* Solid right-pointing triangle (Unicode U+25B8) */
+font-size: 18px;        /* Absolute size, no em/rem */
+font-weight: 700;       /* Bold */
+color: #28AFCF;         /* Teal brand color */
+position: absolute;
+left: 0;
+line-height: 1;
+```
+**Decision:** ALL custom list bullets must use solid filled triangle "▸" (not outline chevron "›" or other characters)
+
+**Applies to:**
+- FAQ answer list items
+- Inline content lists
+- Feature/benefit lists
+- Any custom styled list bullets
+
+**✅ IMPLEMENTED 2025-11-09:** All chevron bullets standardized to solid triangle across SAT/ACT Prep page and FAQ sections.
 
 ---
 

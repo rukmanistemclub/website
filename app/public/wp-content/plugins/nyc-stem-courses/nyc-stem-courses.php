@@ -64,6 +64,7 @@ class NYC_STEM_Courses {
         add_shortcode('inquiry_button', array($this, 'inquiry_button_shortcode'));
         add_shortcode('course_category', array($this, 'course_category_shortcode'));
         add_shortcode('shsat_schools', array($this, 'shsat_schools_shortcode'));
+        add_shortcode('why_choose_sat_act', array($this, 'why_choose_sat_act_shortcode'));
 
         // Register query vars (fixes 404 with ?course_name= parameter)
         add_filter('query_vars', array($this, 'register_query_vars'));
@@ -1011,6 +1012,91 @@ class NYC_STEM_Courses {
         </div>
         <?php
         return ob_get_clean();
+    }
+
+    /**
+     * Why Choose NYC STEM Club - SAT/ACT Section Shortcode
+     *
+     * Usage: [why_choose_sat_act]
+     *
+     * @return string Why Choose section HTML
+     */
+    public function why_choose_sat_act_shortcode($atts) {
+        $output = '<section class="why-choose-sat-act" style="padding: 0 !important; margin: 0 !important;">';
+        $output .= '<div style="max-width: 1200px !important; margin: 0 auto !important; padding: 0 20px 24px 20px !important;">';
+
+        // Header
+        $output .= '<div style="text-align: center !important; margin-bottom: 12px !important;">';
+        $output .= '<h2 style="font-family: \'Roboto\', sans-serif !important; font-size: 26px !important; font-weight: 700 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 15px !important;">Why Choose NYC STEM Club?</h2>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 18px !important; font-weight: 400 !important; color: #555 !important; line-height: 1.7 !important; max-width: 900px !important; margin: 0 auto !important;">Our comprehensive approach combines expert instruction, proven curriculum, and personalized attention to maximize every student\'s potential.</p>';
+        $output .= '</div>';
+
+        // Benefits Grid
+        $output .= '<div class="why-choose-grid" style="display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; margin-bottom: 16px !important;">';
+
+        // Card 1
+        $output .= '<div style="background: white !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28AFCF !important;">';
+        $output .= '<div style="text-align: left !important;">';
+        $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #28AFCF, #134958) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>';
+        $output .= '</div>';
+        $output .= '<h3 style="font-family: \'Roboto\', sans-serif !important; font-size: 20px !important; font-weight: 600 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 8px !important; margin-top: 0 !important; margin-left: 50px !important; text-align: left !important;">Proven Score Improvements</h3>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; margin: 0 !important; clear: both !important;">96% of our students see significant score increases. Average gains: 6-9 points on ACT, 100+ points on SAT.</p>';
+        $output .= '</div></div>';
+
+        // Card 2
+        $output .= '<div style="background: white !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #FF7F07 !important;">';
+        $output .= '<div style="text-align: left !important;">';
+        $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #FF7F07, #e66f00) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M9 11H7V9H9M13 11H11V9H13M17 11H15V9H17M19 3H18V1H16V3H8V1H6V3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M19 19H5V8H19V19Z"/></svg>';
+        $output .= '</div>';
+        $output .= '<h3 style="font-family: \'Roboto\', sans-serif !important; font-size: 20px !important; font-weight: 600 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 8px !important; margin-top: 0 !important; margin-left: 50px !important; text-align: left !important;">Personalized, Diagnostic-Driven Strategy</h3>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; margin: 0 !important; clear: both !important;">Every student starts with diagnostic testing. We tailor our approach to your starting point, target score, and timeline.</p>';
+        $output .= '</div></div>';
+
+        // Card 3
+        $output .= '<div style="background: white !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #F0B268 !important;">';
+        $output .= '<div style="text-align: left !important;">';
+        $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #F0B268, #d99d52) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12M12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/></svg>';
+        $output .= '</div>';
+        $output .= '<h3 style="font-family: \'Roboto\', sans-serif !important; font-size: 20px !important; font-weight: 600 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 8px !important; margin-top: 0 !important; margin-left: 50px !important; text-align: left !important;">Expert Test-Prep Instructors with 15+ Years Experience</h3>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; margin: 0 !important; clear: both !important;">Specialists in SAT/ACT strategies with deep expertise in both Enhanced ACT and Digital SAT formats.</p>';
+        $output .= '</div></div>';
+
+        // Card 4
+        $output .= '<div style="background: white !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28A745 !important;">';
+        $output .= '<div style="text-align: left !important;">';
+        $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #28A745, #1e7e34) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2M12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20M7 13H9V15H11V13H13V11H11V9H9V11H7V13Z"/></svg>';
+        $output .= '</div>';
+        $output .= '<h3 style="font-family: \'Roboto\', sans-serif !important; font-size: 20px !important; font-weight: 600 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 8px !important; margin-top: 0 !important; margin-left: 50px !important; text-align: left !important;">Flexible Learning Options That Fit Your Life</h3>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; margin: 0 !important; clear: both !important;">Private 1-on-1 sessions, small group classes, in-person at our Downtown Manhattan location, or live online.</p>';
+        $output .= '</div></div>';
+
+        $output .= '</div>'; // Close grid
+
+        // Badge
+        $output .= '<div style="background: linear-gradient(135deg, #134958, #1a5f73); border-radius: 12px; padding: 15px 20px; text-align: center; box-shadow: 0 6px 25px rgba(19, 73, 88, 0.3);">';
+        $output .= '<div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">';
+        $output .= '<div style="display: flex; align-items: center; gap: 10px;">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#28AFCF" width="32" height="32"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>';
+        $output .= '<span style="font-family: \'Roboto\', sans-serif; font-size: 18px; font-weight: 700; color: white;">Fully Updated for Digital SAT &amp; Enhanced ACT</span>';
+        $output .= '</div>';
+        $output .= '<span style="font-family: \'Roboto\', sans-serif; font-size: 16px; font-weight: 400; color: rgba(255, 255, 255, 0.9);">Our curriculum reflects all the latest test format changes to ensure you\'re fully prepared.</span>';
+        $output .= '</div></div>';
+
+        $output .= '</div>'; // Close container
+
+        // Add responsive styles
+        $output .= '<style>';
+        $output .= '@media (max-width: 992px) { .why-choose-grid { grid-template-columns: repeat(2, 1fr) !important; } }';
+        $output .= '@media (max-width: 768px) { .why-choose-grid { grid-template-columns: 1fr !important; } }';
+        $output .= '</style>';
+
+        $output .= '</section>';
+
+        return $output;
     }
 }
 
