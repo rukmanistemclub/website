@@ -1,0 +1,649 @@
+/**
+ * Global Course Card Styles - Hybrid Modern Design
+ * Features: 4-column grid (3 at 1400px, 2 at 1000px, 1 at 600px)
+ * Combines elegant shadows with color-coded top borders
+ * Last updated: 2025-11-04
+ */
+
+/* Font: Roboto (site-wide standard) */
+
+/* ========================================
+   COURSE CARD SECTIONS
+   ======================================== */
+
+.course-cards-section {
+    max-width: 1200px; /* Full 1200px width */
+    width: 100%;
+    margin: 30px auto 0 auto; /* Center the section */
+    padding: 30px 0 0 0; /* No horizontal padding - full width like testimonials */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.course-cards-section h3,
+.course-cards-section .section-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px !important;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #134958 !important; /* Dark blue for section title */
+    line-height: 1.3 !important;
+}
+
+/* ========================================
+   COURSE CARD GRID
+   ======================================== */
+
+.course-card-grid,
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 25px !important;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1400px) {
+    .course-card-grid,
+    .courses-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .course-card-grid,
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .course-card-grid,
+    .courses-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ========================================
+   INDIVIDUAL COURSE CARDS
+   ======================================== */
+
+.course-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px; /* Keeps cards short and uniform */
+}
+
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Color-coded top borders */
+.course-card.card-blue {
+    border-top: 3px solid #28AFCF;
+}
+
+.course-card.card-orange {
+    border-top: 3px solid #FF7F07;
+}
+
+.course-card.card-tan {
+    border-top: 3px solid #F0B268;
+}
+
+.course-card.card-green {
+    border-top: 3px solid #10b981;
+}
+
+.course-card.card-purple {
+    border-top: 3px solid #8b5cf6;
+}
+
+/* ========================================
+   COURSE CARD CONTENT
+   ======================================== */
+
+.course-card-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #134958 !important; /* Brand teal-dark */
+    margin-bottom: 14px;
+    margin-top: 0;
+    line-height: 1.3;
+}
+
+.course-card-title a {
+    color: #134958 !important; /* Brand teal-dark */
+    text-decoration: none;
+}
+
+.course-card-title a:hover {
+    color: #28AFCF !important; /* Lighter blue on hover */
+}
+
+.course-card-meta {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.meta-badge,
+.course-card-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Remove pipe separators from plugin CSS - use flexbox gap instead */
+.course-card-meta-item::after {
+    display: none !important;
+}
+
+.meta-icon {
+    font-size: 0.9rem;
+}
+
+.course-card-description,
+.course-card-excerpt {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 20px;
+    flex: 1;
+    font-weight: 400;
+
+    /* CRITICAL: Limit description to 4 lines max */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.course-card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* ========================================
+   COURSE CARD BUTTONS
+   ======================================== */
+
+.course-card-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1rem !important;
+    transition: all 0.2s;
+    color: white !important; /* White button text */
+    box-sizing: border-box;
+}
+
+/* Button color variants */
+.course-card-button.btn-blue {
+    background: #28AFCF;
+}
+
+.course-card-button.btn-blue:hover {
+    background: #1f96b3;
+}
+
+.course-card-button.btn-orange {
+    background: #FF7F07;
+}
+
+.course-card-button.btn-orange:hover {
+    background: #e66f00;
+}
+
+.course-card-button.btn-tan {
+    background: #F0B268;
+}
+
+.course-card-button.btn-tan:hover {
+    background: #d99d52;
+}
+
+.course-card-button.btn-green {
+    background: #10b981;
+}
+
+.course-card-button.btn-green:hover {
+    background: #059669;
+}
+
+.course-card-button.btn-purple {
+    background: #8b5cf6;
+}
+
+.course-card-button.btn-purple:hover {
+    background: #7c3aed;
+}
+
+/* Mobile: Remove height restriction and line clamp */
+@media (max-width: 600px) {
+    .course-card {
+        min-height: auto;
+    }
+
+    .course-card-description,
+    .course-card-excerpt {
+        -webkit-line-clamp: unset;
+    }
+}
+
+/* ========================================
+   SPECIAL LAYOUTS
+   ======================================== */
+
+/* 2-column grid variant */
+.course-card-grid.grid-2-col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* 4-column grid variant */
+.course-card-grid.grid-4-col {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1400px) {
+    .course-card-grid.grid-4-col {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .course-card-grid.grid-4-col,
+    .course-card-grid.grid-2-col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .course-card-grid.grid-2-col,
+    .course-card-grid.grid-4-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   RELATED COURSES OVERRIDE
+   Make related courses match global style
+   ======================================== */
+
+/* Related courses section container */
+.course-related,
+section.course-related {
+    background: transparent !important;
+    padding: 0 0 50px 0 !important;
+    margin: 0 auto !important;
+    max-width: 1200px !important;
+}
+
+/* Cross-sell section (You May Also Like) - reduced bottom padding */
+.course-related.course-crosssell,
+section.course-related.course-crosssell {
+    padding: 0 0 25px 0 !important;
+}
+
+/* Related courses container - match .course-cards-section EXACTLY */
+.course-related .related-container {
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Related courses section title */
+.course-related .related-title,
+.course-related h2.related-title,
+.course-related .related-container h2,
+.course-related h2 {
+    color: #134958 !important; /* Dark blue section title */
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    font-size: 32px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 24px !important;
+    margin-top: 0 !important;
+}
+
+/* Override plugin's grid to use our standard - match .course-card-grid EXACTLY */
+.course-related .related-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 25px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Apply global styling to related courses */
+.course-related .course-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px !important;
+    border: none !important;
+}
+
+.course-related .course-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Use top border instead of full border */
+.course-related .course-card:nth-child(3n+1) {
+    border-top: 3px solid #28AFCF !important;
+}
+
+.course-related .course-card:nth-child(3n+2) {
+    border-top: 3px solid #FF7F07 !important;
+}
+
+.course-related .course-card:nth-child(3n+3) {
+    border-top: 3px solid #F0B268 !important;
+}
+
+/* Typography for related courses */
+.course-related .course-card-title,
+.course-related .course-card-title h2 {
+    font-size: 1.1rem !important;
+    margin-bottom: 14px !important;
+    margin-top: 0 !important;
+    line-height: 1.3 !important;
+    color: #134958 !important; /* Brand teal-dark */
+}
+
+.course-related .course-card-title a,
+.course-related .course-card-title h2 a {
+    color: #134958 !important; /* Brand teal-dark */
+    text-decoration: none !important;
+}
+
+.course-related .course-card-title a:hover,
+.course-related .course-card-title h2 a:hover {
+    color: #28AFCF !important; /* Lighter blue on hover */
+}
+
+.course-related .course-card-excerpt,
+.course-related .course-card-description,
+.course-related .course-card-excerpt p,
+.course-related .course-card-description p,
+.course-related .course-card-content .course-card-excerpt,
+.course-related .course-card-content .course-card-description {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+    margin-bottom: 20px !important;
+    line-height: 1.7 !important;
+
+    /* Line clamp for related courses too */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.course-related .course-card-meta {
+    margin-bottom: 12px !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+    gap: 14px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.course-related .course-card-meta-item,
+.course-related .meta-badge {
+    font-size: 14px !important;
+    gap: 5px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Remove pipe separators from plugin CSS - use flexbox gap instead */
+.course-related .course-card-meta-item::after,
+.course-related .meta-badge::after {
+    display: none !important;
+}
+
+.course-related .course-card-button {
+    display: block !important;
+    width: 100% !important;
+    padding: 14px 24px !important;
+    font-size: 1rem !important;
+    border-radius: 8px !important;
+    color: white !important; /* White button text */
+    box-sizing: border-box !important;
+}
+
+/* Button colors match border colors */
+.course-related .course-card:nth-child(3n+1) .course-card-button,
+.course-related .course-card:nth-child(3n+1) a.course-card-button {
+    background: #28AFCF !important;
+    color: white !important;
+}
+
+.course-related .course-card:nth-child(3n+2) .course-card-button,
+.course-related .course-card:nth-child(3n+2) a.course-card-button {
+    background: #FF7F07 !important;
+    color: white !important;
+}
+
+.course-related .course-card:nth-child(3n+3) .course-card-button,
+.course-related .course-card:nth-child(3n+3) a.course-card-button {
+    background: #F0B268 !important;
+    color: white !important;
+}
+
+.course-related .course-card:nth-child(3n+1) .course-card-button:hover {
+    background: #1f96b3 !important;
+}
+
+.course-related .course-card:nth-child(3n+2) .course-card-button:hover {
+    background: #e66f00 !important;
+}
+
+.course-related .course-card:nth-child(3n+3) .course-card-button:hover {
+    background: #d99d52 !important;
+}
+
+/* Responsive for related courses */
+@media (max-width: 1400px) {
+    .course-related .related-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .course-related .related-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .course-related .related-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .course-related .course-card {
+        min-height: auto !important;
+    }
+
+    .course-related .course-card-excerpt,
+    .course-related .course-card-description {
+        -webkit-line-clamp: unset !important;
+    }
+}
+
+/* ========================================
+   ARCHIVE PAGE OVERRIDE
+   Match shortcode styling (no images)
+   ======================================== */
+
+/* Archive course cards - match shortcode style */
+.courses-grid .course-card {
+    padding: 24px !important; /* Full padding like shortcode cards */
+    min-height: 280px !important; /* Match shortcode cards */
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+.courses-grid .course-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Hide image container if no image */
+.courses-grid .course-card-image {
+    display: none !important;
+}
+
+/* Use color-coded borders like shortcode cards */
+.courses-grid .course-card:nth-child(4n+1) {
+    border-top: 3px solid #28AFCF !important;
+}
+
+.courses-grid .course-card:nth-child(4n+2) {
+    border-top: 3px solid #FF7F07 !important;
+}
+
+.courses-grid .course-card:nth-child(4n+3) {
+    border-top: 3px solid #F0B268 !important;
+}
+
+.courses-grid .course-card:nth-child(4n+4) {
+    border-top: 3px solid #10b981 !important;
+}
+
+.courses-grid .course-card-content {
+    padding: 0 !important; /* No extra padding since card already has it */
+}
+
+.courses-grid .course-card-title {
+    font-size: 1.1rem !important;
+    color: #134958 !important; /* Brand teal-dark */
+    margin-bottom: 14px !important;
+    margin-top: 18px !important; /* Space from image */
+}
+
+.courses-grid .course-card-title a {
+    color: #134958 !important; /* Brand teal-dark */
+}
+
+.courses-grid .course-card-title a:hover {
+    color: #28AFCF !important; /* Lighter blue on hover */
+}
+
+.courses-grid .course-card-meta {
+    margin-bottom: 12px !important;
+    gap: 14px !important;
+}
+
+.courses-grid .course-card-meta-item {
+    font-size: 14px !important;
+    gap: 5px !important;
+}
+
+.courses-grid .course-card-excerpt {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+    line-height: 1.7 !important;
+    margin-bottom: 20px !important;
+
+    /* Line clamp matches shortcode cards */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4 !important; /* 4 lines to match shortcode cards */
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.courses-grid .course-card-button {
+    display: block !important;
+    width: 100% !important;
+    padding: 14px 24px !important;
+    font-size: 1rem !important;
+    border-radius: 8px !important;
+    color: white !important; /* White button text */
+    box-sizing: border-box !important;
+}
+
+/* Button colors match border colors */
+.courses-grid .course-card:nth-child(4n+1) .course-card-button {
+    background: #28AFCF !important;
+}
+
+.courses-grid .course-card:nth-child(4n+1) .course-card-button:hover {
+    background: #1f96b3 !important;
+}
+
+.courses-grid .course-card:nth-child(4n+2) .course-card-button {
+    background: #FF7F07 !important;
+}
+
+.courses-grid .course-card:nth-child(4n+2) .course-card-button:hover {
+    background: #e66f00 !important;
+}
+
+.courses-grid .course-card:nth-child(4n+3) .course-card-button {
+    background: #F0B268 !important;
+}
+
+.courses-grid .course-card:nth-child(4n+3) .course-card-button:hover {
+    background: #d99d52 !important;
+}
+
+.courses-grid .course-card:nth-child(4n+4) .course-card-button {
+    background: #10b981 !important;
+}
+
+.courses-grid .course-card:nth-child(4n+4) .course-card-button:hover {
+    background: #059669 !important;
+}
+
+/* Category badge on image */
+.course-category-badge {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    background: rgba(19, 73, 88, 0.9) !important;
+    color: white !important;
+    padding: 6px 12px !important;
+    border-radius: 4px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+}
+
+.courses-grid .course-card-image {
+    position: relative !important;
+}
+

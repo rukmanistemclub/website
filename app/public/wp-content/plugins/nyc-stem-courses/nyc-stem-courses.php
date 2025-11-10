@@ -3,7 +3,7 @@
  * Plugin Name: NYC STEM Club Courses
  * Plugin URI: https://nycstemclub.com
  * Description: Custom course management system for NYC STEM Club - replaces WooCommerce for course display with modern design and inquiry functionality.
- * Version: 2.1.8
+ * Version: 2.3.0
  * Author: NYC STEM Club
  * Author URI: https://nycstemclub.com
  * License: GPL v2 or later
@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('NYC_STEM_COURSES_VERSION', '2.1.8');
+define('NYC_STEM_COURSES_VERSION', '2.3.0');
 define('NYC_STEM_COURSES_PATH', plugin_dir_path(__FILE__));
 define('NYC_STEM_COURSES_URL', plugin_dir_url(__FILE__));
 
@@ -65,6 +65,8 @@ class NYC_STEM_Courses {
         add_shortcode('course_category', array($this, 'course_category_shortcode'));
         add_shortcode('shsat_schools', array($this, 'shsat_schools_shortcode'));
         add_shortcode('why_choose_sat_act', array($this, 'why_choose_sat_act_shortcode'));
+        add_shortcode('why_choose_shsat', array($this, 'why_choose_shsat_shortcode'));
+        add_shortcode('testimonials', array($this, 'testimonials_shortcode'));
 
         // Register query vars (fixes 404 with ?course_name= parameter)
         add_filter('query_vars', array($this, 'register_query_vars'));
@@ -806,7 +808,7 @@ class NYC_STEM_Courses {
         }
 
         // Get styling settings from WordPress
-        $orange_color = get_option('nyc_stem_inquiry_button_orange_color', '#FF7F07');
+        $orange_color = get_option('nyc_stem_inquiry_button_orange_color', '#FF9574');
         $teal_color = get_option('nyc_stem_inquiry_button_teal_color', '#28AFCF');
         $text_color = get_option('nyc_stem_inquiry_button_text_color', '#FFFFFF');
         $font_size = get_option('nyc_stem_inquiry_button_font_size', '24px');
@@ -879,21 +881,31 @@ class NYC_STEM_Courses {
             return '<p style="color: red;">Error: Category attribute is required for [course_category] shortcode.</p>';
         }
 
-        // Query courses by category
-        $courses = get_posts(array(
-            'post_type' => 'course',
-            'posts_per_page' => intval($atts['limit']),
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'course_category',
-                    'field' => 'slug',
-                    'terms' => sanitize_text_field($atts['category']),
+        // Query courses by category with caching
+        $cache_key = 'course_cat_' . sanitize_text_field($atts['category']) . '_' . intval($atts['limit']);
+        $courses = wp_cache_get($cache_key, 'nyc_stem_courses');
+
+        if (false === $courses) {
+            $courses = get_posts(array(
+                'post_type' => 'course',
+                'posts_per_page' => intval($atts['limit']),
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'course_category',
+                        'field' => 'slug',
+                        'terms' => sanitize_text_field($atts['category']),
+                    ),
                 ),
-            ),
-            'orderby' => 'menu_order title',
-            'order' => 'ASC',
-            'fields' => 'ids',
-        ));
+                'orderby' => 'menu_order title',
+                'order' => 'ASC',
+                'fields' => 'ids',
+                'no_found_rows' => true,
+                'update_post_meta_cache' => false,
+                'update_post_term_cache' => false,
+            ));
+
+            wp_cache_set($cache_key, $courses, 'nyc_stem_courses', 300); // Cache for 5 minutes
+        }
 
         if (empty($courses)) {
             return ''; // Return nothing if no courses found
@@ -928,7 +940,7 @@ class NYC_STEM_Courses {
                         <div class="course-card <?php echo $card_class; ?>">
                             <h3 class="course-card-title"><?php echo get_the_title($course_id); ?></h3>
 
-                            <?php if ($atts['show_meta'] === 'yes') : ?>
+                            <?php if ($atts['show_meta'] === 'yes' && function_exists('get_field')) : ?>
                                 <div class="course-card-meta">
                                     <?php
                                     $duration = get_field('course_duration', $course_id);
@@ -1022,20 +1034,20 @@ class NYC_STEM_Courses {
      * @return string Why Choose section HTML
      */
     public function why_choose_sat_act_shortcode($atts) {
-        $output = '<section class="why-choose-sat-act" style="padding: 0 !important; margin: 0 !important;">';
-        $output .= '<div style="max-width: 1200px !important; margin: 0 auto !important; padding: 0 20px 24px 20px !important;">';
+        $output = '<section class="why-choose-sat-act" style="padding: 0 !important; margin: 0 !important; background: #CDE9F6 !important;">';
+        $output .= '<div style="max-width: 1200px !important; margin: 0 auto !important; padding: 10px 20px 24px 20px !important;">';
 
         // Header
         $output .= '<div style="text-align: center !important; margin-bottom: 12px !important;">';
-        $output .= '<h2 style="font-family: \'Roboto\', sans-serif !important; font-size: 26px !important; font-weight: 700 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 15px !important;">Why Choose NYC STEM Club?</h2>';
-        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 18px !important; font-weight: 400 !important; color: #555 !important; line-height: 1.7 !important; max-width: 900px !important; margin: 0 auto !important;">Our comprehensive approach combines expert instruction, proven curriculum, and personalized attention to maximize every student\'s potential.</p>';
+        $output .= '<h2 style="font-family: \'Roboto\', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 15px !important;">Why Choose NYC STEM Club?</h2>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 18px !important; font-weight: 400 !important; color: #555 !important; line-height: 1.6 !important; max-width: 900px !important; margin: 0 auto !important;">Our comprehensive approach combines expert instruction, proven curriculum, and personalized attention to maximize every student\'s potential.</p>';
         $output .= '</div>';
 
         // Benefits Grid
         $output .= '<div class="why-choose-grid" style="display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; margin-bottom: 16px !important;">';
 
         // Card 1
-        $output .= '<div style="background: white !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28AFCF !important;">';
+        $output .= '<div style="background: #EFF8FB !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28AFCF !important;">';
         $output .= '<div style="text-align: left !important;">';
         $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #28AFCF, #134958) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
         $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>';
@@ -1045,7 +1057,7 @@ class NYC_STEM_Courses {
         $output .= '</div></div>';
 
         // Card 2
-        $output .= '<div style="background: white !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #FF7F07 !important;">';
+        $output .= '<div style="background: #EFF8FB !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #FF7F07 !important;">';
         $output .= '<div style="text-align: left !important;">';
         $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #FF7F07, #e66f00) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
         $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M9 11H7V9H9M13 11H11V9H13M17 11H15V9H17M19 3H18V1H16V3H8V1H6V3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M19 19H5V8H19V19Z"/></svg>';
@@ -1055,7 +1067,7 @@ class NYC_STEM_Courses {
         $output .= '</div></div>';
 
         // Card 3
-        $output .= '<div style="background: white !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #F0B268 !important;">';
+        $output .= '<div style="background: #EFF8FB !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #F0B268 !important;">';
         $output .= '<div style="text-align: left !important;">';
         $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #F0B268, #d99d52) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
         $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12M12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/></svg>';
@@ -1065,7 +1077,7 @@ class NYC_STEM_Courses {
         $output .= '</div></div>';
 
         // Card 4
-        $output .= '<div style="background: white !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28A745 !important;">';
+        $output .= '<div style="background: #EFF8FB !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28A745 !important;">';
         $output .= '<div style="text-align: left !important;">';
         $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #28A745, #1e7e34) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
         $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2M12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20M7 13H9V15H11V13H13V11H11V9H9V11H7V13Z"/></svg>';
@@ -1094,6 +1106,156 @@ class NYC_STEM_Courses {
         $output .= '@media (max-width: 768px) { .why-choose-grid { grid-template-columns: 1fr !important; } }';
         $output .= '</style>';
 
+        $output .= '</section>';
+
+        return $output;
+    }
+
+    /**
+     * Why Choose SHSAT Shortcode
+     * Displays the "Why Choose NYC STEM Club?" section for SHSAT pages
+     * Usage: [why_choose_shsat]
+     */
+    public function why_choose_shsat_shortcode($atts) {
+        $output = '<style>';
+
+        // Section H2 Title
+        $output .= '.why-choose-shsat h2 { font-family: \'Roboto\', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; color: #134958 !important; line-height: 1.3 !important; text-align: center !important; margin-bottom: 20px !important; }';
+
+        // Why Choose Grid Styles
+        $output .= '.why-choose-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; margin: 40px 0 !important; }';
+        $output .= '.section .why-choose-grid .benefit-card, .why-choose-grid .benefit-card { background: #EFF8FB !important; padding: 20px !important; border-radius: 12px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28AFCF !important; border-left: 3px solid #28AFCF !important; text-align: left !important; transition: all 0.3s ease !important; min-height: 140px !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(1) { border-left-color: #28AFCF !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(2) { border-left-color: #FF7F07 !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(3) { border-left-color: #F0B268 !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(4) { border-left-color: #28A745 !important; }';
+        $output .= '.why-choose-grid .benefit-card:hover { transform: translateY(-3px) !important; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important; }';
+        $output .= '.why-choose-grid .benefit-card .benefit-icon, .benefit-card .benefit-icon { width: 28px !important; height: 28px !important; border-radius: 6px !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-right: 10px !important; float: left !important; flex-shrink: 0 !important; }';
+        $output .= '.why-choose-grid .benefit-card .benefit-icon svg { width: 16px !important; height: 16px !important; flex-shrink: 0 !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(1) .benefit-icon { background: linear-gradient(135deg, #28AFCF, #1a9cb8) !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(2) .benefit-icon { background: linear-gradient(135deg, #FF7F07, #e66f00) !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(3) .benefit-icon { background: linear-gradient(135deg, #F0B268, #d99d52) !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(4) .benefit-icon { background: linear-gradient(135deg, #28A745, #1e7e34) !important; }';
+        $output .= '.why-choose-grid .benefit-card h3, .benefit-card h3 { font-family: \'Roboto\', sans-serif !important; font-size: 18px !important; font-weight: 600 !important; line-height: 1.3 !important; color: #134958 !important; margin: 0 0 8px 0 !important; margin-left: 40px !important; margin-top: 0 !important; text-align: left !important; }';
+        $output .= '.why-choose-grid .benefit-card p, .benefit-card p { font-family: \'Roboto\', sans-serif !important; font-size: 15px !important; line-height: 1.6 !important; color: #333 !important; margin: 0 !important; font-weight: 400 !important; clear: both !important; text-align: left !important; }';
+
+        // Badge Styles
+        $output .= '.why-choose-badge { background: linear-gradient(135deg, #134958, #1a5f73); border-radius: 12px; padding: 15px 20px; text-align: center; box-shadow: 0 6px 25px rgba(19, 73, 88, 0.3); margin-top: 20px; }';
+        $output .= '.why-choose-badge .badge-content { display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; }';
+        $output .= '.why-choose-badge .badge-icon-text { display: flex; align-items: center; gap: 10px; }';
+        $output .= '.why-choose-badge svg { flex-shrink: 0; }';
+        $output .= '.why-choose-badge .badge-title { font-family: \'Roboto\', sans-serif; font-size: 18px; font-weight: 700; color: white; margin: 0; }';
+        $output .= '.why-choose-badge .badge-subtitle { font-family: \'Roboto\', sans-serif; font-size: 16px; font-weight: 400; color: rgba(255, 255, 255, 0.9); margin: 0; }';
+
+        // Responsive Styles
+        $output .= '@media (max-width: 992px) { .why-choose-grid { grid-template-columns: repeat(2, 1fr) !important; } }';
+        $output .= '@media (max-width: 768px) { .why-choose-grid { grid-template-columns: 1fr !important; } }';
+
+        $output .= '</style>';
+
+        // HTML Content with Container
+        $output .= '<section class="why-choose-shsat" style="padding: 0 !important; margin: 0 !important; background: #CDE9F6 !important;">';
+        $output .= '<div style="max-width: 1200px !important; margin: 0 auto !important; padding: 10px 20px 24px 20px !important;">';
+        $output .= '<h2>Why Choose NYC STEM Club?</h2>';
+        $output .= '<div class="why-choose-grid">';
+
+        // Card 1: Proven Track Record
+        $output .= '<div class="benefit-card">';
+        $output .= '<div style="text-align: left;">';
+        $output .= '<div class="benefit-icon">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20">';
+        $output .= '<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>';
+        $output .= '</svg>';
+        $output .= '</div>';
+        $output .= '<h3>Proven Track Record</h3>';
+        $output .= '<p>90%+ acceptance rate consistently for over a decade. Real results, real success stories.</p>';
+        $output .= '</div>';
+        $output .= '</div>';
+
+        // Card 2: Comprehensive Curriculum
+        $output .= '<div class="benefit-card">';
+        $output .= '<div style="text-align: left;">';
+        $output .= '<div class="benefit-icon">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20">';
+        $output .= '<path d="M12 3L1 9L5 11.18V17.18L12 21L19 17.18V11.18L21 10.09V17H23V9L12 3M18.82 9L12 12.72L5.18 9L12 5.28L18.82 9M17 16L12 18.72L7 16V12.27L12 15L17 12.27V16Z"/>';
+        $output .= '</svg>';
+        $output .= '</div>';
+        $output .= '<h3>Comprehensive Curriculum</h3>';
+        $output .= '<p>Complete 3-module system covering all SHSAT topics with depth and mastery.</p>';
+        $output .= '</div>';
+        $output .= '</div>';
+
+        // Card 3: Small Group Classes
+        $output .= '<div class="benefit-card">';
+        $output .= '<div style="text-align: left;">';
+        $output .= '<div class="benefit-icon">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20">';
+        $output .= '<path d="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z"/>';
+        $output .= '</svg>';
+        $output .= '</div>';
+        $output .= '<h3>Small Group Classes</h3>';
+        $output .= '<p>Personalized attention with small class sizes and private tutoring options.</p>';
+        $output .= '</div>';
+        $output .= '</div>';
+
+        // Card 4: Digital SHSAT Ready
+        $output .= '<div class="benefit-card">';
+        $output .= '<div style="text-align: left;">';
+        $output .= '<div class="benefit-icon">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20">';
+        $output .= '<path d="M17 1.01L7 1C5.9 1 5 1.9 5 3V21C5 22.1 5.9 23 7 23H17C18.1 23 19 22.1 19 21V3C19 1.9 18.1 1.01 17 1.01M17 19H7V5H17V19M16 13H13V16H11V13H8V11H11V8H13V11H16V13Z"/>';
+        $output .= '</svg>';
+        $output .= '</div>';
+        $output .= '<h3>Digital SHSAT Ready</h3>';
+        $output .= '<p>Extensive practice on authentic digital platform to prepare for the real test experience.</p>';
+        $output .= '</div>';
+        $output .= '</div>';
+
+        $output .= '</div>'; // Close why-choose-grid
+
+        // Badge
+        $output .= '<div class="why-choose-badge">';
+        $output .= '<div class="badge-content">';
+        $output .= '<div class="badge-icon-text">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#28AFCF" width="32" height="32">';
+        $output .= '<path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>';
+        $output .= '</svg>';
+        $output .= '<span class="badge-title">Fully Updated for Digital SHSAT Format</span>';
+        $output .= '</div>';
+        $output .= '<span class="badge-subtitle">Our curriculum reflects all the latest test format changes to ensure you\'re fully prepared.</span>';
+        $output .= '</div>';
+        $output .= '</div>';
+
+        $output .= '</div>'; // Close container
+        $output .= '</section>'; // Close section
+
+        return $output;
+    }
+
+    /**
+     * Testimonials Shortcode
+     * Displays the "What our Students and Parents have to say" testimonials section
+     * Usage: [testimonials]
+     * Place manually in templates with: <?php echo do_shortcode('[testimonials]'); ?>
+     */
+    public function testimonials_shortcode($atts) {
+        // Get the reviews shortcode from options (allows admin to customize)
+        $reviews_shortcode = get_option('nyc_stem_reviews_shortcode', '[trustindex data-widget-id=d7ccd5b21eb1294a9186eebe1e6]');
+
+        $output = '<style>';
+        $output .= '.nyc-testimonials-section { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 4px 10px 40px 10px; margin: 30px 0; }';
+        $output .= '.nyc-testimonials-container { max-width: 1200px; margin: 0 auto; }';
+        $output .= '.nyc-testimonials-title { font-family: \'Roboto\', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; line-height: 1.3 !important; color: #134958 !important; text-align: center !important; margin-bottom: 40px !important; }';
+        $output .= '.nyc-testimonials-content { margin: 0 auto; }';
+        $output .= '</style>';
+
+        $output .= '<section class="nyc-testimonials-section">';
+        $output .= '<div class="nyc-testimonials-container">';
+        $output .= '<h2 class="nyc-testimonials-title">What our Students and Parents have to say</h2>';
+        $output .= '<div class="nyc-testimonials-content">';
+        $output .= do_shortcode($reviews_shortcode);
+        $output .= '</div>';
+        $output .= '</div>';
         $output .= '</section>';
 
         return $output;

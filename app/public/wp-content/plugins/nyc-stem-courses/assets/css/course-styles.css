@@ -24,17 +24,17 @@ h1, .h1 {
 }
 
 h2, .h2 {
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 700;
     line-height: 1.3;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 h3, .h3 {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     line-height: 1.3;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 h4, .h4 {
@@ -47,7 +47,7 @@ h4, .h4 {
 /* Body Text */
 p {
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.6;
     margin-bottom: 16px;
 }
 
@@ -59,7 +59,7 @@ p {
 /* Large Body Text */
 .section-subtitle {
     font-size: 20px;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 /* Reset for course pages */
@@ -69,6 +69,7 @@ p {
 
 .course-single {
     overflow-x: hidden;
+    background: #EFF8FB;
 }
 
 /* ===========================
@@ -117,7 +118,7 @@ p {
     font-weight: 800 !important;
     color: #ffffff !important;
     margin-bottom: 8px;
-    line-height: 1.1;
+    line-height: 1.2;
     letter-spacing: -1px;
 }
 
@@ -133,7 +134,7 @@ p {
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 40px;
     font-weight: 400;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 .hero-stats-mini {
@@ -200,11 +201,11 @@ p {
     gap: 10px;
     background: #FF7F07;
     color: white;
-    padding: 8px 26px;
+    padding: 12px 28px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 10px 40px rgba(255, 127, 7, 0.3);
     border: none;
@@ -248,8 +249,8 @@ p {
 
 /* Compact Button - Slimmer for inline use */
 .cta-compact {
-    padding: 10px 20px !important;
-    font-size: 15px !important;
+    padding: 8px 18px !important;
+    font-size: 14px !important;
     min-width: auto !important;
     width: auto !important;
 }
@@ -281,11 +282,12 @@ p {
 }
 
 .hero-card h3 {
-    font-size: 16px;
-    color: #134958;
-    margin-bottom: 12px;
-    text-align: center;
-    font-weight: 700;
+    font-size: 24px !important;
+    color: #134958 !important;
+    margin-bottom: 12px !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
 }
 
 .hero-card-grid {
@@ -400,6 +402,16 @@ p {
    SECTION STYLES
    =========================== */
 .section {
+    background: #CDE9F6;
+    padding: 15px 30px 0 30px;
+}
+
+.section#program {
+    background: #F7F9FB;
+}
+
+.section#faqs {
+    background: #EFF8FB;
     padding: 15px 30px 25px 30px;
 }
 
@@ -437,7 +449,7 @@ p {
 .section-title {
     color: #134958;
     text-align: center;
-    font-size: 26px;
+    font-size: 32px;
     margin-bottom: 8px;
     font-weight: 700;
     line-height: 1.3;
@@ -450,6 +462,16 @@ p {
     max-width: 700px;
     margin: 0 auto;
     font-weight: 400;
+}
+
+.related-title {
+    color: #134958;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    line-height: 1.3;
+    padding-top: 10px;
 }
 
 /* ===========================
@@ -541,7 +563,7 @@ p {
     font-size: 16px !important;
     font-family: 'Roboto', sans-serif !important;
     color: #666 !important;
-    line-height: 1.7 !important;
+    line-height: 1.6 !important;
     margin: 0 !important;
 }
 
@@ -656,9 +678,7 @@ p {
         grid-template-columns: 1fr;
     }
 
-    .section-title {
-        font-size: 1.4rem;
-    }
+    /* .section-title maintains 32px per typography guide */
 }
 
 /* ===========================
@@ -776,7 +796,7 @@ p {
 }
 
 .course-details-compact {
-    background: #f8f9fa;
+    background: #F7F9FB;
     padding: 20px;
     border-radius: 10px;
     margin: 25px 0;
@@ -786,7 +806,7 @@ p {
 .course-details-compact p {
     margin: 10px 0;
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
 .course-details-compact p:first-child {
@@ -1110,7 +1130,7 @@ p {
 }
 
 .module-title {
-    font-size: 26px;
+    font-size: 32px;
     color: #134958;
     margin-bottom: 10px;
     font-weight: 700;
@@ -1129,7 +1149,7 @@ p {
     color: #333;
     margin: 18px 0 12px;
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 .module-list {
@@ -1337,7 +1357,7 @@ p {
     font-size: 16px !important;
     color: #666;
     font-weight: 400 !important;
-    line-height: 1.7 !important;
+    line-height: 1.6 !important;
     margin: 0 0 8px 0;
 }
 
@@ -1424,7 +1444,7 @@ p {
    =========================== */
 .cta-section {
     background: linear-gradient(135deg, #134958 0%, #1a5f73 50%, #28AFCF 100%);
-    padding: 40px 40px;
+    padding: 16px 40px 25px 40px;
     position: relative;
     overflow: hidden;
 }
@@ -1467,11 +1487,11 @@ p {
 }
 
 .cta-title {
-    font-size: 42px;
-    font-weight: 800;
+    font-size: 32px;
+    font-weight: 700;
     color: white !important;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.3;
 }
 
 .cta-subtitle {
@@ -1530,9 +1550,7 @@ p {
         line-height: 1.6;
     }
 
-    .section-title {
-        font-size: 22px;
-    }
+    /* .section-title maintains 32px per typography guide */
 
     .features-bento {
         grid-template-columns: 1fr;
@@ -1719,8 +1737,8 @@ p {
 }
 
 .course-card-title {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 17.6px;
+    font-weight: 600;
     margin-bottom: 10px;
     line-height: 1.3;
     color: #134958;
@@ -1811,8 +1829,8 @@ p {
 
 /* Testimonials Section on Archive */
 .course-testimonials {
-    background: #e8f5f7;
-    padding: 80px 20px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 20px 20px;
 }
 
 .testimonials-container {
@@ -1821,10 +1839,10 @@ p {
 }
 
 .testimonials-title {
-    font-size: 42px;
-    font-weight: 800;
+    font-size: 32px;
+    font-weight: 700;
     text-align: center;
-    color: #1a1a1a;
+    color: #134958;
     margin-bottom: 50px;
 }
 
@@ -1875,7 +1893,7 @@ p {
 
 .course-description-content {
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.6;
     color: #333;
 }
 
@@ -1886,7 +1904,7 @@ p {
 
 /* Headings */
 .course-description-content h2 {
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 700;
     color: #134958;
     margin: 50px 0 25px 0;
@@ -1898,7 +1916,7 @@ p {
 }
 
 .course-description-content h3 {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     color: #134958;
     margin: 30px 0 15px 0;
@@ -1916,12 +1934,14 @@ p {
 /* Paragraphs */
 .course-description-content p {
     margin: 0 0 20px 0;
-    line-height: 1.8;
+    line-height: 1.6;
+    font-size: 16px !important;
+    color: #333 !important;
 }
 
 .course-description-content p.lead {
     font-size: 1.15rem;
-    line-height: 1.8;
+    line-height: 1.6;
     color: #555;
 }
 
@@ -2013,11 +2033,11 @@ p {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .course-description-content h2 {
-        font-size: 1.5rem;
+        font-size: 32px; /* Maintain H2 standard on mobile */
     }
 
     .course-description-content h3 {
-        font-size: 1.2rem;
+        font-size: 24px; /* Maintain H3 standard on mobile */
     }
 
     .course-description-content .digital-sat-features,
@@ -2108,4 +2128,120 @@ p {
     .highlight-item {
         padding: 20px;
     }
+}
+
+/* ===========================
+   ELEMENTOR OVERRIDES - Typography v2.0
+   Force our typography standards over Elementor
+   =========================== */
+
+/* EXCEPTION: Preserve ALL Hero section styles - must come first */
+/* Hero H1 - 48px */
+.course-hero .hero-content h1,
+.hero-content h1,
+.faq-hero h1,
+.elementor .course-hero h1,
+.elementor .hero-content h1 {
+    font-size: 48px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    color: #ffffff !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* Hero H2 - When hero title is H2 instead of H1 */
+.course-hero h2,
+.hero-content h2,
+.faq-hero h2,
+.cta-hero h2,
+.hero-section h2,
+.elementor .course-hero h2,
+.elementor .hero-content h2,
+.elementor .faq-hero h2 {
+    font-size: 48px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    color: #ffffff !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* Hero H3, H4, paragraphs - all white */
+.course-hero h3, .course-hero h4, .course-hero p,
+.hero-content h3, .hero-content h4, .hero-content p,
+.faq-hero h3, .faq-hero h4, .faq-hero p,
+.elementor .course-hero h3, .elementor .course-hero h4, .elementor .course-hero p,
+.elementor .hero-content h3, .elementor .hero-content h4, .elementor .hero-content p {
+    color: #ffffff !important;
+}
+
+/* EXCEPTION: Hero card titles should be dark teal and bold (Our Track Record, 1-on-1 Advantages, etc.) */
+.course-hero .hero-card h3,
+.hero-card h3 {
+    color: #134958 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+
+/* H2 Headings - 32px */
+.elementor-widget-heading h2,
+.elementor-heading-title.elementor-size-default,
+h2.elementor-heading-title,
+.elementor h2,
+.elementor-element h2 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    color: #134958 !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* H3 Headings - 24px */
+.elementor-widget-heading h3,
+h3.elementor-heading-title,
+.elementor h3,
+.elementor-element h3 {
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    color: #134958 !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* H4 Headings - 18px */
+.elementor-widget-heading h4,
+h4.elementor-heading-title,
+.elementor h4,
+.elementor-element h4 {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    color: #134958 !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* Body text */
+.elementor-widget-text-editor p,
+.elementor-element p,
+.elementor p {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* Buttons */
+.elementor-button,
+.elementor-button-link,
+.elementor-widget-button .elementor-button {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* Section titles in Elementor sections */
+.elementor-section .section-title,
+.elementor-container h2 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
 }

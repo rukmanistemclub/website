@@ -154,9 +154,10 @@ get_header();
     }
 
     .section-title {
-        font-size: 36px;
+        font-size: 32px;
         font-weight: 700;
         color: #134958;
+        line-height: 1.3;
     }
 
     .overview-content p {
@@ -1238,17 +1239,7 @@ get_header();
                 </div>
 
                 <!-- Testimonials Section -->
-                <section class="nyc-testimonials-section">
-                    <div class="nyc-testimonials-container">
-                        <h2 class="nyc-testimonials-title">What Our Students & Parents Say</h2>
-                        <div class="nyc-testimonials-content">
-                            <?php
-                            $reviews_shortcode = get_option('nyc_stem_reviews_shortcode', '[trustindex data-widget-id=d7ccd5b21eb1294a9186eebe1e6]');
-                            echo do_shortcode($reviews_shortcode);
-                            ?>
-                        </div>
-                    </div>
-                </section>
+                <?php echo do_shortcode('[testimonials]'); ?>
 
             </div>
         </article>

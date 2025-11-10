@@ -167,11 +167,12 @@ body {
 }
 
 .section-title {
-    font-size: 42px;
-    font-weight: 800;
+    font-size: 32px;
+    font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
     color: #134958;
+    line-height: 1.3;
 }
 
 .section-subtitle {
@@ -474,7 +475,7 @@ body {
     }
 
     .section-title {
-        font-size: 28px;
+        font-size: 32px;
     }
 }
 </style>

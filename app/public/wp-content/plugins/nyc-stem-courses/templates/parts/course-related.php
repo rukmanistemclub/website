@@ -12,6 +12,18 @@
 
 $current_id = get_the_ID();
 
+// Check if current course is SHSAT
+$current_terms = get_the_terms($current_id, 'course_category');
+$is_shsat_course = false;
+if ($current_terms && !is_wp_error($current_terms)) {
+    foreach ($current_terms as $term) {
+        if ($term->slug === 'shsat') {
+            $is_shsat_course = true;
+            break;
+        }
+    }
+}
+
 // ============================================
 // SECTION 1: CROSS-SELL COURSES
 // ============================================
@@ -53,22 +65,20 @@ if (!empty($related_courses)) {
     $category_courses = get_transient($cache_key);
 
     if (false === $category_courses) {
-        // Get current course categories
-        $terms = get_the_terms($current_id, 'course_category');
-
-        if ($terms && !is_wp_error($terms)) {
-            $category_ids = wp_list_pluck($terms, 'term_id');
-
+        // For SHSAT courses, show Upper ISEE courses only
+        // Filtered by tag "Upper" (set in WordPress admin)
+        if ($is_shsat_course) {
             $category_courses = get_posts(array(
                 'post_type' => 'course',
                 'post_status' => 'publish',
                 'posts_per_page' => 8,
                 'post__not_in' => array_merge(array($current_id), $crosssell_list),
+                'tag' => 'upper', // Filter by "Upper" tag
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'course_category',
-                        'field' => 'term_id',
-                        'terms' => $category_ids,
+                        'field' => 'slug',
+                        'terms' => 'isee',
                     ),
                 ),
                 'orderby' => 'menu_order title',
@@ -76,7 +86,31 @@ if (!empty($related_courses)) {
                 'fields' => 'ids',
             ));
         } else {
-            $category_courses = array();
+            // Get current course categories for non-SHSAT courses
+            $terms = get_the_terms($current_id, 'course_category');
+
+            if ($terms && !is_wp_error($terms)) {
+                $category_ids = wp_list_pluck($terms, 'term_id');
+
+                $category_courses = get_posts(array(
+                    'post_type' => 'course',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 8,
+                    'post__not_in' => array_merge(array($current_id), $crosssell_list),
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'course_category',
+                            'field' => 'term_id',
+                            'terms' => $category_ids,
+                        ),
+                    ),
+                    'orderby' => 'menu_order title',
+                    'order' => 'ASC',
+                    'fields' => 'ids',
+                ));
+            } else {
+                $category_courses = array();
+            }
         }
 
         // Cache for 12 hours
@@ -93,10 +127,11 @@ if (!empty($related_courses)) {
     }
 }
 
-// If still need more courses, fill with any courses
+// If still need more courses, fill with appropriate courses
 if (count($related_list) < 6) {
     $remaining = 6 - count($related_list);
-    $filler_courses = get_posts(array(
+
+    $filler_args = array(
         'post_type' => 'course',
         'post_status' => 'publish',
         'posts_per_page' => $remaining,
@@ -104,7 +139,21 @@ if (count($related_list) < 6) {
         'orderby' => 'menu_order title',
         'order' => 'ASC',
         'fields' => 'ids',
-    ));
+    );
+
+    // For SHSAT courses, still show only Upper ISEE courses (filtered by tag)
+    if ($is_shsat_course) {
+        $filler_args['tag'] = 'upper';
+        $filler_args['tax_query'] = array(
+            array(
+                'taxonomy' => 'course_category',
+                'field' => 'slug',
+                'terms' => 'isee',
+            ),
+        );
+    }
+
+    $filler_courses = get_posts($filler_args);
 
     if (!empty($filler_courses)) {
         $related_list = array_merge($related_list, $filler_courses);
@@ -124,7 +173,7 @@ if (empty($crosssell_list) && empty($related_list)) {
 <!-- Cross-Sell Section -->
 <section class="course-related course-crosssell" id="programs">
     <div class="related-container">
-        <h2 class="related-title">SHSAT Preparation Programs</h2>
+        <h2 class="related-title">You May Also Like</h2>
 
         <div class="related-grid">
             <?php
@@ -194,7 +243,9 @@ if (empty($crosssell_list) && empty($related_list)) {
 
 <?php
 $section_id = empty($crosssell_list) ? ' id="programs"' : '';
-$section_title = empty($crosssell_list) ? 'SHSAT Preparation Programs' : 'Related Courses';
+
+// Use "Related Programs" for all courses
+$section_title = 'Related Programs';
 ?>
 <?php if (!empty($related_list)) : ?>
 <!-- Related Courses Section -->
