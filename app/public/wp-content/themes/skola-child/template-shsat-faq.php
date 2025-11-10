@@ -2,7 +2,7 @@
 /**
  * Template Name: SHSAT FAQ - Redesigned
  * Description: Beautiful FAQ page matching site aesthetic
- * Version: 1.3 - Chevron style standardization
+ * Version: 1.4 - Typography standardization with !important flags
  */
 
 get_header();
@@ -39,7 +39,7 @@ get_header();
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
         font-weight: 400;
-        line-height: 1.7;
+        line-height: 1.6;
         color: #333;
     }
 
@@ -52,16 +52,16 @@ get_header();
     }
 
     .faq-hero h1 {
-        font-size: 3rem;
+        font-size: 48px;
         font-weight: 800;
-        line-height: 1.1;
+        line-height: 1.2;
         margin-bottom: 20px;
         color: white;
     }
 
     .faq-hero .subtitle {
         font-size: 18px;
-        line-height: 1.7;
+        line-height: 1.6;
         color: white !important;
         opacity: 0.95;
         max-width: 800px;
@@ -81,16 +81,18 @@ get_header();
     }
 
     .faq-intro h2 {
-        font-size: 26px;
-        font-weight: 700;
-        line-height: 1.3;
-        color: #134958;
-        margin-bottom: 15px;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        color: #134958 !important;
+        margin-bottom: 15px !important;
+        text-align: center !important;
     }
 
     .faq-intro p {
         font-size: 16px;
-        line-height: 1.7;
+        line-height: 1.6;
         color: #666;
     }
 
@@ -124,7 +126,7 @@ get_header();
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 600;
         line-height: 1.3;
         color: #134958 !important;
@@ -172,7 +174,7 @@ get_header();
         font-family: 'Roboto', sans-serif !important;
         font-size: 16px !important;
         font-weight: 400 !important;
-        line-height: 1.7 !important;
+        line-height: 1.6 !important;
         color: #666 !important;
     }
 
@@ -339,12 +341,13 @@ get_header();
     }
 
     .nyc-testimonials-title {
-        font-size: 26px;
-        font-weight: 700;
-        line-height: 1.3;
-        color: #134958;
-        text-align: center;
-        margin-bottom: 40px;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        color: #134958 !important;
+        text-align: center !important;
+        margin-bottom: 40px !important;
     }
 
     .nyc-testimonials-content {
@@ -361,16 +364,18 @@ get_header();
     }
 
     .faq-cta h2 {
-        font-size: 26px;
-        font-weight: 700;
-        line-height: 1.3;
-        margin-bottom: 20px;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        margin-bottom: 20px !important;
         color: white !important;
+        text-align: center !important;
     }
 
     .faq-cta p {
         font-size: 18px;
-        line-height: 1.7;
+        line-height: 1.6;
         color: white !important;
         margin-bottom: 30px;
         max-width: 700px;
@@ -1019,7 +1024,7 @@ get_header();
             array(),
             filemtime(WP_PLUGIN_DIR . '/nyc-stem-courses/assets/css/course-styles.css')
         );
-        include(WP_PLUGIN_DIR . '/nyc-stem-courses/templates/parts/course-benefits.php');
+        echo do_shortcode('[why_choose_shsat]');
         ?>
 
         <!-- SHSAT Courses Section -->
@@ -1033,17 +1038,7 @@ get_header();
         </section>
 
         <!-- Testimonials Section -->
-        <section class="nyc-testimonials-section">
-            <div class="nyc-testimonials-container">
-                <h2 class="nyc-testimonials-title">What Our Students & Parents Say</h2>
-                <div class="nyc-testimonials-content">
-                    <?php
-                    $reviews_shortcode = get_option('nyc_stem_reviews_shortcode', '[trustindex data-widget-id=d7ccd5b21eb1294a9186eebe1e6]');
-                    echo do_shortcode($reviews_shortcode);
-                    ?>
-                </div>
-            </div>
-        </section>
+        <?php echo do_shortcode('[testimonials]'); ?>
 
     </div>
 </article>
