@@ -399,7 +399,7 @@ section.course-related.course-crosssell {
 .course-related .course-card-content .course-card-excerpt,
 .course-related .course-card-content .course-card-description {
     font-family: 'Roboto', sans-serif !important;
-    font-size: 0.9rem !important;
+    font-size: 16px !important;
     font-weight: 400 !important;
     margin-bottom: 20px !important;
     line-height: 1.7 !important;

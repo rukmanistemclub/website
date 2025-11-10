@@ -8,6 +8,7 @@ get_header();
 ?>
 
 <style>
+    /* NYC STEM Club SAT/ACT Prep Styles - Version 2.2.1 - Updated Nov 9 2025 10:15 AM */
     /* Reset WordPress theme styles for this custom page */
     #primary.content-area,
     .site-main,
@@ -320,17 +321,18 @@ get_header();
     }
 
     .section-light h2 {
-        color: #134958;
-        font-size: 26px;
-        font-weight: 700;
-        line-height: 1.3;
+        font-family: 'Roboto', sans-serif !important;
+        color: #134958 !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
         margin-bottom: 30px;
         text-align: center;
     }
 
     .section-light h3 {
         color: #134958;
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 600;
         line-height: 1.3;
         margin: 40px 0 15px;
@@ -340,10 +342,10 @@ get_header();
     .course-cards-section h3.course-card-title,
     .section-light .course-card-title,
     .section-light h3.course-card-title {
-        font-size: 18px !important;
+        font-size: 17.6px !important;
         color: #134958 !important;
         margin: 0 0 14px 0 !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
     }
 
     .section-light p {
@@ -417,7 +419,7 @@ get_header();
     }
 
     .step-content h3 {
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 600;
         line-height: 1.3;
         color: #134958;
@@ -533,11 +535,15 @@ get_header();
         margin-right: auto;
     }
 
-    .why-choose h2 {
-        text-align: center;
-        margin-bottom: 30px;
-        color: #134958;
-        font-size: 26px;
+    .why-choose h2,
+    .why-choose-sat-act h2 {
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        margin-bottom: 30px !important;
+        color: #134958 !important;
     }
 
     .why-grid {
@@ -601,7 +607,9 @@ get_header();
     .benefit-content h3 {
         color: #134958;
         margin-bottom: 10px;
-        font-size: 20px;
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1.3;
     }
 
     .benefit-content p {
@@ -619,12 +627,39 @@ get_header();
     }
 
     .faq-section h2 {
-        text-align: center;
-        margin-bottom: 40px;
-        color: #134958;
-        font-size: 26px;
-        font-weight: 700;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        color: #134958 !important;
+        text-align: center !important;
+        margin-bottom: 40px !important;
+    }
+
+    /* Testimonials Section */
+    .nyc-testimonials-section {
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        padding: 40px 10px;
+        margin: 30px 0;
+    }
+
+    .nyc-testimonials-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .nyc-testimonials-title {
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        color: #134958 !important;
+        text-align: center !important;
+        margin-bottom: 40px !important;
+    }
+
+    .nyc-testimonials-content {
+        margin: 0 auto;
     }
 
     .faq-grid {
@@ -668,13 +703,13 @@ get_header();
     }
 
     .faq-question {
-        font-size: 20px;
-        font-weight: 600;
+        font-size: 18px;
+        font-weight: 700;
         color: #134958 !important;
         margin: 0;
         flex: 1;
         font-family: 'Roboto', sans-serif;
-        line-height: 1.3;
+        line-height: 1.6;
     }
 
     /* Override any theme h3 styles in FAQ */
@@ -682,9 +717,9 @@ get_header();
     .faq-header h3,
     h3.faq-question {
         color: #134958 !important;
-        font-size: 20px !important;
-        font-weight: 600 !important;
-        line-height: 1.3 !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        line-height: 1.6 !important;
         font-family: 'Roboto', sans-serif !important;
     }
 
@@ -767,9 +802,13 @@ get_header();
     }
 
     .final-cta h2 {
-        font-size: 26px;
-        margin-bottom: 25px;
-        color: white;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        margin-bottom: 25px !important;
+        color: white !important;
+        text-align: center !important;
     }
 
     .final-cta p {
@@ -916,7 +955,7 @@ get_header();
             <!-- Your Path to Success -->
             <section class="section-light" style="padding-top: 4px; margin-top: 0;">
                 <div style="max-width: 1200px; margin: 0 auto;">
-                    <h2>Your Path to Success: A Strategic 3-Step Process</h2>
+                    <h2 style="font-family: 'Roboto', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; line-height: 1.3 !important; text-align: center !important; color: #134958 !important; margin-bottom: 20px !important;">Your Path to Success: A Strategic 3-Step Process</h2>
                     <p style="text-align: center; margin: 0 auto 35px; line-height: 1.7;">Achieving your target score isn't just about studying harder—it's about choosing the right test, the right format, and the right timeline.</p>
                 </div>
 
@@ -983,17 +1022,17 @@ get_header();
                         </div>
 
                         <h4 style="color: #134958; font-size: 18px !important; font-weight: 600; line-height: 1.3; margin: 0 0 8px;">Which Test Should You Take?</h4>
-                        <p style="margin-bottom: 8px; font-family: 'Roboto', sans-serif !important; font-size: 16px !important; font-weight: 400; line-height: 1.7; color: #333;">Both tests are widely accepted by colleges, but they have distinct differences:</p>
-                        <ul style="margin-left: 20px; margin-bottom: 20px; font-family: 'Roboto', sans-serif !important; font-size: 16px !important; line-height: 1.7; color: #333;">
-                            <li style="margin-bottom: 10px; font-weight: 400; font-size: 16px !important;"><strong style="font-weight: 600;">ACT:</strong> More straightforward with direct reading passages and consistent scoring</li>
-                            <li style="margin-bottom: 10px; font-weight: 400; font-size: 16px !important;"><strong style="font-weight: 600;">SAT:</strong> Provides more time per question but can have more ambiguous passages and answer choices</li>
+                        <p style="margin-bottom: 8px; font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 400; line-height: 1.7; color: #333;">Both tests are widely accepted by colleges, but they have distinct differences:</p>
+                        <ul style="margin-left: 20px; margin-bottom: 20px; font-family: 'Roboto', sans-serif !important; font-size: 18px !important; line-height: 1.7; color: #333;">
+                            <li style="margin-bottom: 10px; font-weight: 400; font-size: 18px !important;"><strong style="font-weight: 600;">ACT:</strong> More straightforward with direct reading passages and consistent scoring</li>
+                            <li style="margin-bottom: 10px; font-weight: 400; font-size: 18px !important;"><strong style="font-weight: 600;">SAT:</strong> Provides more time per question but can have more ambiguous passages and answer choices</li>
                         </ul>
 
-                        <p style="margin-bottom: 15px; font-family: 'Roboto', sans-serif !important; font-size: 16px !important; font-weight: 400; line-height: 1.7; color: #333;"><span style="color: #FF7F07; font-weight: 600;">Our recommendation process:</span> After your child takes diagnostic tests for both exams, we analyze performance and recommend the test where they'll reach their target score most efficiently. If performance is similar on both, we generally recommend starting with ACT prep because:</p>
-                        <ul style="margin-left: 30px; margin-bottom: 25px; list-style: none; padding-left: 0; font-family: 'Roboto', sans-serif !important; font-size: 16px !important; line-height: 1.7; color: #333;">
-                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative; font-weight: 400; font-size: 16px !important;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 18px; font-weight: 700; line-height: 1;">▸</span> ACT math covers more advanced topics (geometry, trigonometry), so mastering it makes switching to SAT easier</li>
-                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative; font-weight: 400; font-size: 16px !important;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 18px; font-weight: 700; line-height: 1;">▸</span> The ACT has historically had more consistent scoring curves</li>
-                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative; font-weight: 400; font-size: 16px !important;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 18px; font-weight: 700; line-height: 1;">▸</span> Reading passages are more straightforward</li>
+                        <p style="margin-bottom: 15px; font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 400; line-height: 1.7; color: #333;"><span style="color: #FF7F07; font-weight: 600;">Our recommendation process:</span> After your child takes diagnostic tests for both exams, we analyze performance and recommend the test where they'll reach their target score most efficiently. If performance is similar on both, we generally recommend starting with ACT prep because:</p>
+                        <ul style="margin-left: 30px; margin-bottom: 25px; list-style: none; padding-left: 0; font-family: 'Roboto', sans-serif !important; font-size: 18px !important; line-height: 1.7; color: #333;">
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative; font-weight: 400; font-size: 18px !important;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 18px; font-weight: 700; line-height: 1;">▸</span> ACT math covers more advanced topics (geometry, trigonometry), so mastering it makes switching to SAT easier</li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative; font-weight: 400; font-size: 18px !important;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 18px; font-weight: 700; line-height: 1;">▸</span> The ACT has historically had more consistent scoring curves</li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative; font-weight: 400; font-size: 18px !important;"><span style="position: absolute; left: 0; color: #28AFCF; font-size: 18px; font-weight: 700; line-height: 1;">▸</span> Reading passages are more straightforward</li>
                         </ul>
 
                         <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
@@ -1083,7 +1122,7 @@ get_header();
                         <!-- SOPHOMORE CARD -->
                         <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #28AFCF; display: flex; flex-direction: column; transition: transform 0.3s;">
                             <div style="background: linear-gradient(135deg, #28AFCF 0%, #1d9bb8 100%); padding: 10px 14px; text-align: center;">
-                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: #134958 !important;">Sophomore Year</h3>
+                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 24px; font-weight: 600; margin-bottom: 2px; color: #134958 !important; line-height: 1.3;">Sophomore Year</h3>
                                 <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0; color: white;">The Ideal Starting Point</p>
                             </div>
 
@@ -1121,7 +1160,7 @@ get_header();
                         <!-- JUNIOR CARD -->
                         <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #FF7F07; display: flex; flex-direction: column; transition: transform 0.3s;">
                             <div style="background: linear-gradient(135deg, #FF7F07 0%, #e66f00 100%); padding: 10px 14px; text-align: center;">
-                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: #134958 !important;">Junior Year</h3>
+                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 24px; font-weight: 600; margin-bottom: 2px; color: #134958 !important; line-height: 1.3;">Junior Year</h3>
                                 <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0; color: white;">Critical Decision Point</p>
                             </div>
 
@@ -1170,7 +1209,7 @@ get_header();
                         <!-- SENIOR CARD -->
                         <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #F0B268; display: flex; flex-direction: column; transition: transform 0.3s;">
                             <div style="background: linear-gradient(135deg, #F0B268 0%, #d99d52 100%); padding: 10px 14px; text-align: center;">
-                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; color: #134958 !important;">Senior Year</h3>
+                                <h3 style="font-family: 'Roboto', sans-serif; font-size: 24px; font-weight: 600; margin-bottom: 2px; color: #134958 !important; line-height: 1.3;">Senior Year</h3>
                                 <p style="font-size: 0.75rem; opacity: 0.95; font-weight: 500; margin: 0; color: white;">Last Chance</p>
                             </div>
 
@@ -1436,23 +1475,13 @@ get_header();
 
             <!-- Final CTA -->
             <section class="final-cta">
-                <h2 style="font-family: 'Roboto', sans-serif !important; font-size: 26px !important; font-weight: 700 !important; color: white !important; line-height: 1.3 !important; margin-bottom: 20px !important;">Ready to Achieve Your Target Score?</h2>
+                <h2 style="font-family: 'Roboto', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; color: white !important; line-height: 1.3 !important; margin-bottom: 20px !important;">Ready to Achieve Your Target Score?</h2>
                 <p style="font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 400 !important; color: white !important; line-height: 1.7 !important; max-width: 1200px !important; margin: 0 auto 30px auto !important;">Join the program where 96% of students improve their scores and over 80% achieve Ivy League-level results. Our expert instructors, proven strategies, and personalized approach have helped hundreds of students gain admission to their dream colleges. Start your journey with a free consultation and diagnostic assessment.</p>
                 <?php echo do_shortcode('[inquiry_button]'); ?>
             </section>
 
             <!-- Testimonials Section -->
-            <section class="section-light" style="padding: 40px 10px;">
-                <div style="max-width: 1200px; margin: 0 auto;">
-                    <h2 style="text-align: center; margin-bottom: 35px; color: #134958; font-size: 26px;">What Parents & Students Say</h2>
-                    <div style="margin: 0 auto;">
-                        <?php
-                        $reviews_shortcode = get_option('nyc_stem_reviews_shortcode', '[trustindex data-widget-id=d7ccd5b21eb1294a9186eebe1e6]');
-                        echo do_shortcode($reviews_shortcode);
-                        ?>
-                    </div>
-                </div>
-            </section>
+            <?php echo do_shortcode('[testimonials]'); ?>
 
             <script>
                 function toggleFAQ(button) {
