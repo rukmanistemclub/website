@@ -22,17 +22,17 @@ while (have_posts()) : the_post();
     // Course Description - Flexible content blocks (Program Timeline, Specialized Schools, etc.)
     include NYC_STEM_COURSES_PATH . 'templates/parts/course-description.php';
 
-    // Why Choose Us - Global section with optional override
-    include NYC_STEM_COURSES_PATH . 'templates/parts/course-benefits.php';
-
-    // FAQs - Premium accordion design (displays if course_faqs are populated)
-    include NYC_STEM_COURSES_PATH . 'templates/parts/course-faqs.php';
-
     // CTA Section - Compact call to action
     include NYC_STEM_COURSES_PATH . 'templates/parts/course-cta.php';
 
     // Related Courses - Shows courses from same category
     include NYC_STEM_COURSES_PATH . 'templates/parts/course-related.php';
+
+    // Why Choose Us - Global section with optional override
+    include NYC_STEM_COURSES_PATH . 'templates/parts/course-benefits.php';
+
+    // FAQs - Premium accordion design (displays if course_faqs are populated)
+    include NYC_STEM_COURSES_PATH . 'templates/parts/course-faqs.php';
 
     // Testimonials (optional - can be filtered by category)
     include NYC_STEM_COURSES_PATH . 'templates/parts/course-testimonials.php';

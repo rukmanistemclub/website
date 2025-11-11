@@ -20,6 +20,7 @@ h1, .h1 {
     font-size: 36px;
     font-weight: 700;
     line-height: 1.3;
+    color: #134958;
     margin-bottom: 20px;
 }
 
@@ -27,6 +28,7 @@ h2, .h2 {
     font-size: 32px;
     font-weight: 700;
     line-height: 1.3;
+    color: #134958;
     margin-bottom: 16px;
 }
 
@@ -34,6 +36,7 @@ h3, .h3 {
     font-size: 24px;
     font-weight: 600;
     line-height: 1.3;
+    color: #134958;
     margin-bottom: 12px;
 }
 
@@ -41,6 +44,7 @@ h4, .h4 {
     font-size: 18px;
     font-weight: 600;
     line-height: 1.3;
+    color: #134958;
     margin-bottom: 10px;
 }
 
@@ -104,7 +108,7 @@ p {
 .hero-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 50px 40px;
+    padding: 60px 40px;
     position: relative;
     z-index: 1;
     display: grid;
@@ -130,7 +134,7 @@ p {
 }
 
 .hero-excerpt {
-    font-size: 19px;
+    font-size: 18px;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 40px;
     font-weight: 400;
@@ -181,7 +185,7 @@ p {
 }
 
 .stat-mini-label {
-    font-size: 12px;
+    font-size: 14px;
     opacity: 0.8;
     font-weight: 400;
 }
@@ -335,19 +339,19 @@ p {
 }
 
 .card-stat-number {
-    font-size: 22px;
-    font-weight: 800;
+    font-size: 24px;
+    font-weight: 700;
     color: #134958;
     display: block;
-    line-height: 1;
+    line-height: 1.3;
     margin-bottom: 2px;
 }
 
 .card-stat-label {
-    font-size: 11px;
+    font-size: 14px;
     color: #666;
-    font-weight: 500;
-    line-height: 1.2;
+    font-weight: 600;
+    line-height: 1.5;
 }
 
 /* ===========================
@@ -403,7 +407,7 @@ p {
    =========================== */
 .section {
     background: #CDE9F6;
-    padding: 15px 30px 0 30px;
+    padding: 40px 40px 30px 40px;
 }
 
 .section#program {
@@ -412,12 +416,12 @@ p {
 
 .section#faqs {
     background: #EFF8FB;
-    padding: 15px 30px 25px 30px;
+    padding: 40px 40px 50px 40px;
 }
 
 .section-alt {
     background: #e8f5f7;
-    padding: 15px 30px 25px 30px;
+    padding: 40px 40px 50px 40px;
 }
 
 .container {
@@ -428,7 +432,7 @@ p {
 .section-header {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 18px;
+    margin: 0 auto 40px;
 }
 
 .section-badge {
@@ -436,7 +440,7 @@ p {
     padding: 10px 24px;
     background: linear-gradient(135deg, rgba(40, 175, 207, 0.15), rgba(255, 127, 7, 0.15));
     border-radius: 50px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     color: #28AFCF;
     text-transform: uppercase;
@@ -457,8 +461,8 @@ p {
 
 .section-subtitle {
     color: #666;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 20px;
+    line-height: 1.6;
     max-width: 700px;
     margin: 0 auto;
     font-weight: 400;
@@ -560,7 +564,7 @@ p {
 }
 
 .benefit-content p {
-    font-size: 16px !important;
+    font-size: 18px !important;
     font-family: 'Roboto', sans-serif !important;
     color: #666 !important;
     line-height: 1.6 !important;
@@ -635,16 +639,16 @@ p {
 
 .feature-box h3 {
     color: #134958;
-    font-size: 1.125rem;
-    margin-bottom: 3px;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: 17px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .feature-box p {
     color: #666;
-    font-size: 0.95rem;
-    line-height: 1.3;
+    font-size: 18px;
+    line-height: 1.6;
     margin: 0;
 }
 
@@ -732,8 +736,8 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
-    font-weight: 800;
+    font-size: 32px;
+    font-weight: 700;
     color: white;
     box-shadow: 0 10px 30px rgba(40, 175, 207, 0.3);
     position: relative;
@@ -762,7 +766,7 @@ p {
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     text-align: center;
     min-width: 85px;
@@ -817,7 +821,176 @@ p {
     margin-bottom: 0;
 }
 
-/* Chevron Timeline Styles */
+/* ===========================
+   VERTICAL CHEVRON TIMELINE
+   For Foundational/Progressive courses
+   =========================== */
+.vertical-chevron-timeline {
+    margin-bottom: 70px;
+}
+
+.vertical-chevron-timeline .chevron-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.vertical-chevron-phase {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 20px !important;
+}
+
+.vertical-chevron-arrow {
+    width: 80px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.vertical-chevron-arrow-box {
+    width: 80px;
+    height: 120px;
+}
+
+.vertical-chevron-arrow-tip {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-top: 40px solid;
+}
+
+/* Phase Colors */
+.vertical-chevron-phase:nth-child(1) .vertical-chevron-arrow-box {
+    background: linear-gradient(135deg, #28AFCF 0%, #1a9dbf 100%);
+}
+
+.vertical-chevron-phase:nth-child(1) .vertical-chevron-arrow-tip {
+    border-top-color: #1a9dbf;
+}
+
+.vertical-chevron-phase:nth-child(2) .vertical-chevron-arrow-box {
+    background: linear-gradient(135deg, #FF7F07 0%, #e66f00 100%);
+}
+
+.vertical-chevron-phase:nth-child(2) .vertical-chevron-arrow-tip {
+    border-top-color: #e66f00;
+}
+
+.vertical-chevron-phase:nth-child(3) .vertical-chevron-arrow-box {
+    background: linear-gradient(135deg, #F0B26B 0%, #d99d52 100%);
+    height: 160px;
+}
+
+.vertical-chevron-phase:nth-child(3) .vertical-chevron-arrow-tip {
+    border-top-color: #d99d52;
+}
+
+.vertical-chevron-content {
+    flex: 1;
+    background: white;
+    border: 2px solid #e0e0e0;
+    padding: 25px 30px;
+    margin-left: 15px;
+}
+
+.vertical-chevron-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 2px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.vertical-chevron-phase:nth-child(1) .vertical-chevron-label {
+    color: #28AFCF !important;
+}
+
+.vertical-chevron-phase:nth-child(2) .vertical-chevron-label {
+    color: #FF7F07 !important;
+}
+
+.vertical-chevron-phase:nth-child(3) .vertical-chevron-label {
+    color: #F0B26B !important;
+}
+
+.vertical-chevron-content h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #134958;
+    margin: 0 0 15px;
+}
+
+.vertical-chevron-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+.vertical-chevron-content p + p {
+    margin-top: 10px;
+}
+
+.vertical-chevron-content p em {
+    font-style: italic;
+}
+
+.vertical-chevron-content strong {
+    color: #134958;
+}
+
+.vertical-chevron-benefits {
+    margin-top: 40px;
+    padding: 15px 20px;
+    background: #f0f7f4;
+    border: 3px solid #28AFCF;
+    border-radius: 8px;
+}
+
+.vertical-chevron-benefits p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #134958;
+    text-align: center;
+    margin: 0;
+}
+
+.vertical-chevron-benefits p:first-child {
+    margin-bottom: 5px;
+}
+
+.vertical-chevron-benefits p span {
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .vertical-chevron-phase {
+        flex-direction: column;
+    }
+
+    .vertical-chevron-arrow {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .vertical-chevron-content {
+        margin-left: 0;
+    }
+}
+
+/* ===========================
+   HORIZONTAL CHEVRON TIMELINE
+   For SHSAT and step-by-step courses
+   =========================== */
 .chevron-timeline {
     margin: 40px auto !important;
     max-width: 900px;
@@ -1132,7 +1305,7 @@ p {
 .module-title {
     font-size: 32px;
     color: #134958;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     font-weight: 700;
     line-height: 1.3;
 }
@@ -1140,7 +1313,7 @@ p {
 .module-meta {
     font-size: 14px;
     color: #555;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.5;
 }
 
@@ -1161,9 +1334,9 @@ p {
 .module-list li {
     padding: 9px 0 9px 32px;
     position: relative;
-    font-weight: 500;
+    font-weight: 400;
     color: #444;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
 }
 
@@ -1190,15 +1363,15 @@ p {
 }
 
 .schools-highlight .highlight-text {
-    font-size: 28px;
+    font-size: 32px;
     color: white;
-    font-weight: 800;
+    font-weight: 700;
     margin: 0;
     text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .schools-highlight .highlight-subtext {
-    font-size: 19px;
+    font-size: 18px;
     color: rgba(255, 255, 255, 0.95);
     font-weight: 600;
     margin-top: 14px;
@@ -1273,7 +1446,7 @@ p {
 .faq-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 20px;
 }
 
 .faq-card {
@@ -1313,9 +1486,9 @@ p {
 .faq-question {
     font-size: 18px !important;
     color: #134958 !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
     margin: 0 !important;
-    line-height: 1.6 !important;
+    line-height: 1.3 !important;
 }
 
 .faq-icon {
@@ -1444,7 +1617,7 @@ p {
    =========================== */
 .cta-section {
     background: linear-gradient(135deg, #134958 0%, #1a5f73 50%, #28AFCF 100%);
-    padding: 16px 40px 25px 40px;
+    padding: 50px 40px 60px 40px;
     position: relative;
     overflow: hidden;
 }
@@ -1477,7 +1650,7 @@ p {
     padding: 8px 20px;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 50px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     color: white;
     text-transform: uppercase;
@@ -1546,7 +1719,7 @@ p {
     }
 
     .hero-excerpt {
-        font-size: 17px;
+        font-size: 18px;
         line-height: 1.6;
     }
 
@@ -1628,7 +1801,7 @@ p {
     padding: 0 20px;
     border: 2px solid #28AFCF;
     border-radius: 50px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     transition: all 0.3s ease;
     background: white;
@@ -1657,7 +1830,7 @@ p {
     padding: 0 40px 0 20px;
     border: 2px solid #28AFCF;
     border-radius: 50px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     background: white;
     cursor: pointer;
@@ -1755,7 +1928,7 @@ p {
 }
 
 .course-card-excerpt {
-    font-size: 13px;
+    font-size: 14px;
     color: #4a4a4a;
     line-height: 1.5;
     margin-bottom: 12px;
@@ -1776,7 +1949,7 @@ p {
 }
 
 .course-card-meta-item {
-    font-size: 13px;
+    font-size: 14px;
     color: #666;
     font-weight: 400;
     display: inline-flex;
@@ -1801,7 +1974,7 @@ p {
     text-decoration: none;
     border-radius: 6px;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
     transition: all 0.3s ease;
     align-self: flex-start;
@@ -1827,10 +2000,15 @@ p {
     transform: translateY(-2px);
 }
 
-/* Testimonials Section on Archive */
+/* ===========================
+   TESTIMONIALS SECTION
+   Background matches "Why Choose NYC STEM Club" (#CDE9F6)
+   Used by both shortcode and course template
+   =========================== */
 .course-testimonials {
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    padding: 20px 20px;
+    background: #CDE9F6;
+    padding: 4px 10px 10px 10px;
+    margin: 30px 0 0 0;
 }
 
 .testimonials-container {
@@ -1839,15 +2017,17 @@ p {
 }
 
 .testimonials-title {
+    font-family: 'Roboto', sans-serif;
     font-size: 32px;
     font-weight: 700;
+    line-height: 1.3;
     text-align: center;
     color: #134958;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .testimonials-content {
-    /* Styles handled by Trustindex widget */
+    margin: 0 auto;
 }
 
 /* Responsive for Archive */
@@ -1899,7 +2079,7 @@ p {
 
 .course-description-content strong,
 .course-description-content b {
-    font-weight: 700 !important;
+    font-weight: 700;
 }
 
 /* Headings */
@@ -1907,7 +2087,7 @@ p {
     font-size: 32px;
     font-weight: 700;
     color: #134958;
-    margin: 50px 0 25px 0;
+    margin: 12px 0 25px 0;
     line-height: 1.3;
 }
 
@@ -1919,7 +2099,7 @@ p {
     font-size: 24px;
     font-weight: 600;
     color: #134958;
-    margin: 30px 0 15px 0;
+    margin: 0 0 15px 0;
     line-height: 1.3;
 }
 
@@ -1933,14 +2113,14 @@ p {
 
 /* Paragraphs */
 .course-description-content p {
-    margin: 0 0 20px 0;
+    margin: 0 0 12px 0;
     line-height: 1.6;
-    font-size: 16px !important;
-    color: #333 !important;
+    font-size: 16px;
+    color: #333;
 }
 
 .course-description-content p.lead {
-    font-size: 1.15rem;
+    font-size: 18px;
     line-height: 1.6;
     color: #555;
 }
@@ -1950,7 +2130,7 @@ p {
 .course-description-content ol {
     margin: 20px 0;
     padding-left: 25px;
-    line-height: 2;
+    line-height: 1.6;
 }
 
 .course-description-content li {
@@ -2062,7 +2242,7 @@ p {
     border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 18px;
     display: inline-block;
     cursor: pointer;
     transition: all 0.3s;
@@ -2074,6 +2254,279 @@ p {
     box-shadow: 0 5px 20px rgba(255, 127, 7, 0.3);
     color: white;
     text-decoration: none;
+}
+
+/* ===========================
+   STANDARDIZED COURSE DESCRIPTION PATTERNS
+   Reusable classes for course descriptions
+   =========================== */
+
+/* Value Proposition Section */
+.course-value-prop {
+    margin: 20px 0 20px;
+}
+
+.course-value-prop .container-narrow {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.course-value-prop h2 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #134958;
+    margin: 0 0 25px;
+}
+
+.course-value-prop p {
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #666;
+    margin: 0 0 15px;
+}
+
+/* Two Column Comparison Section */
+.two-col-section {
+    margin: 0;
+    background: #EFF8FB;
+    padding: 25px 0 50px 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.two-col-section .section-title-center {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    max-width: 100%;
+}
+
+.two-col-section .section-title-center h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #134958;
+    margin: 0;
+}
+
+.two-col-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 0 20px;
+}
+
+.two-col-item {
+    border-left: 4px solid;
+    padding-left: 30px;
+}
+
+.two-col-item.col-teal {
+    border-left-color: #28AFCF;
+}
+
+.two-col-item.col-orange {
+    border-left-color: #FF7F07;
+}
+
+.two-col-item h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 20px;
+}
+
+.two-col-item.col-teal h3 {
+    color: #28AFCF;
+}
+
+.two-col-item.col-orange h3 {
+    color: #FF7F07;
+}
+
+.two-col-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.two-col-item li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.two-col-item li:last-child {
+    margin-bottom: 0;
+}
+
+.two-col-item strong {
+    color: #134958;
+}
+
+/* Three Column Grid Section */
+.three-col-section {
+    margin-bottom: 0;
+    background: #f9f9f9;
+    padding: 50px 40px;
+}
+
+.three-col-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.three-col-section h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #134958;
+    margin: 0 0 15px;
+    text-align: center;
+}
+
+.three-col-section .section-intro {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #666;
+    margin: 0 0 40px;
+    text-align: center;
+}
+
+.three-col-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.three-col-item {
+    text-align: center;
+}
+
+.three-col-accent {
+    width: 60px;
+    height: 4px;
+    margin: 0 auto 15px;
+}
+
+.three-col-item.item-teal .three-col-accent {
+    background: #28AFCF;
+}
+
+.three-col-item.item-orange .three-col-accent {
+    background: #FF7F07;
+}
+
+.three-col-item.item-tan .three-col-accent {
+    background: #F0B26B;
+}
+
+.three-col-item h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #134958;
+    margin: 0 0 10px;
+}
+
+.three-col-item p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+}
+
+.three-col-footer {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #134958;
+    margin: 0 0 30px 0;
+    text-align: center;
+    border-top: 2px solid #e0e0e0;
+    padding-top: 30px;
+}
+
+.three-col-cta {
+    text-align: center;
+    margin: 0;
+}
+
+/* Responsive - Two and Three Column Sections */
+@media (max-width: 968px) {
+    .two-col-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .three-col-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .course-value-prop .container-narrow {
+        padding: 0 20px;
+    }
+
+    .course-value-prop h2 {
+        font-size: 28px;
+    }
+
+    .three-col-section {
+        padding: 40px 20px;
+    }
+
+    .three-col-section h2 {
+        font-size: 28px;
+    }
+
+    .three-col-footer {
+        font-size: 18px;
+    }
+
+    .two-col-section {
+        padding: 20px 0 40px 0;
+    }
+
+    .two-col-section .section-title-center h2 {
+        font-size: 28px;
+    }
+
+    .two-col-item {
+        padding-left: 20px;
+        border-left-width: 3px;
+    }
+
+    .two-col-item li {
+        font-size: 16px;
+    }
 }
 
 /* ===========================
@@ -2227,6 +2680,20 @@ h4.elementor-heading-title,
     font-size: 16px !important;
     line-height: 1.6 !important;
     font-family: 'Roboto', sans-serif !important;
+}
+
+/* Course description default typography - inline styles can override */
+.course-description-content p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Hero/intro paragraphs with larger impact text */
+.course-description-content .course-intro p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    font-weight: 500;
 }
 
 /* Buttons */

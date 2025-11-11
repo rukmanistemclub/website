@@ -17,7 +17,7 @@ if (!empty($course_description)) {
     <section class="section" id="program">
         <div class="container">
             <div class="course-description-content">
-                <?php echo $course_description; ?>
+                <?php echo do_shortcode($course_description); ?>
             </div>
         </div>
     </section>
