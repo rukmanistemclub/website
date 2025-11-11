@@ -60,8 +60,8 @@ $hero_card_stats = get_field('hero_card_stats');
             <div class="cta-group">
                 <?php echo do_shortcode('[inquiry_button]'); ?>
                 <?php
-                // For ACT-SAT Foundational Course, link to main SAT/ACT prep guide
-                if (get_the_ID() == 17138) {
+                // For SAT/ACT courses, link to main SAT/ACT prep guide
+                if (has_term(array('sat', 'act', 'sat-act', 'college-prep'), 'course_category')) {
                     echo do_shortcode('[inquiry_button color="teal" text="View Complete Guide on SAT/ACT" url="/sat-act-test-prep/"]');
                 }
                 // For SHSAT courses, link to complete guide
