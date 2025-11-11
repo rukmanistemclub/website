@@ -1242,17 +1242,11 @@ class NYC_STEM_Courses {
         // Get the reviews shortcode from options (allows admin to customize)
         $reviews_shortcode = get_option('nyc_stem_reviews_shortcode', '[trustindex data-widget-id=d7ccd5b21eb1294a9186eebe1e6]');
 
-        $output = '<style>';
-        $output .= '.nyc-testimonials-section { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 4px 10px 40px 10px; margin: 30px 0; }';
-        $output .= '.nyc-testimonials-container { max-width: 1200px; margin: 0 auto; }';
-        $output .= '.nyc-testimonials-title { font-family: \'Roboto\', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; line-height: 1.3 !important; color: #134958 !important; text-align: center !important; margin-bottom: 40px !important; }';
-        $output .= '.nyc-testimonials-content { margin: 0 auto; }';
-        $output .= '</style>';
-
-        $output .= '<section class="nyc-testimonials-section">';
-        $output .= '<div class="nyc-testimonials-container">';
-        $output .= '<h2 class="nyc-testimonials-title">What our Students and Parents have to say</h2>';
-        $output .= '<div class="nyc-testimonials-content">';
+        // All styling now in course-styles.css under .course-testimonials
+        $output = '<section class="course-testimonials">';
+        $output .= '<div class="testimonials-container">';
+        $output .= '<h2 class="testimonials-title">What Our Students and Parents Say</h2>';
+        $output .= '<div class="testimonials-content">';
         $output .= do_shortcode($reviews_shortcode);
         $output .= '</div>';
         $output .= '</div>';
