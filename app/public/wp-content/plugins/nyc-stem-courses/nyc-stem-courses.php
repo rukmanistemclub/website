@@ -1102,8 +1102,27 @@ class NYC_STEM_Courses {
 
         // Add responsive styles
         $output .= '<style>';
-        $output .= '@media (max-width: 992px) { .why-choose-grid { grid-template-columns: repeat(2, 1fr) !important; } }';
-        $output .= '@media (max-width: 768px) { .why-choose-grid { grid-template-columns: 1fr !important; } }';
+        $output .= '@media (max-width: 992px) { ';
+        $output .= '.why-choose-grid { grid-template-columns: repeat(2, 1fr) !important; } ';
+        $output .= '}';
+        $output .= '@media (max-width: 768px) { ';
+        $output .= '.why-choose-grid { grid-template-columns: 1fr !important; } ';
+        $output .= '.why-choose-sat-act h2 { font-size: 28px !important; } ';
+        $output .= '.why-choose-sat-act p:first-of-type { font-size: 16px !important; } '; // Intro paragraph
+        $output .= '.why-choose-sat-act h3 { font-size: 18px !important; } '; // Card headings
+        $output .= '.why-choose-sat-act div[style*="max-width: 1200px"] { padding: 10px 15px 20px 15px !important; } '; // Container padding
+        $output .= '.why-choose-sat-act .why-choose-grid > div { padding: 12px !important; } '; // Card padding
+        $output .= '}';
+        $output .= '@media (max-width: 480px) { ';
+        $output .= '.why-choose-sat-act h2 { font-size: 24px !important; } ';
+        $output .= '.why-choose-sat-act p:first-of-type { font-size: 15px !important; } ';
+        $output .= '.why-choose-sat-act h3 { font-size: 17px !important; margin-left: 45px !important; } '; // Card headings with adjusted icon margin
+        $output .= '.why-choose-sat-act .why-choose-grid > div { padding: 10px !important; } ';
+        $output .= '.why-choose-sat-act div[style*="max-width: 1200px"] { padding: 10px 12px 15px 12px !important; } ';
+        $output .= '.why-choose-sat-act div[style*="background: linear-gradient(135deg, #134958"] { padding: 12px 15px !important; } '; // Badge padding
+        $output .= '.why-choose-sat-act div[style*="background: linear-gradient(135deg, #134958"] span:first-of-type { font-size: 16px !important; } '; // Badge title
+        $output .= '.why-choose-sat-act div[style*="background: linear-gradient(135deg, #134958"] span:last-of-type { font-size: 14px !important; } '; // Badge subtitle
+        $output .= '}';
         $output .= '</style>';
 
         $output .= '</section>';
@@ -1148,8 +1167,28 @@ class NYC_STEM_Courses {
         $output .= '.why-choose-badge .badge-subtitle { font-family: \'Roboto\', sans-serif; font-size: 16px; font-weight: 400; color: rgba(255, 255, 255, 0.9); margin: 0; }';
 
         // Responsive Styles
-        $output .= '@media (max-width: 992px) { .why-choose-grid { grid-template-columns: repeat(2, 1fr) !important; } }';
-        $output .= '@media (max-width: 768px) { .why-choose-grid { grid-template-columns: 1fr !important; } }';
+        $output .= '@media (max-width: 992px) { ';
+        $output .= '.why-choose-grid { grid-template-columns: repeat(2, 1fr) !important; } ';
+        $output .= '}';
+        $output .= '@media (max-width: 768px) { ';
+        $output .= '.why-choose-grid { grid-template-columns: 1fr !important; } ';
+        $output .= '.why-choose-shsat h2 { font-size: 28px !important; } ';
+        $output .= '.why-choose-shsat .benefit-card { padding: 15px !important; } ';
+        $output .= '.why-choose-shsat .benefit-card h3 { font-size: 17px !important; } ';
+        $output .= '.why-choose-shsat .benefit-card p { font-size: 14px !important; } ';
+        $output .= '.why-choose-shsat > div { padding: 10px 15px 20px 15px !important; } '; // Container padding
+        $output .= '}';
+        $output .= '@media (max-width: 480px) { ';
+        $output .= '.why-choose-shsat h2 { font-size: 24px !important; } ';
+        $output .= '.why-choose-shsat .benefit-card { padding: 12px !important; } ';
+        $output .= '.why-choose-shsat .benefit-card h3 { font-size: 16px !important; margin-left: 38px !important; } ';
+        $output .= '.why-choose-shsat .benefit-card p { font-size: 14px !important; } ';
+        $output .= '.why-choose-shsat > div { padding: 10px 12px 15px 12px !important; } ';
+        $output .= '.why-choose-badge { padding: 12px 15px !important; } ';
+        $output .= '.why-choose-badge .badge-title { font-size: 16px !important; } ';
+        $output .= '.why-choose-badge .badge-subtitle { font-size: 14px !important; } ';
+        $output .= '.why-choose-badge svg { width: 24px !important; height: 24px !important; } ';
+        $output .= '}';
 
         $output .= '</style>';
 
