@@ -51,18 +51,34 @@ echo "<h2>Populating College Counseling (17145)</h2>";
 populate_stats(17145, $college_counseling_stats);
 echo "✓ Updated course 17145<br>";
 
-// ISEE Courses (17343-17345) - 2 stats each
+// ISEE Courses - Find all courses with ISEE category - 2 stats each
 $isee_stats = [
     ['number' => 'Over 85%', 'label' => 'Scored a Stanine of 7-9 on the ISEE'],
     ['number' => 'Top 3 Schools', 'label' => 'Our students have received offers in one of their top 3 schools']
 ];
 
-$isee_courses = [17343, 17344, 17345];
+$isee_courses = get_posts([
+    'post_type' => 'course',
+    'posts_per_page' => -1,
+    'tax_query' => [
+        [
+            'taxonomy' => 'course_category',
+            'field' => 'slug',
+            'terms' => ['isee', 'isee-prep'],
+            'operator' => 'IN'
+        ]
+    ],
+    'fields' => 'ids'
+]);
 
-echo "<h2>Populating ISEE Courses (17343-17345)</h2>";
-foreach ($isee_courses as $course_id) {
-    populate_stats($course_id, $isee_stats);
-    echo "✓ Updated course $course_id<br>";
+echo "<h2>Populating ISEE Courses</h2>";
+if (!empty($isee_courses)) {
+    foreach ($isee_courses as $course_id) {
+        populate_stats($course_id, $isee_stats);
+        echo "✓ Updated course $course_id<br>";
+    }
+} else {
+    echo "No ISEE courses found<br>";
 }
 
 // SHSAT Courses - Find all courses with SHSAT category - 4 stats each
