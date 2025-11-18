@@ -116,6 +116,32 @@ function nyc_stem_register_organized_course_fields() {
                 ),
             ),
 
+            // Hero Display Options
+            array(
+                'key' => 'field_hero_tagline',
+                'label' => 'Hero Tagline (Optional)',
+                'name' => 'hero_tagline',
+                'type' => 'textarea',
+                'instructions' => '🎯 OPTIONAL: Custom tagline displayed between title and excerpt. Leave empty to use standard excerpt.',
+                'rows' => 2,
+            ),
+            array(
+                'key' => 'field_hide_hero_excerpt',
+                'label' => 'Hide Standard Excerpt',
+                'name' => 'hide_hero_excerpt',
+                'type' => 'true_false',
+                'instructions' => 'Check to hide the standard excerpt (useful if using custom tagline)',
+                'default_value' => 0,
+            ),
+            array(
+                'key' => 'field_hide_hero_stats',
+                'label' => 'Hide Mini Stats',
+                'name' => 'hide_hero_stats',
+                'type' => 'true_false',
+                'instructions' => 'Check to hide the mini stats below the excerpt',
+                'default_value' => 0,
+            ),
+
             // ========================================
             // SECTION 2: TRUST BAR (Optional)
             // ========================================
@@ -218,6 +244,14 @@ function nyc_stem_register_organized_course_fields() {
                         'rows' => 3,
                     ),
                 ),
+            ),
+            array(
+                'key' => 'field_hide_why_choose',
+                'label' => 'Hide "Why Choose" Section',
+                'name' => 'hide_why_choose_section',
+                'type' => 'true_false',
+                'instructions' => 'Check to completely hide the "Why Choose" section for this course',
+                'default_value' => 0,
             ),
 
             // ========================================
@@ -400,6 +434,15 @@ function nyc_stem_register_organized_course_fields() {
                 'type' => 'text',
                 'instructions' => 'Subtitle below title',
                 'placeholder' => 'Join hundreds of students who have...',
+            ),
+            array(
+                'key' => 'field_cta_content_blocks',
+                'label' => 'CTA Content Blocks (Optional)',
+                'name' => 'cta_content_blocks',
+                'type' => 'wysiwyg',
+                'instructions' => '📝 OPTIONAL: Additional content to display before the CTA button (e.g., university admissions list, pricing notes)',
+                'toolbar' => 'basic',
+                'media_upload' => 0,
             ),
             array(
                 'key' => 'field_cta_button_text',
