@@ -6,9 +6,24 @@
 // Get hero stats (mini stats in left column)
 $hero_stats = get_field('hero_stats');
 
-// Get hero card stats (right column card)
+// Get hero card stats (right column card) - Build array from individual fields
 $hero_card_title = get_field('hero_card_title');
-$hero_card_stats = get_field('hero_card_stats');
+$hero_card_stats = array();
+
+// Build stats array from individual ACF fields (ACF Free compatible)
+for ($i = 1; $i <= 4; $i++) {
+    $number = get_field("hero_card_stat_{$i}_number");
+    $label = get_field("hero_card_stat_{$i}_label");
+
+    // Only add stat if at least the label is filled
+    if (!empty($label)) {
+        $hero_card_stats[] = array(
+            'number' => $number,
+            'label' => $label,
+            'icon_svg' => ''
+        );
+    }
+}
 ?>
 
 <section class="course-hero">
