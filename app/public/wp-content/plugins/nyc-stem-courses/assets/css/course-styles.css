@@ -2282,18 +2282,46 @@ p {
     color: #555;
 }
 
-/* Lists */
-.course-description-content ul,
+/* Lists - Chevron bullets */
+.course-description-content ul {
+    list-style: none;
+    margin: 8px 0 16px 0;
+    padding-left: 0;
+    line-height: 1.6;
+}
+
 .course-description-content ol {
-    margin: 2px 0 4px 0 !important; /* 80% reduction: 10px→2px top, 20px→4px bottom */
+    margin: 8px 0 16px 0;
     padding-left: 25px;
     line-height: 1.6;
 }
 
 .course-description-content li {
-    margin-bottom: 2px !important; /* 80% reduction: 8px→2px */
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    margin-bottom: 8px;
+    padding-left: 30px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.course-description-content ul li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #28AFCF;
+}
+
+.course-description-content strong {
+    font-weight: 700;
+    color: #134958;
+}
+
+.course-description-content em {
+    font-style: italic;
+    color: #555;
 }
 
 /* Remove margin from last list item to control spacing precisely */
