@@ -337,9 +337,15 @@ function nycstemclub_enqueue_course_card_styles() {
  */
 add_action('template_redirect', 'nycstemclub_redirect_product_to_course_category');
 function nycstemclub_redirect_product_to_course_category() {
+    // Only run if WooCommerce is active
+    if (!function_exists('is_product_category')) {
+        return;
+    }
+
     // Check if we're on a product category page
     if (is_product_category('test-prep')) {
         wp_redirect(home_url('/course-category/test-prep/'), 301);
         exit;
     }
 }
+

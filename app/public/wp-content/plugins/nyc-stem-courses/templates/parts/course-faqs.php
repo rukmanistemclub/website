@@ -54,7 +54,7 @@ if (!$course_faqs || !is_array($course_faqs)) {
             <div class="faq-footer">
                 <p class="faq-footer-text">
                     <?php if ($faq_footer_text) : ?>
-                        <?php echo esc_html($faq_footer_text); ?>
+                        <?php echo wp_kses_post(strip_tags($faq_footer_text, '<a>')); ?>
                     <?php endif; ?>
                     <?php if ($faq_link_url) : ?>
                         <a href="<?php echo esc_attr($faq_link_url); ?>" class="faq-link">

@@ -433,11 +433,12 @@ body {
     font-size: 32px;
     margin-bottom: 20px;
     font-weight: 800;
+    color: white !important;
 }
 
 .decision-box p {
     font-size: 19px;
-    opacity: 0.95;
+    color: white !important;
     margin-bottom: 30px;
     line-height: 1.8;
 }
@@ -461,27 +462,6 @@ body {
     box-shadow: 0 12px 30px rgba(255, 127, 7, 0.4);
 }
 
-/* Global CTA Button */
-.cta-btn {
-    background: #FF7F07;
-    color: white;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s;
-}
-
-.cta-btn:hover {
-    background: #e66f00;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(255, 127, 7, 0.3);
-}
-
 /* CTA Buttons Container */
 .cta-buttons-container {
     display: flex;
@@ -491,27 +471,24 @@ body {
     flex-wrap: wrap;
 }
 
-/* Secondary CTA Button */
-.cta-btn-secondary {
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    padding: 15px 40px;
-    border: 3px solid white;
+/* Global Inquire Now Button Style */
+.hero-btn-primary {
+    background: #FF7F07;
+    color: white !important;
+    padding: 18px 45px;
     border-radius: 8px;
-    font-size: 1.1rem;
+    font-size: 18px;
     font-weight: 700;
-    cursor: pointer;
     text-decoration: none;
+    transition: all 0.3s ease;
     display: inline-block;
-    transition: all 0.3s;
-    backdrop-filter: blur(10px);
 }
 
-.cta-btn-secondary:hover {
-    background: white;
-    color: #134958;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+.hero-btn-primary:hover {
+    background: #e66f00;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 127, 7, 0.4);
+    color: white !important;
 }
 
 /* Responsive */
@@ -553,12 +530,8 @@ body {
     <!-- Hero Section -->
     <div class="article-hero">
         <div class="hero-content">
-            <span class="announcement-badge">🆕 Important Update</span>
             <h1 class="article-title">Changes to the New Digital SAT</h1>
             <p class="article-subtitle">Everything you need to know about the Digital SAT transition and how it affects your test prep strategy</p>
-            <div class="timeline-badge">
-                📅 Effective: January 2024
-            </div>
         </div>
     </div>
 
@@ -592,7 +565,7 @@ body {
                             </div>
                         </div>
                         <div class="comparison-card after-card">
-                            <span class="card-label">Digital SAT ✨</span>
+                            <span class="card-label">Digital SAT</span>
                             <div class="card-stat">2h 14m</div>
                             <div class="card-description">
                                 98 questions<br>
@@ -606,7 +579,7 @@ body {
                     <p><strong>Module Breakdown:</strong> Each Reading & Writing module consists of 27 questions (32 minutes each). Each Math module has 22 questions (35 minutes each).</p>
 
                     <div class="info-box">
-                        <div class="info-box-title">🎯 Adaptive Testing</div>
+                        <div class="info-box-title">Adaptive Testing</div>
                         <p>The Digital SAT uses <strong>section-level adaptive testing</strong>. Your performance in Module 1 determines the difficulty of Module 2:</p>
                         <ul>
                             <li>Perform well → Get harder questions with higher score potential</li>
@@ -624,31 +597,15 @@ body {
 
                     <p><strong>Reading & Writing Skills Assessed:</strong></p>
 
-                    <div class="feature-grid">
-                        <div class="feature-item">
-                            <div class="feature-icon">💡</div>
-                            <div class="feature-title">Information and Ideas</div>
-                            <div class="feature-desc">Comprehension and analysis of texts</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">🎨</div>
-                            <div class="feature-title">Craft and Structure</div>
-                            <div class="feature-desc">Understanding writing techniques</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">✍️</div>
-                            <div class="feature-title">Expression of Ideas</div>
-                            <div class="feature-desc">Effective communication skills</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">📝</div>
-                            <div class="feature-title">Standard English Conventions</div>
-                            <div class="feature-desc">Grammar and usage rules</div>
-                        </div>
-                    </div>
+                    <ul style="padding-left: 80px; margin-top: 20px;">
+                        <li style="margin-bottom: 12px; font-size: 17px;"><strong>Information and Ideas</strong> — Comprehension and analysis of texts</li>
+                        <li style="margin-bottom: 12px; font-size: 17px;"><strong>Craft and Structure</strong> — Understanding writing techniques</li>
+                        <li style="margin-bottom: 12px; font-size: 17px;"><strong>Expression of Ideas</strong> — Effective communication skills</li>
+                        <li style="margin-bottom: 12px; font-size: 17px;"><strong>Standard English Conventions</strong> — Grammar and usage rules</li>
+                    </ul>
 
                     <div class="info-box">
-                        <div class="info-box-title">🧮 Math Section Updates</div>
+                        <div class="info-box-title">Math Section Updates</div>
                         <p><strong>Calculator allowed for BOTH math modules</strong> (previously only one section allowed calculators). You can use your own approved calculator or the built-in Desmos graphing calculator.</p>
                         <p style="margin-top: 12px;"><strong>Math content remains similar:</strong> Algebra, Advanced Math, Problem-Solving & Data Analysis, and Geometry & Trigonometry.</p>
                     </div>
@@ -670,7 +627,7 @@ body {
                     </ul>
 
                     <div class="info-box">
-                        <div class="info-box-title">⚡ Faster Score Reporting</div>
+                        <div class="info-box-title">Faster Score Reporting</div>
                         <p>Digital SAT scores are delivered in <strong>days instead of weeks</strong>. You'll receive your results much faster than the traditional paper SAT.</p>
                     </div>
                 </li>
@@ -693,7 +650,7 @@ body {
             <p>The transition to digital format requires strategic adjustments in how students prepare for the SAT:</p>
 
             <div class="key-points">
-                <h3>✅ What Stays the Same</h3>
+                <h3>What Stays the Same</h3>
                 <ul>
                     <li>Core content areas (Reading, Writing, Math) are unchanged</li>
                     <li>1600-point scoring scale remains</li>
@@ -703,7 +660,7 @@ body {
             </div>
 
             <div class="key-points">
-                <h3>🔄 What You Need to Practice</h3>
+                <h3>What You Need to Practice</h3>
                 <ul>
                     <li><strong>Digital interface familiarity:</strong> Practice with Bluebook™ app regularly</li>
                     <li><strong>Shorter reading passages:</strong> Quick comprehension is now critical</li>
@@ -720,8 +677,8 @@ body {
             <h2>Ready to Master the Digital SAT?</h2>
             <p>NYC STEM Club's expert instructors are fully trained on the Digital SAT format. Our comprehensive prep program combines content mastery with digital test-taking strategies to maximize your score.</p>
             <div class="cta-buttons-container">
-                <a href="/student-enrollment/" class="cta-btn">Inquire Now</a>
-                <a href="/sat-act-test-prep/" class="cta-btn-secondary">View Programs</a>
+                <?php echo do_shortcode('[inquiry_button]'); ?>
+                <?php echo do_shortcode('[inquiry_button text="View Programs" url="/sat-act-test-prep/"]'); ?>
             </div>
         </div>
     </article>

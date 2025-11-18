@@ -49,43 +49,215 @@ get_header();
         padding: 40px 20px;
     }
 
-    /* Hero Section with Gradient */
-    .hero-section {
-        background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
-        padding: 80px 40px;
-        margin: -40px -20px 60px;
-        text-align: center;
-        color: white;
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .cta-button.cta-primary:hover {
+        opacity: 0.9;
+    }
+
+    /* Hero Section - Course Style */
+    .course-hero {
+        display: flex;
+        align-items: center;
         position: relative;
         overflow: hidden;
+        background: linear-gradient(135deg, #134958 0%, #1a5f73 50%, #28AFCF 100%);
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
 
-    .hero-section::before {
-        content: '🏫';
+    .course-hero::before {
+        content: '';
         position: absolute;
-        font-size: 300px;
-        opacity: 0.05;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: -50%;
+        right: -20%;
+        width: 80%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(40, 175, 207, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: pulse 8s ease-in-out infinite;
     }
 
-    .hero-section h1 {
-        font-size: 56px;
-        font-weight: 700;
-        margin-bottom: 20px;
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.1); opacity: 0.3; }
+    }
+
+    .hero-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 50px 10px;
         position: relative;
         z-index: 1;
+        display: grid;
+        grid-template-columns: 1.857fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .course-hero .hero-content h1 {
+        font-size: 48px !important;
+        font-weight: 800 !important;
+        color: #ffffff !important;
+        margin-bottom: 8px;
+        line-height: 1.1;
+        letter-spacing: -1px;
+    }
+
+    .hero-content .highlight {
+        background: linear-gradient(135deg, #FF7F07, #F0B268);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-excerpt {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 40px;
+        font-weight: 400;
+        line-height: 1.7;
+    }
+
+    .hero-stats-mini {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+
+    .stat-mini {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .stat-mini-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-mini-icon svg {
+        width: 22px;
+        height: 22px;
+        color: #FF7F07;
+    }
+
+    .stat-mini-text {
         color: white;
     }
 
-    .hero-subtitle {
+    .stat-mini-number {
+        font-size: 24px;
+        font-weight: 700;
+        display: block;
+        line-height: 1;
+        margin-bottom: 3px;
+    }
+
+    .stat-mini-label {
+        font-size: 12px;
+        opacity: 0.8;
+        font-weight: 400;
+    }
+
+    .cta-group {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .hero-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 20px 18px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        max-width: 340px;
+    }
+
+    .hero-card h3 {
+        font-size: 16px;
+        color: #134958;
+        margin-bottom: 12px;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .hero-card-grid {
+        display: grid;
+        gap: 8px;
+    }
+
+    .card-stat-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        background: linear-gradient(135deg, #f8f9fa, #ffffff);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        border: 1px solid #eee;
+    }
+
+    .card-stat-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(40, 175, 207, 0.15);
+        border-color: #28AFCF;
+    }
+
+    .card-stat-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, #28AFCF, #134958);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .card-stat-icon svg {
+        width: 20px;
+        height: 20px;
+        color: white;
+    }
+
+    .card-stat-text {
+        flex: 1;
+        text-align: left;
+    }
+
+    .card-stat-number {
         font-size: 22px;
-        opacity: 0.95;
-        max-width: 800px;
-        margin: 0 auto 30px;
-        position: relative;
-        z-index: 1;
+        font-weight: 800;
+        color: #134958;
+        display: block;
+        line-height: 1;
+        margin-bottom: 2px;
+    }
+
+    .card-stat-label {
+        font-size: 12px;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .card-stat-schools {
+        font-size: 11px;
+        color: #666;
+        line-height: 1.4;
+        margin-top: 4px;
     }
 
     .test-comparison-badge {
@@ -158,6 +330,7 @@ get_header();
         font-weight: 700;
         color: #134958;
         line-height: 1.3;
+        text-align: center;
     }
 
     .overview-content p {
@@ -202,7 +375,10 @@ get_header();
     }
 
     .timing-alert-content h4 {
-        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.3;
         color: #134958;
         margin-bottom: 8px;
     }
@@ -230,8 +406,10 @@ get_header();
     }
 
     .levels-intro p {
-        font-size: 20px;
-        color: #666;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #555;
         max-width: 800px;
         margin: 0 auto;
     }
@@ -419,9 +597,12 @@ get_header();
     }
 
     .section-content h3 {
-        font-size: 26px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.3;
         color: #134958;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
     }
 
     .section-content p {
@@ -674,22 +855,30 @@ get_header();
         color: white;
         text-align: center;
         padding: 60px 40px;
-        border-radius: 16px;
+        border-radius: 3px;
         margin-bottom: 60px;
     }
 
     .cta-section h2 {
         font-size: 40px;
         margin-bottom: 16px;
+        color: white !important;
     }
 
     .cta-section p {
-        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
         margin-bottom: 32px;
         opacity: 0.95;
         max-width: 700px;
         margin-left: auto;
         margin-right: auto;
+        color: white !important;
+    }
+
+    .cta-section .inquiry-button {
+        border-radius: 3px !important;
     }
 
     .cta-button {
@@ -699,8 +888,10 @@ get_header();
         color: white;
         text-decoration: none;
         border-radius: 8px;
-        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
         font-weight: 700;
+        line-height: 1.6;
         transition: all 0.3s ease;
         box-shadow: 0 4px 16px rgba(255, 127, 7, 0.3);
     }
@@ -711,11 +902,224 @@ get_header();
         box-shadow: 0 6px 20px rgba(255, 127, 7, 0.4);
     }
 
+    /* FAQ Section - Modern Collapsible - Typography Compliant */
+    .faq-section {
+        margin-bottom: 60px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .faq-header {
+        text-align: center;
+        margin-bottom: 40px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 20px;
+    }
+
+    .faq-header h2 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 32px;
+        color: #134958;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    .faq-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .faq-item {
+        background: white;
+        margin-bottom: 16px;
+        border-radius: 12px;
+        border: 2px solid #e5e7eb;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .faq-item.active {
+        border-color: #28AFCF;
+        box-shadow: 0 4px 12px rgba(40, 175, 207, 0.15);
+    }
+
+    .faq-question {
+        padding: 24px 28px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        transition: all 0.3s ease;
+        user-select: none;
+    }
+
+    .faq-question:hover {
+        background: #f8f9fa;
+    }
+
+    .faq-item.active .faq-question {
+        background: linear-gradient(135deg, #ecfeff, #cffafe);
+        border-bottom: 2px solid #e5e7eb;
+    }
+
+    .faq-question h3 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        color: #134958;
+        font-weight: 600;
+        line-height: 1.3;
+        margin: 0;
+        flex: 1;
+    }
+
+    .faq-toggle {
+        width: 32px;
+        height: 32px;
+        background: #28AFCF;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    .faq-toggle:after {
+        content: '+';
+        color: white;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .faq-item.active .faq-toggle {
+        background: #134958;
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+        padding: 0 28px;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 2000px;
+        padding: 24px 28px;
+    }
+
+    .faq-answer p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 16px;
+    }
+
+    .faq-answer p:last-child {
+        margin-bottom: 0;
+    }
+
+    .faq-answer ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 16px 0;
+    }
+
+    .faq-answer ul li {
+        font-family: 'Roboto', sans-serif;
+        padding-left: 30px;
+        position: relative;
+        margin-bottom: 8px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .faq-answer ul li:before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: #28AFCF;
+    }
+
+    .faq-answer strong {
+        font-weight: 700;
+        color: #134958;
+    }
+
+    /* Mobile Responsive - FAQ Section */
+    @media (max-width: 768px) {
+        .faq-header h2 {
+            font-size: 28px;
+        }
+
+        .faq-question {
+            padding: 20px 20px;
+            gap: 16px;
+        }
+
+        .faq-question h3 {
+            font-size: 16px;
+        }
+
+        .faq-toggle {
+            width: 28px;
+            height: 28px;
+        }
+
+        .faq-toggle:after {
+            font-size: 20px;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px 20px;
+        }
+
+        .faq-container {
+            padding: 0 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .faq-header h2 {
+            font-size: 24px;
+        }
+
+        .faq-question {
+            padding: 16px 16px;
+        }
+
+        .faq-question h3 {
+            font-size: 18px;
+        }
+
+        .faq-answer {
+            padding: 0 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 16px 16px;
+        }
+    }
+
     /* Testimonials Section */
     .nyc-testimonials-section {
         background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-        padding: 80px 20px;
-        margin: 0 -20px -40px;
+        padding: 80px 20px 0;
+        margin: 0 -20px 0;
         border-radius: 16px 16px 0 0;
     }
 
@@ -738,6 +1142,16 @@ get_header();
 
     /* Responsive */
     @media (max-width: 1024px) {
+        .hero-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding: 40px 20px;
+        }
+
+        .hero-card {
+            max-width: 100%;
+        }
+
         .section-row {
             grid-template-columns: 1fr;
         }
@@ -752,16 +1166,31 @@ get_header();
     }
 
     @media (max-width: 768px) {
-        .hero-section {
-            padding: 60px 20px;
+        .course-hero .hero-content h1 {
+            font-size: 36px !important;
         }
 
-        .hero-section h1 {
-            font-size: 38px;
+        .hero-excerpt {
+            font-size: 16px;
         }
 
-        .hero-subtitle {
+        .hero-stats-mini {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .stat-mini-number {
             font-size: 18px;
+        }
+
+        .cta-group {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cta-button {
+            width: 100%;
+            text-align: center;
         }
 
         .levels-grid {
@@ -795,7 +1224,7 @@ get_header();
         }
 
         .nyc-testimonials-section {
-            padding: 60px 20px;
+            padding: 60px 20px 0;
         }
 
         .nyc-testimonials-title {
@@ -807,29 +1236,82 @@ get_header();
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
         <article>
-            <div class="container">
-                <!-- Hero Section -->
-                <div class="hero-section">
-                    <h1>ISEE Test Preparation</h1>
-                    <p class="hero-subtitle">Comprehensive preparation for the Independent School Entrance Examination across all three testing levels</p>
-                    <div class="test-comparison-badge">
-                        Comparing tests? See our <a href="/ssat-prep/">SSAT Guide</a>
+            <!-- Hero Section -->
+            <section class="course-hero">
+                <div class="hero-container">
+                    <!-- Left Column: Main Content -->
+                    <div class="hero-content">
+                        <h1>ISEE Test Preparation</h1>
+                        <p class="hero-excerpt">Comprehensive preparation for the Independent School Entrance Examination across all three testing levels</p>
+
+                        <!-- Mini Stats -->
+                        <div class="hero-stats-mini">
+                            <div class="stat-mini">
+                                <div class="stat-mini-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-mini-text">
+                                    <span class="stat-mini-number">85%+</span>
+                                    <span class="stat-mini-label">Stanine 7-9 Achievement</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="cta-group">
+                            <a href="#programs" class="cta-button cta-primary" style="background-color: #FF9574; color: #FFFFFF; padding: 12px 24px; border-radius: 3px; font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 700 !important; line-height: 1.8 !important; min-width: 180px !important; width: auto !important; display: inline-block !important; text-align: center !important; text-decoration: none; transition: all .3s;">Jump to Programs</a>
+                            <?php echo do_shortcode('[inquiry_button]'); ?>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Track Record Card -->
+                    <div class="hero-card">
+                        <h3>Our Track Record</h3>
+                        <div class="hero-card-grid">
+                            <div class="card-stat-box">
+                                <div class="card-stat-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                    </svg>
+                                </div>
+                                <div class="card-stat-text">
+                                    <span class="card-stat-number">Over 85%</span>
+                                    <span class="card-stat-label">Scored a Stanine of 7-9 on the ISEE</span>
+                                </div>
+                            </div>
+                            <div class="card-stat-box">
+                                <div class="card-stat-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                    </svg>
+                                </div>
+                                <div class="card-stat-text">
+                                    <span class="card-stat-number">Top 3 Schools</span>
+                                    <span class="card-stat-label">Our students have received offers in one of their top 3 schools</span>
+                                    <div class="card-stat-schools">Trinity, Dalton, Horace Mann, Brearley, Collegiate, Riverdale, St. Ann's, prestigious boarding schools and many more top schools</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
+
+            <div class="container" style="padding-top: 40px;">
 
                 <!-- Quick Navigation -->
                 <div class="quick-nav">
-                    <a href="#overview" class="nav-pill">📚 Overview</a>
-                    <a href="#levels" class="nav-pill">🎯 Three Levels</a>
-                    <a href="#sections" class="nav-pill">📝 Test Sections</a>
-                    <a href="#timeline" class="nav-pill">⏰ When to Start</a>
-                    <a href="#why-us" class="nav-pill">⭐ Why Us</a>
+                    <a href="#overview" class="nav-pill">Overview</a>
+                    <a href="#levels" class="nav-pill">Three Levels</a>
+                    <a href="#programs" class="nav-pill">Programs</a>
+                    <a href="#why-us" class="nav-pill">Why Us</a>
+                    <a href="#faq" class="nav-pill">FAQ</a>
                 </div>
 
                 <!-- Overview Section -->
                 <div id="overview" class="overview-section">
                     <div class="section-header">
-                        <span class="section-icon">🏫</span>
                         <h2 class="section-title">What is the ISEE?</h2>
                     </div>
                     <div class="overview-content">
@@ -838,21 +1320,20 @@ get_header();
                         <p>Developed and administered by the Educational Records Bureau (ERB), the ISEE evaluates students' capabilities in <strong>verbal reasoning, quantitative reasoning, reading comprehension, mathematics achievement, and essay writing</strong>.</p>
 
                         <div class="highlight-box">
-                            <p>💡 The ISEE is specifically designed to assess a student's readiness for independent school education and is accepted by over 1,200 schools worldwide.</p>
+                            <p>The ISEE is specifically designed to assess a student's readiness for independent school education and is accepted by over 1,200 schools worldwide.</p>
                         </div>
 
                         <p><strong>Target Score Range:</strong> Competitive independent schools typically look for scores in the 8-9 stanine range (89th-99th percentile). Elite schools often expect scores consistently in the 9th stanine across all sections.</p>
 
                         <p><strong>Testing Frequency & Strategic Timing:</strong> Students may take the ISEE only once per testing season (Fall: August-November, Winter: December-March, Spring/Summer: April-July). However, <strong>realistically only the Fall season and early Winter testing (December) are viable options</strong> for most students, as independent school application deadlines typically fall in early January. Testing after December would miss these critical deadlines, making thorough preparation and strategic test date selection absolutely essential.</p>
-                    </div>
-                </div>
 
-                <!-- Middle School Timing Alert -->
-                <div class="timing-alert">
-                    <div class="timing-alert-icon">⚠️</div>
-                    <div class="timing-alert-content">
-                        <h4>Important: Middle School Starting Grades Vary</h4>
-                        <p>Some school districts begin middle school in 5th grade, while others start in 6th grade. The ISEE Middle Level test is designed for students in grades 5-6, making it appropriate for students applying to schools with either middle school structure. Verify your target school's grade configuration when planning your ISEE preparation.</p>
+                        <!-- Middle School Timing Alert - Moved Inside Overview -->
+                        <div class="timing-alert" style="margin: 30px 0;">
+                            <div class="timing-alert-content">
+                                <h4>Important: Middle School Starting Grades Vary</h4>
+                                <p>Some school districts begin middle school in 5th grade, while others start in 6th grade. The ISEE Middle Level test is designed for students applying to grades 7 and 8, making it appropriate for students applying to schools with either middle school structure. Verify your target school's grade configuration when planning your ISEE preparation.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -864,28 +1345,29 @@ get_header();
                     </div>
 
                     <div class="levels-grid">
-                        <!-- Primary Level -->
+                        <!-- Elementary Level -->
                         <div class="level-card">
                             <div class="level-header">
-                                <div class="level-badge">Primary Level</div>
+                                <div class="level-badge">Elementary Level</div>
                                 <div class="level-name">Lower ISEE</div>
-                                <div class="level-grades">For Students in Grades 2-4</div>
+                                <div class="level-grades">For students entering grades 5 and 6</div>
                             </div>
                             <div class="level-body">
-                                <p class="level-description">Designed for younger students applying to private elementary schools. Focuses on foundational reading, mathematics, and analytical thinking skills appropriate for early learners.</p>
+                                <p class="level-description">Designed for students applying to competitive middle schools. Focuses on verbal reasoning, reading, mathematics, and analytical thinking skills.</p>
 
                                 <div class="level-details">
-                                    <h4>📝 Test Format:</h4>
+                                    <h4>Test Format:</h4>
                                     <ul>
+                                        <li>Verbal Reasoning (34 questions, 20 min)</li>
+                                        <li>Quantitative Reasoning (38 questions, 35 min)</li>
                                         <li>Reading Comprehension (25 questions, 25 min)</li>
                                         <li>Mathematics Achievement (30 questions, 30 min)</li>
-                                        <li>Quantitative Reasoning (30 questions, 30 min)</li>
                                         <li>Essay (1 prompt, unscored, 30 min)</li>
                                     </ul>
                                 </div>
 
                                 <div class="level-details">
-                                    <h4>🎯 Key Focus Areas:</h4>
+                                    <h4>Key Focus Areas:</h4>
                                     <ul>
                                         <li>Basic reading comprehension</li>
                                         <li>Elementary arithmetic operations</li>
@@ -894,9 +1376,6 @@ get_header();
                                     </ul>
                                 </div>
 
-                                <div class="level-cta">
-                                    <a href="/isee-primary-level/" class="level-cta-btn">Learn More About Primary Level →</a>
-                                </div>
                             </div>
                         </div>
 
@@ -905,13 +1384,13 @@ get_header();
                             <div class="level-header">
                                 <div class="level-badge">Middle Level</div>
                                 <div class="level-name">Middle ISEE</div>
-                                <div class="level-grades">For Students in Grades 5-6</div>
+                                <div class="level-grades">For students applying to grades 7 and 8</div>
                             </div>
                             <div class="level-body">
-                                <p class="level-description">For students applying to middle school programs at private institutions. Tests more sophisticated reasoning, comprehension, and mathematical skills beyond elementary curriculum.</p>
+                                <p class="level-description">For students applying to competitive independent middle and high schools. Tests advanced reasoning, comprehension, and mathematical skills including pre-algebra and geometry.</p>
 
                                 <div class="level-details">
-                                    <h4>📝 Test Format:</h4>
+                                    <h4>Test Format:</h4>
                                     <ul>
                                         <li>Verbal Reasoning (40 questions, 20 min)</li>
                                         <li>Quantitative Reasoning (37 questions, 35 min)</li>
@@ -922,7 +1401,7 @@ get_header();
                                 </div>
 
                                 <div class="level-details">
-                                    <h4>🎯 Key Focus Areas:</h4>
+                                    <h4>Key Focus Areas:</h4>
                                     <ul>
                                         <li>Synonyms and sentence completions</li>
                                         <li>Advanced problem-solving strategies</li>
@@ -931,9 +1410,6 @@ get_header();
                                     </ul>
                                 </div>
 
-                                <div class="level-cta">
-                                    <a href="/isee-middle-level/" class="level-cta-btn">Learn More About Middle Level →</a>
-                                </div>
                             </div>
                         </div>
 
@@ -942,13 +1418,13 @@ get_header();
                             <div class="level-header">
                                 <div class="level-badge">Upper Level</div>
                                 <div class="level-name">Upper ISEE</div>
-                                <div class="level-grades">For Students in Grades 7-11</div>
+                                <div class="level-grades">For students applying to grades 9-12</div>
                             </div>
                             <div class="level-body">
-                                <p class="level-description">The most challenging level, designed for students applying to competitive high schools. Requires advanced critical thinking, sophisticated vocabulary, and strong mathematical foundations.</p>
+                                <p class="level-description">The most challenging level, designed for students applying to competitive high schools and boarding schools. Requires advanced critical thinking, college-level vocabulary, and strong mathematical foundations including algebra and geometry.</p>
 
                                 <div class="level-details">
-                                    <h4>📝 Test Format:</h4>
+                                    <h4>Test Format:</h4>
                                     <ul>
                                         <li>Verbal Reasoning (40 questions, 20 min)</li>
                                         <li>Quantitative Reasoning (37 questions, 35 min)</li>
@@ -959,7 +1435,7 @@ get_header();
                                 </div>
 
                                 <div class="level-details">
-                                    <h4>🎯 Key Focus Areas:</h4>
+                                    <h4>Key Focus Areas:</h4>
                                     <ul>
                                         <li>College-level vocabulary</li>
                                         <li>Complex quantitative comparisons</li>
@@ -968,274 +1444,101 @@ get_header();
                                     </ul>
                                 </div>
 
-                                <div class="level-cta">
-                                    <a href="/isee-upper-level/" class="level-cta-btn">Learn More About Upper Level →</a>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Test Sections Deep Dive -->
-                <div id="sections" class="test-sections">
-                    <div class="comparison-header">
-                        <h2>Understanding ISEE Test Sections</h2>
-                        <p>A detailed look at what each section measures and how to prepare</p>
+                <!-- Related ISEE Programs -->
+                <div id="programs" class="related-programs-section" style="margin-bottom: 60px;">
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <h2 style="font-family: 'Roboto', sans-serif; font-size: 32px; color: #134958; margin-bottom: 16px; font-weight: 700; line-height: 1.3;">ISEE Prep Programs</h2>
+                        <p style="font-family: 'Roboto', sans-serif; font-size: 18px; color: #555; line-height: 1.6;">Choose the right program for your grade level</p>
                     </div>
-
-                    <!-- Verbal Reasoning -->
-                    <div class="section-row">
-                        <div class="section-visual">
-                            <div class="section-visual-icon">💭</div>
-                            <div class="section-visual-label">Verbal Reasoning</div>
-                        </div>
-                        <div class="section-content">
-                            <h3>Vocabulary & Language Skills</h3>
-                            <p>Tests your understanding of word meanings, relationships between words, and ability to complete sentences logically.</p>
-                            <p><strong>Format:</strong> Two question types—synonyms (finding words with similar meanings) and sentence completions (choosing words that best complete a sentence).</p>
-                            <div class="section-meta">
-                                <div class="meta-item"><strong>40</strong> questions</div>
-                                <div class="meta-item"><strong>20</strong> minutes</div>
-                                <div class="meta-item"><strong>30</strong> sec/question</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Quantitative Reasoning -->
-                    <div class="section-row">
-                        <div class="section-visual">
-                            <div class="section-visual-icon">🔢</div>
-                            <div class="section-visual-label">Quantitative</div>
-                        </div>
-                        <div class="section-content">
-                            <h3>Mathematical Problem-Solving</h3>
-                            <p>Evaluates your ability to think flexibly about numbers and solve problems using quantitative reasoning rather than rote calculation.</p>
-                            <p><strong>Format:</strong> Word problems and quantitative comparisons that test mathematical thinking, pattern recognition, and logical reasoning.</p>
-                            <div class="section-meta">
-                                <div class="meta-item"><strong>37</strong> questions</div>
-                                <div class="meta-item"><strong>35</strong> minutes</div>
-                                <div class="meta-item"><strong>57</strong> sec/question</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Reading Comprehension -->
-                    <div class="section-row">
-                        <div class="section-visual">
-                            <div class="section-visual-icon">📖</div>
-                            <div class="section-visual-label">Reading</div>
-                        </div>
-                        <div class="section-content">
-                            <h3>Reading Comprehension & Analysis</h3>
-                            <p>Measures your ability to understand, analyze, and interpret reading passages from various genres including literature, science, history, and current events.</p>
-                            <p><strong>Format:</strong> Six passages with 6 questions each, testing main idea, supporting details, inference, vocabulary in context, and author's purpose.</p>
-                            <div class="section-meta">
-                                <div class="meta-item"><strong>36</strong> questions</div>
-                                <div class="meta-item"><strong>35</strong> minutes</div>
-                                <div class="meta-item"><strong>58</strong> sec/question</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Mathematics Achievement -->
-                    <div class="section-row">
-                        <div class="section-visual">
-                            <div class="section-visual-icon">📐</div>
-                            <div class="section-visual-label">Mathematics</div>
-                        </div>
-                        <div class="section-content">
-                            <h3>Mathematical Knowledge & Application</h3>
-                            <p>Tests knowledge of mathematical concepts and ability to apply computational skills across number operations, algebra, geometry, measurement, data analysis, and probability.</p>
-                            <p><strong>Format:</strong> Direct questions covering curriculum-based content appropriate for your grade level, including multi-step problems requiring formula application.</p>
-                            <div class="section-meta">
-                                <div class="meta-item"><strong>47</strong> questions</div>
-                                <div class="meta-item"><strong>40</strong> minutes</div>
-                                <div class="meta-item"><strong>51</strong> sec/question</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Essay -->
-                    <div class="section-row">
-                        <div class="section-visual">
-                            <div class="section-visual-icon">✍️</div>
-                            <div class="section-visual-label">Essay</div>
-                        </div>
-                        <div class="section-content">
-                            <h3>Written Expression (Unscored)</h3>
-                            <p>While not scored, your essay is sent to schools along with your scores. It provides admissions officers insight into your writing ability, creativity, and thought process.</p>
-                            <p><strong>Format:</strong> One prompt requiring a well-organized response with clear introduction, supporting details, and conclusion.</p>
-                            <div class="section-meta">
-                                <div class="meta-item"><strong>1</strong> prompt</div>
-                                <div class="meta-item"><strong>30</strong> minutes</div>
-                                <div class="meta-item">Sent to schools</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Preparation Timeline -->
-                <div id="timeline" class="timeline-section">
-                    <div class="timeline-header">
-                        <h2>ISEE Preparation Timeline</h2>
-                        <p>Strategic milestones for maximizing your ISEE performance</p>
-                    </div>
-
-                    <div class="timeline-steps">
-                        <!-- Step 1 -->
-                        <div class="timeline-step">
-                            <div class="step-number">1</div>
-                            <div class="step-timing">12 Months Before Test</div>
-                            <div class="step-title">Initial Assessment & Foundation Building</div>
-                            <div class="step-content">
-                                <p>Begin with a diagnostic assessment to identify strengths and areas for improvement. Start building vocabulary systematically and review fundamental math concepts. Establish consistent study habits and familiarize yourself with test format.</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div class="timeline-step">
-                            <div class="step-number">2</div>
-                            <div class="step-timing">9-10 Months Before Test</div>
-                            <div class="step-title">Skill Development & Strategy Introduction</div>
-                            <div class="step-content">
-                                <p>Focus on mastering content in each test section. Learn test-taking strategies specific to ISEE format. Practice timed drills to build speed and accuracy. Begin working on essay writing structure and development.</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div class="timeline-step">
-                            <div class="step-number">3</div>
-                            <div class="step-timing">6-8 Months Before Test</div>
-                            <div class="step-title">Advanced Concepts & Practice Tests</div>
-                            <div class="step-content">
-                                <p>Tackle more challenging problems and advanced vocabulary. Begin taking full-length practice tests under timed conditions. Analyze practice test results to refine study focus. Strengthen weak areas identified through testing.</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 4 -->
-                        <div class="timeline-step">
-                            <div class="step-number">4</div>
-                            <div class="step-timing">3-5 Months Before Test</div>
-                            <div class="step-title">Intensive Practice & Refinement</div>
-                            <div class="step-content">
-                                <p>Increase practice test frequency to bi-weekly. Fine-tune time management strategies for each section. Practice remaining calm under timed pressure. Review and reinforce all previously learned strategies and content.</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 5 -->
-                        <div class="timeline-step">
-                            <div class="step-number">5</div>
-                            <div class="step-timing">Final 8-12 Weeks</div>
-                            <div class="step-title">Test Simulation & Optimization</div>
-                            <div class="step-content">
-                                <p>Take weekly full-length practice tests under actual test conditions. Focus on maintaining consistency across all sections. Address any remaining content gaps. Build test-day confidence and manage test anxiety through simulated experiences.</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 6 -->
-                        <div class="timeline-step">
-                            <div class="step-number">6</div>
-                            <div class="step-timing">Final 2 Weeks</div>
-                            <div class="step-title">Review & Test Readiness</div>
-                            <div class="step-content">
-                                <p>Light review of key concepts and strategies—avoid cramming new material. Take one final practice test, then focus on rest and confidence-building. Prepare logistics: test center location, required materials, and test-day routine.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php echo do_shortcode('[course_category category="isee-prep" title="" columns="3" show_excerpt="yes"]'); ?>
                 </div>
 
                 <!-- Why NYC STEM Club -->
-                <div id="why-us" class="why-section">
-                    <div class="why-header">
-                        <h2>Why Choose NYC STEM Club for ISEE Prep?</h2>
-                    </div>
-
-                    <div class="why-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">👨‍🏫</div>
-                            <div class="feature-title">Expert Instructors</div>
-                            <p class="feature-description">Our instructors have extensive experience with ISEE preparation and understand the unique challenges of each testing level. They provide personalized guidance tailored to your child's learning style and target schools.</p>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-icon">📊</div>
-                            <div class="feature-title">Proven Track Record</div>
-                            <p class="feature-description">Our students consistently achieve scores in the 8-9 stanine range, gaining admission to top independent schools throughout NYC and beyond. We track progress meticulously and adjust strategies based on results.</p>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-icon">📚</div>
-                            <div class="feature-title">Comprehensive Materials</div>
-                            <p class="feature-description">Access to extensive practice materials, official ISEE practice tests, proprietary strategies, and a curated vocabulary program designed specifically for your target ISEE level.</p>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-icon">🎯</div>
-                            <div class="feature-title">Flexible Programs</div>
-                            <p class="feature-description">Choose from year-round group classes, intensive summer programs, or personalized 1-on-1 tutoring. Both online and in-person options available to fit your schedule and learning preferences.</p>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-icon">📈</div>
-                            <div class="feature-title">Progress Tracking</div>
-                            <p class="feature-description">Regular assessments and detailed progress reports help identify areas of strength and opportunities for improvement. Parents receive consistent updates on their child's development and readiness.</p>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-icon">🏆</div>
-                            <div class="feature-title">Holistic Approach</div>
-                            <p class="feature-description">Beyond test prep, we provide comprehensive admissions counseling including school selection guidance, essay development that preserves each student's authentic voice, interview preparation, and ongoing support throughout the entire independent school application process.</p>
-                        </div>
-                    </div>
+                <div id="why-us">
+                    <?php echo do_shortcode('[why_choose_isee]'); ?>
                 </div>
 
-                <!-- Related Tests -->
-                <div class="related-tests">
-                    <div class="related-header">
-                        <h2>Comparing Admissions Tests?</h2>
-                        <p>Explore other standardized tests for private school admissions</p>
+                <!-- FAQ Section -->
+                <div id="faq" class="faq-section">
+                    <div class="faq-header">
+                        <h2>Frequently Asked Questions</h2>
                     </div>
 
-                    <div class="related-grid">
-                        <a href="/ssat-prep/" class="related-card">
-                            <div class="related-icon">🎓</div>
-                            <div class="related-name">SSAT</div>
-                            <p class="related-description">Secondary School Admission Test for private school entry</p>
-                            <div class="related-arrow">Learn More →</div>
-                        </a>
+                    <div class="faq-container">
+                        <div class="faq-item active">
+                            <div class="faq-question">
+                                <h3>What sections are on the ISEE test?</h3>
+                                <div class="faq-toggle"></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>The ISEE consists of five sections:</p>
+                                <ul>
+                                    <li><strong>Verbal Reasoning:</strong> 40 questions in 20 minutes testing word meanings, relationships, and sentence completion</li>
+                                    <li><strong>Quantitative Reasoning:</strong> 37 questions in 35 minutes evaluating mathematical problem-solving</li>
+                                    <li><strong>Reading Comprehension:</strong> 36 questions in 35 minutes measuring understanding of passages across literature, science, history, and current events</li>
+                                    <li><strong>Mathematics Achievement:</strong> 47 questions in 40 minutes testing knowledge across number operations, algebra, geometry, measurement, data analysis, and probability</li>
+                                    <li><strong>Essay (Unscored):</strong> 1 prompt in 30 minutes sent to schools to demonstrate writing ability</li>
+                                </ul>
+                            </div>
+                        </div>
 
-                        <a href="/ssat-primary-level/" class="related-card">
-                            <div class="related-icon">🏫</div>
-                            <div class="related-name">SSAT Primary</div>
-                            <p class="related-description">For younger students in grades 3-4</p>
-                            <div class="related-arrow">Learn More →</div>
-                        </a>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>When should I start preparing for the ISEE?</h3>
+                                <div class="faq-toggle"></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p><strong>12 Months Before Test:</strong> Begin with diagnostic assessment, build vocabulary systematically, review fundamental math concepts, and establish consistent study habits.</p>
+                                <p><strong>9-10 Months Before:</strong> Focus on mastering content in each section, learn test-taking strategies, practice timed drills, and begin essay writing development.</p>
+                                <p><strong>6-8 Months Before:</strong> Tackle challenging problems, begin full-length practice tests, analyze results, and strengthen weak areas.</p>
+                                <p><strong>3-5 Months Before:</strong> Increase practice test frequency to bi-weekly, fine-tune time management, and practice remaining calm under pressure.</p>
+                                <p><strong>Final 8-12 Weeks:</strong> Take weekly practice tests under actual conditions, maintain consistency, and build test-day confidence.</p>
+                                <p><strong>Final 2 Weeks:</strong> Light review only—avoid cramming. Focus on rest, confidence-building, and test-day logistics.</p>
+                            </div>
+                        </div>
 
-                        <a href="/ssat-middle-level/" class="related-card">
-                            <div class="related-icon">📚</div>
-                            <div class="related-name">SSAT Middle</div>
-                            <p class="related-description">For students in grades 5-7</p>
-                            <div class="related-arrow">Learn More →</div>
-                        </a>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How often can I take the ISEE?</h3>
+                                <div class="faq-toggle"></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Students may take the ISEE only once per testing season: Fall (August-November), Winter (December-March), or Spring/Summer (April-July). Realistically, only Fall and early Winter (December) testing are viable for most students, as independent school application deadlines typically fall in early January.</p>
+                            </div>
+                        </div>
 
-                        <a href="/ssat-upper-level/" class="related-card">
-                            <div class="related-icon">🎯</div>
-                            <div class="related-name">SSAT Upper</div>
-                            <p class="related-description">For students in grades 8-11</p>
-                            <div class="related-arrow">Learn More →</div>
-                        </a>
-                    </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What is a good ISEE score?</h3>
+                                <div class="faq-toggle"></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Competitive independent schools typically look for scores in the 8-9 stanine range (89th-99th percentile). Elite schools often expect scores consistently in the 9th stanine across all sections.</p>
+                            </div>
+                        </div>
 
-                    <div style="text-align: center; margin-top: 30px;">
-                        <p style="font-size: 16px; color: #666;">Not sure which test is right for you? <a href="/isee-vs-ssat/" style="color: #28AFCF; font-weight: 700; text-decoration: none;">Compare ISEE vs SSAT →</a></p>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Is the essay section scored?</h3>
+                                <div class="faq-toggle"></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>No, the essay is not scored. However, it is sent directly to schools along with your scores, providing admissions officers insight into your writing ability, creativity, and thought process. A well-written essay can strengthen your application.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- CTA Section -->
                 <div class="cta-section">
-                    <h2>Ready to Begin Your ISEE Journey?</h2>
-                    <p>Contact NYC STEM Club today to schedule a diagnostic assessment and learn more about our comprehensive ISEE preparation programs for all three levels.</p>
-                    <a href="/student-enrollment/" class="cta-button">Get Started Today →</a>
+                    <h2 style="color: white;">Ready to Begin Your ISEE Journey?</h2>
+                    <p style="color: white;">Contact NYC STEM Club today to schedule a diagnostic assessment and learn more about our comprehensive ISEE preparation programs for all three levels.</p>
+                    <?php echo do_shortcode('[inquiry_button]'); ?>
                 </div>
 
                 <!-- Testimonials Section -->
@@ -1245,6 +1548,29 @@ get_header();
         </article>
     </main>
 </div>
+
+<script>
+// FAQ Accordion Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', function() {
+            // Toggle active class on clicked item
+            item.classList.toggle('active');
+
+            // Optional: Close other items (comment out if you want multiple open at once)
+            // faqItems.forEach(otherItem => {
+            //     if (otherItem !== item) {
+            //         otherItem.classList.remove('active');
+            //     }
+            // });
+        });
+    });
+});
+</script>
 
 <?php
 get_footer();

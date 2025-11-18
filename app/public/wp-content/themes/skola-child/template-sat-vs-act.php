@@ -38,7 +38,7 @@ get_header();
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
         font-weight: 400;
-        line-height: 1.7;
+        line-height: 1.6;
         color: #333;
         background: #f8f9fa;
     }
@@ -62,21 +62,23 @@ get_header();
 
     .hero-section h1 {
         font-size: 48px;
-        font-weight: 700;
+        font-weight: 800;
+        line-height: 1.2;
         margin-bottom: 15px;
         position: relative;
         z-index: 2;
         color: white;
+        letter-spacing: -1px;
     }
 
     .hero-subtitle {
-        font-size: 20px;
+        font-size: 18px;
         max-width: 800px;
         margin: 0 auto 20px;
         position: relative;
         z-index: 2;
         color: white;
-        opacity: 0.95;
+        line-height: 1.6;
     }
 
     .hero-image-container {
@@ -95,31 +97,35 @@ get_header();
 
     /* Lead Paragraph */
     .lead-paragraph {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        margin-bottom: 2rem;
-        color: #334155;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        color: #555;
+        font-weight: 400;
     }
 
     /* Callout Box */
     .callout-box {
-        background: linear-gradient(135deg, #ecfeff, #cffafe);
-        border-left: 6px solid #28AFCF;
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border-left: 4px solid #28AFCF;
         border-radius: 12px;
-        padding: 1.5rem;
-        margin: 2rem 0;
+        padding: 2rem 2.5rem;
+        margin: 3rem 0;
+        box-shadow: 0 2px 8px rgba(40, 175, 207, 0.1);
     }
 
     .callout-box h3 {
-        font-size: 1.4rem;
+        font-size: 24px;
         color: #134958;
-        margin-bottom: 1rem;
+        font-weight: 600;
+        line-height: 1.3;
+        margin-bottom: 12px;
     }
 
     .callout-box p {
-        font-size: 1.05rem;
-        line-height: 1.7;
-        margin-bottom: 1rem;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 16px;
     }
 
     .callout-box ul {
@@ -130,8 +136,8 @@ get_header();
 
     .callout-box li {
         padding: 0.5rem 0;
-        line-height: 1.7;
-        font-size: 1.05rem;
+        line-height: 1.6;
+        font-size: 16px;
     }
 
     .callout-box strong {
@@ -140,10 +146,27 @@ get_header();
 
     /* Section Headings */
     h2 {
-        font-size: 2.25rem;
+        font-size: 32px;
         color: #134958;
-        margin: 2.5rem 0 1.25rem 0;
+        margin: 3rem 0 16px 0;
         font-weight: 700;
+        line-height: 1.3;
+    }
+
+    h3 {
+        font-size: 24px;
+        color: #134958;
+        font-weight: 600;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+
+    h4 {
+        font-size: 18px;
+        color: #134958;
+        font-weight: 600;
+        line-height: 1.3;
+        margin-bottom: 10px;
     }
 
     /* VS Comparison Container */
@@ -164,19 +187,26 @@ get_header();
 
     .comparison-card {
         background: white;
-        border-radius: 16px;
+        border-radius: 12px;
         padding: 0;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .comparison-card:hover {
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        transform: translateY(-2px);
     }
 
     .comparison-card h3 {
-        font-size: 1.5rem;
+        font-size: 24px;
         margin: 0;
         padding: 1.25rem 2rem;
         text-align: center;
         color: white;
-        font-weight: 700;
+        font-weight: 600;
+        line-height: 1.3;
     }
 
     .comparison-card .card-content {
@@ -195,15 +225,17 @@ get_header();
     }
 
     .quick-stats .label {
-        font-size: 0.85rem;
-        color: #64748b;
+        font-size: 14px;
+        color: #666;
         margin-bottom: 0.5rem;
+        line-height: 1.5;
     }
 
     .quick-stats .value {
-        font-size: 1.3rem;
+        font-size: 24px;
         font-weight: 700;
         color: #134958;
+        line-height: 1.3;
     }
 
     .card-details {
@@ -214,7 +246,8 @@ get_header();
 
     .card-details p {
         margin: 0.5rem 0;
-        line-height: 1.7;
+        line-height: 1.6;
+        font-size: 16px;
     }
 
     /* Recommendation Cards */
@@ -226,40 +259,39 @@ get_header();
     }
 
     .recommendation-card {
-        background: white;
         border-radius: 16px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        border: 2px solid transparent;
+        padding: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
     }
 
     .recommendation-card.act {
-        border-color: #28AFCF;
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border-left: 5px solid #28AFCF;
     }
 
     .recommendation-card.sat {
-        border-color: #FF7F07;
+        background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+        border-left: 5px solid #FF7F07;
     }
 
     .recommendation-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 16px rgba(40, 175, 207, 0.15);
     }
 
     .recommendation-card h3 {
-        font-size: 1.4rem;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.3;
+        color: #134958;
         margin: 0 0 1.5rem 0;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
     }
 
     .recommendation-card ul {
         list-style: none;
         padding: 0;
         margin: 0;
-        line-height: 2;
     }
 
     .recommendation-card li {
@@ -267,6 +299,8 @@ get_header();
         display: flex;
         align-items: start;
         gap: 0.75rem;
+        font-size: 16px;
+        line-height: 1.6;
     }
 
     .recommendation-card .checkmark {
@@ -278,40 +312,45 @@ get_header();
     .feature-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        margin: 1.5rem 0;
+        gap: 1.25rem;
+        margin: 2rem 0 3rem 0;
     }
 
     .feature-item {
         background: white;
         border-radius: 12px;
         padding: 1.5rem;
+        border-left: 4px solid #28AFCF;
         box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        transition: all 0.3s ease;
     }
 
-    .feature-item .icon {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+    .feature-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(40, 175, 207, 0.15);
     }
 
     .feature-item h4 {
-        font-size: 1.1rem;
+        font-size: 18px;
         color: #134958;
-        margin-bottom: 0.75rem;
-        font-weight: 700;
+        margin-bottom: 10px;
+        font-weight: 600;
+        line-height: 1.3;
     }
 
     .feature-item p {
-        color: #64748b;
+        color: #333;
         line-height: 1.6;
+        margin: 0;
+        font-size: 16px;
     }
 
     /* FAQ Accordion */
     .faq-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 1rem;
-        margin: 1.5rem 0;
+        gap: 0.75rem;
+        margin: 2rem 0;
     }
 
     .faq-card {
@@ -319,12 +358,13 @@ get_header();
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        border: 2px solid #e2e8f0;
+        border: 1px solid #e2e8f0;
         transition: all 0.3s ease;
     }
 
     .faq-card:hover {
         border-color: #28AFCF;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     .faq-header {
@@ -346,17 +386,18 @@ get_header();
     }
 
     .faq-question {
-        font-size: 1.1rem;
+        font-size: 18px;
         font-weight: 600;
         color: #134958;
         margin: 0;
         flex: 1;
+        line-height: 1.3;
     }
 
     .faq-icon {
         flex-shrink: 0;
         margin-left: 1rem;
-        color: #64748b;
+        color: #666;
         transition: transform 0.3s ease;
         display: flex;
         align-items: center;
@@ -374,9 +415,10 @@ get_header();
 
     .faq-answer p {
         padding: 0 1.5rem 1.5rem;
-        color: #64748b;
-        line-height: 1.7;
+        color: #333;
+        line-height: 1.6;
         margin: 0;
+        font-size: 16px;
     }
 
     .faq-answer p + p {
@@ -400,12 +442,12 @@ get_header();
 
     /* Bottom Line Box */
     .bottom-line {
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
         border-radius: 16px;
-        padding: 2rem;
-        margin: 2rem 0;
-        border-left: 6px solid #28AFCF;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        padding: 2.5rem;
+        margin: 3rem 0;
+        border-left: 4px solid #28AFCF;
+        box-shadow: 0 2px 8px rgba(40, 175, 207, 0.1);
     }
 
     .bottom-line-intro {
@@ -414,11 +456,11 @@ get_header();
     }
 
     .bottom-line-intro p {
-        font-size: 1.25rem;
+        font-size: 18px;
         font-weight: 600;
         color: #134958;
         margin: 0;
-        line-height: 1.5;
+        line-height: 1.6;
     }
 
     .bottom-line-box {
@@ -430,11 +472,10 @@ get_header();
 
     .bottom-line-box h4 {
         color: #134958;
-        font-size: 1.1rem;
-        margin: 0 0 1.25rem 0;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.3;
+        margin: 0 0 10px 0;
     }
 
     .process-steps {
@@ -449,7 +490,8 @@ get_header();
         padding: 0.75rem 0 0.75rem 2.5rem;
         position: relative;
         line-height: 1.6;
-        color: #475569;
+        color: #333;
+        font-size: 16px;
     }
 
     .process-steps li::before {
@@ -471,27 +513,28 @@ get_header();
 
     /* CTA Section */
     .cta-section {
-        background: linear-gradient(135deg, #134958, #28AFCF);
+        background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
         color: white;
         text-align: center;
-        padding: 2.5rem 2rem;
+        padding: 3rem;
         border-radius: 16px;
-        margin: 2.5rem 0;
+        margin: 3rem 0;
     }
 
     .cta-section h2 {
-        font-size: 2rem;
-        color: white;
-        margin: 0 0 1rem 0;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.3;
+        color: white !important;
+        margin: 0 0 16px 0;
     }
 
     .cta-section p {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-        opacity: 0.95;
+        font-size: 16px;
+        color: white !important;
         max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
     }
 
     .cta-buttons {
@@ -499,38 +542,7 @@ get_header();
         gap: 1rem;
         justify-content: center;
         flex-wrap: wrap;
-    }
-
-    .cta-button {
-        display: inline-block;
-        padding: 1rem 2rem;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 700;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-
-    .cta-button.primary {
-        background: #FF7F07;
-        color: white;
-        box-shadow: 0 4px 12px rgba(255, 127, 7, 0.3);
-    }
-
-    .cta-button.primary:hover {
-        background: #e67006;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(255, 127, 7, 0.4);
-    }
-
-    .cta-button.secondary {
-        background: white;
-        color: #134958;
-    }
-
-    .cta-button.secondary:hover {
-        background: #f1f5f9;
-        transform: translateY(-2px);
+        margin-top: 2rem;
     }
 
     /* Testimonials Section */
@@ -596,10 +608,7 @@ get_header();
 
         .cta-buttons {
             flex-direction: column;
-        }
-
-        .cta-button {
-            width: 100%;
+            align-items: center;
         }
 
         .nyc-testimonials-section {
@@ -630,7 +639,7 @@ get_header();
 
                 <!-- Quick Answer Callout -->
                 <div class="callout-box">
-                    <h3>📌 Quick Answer</h3>
+                    <h3>Quick Answer</h3>
                     <p><strong>Both tests are accepted by ALL U.S. colleges.</strong> There's no admissions advantage to one over the other.</p>
                     <ul>
                         <li><strong>For most students:</strong> We recommend starting with the ACT (more straightforward questions, balanced scoring)</li>
@@ -640,9 +649,9 @@ get_header();
                 </div>
 
                 <!-- Quick Comparison -->
-                <h2>📊 Quick Comparison</h2>
+                <h2>Quick Comparison</h2>
                 <div class="vs-comparison">
-                    <div class="comparison-card">
+                    <div class="comparison-card" style="border: 2px solid #28AFCF;">
                         <h3 style="background: #28AFCF;">Enhanced ACT</h3>
                         <div class="card-content">
                             <div class="quick-stats">
@@ -667,7 +676,7 @@ get_header();
                         </div>
                     </div>
                     <div class="vs-divider">VS</div>
-                    <div class="comparison-card">
+                    <div class="comparison-card" style="border: 2px solid #FF7F07;">
                         <h3 style="background: #FF7F07;">Digital SAT</h3>
                         <div class="card-content">
                             <div class="quick-stats">
@@ -694,10 +703,10 @@ get_header();
                 </div>
 
                 <!-- Understanding the Recent Changes -->
-                <h2>🔄 Understanding the Recent Changes</h2>
+                <h2>Understanding the Recent Changes</h2>
 
                 <div class="callout-box" style="background: #fff3e6; border-left: 4px solid #FF7F07; margin-bottom: 2.5rem;">
-                    <p style="margin: 0;"><strong style="color: #FF7F07; font-size: 1.1rem;">⚠️ Important:</strong> Both tests have undergone major changes. The SAT is now fully digital and adaptive, while the ACT has become "Enhanced" with fewer questions and optional science.</p>
+                    <p style="margin: 0;"><strong style="color: #FF7F07; font-size: 1.1rem;">Important:</strong> Both tests have undergone major changes. The SAT is now fully digital and adaptive, while the ACT has become "Enhanced" with fewer questions and optional science.</p>
                 </div>
 
                 <h3 style="color: #28AFCF; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem;">Digital SAT (Fully Digital, Adaptive)</h3>
@@ -706,7 +715,7 @@ get_header();
                     <!-- Left Column: Choose SAT Box -->
                     <div class="recommendation-card sat">
                         <h3 style="color: #FF7F07;">
-                            <span style="font-size: 1.8rem;">🎯</span> Choose SAT if you...
+                            Choose SAT if you...
                         </h3>
                         <ul>
                             <li><span class="checkmark" style="color: #FF7F07;">✓</span> <span>Want more time per question (2hr 14min, 98 questions total)</span></li>
@@ -714,12 +723,12 @@ get_header();
                             <li><span class="checkmark" style="color: #FF7F07;">✓</span> <span>Are strong in math even without advanced topics (math is 50% of score)</span></li>
                             <li><span class="checkmark" style="color: #FF7F07;">✓</span> <span>Don't mind adaptive testing</span></li>
                         </ul>
-                        <p style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #f1f5f9; margin-bottom: 0;"><strong>✅ Advantages:</strong> Prep materials available (Khan Academy, Bluebook), more time per question, and higher level Math topics are not typically included.</p>
+                        <p style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #f1f5f9; margin-bottom: 0;"><strong>Advantages:</strong> Prep materials available (Khan Academy, Bluebook), more time per question, and higher level Math topics are not typically included.</p>
                     </div>
 
                     <!-- Right Column: What to Know -->
                     <div>
-                        <p style="margin-top: 1.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;"><strong>ℹ️ What to know about the Digital SAT:</strong></p>
+                        <p style="margin-top: 1.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;"><strong>What to know about the Digital SAT:</strong></p>
                         <ul style="margin-bottom: 0; list-style: none; padding-left: 0;">
                             <li style="margin-bottom: 1.75rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: #FF7F07;">➤</span> <strong>The Adaptive Format Can Create Anxiety:</strong> If you do well in Module 1, Module 2 becomes noticeably harder. Students report this difficulty spike causes stress.</li>
                             <li style="margin-bottom: 1.75rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: #FF7F07;">➤</span> <strong>Practice vs Real Test Gap:</strong> Many students score lower on the actual exam than on CollegeBoard's official practice tests.</li>
@@ -735,7 +744,7 @@ get_header();
                     <!-- Left Column: Choose ACT Box -->
                     <div class="recommendation-card act">
                         <h3 style="color: #28AFCF;">
-                            <span style="font-size: 1.8rem;">⚡</span> Choose ACT if you...
+                            Choose ACT if you...
                         </h3>
                         <ul>
                             <li><span class="checkmark" style="color: #28AFCF;">✓</span> <span>Prefer paper testing (still available, even though Digital tests have been introduced)</span></li>
@@ -743,12 +752,12 @@ get_header();
                             <li><span class="checkmark" style="color: #28AFCF;">✓</span> <span>Like non-adaptive, linear tests where difficulty stays consistent</span></li>
                             <li><span class="checkmark" style="color: #28AFCF;">✓</span> <span>Excel at fast-paced problem-solving</span></li>
                         </ul>
-                        <p style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #f1f5f9; margin-bottom: 0;"><strong>✅ Advantages:</strong> Paper option available, science section now optional, non-adaptive (less stressful for some), shorter overall (2hr 5min without science).</p>
+                        <p style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #f1f5f9; margin-bottom: 0;"><strong>Advantages:</strong> Paper option available, science section now optional, non-adaptive (less stressful for some), shorter overall (2hr 5min without science).</p>
                     </div>
 
                     <!-- Right Column: What to Know -->
                     <div>
-                        <p style="margin-top: 1.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;"><strong>ℹ️ What to know about the Enhanced ACT:</strong></p>
+                        <p style="margin-top: 1.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;"><strong>What to know about the Enhanced ACT:</strong></p>
                         <ul style="margin-bottom: 0; list-style: none; padding-left: 0;">
                             <li style="margin-bottom: 1.75rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: #28AFCF;">➤</span> <strong>English Is Now Significantly Harder:</strong> With only 40 scored questions instead of 75, the "easy giveaways" have been removed.</li>
                             <li style="margin-bottom: 1.75rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: #28AFCF;">➤</span> <strong>Score Volatility Is a Major Issue:</strong> Fewer questions mean scaling is more volatile. On the Reading section (only 27 scored items), a few wrong answers can drastically drop your score.</li>
@@ -759,39 +768,35 @@ get_header();
                 </div>
 
                 <!-- Why We Recommend ACT -->
-                <h2>💡 Why NYC STEM Club Recommends Starting with the ACT</h2>
+                <h2>Why NYC STEM Club Recommends Starting with the ACT</h2>
                 <div class="callout-box" style="margin-top: 1.5rem; margin-bottom: 0; padding: 2rem;">
                     <div class="feature-grid" style="margin: 0 0 2rem 0;">
                         <div class="feature-item">
-                            <div class="icon">📝</div>
                             <h4>Straightforward Questions</h4>
                             <p>ACT asks what the passage directly states. SAT asks what it "implies" or "suggests"—making answers more subjective. If you prefer clear, concrete questions, the ACT is better.</p>
                         </div>
                         <div class="feature-item">
-                            <div class="icon">⚖️</div>
                             <h4>Balanced Scoring</h4>
                             <p>Math is only 33% of your ACT score (1 of 3 sections). Strong English and Reading can offset weaker math. SAT weights math at 50%, making it harder to compensate.</p>
                         </div>
                         <div class="feature-item">
-                            <div class="icon">📈</div>
                             <h4>Train at Higher Level</h4>
                             <p>ACT covers advanced math (trigonometry, logarithms, matrices). Master these for the ACT, and SAT math (only up to Algebra 2) becomes much easier. This flexibility lets you pivot to SAT later without learning new content.</p>
                         </div>
                         <div class="feature-item">
-                            <div class="icon">🔬</div>
                             <h4>Science = Optional</h4>
                             <p>The Science section tests chart and graph reading, not science facts. It's a learnable skill. Plus, it's now optional—take it only if it helps your score.</p>
                         </div>
                     </div>
 
-                    <h3 style="color: #134958; font-size: 1.4rem; margin-bottom: 1rem;">🔄 The Strategic Advantage: Easy Pivot to SAT</h3>
+                    <h3 style="color: #134958; font-size: 1.4rem; margin-bottom: 1rem;">The Strategic Advantage: Easy Pivot to SAT</h3>
                     <p style="font-size: 1.05rem;">Starting with the ACT gives you <strong>maximum flexibility</strong>. Since the ACT covers more advanced content (including Algebra 2, trigonometry, and logarithms), students who prepare for the ACT can easily pivot to the SAT with just a few practice exams to familiarize themselves with the format—no new content to learn.</p>
                     <p style="font-size: 1.05rem;"><strong>Going the other way is much harder.</strong> If you start with the SAT and later want to try the ACT, you'll need to learn new mathematical content during an already stressful junior year. This adds unnecessary pressure when college applications, APs, and extracurriculars are competing for your time.</p>
                     <p style="font-size: 1.05rem; margin-bottom: 0;"><strong>Bottom line:</strong> Train at the higher level (ACT), keep your options open, and pivot to SAT if needed—without the stress of learning new material.</p>
                 </div>
 
                 <!-- FAQ Section -->
-                <h2>❓ Common Questions</h2>
+                <h2>Common Questions</h2>
                 <div class="faq-grid">
                     <div class="faq-card">
                         <button class="faq-header" onclick="toggleFAQ(this)">
@@ -916,7 +921,7 @@ get_header();
                 </div>
 
                 <!-- The Bottom Line -->
-                <h2>🎯 The Bottom Line</h2>
+                <h2>The Bottom Line</h2>
                 <div class="bottom-line">
                     <div class="bottom-line-intro">
                         <p>
@@ -926,7 +931,7 @@ get_header();
                     </div>
                     <div class="bottom-line-box">
                         <h4>
-                            <span style="font-size: 1.5rem;">🎯</span> Our 4-Step Process
+                            Our 4-Step Process
                         </h4>
                         <ol class="process-steps">
                             <li>Take diagnostic practice tests for both SAT and ACT</li>
@@ -942,8 +947,8 @@ get_header();
                     <h2>Ready to Find Your Best Test?</h2>
                     <p>We offer <strong>free diagnostic testing and consultation</strong> to help you choose the right test and create a personalized prep plan.</p>
                     <div class="cta-buttons">
-                        <a href="/student-enrollment/" class="cta-button primary">Inquire Now</a>
-                        <a href="/courses/sat-act-prep-course/" class="cta-button secondary">View SAT/ACT Prep Program</a>
+                        <?php echo do_shortcode('[inquiry_button]'); ?>
+                        <?php echo do_shortcode('[inquiry_button color="teal" text="View SAT/ACT Prep Program" url="/courses/sat-act-prep-course/"]'); ?>
                     </div>
                 </div>
 

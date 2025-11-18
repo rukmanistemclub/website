@@ -96,75 +96,73 @@ get_header();
         color: #666;
     }
 
+    /* FAQ List Container */
+    .faq-list {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        overflow: hidden;
+        margin-bottom: 40px;
+    }
+
     /* FAQ Items */
     .faq-item {
-        background: white;
-        border: 3px solid #28AFCF;
-        border-radius: 12px;
-        margin-bottom: 10px;
-        overflow: hidden;
-        transition: all 0.3s ease;
+        border-bottom: 1px solid #e7e7ec;
     }
 
-    .faq-item:nth-child(3n+2) {
-        border-color: #FF7F07;
-    }
-
-    .faq-item:nth-child(3n+3) {
-        border-color: #F0B268;
-    }
-
-    .faq-item:hover {
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        transform: translateY(-2px);
+    .faq-item:last-child {
+        border-bottom: none;
     }
 
     .faq-question {
-        background: linear-gradient(to right, #f8f9fa, #ffffff);
-        padding: 12px 15px;
+        width: 100%;
+        background: transparent;
+        border: none;
+        padding: 1.25rem 1.5rem;
         cursor: pointer;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 1.3;
+        justify-content: space-between;
+        transition: background-color 0.2s ease;
+        text-align: left;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.6;
         color: #134958 !important;
-        transition: all 0.3s;
     }
 
     .faq-question:hover {
-        background: linear-gradient(to right, #e8f5f7, #f8f9fa);
+        background-color: #f8f9fa;
     }
 
-    .faq-question.active {
-        background: linear-gradient(to right, #28AFCF, #1a9bb5);
-        color: white;
+    .faq-item.active .faq-question {
+        background-color: #f8f9fa;
     }
 
     .faq-toggle {
+        flex-shrink: 0;
+        margin-left: 1.25rem;
+        color: #28AFCF;
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
         font-size: 1.5rem;
         font-weight: 700;
-        transition: transform 0.3s;
-        flex-shrink: 0;
-        margin-left: 20px;
     }
 
-    .faq-question.active .faq-toggle {
-        transform: rotate(45deg);
+    .faq-item.active .faq-toggle {
+        transform: rotate(90deg);
     }
 
     .faq-answer {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.4s ease, padding 0.4s ease;
-        padding: 0 6px;
+        transition: max-height 0.4s ease;
+        background: #fafbfc;
     }
 
     .faq-answer.active {
         max-height: 3000px;
-        padding: 12px 16px;
-        border-top: 2px solid #e8f5f7;
     }
 
     /* Paragraphs - tight spacing with small gap after */
@@ -332,7 +330,7 @@ get_header();
     .nyc-testimonials-section {
         background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
         padding: 40px 10px;
-        margin: 30px 0;
+        margin: 0;
     }
 
     .nyc-testimonials-container {
@@ -360,7 +358,7 @@ get_header();
         color: white;
         text-align: center;
         padding: 30px 10px;
-        margin-top: 40px;
+        margin-top: 0;
     }
 
     .faq-cta h2 {
@@ -453,6 +451,7 @@ get_header();
 
         <!-- FAQ Container -->
         <div class="faq-container">
+            <div class="faq-list">
 
             <!-- FAQ Item 1 -->
             <div class="faq-item">
@@ -1013,7 +1012,18 @@ get_header();
                 </div>
             </div>
 
+            </div><!-- .faq-list -->
         </div>
+
+        <!-- SHSAT Courses Section -->
+        <?php echo do_shortcode('[course_category category="shsat" title="SHSAT Preparation Programs" columns="4"]'); ?>
+
+        <!-- CTA Section -->
+        <section class="faq-cta">
+            <h2>Ready to Start Your SHSAT Prep Journey?</h2>
+            <p>Join the program where 90%+ of students gain admission to NYC specialized high schools and 50%+ qualify for Stuyvesant.</p>
+            <?php echo do_shortcode('[inquiry_button]'); ?>
+        </section>
 
         <!-- Why Choose NYC STEM Club Section -->
         <?php
@@ -1027,16 +1037,6 @@ get_header();
         echo do_shortcode('[why_choose_shsat]');
         ?>
 
-        <!-- SHSAT Courses Section -->
-        <?php echo do_shortcode('[course_category category="shsat" title="SHSAT Preparation Programs" columns="4"]'); ?>
-
-        <!-- CTA Section -->
-        <section class="faq-cta">
-            <h2>Ready to Start Your SHSAT Prep Journey?</h2>
-            <p>Join the program where 90%+ of students gain admission to NYC specialized high schools and 50%+ qualify for Stuyvesant.</p>
-            <?php echo do_shortcode('[inquiry_button]'); ?>
-        </section>
-
         <!-- Testimonials Section -->
         <?php echo do_shortcode('[testimonials]'); ?>
 
@@ -1045,18 +1045,19 @@ get_header();
 
 <script>
 function toggleFAQ(element) {
+    const faqItem = element.closest('.faq-item');
     const answer = element.nextElementSibling;
-    const isActive = element.classList.contains('active');
+    const isActive = faqItem.classList.contains('active');
 
     // Close all other FAQs
-    document.querySelectorAll('.faq-question.active').forEach(q => {
-        q.classList.remove('active');
-        q.nextElementSibling.classList.remove('active');
+    document.querySelectorAll('.faq-item.active').forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.faq-answer').classList.remove('active');
     });
 
     // Toggle current FAQ
     if (!isActive) {
-        element.classList.add('active');
+        faqItem.classList.add('active');
         answer.classList.add('active');
     }
 }

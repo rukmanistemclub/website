@@ -1,0 +1,40 @@
+/**
+ * Simple Trust Bar Styles
+ * Clean, horizontal trust bar with visual appeal
+ */
+
+/* Simple centered design */
+.elementor-counter {
+    text-align: center !important;
+    padding: 5px 10px 15px 10px !important;
+}
+
+/* Number styling - clean and bold */
+.elementor-counter-number-wrapper {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    margin-bottom: 0px !important;
+    color: #28AFCF !important;
+}
+
+/* Title styling - simple and clean */
+.elementor-counter-title {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    color: #333 !important;
+}
+
+/* Suffix/Prefix styling */
+.elementor-counter .elementor-counter-number-prefix,
+.elementor-counter .elementor-counter-number-suffix {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+}
+
+/* Widget container - minimal padding */
+.elementor-widget-counter .elementor-widget-container {
+    padding: 0 !important;
+}

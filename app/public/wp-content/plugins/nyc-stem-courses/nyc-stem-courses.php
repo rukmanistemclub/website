@@ -63,9 +63,11 @@ class NYC_STEM_Courses {
         // Register shortcodes
         add_shortcode('inquiry_button', array($this, 'inquiry_button_shortcode'));
         add_shortcode('course_category', array($this, 'course_category_shortcode'));
+        add_shortcode('featured_courses', array($this, 'featured_courses_shortcode'));
         add_shortcode('shsat_schools', array($this, 'shsat_schools_shortcode'));
         add_shortcode('why_choose_sat_act', array($this, 'why_choose_sat_act_shortcode'));
         add_shortcode('why_choose_shsat', array($this, 'why_choose_shsat_shortcode'));
+        add_shortcode('why_choose_isee', array($this, 'why_choose_isee_shortcode'));
         add_shortcode('testimonials', array($this, 'testimonials_shortcode'));
 
         // Register query vars (fixes 404 with ?course_name= parameter)
@@ -810,6 +812,7 @@ class NYC_STEM_Courses {
         // Get styling settings from WordPress
         $orange_color = get_option('nyc_stem_inquiry_button_orange_color', '#FF9574');
         $teal_color = get_option('nyc_stem_inquiry_button_teal_color', '#28AFCF');
+        $dark_teal_color = get_option('nyc_stem_inquiry_button_dark_teal_color', '#134958');
         $text_color = get_option('nyc_stem_inquiry_button_text_color', '#FFFFFF');
         $font_size = get_option('nyc_stem_inquiry_button_font_size', '24px');
         $font_weight = get_option('nyc_stem_inquiry_button_font_weight', '700');
@@ -819,15 +822,24 @@ class NYC_STEM_Courses {
         $rounded_radius = get_option('nyc_stem_inquiry_button_rounded_radius', '50px');
 
         // Determine colors
-        $bg_color = (strtolower($atts['color']) === 'teal') ? $teal_color : $orange_color;
+        $color_lower = strtolower($atts['color']);
+        if ($color_lower === 'teal') {
+            $bg_color = $teal_color;
+        } elseif ($color_lower === 'dark-teal' || $color_lower === 'darkteal') {
+            $bg_color = $dark_teal_color;
+        } else {
+            $bg_color = $orange_color;
+        }
 
         // Determine border-radius
         $border_radius = (strtolower($atts['rounded']) === 'yes') ? $rounded_radius : $sharp_radius;
 
         // Build CSS classes
         $css_classes = 'elementor-button elementor-button-link elementor-size-sm nyc-stem-inquiry-btn';
-        if (strtolower($atts['color']) === 'teal') {
+        if ($color_lower === 'teal') {
             $css_classes .= ' btn-teal';
+        } elseif ($color_lower === 'dark-teal' || $color_lower === 'darkteal') {
+            $css_classes .= ' btn-dark-teal';
         }
         if ($atts['class']) {
             $css_classes .= ' ' . esc_attr($atts['class']);
@@ -992,6 +1004,121 @@ class NYC_STEM_Courses {
     }
 
     /**
+     * Featured Courses Shortcode
+     * Displays featured courses from homepage ACF field
+     * Usage: [featured_courses] or [featured_courses homepage_id="15290"]
+     *
+     * @param array $atts Shortcode attributes
+     * @return string Featured courses grid HTML
+     */
+    public function featured_courses_shortcode($atts) {
+        // Parse shortcode attributes
+        $atts = shortcode_atts(array(
+            'homepage_id' => 15290,     // Homepage post ID
+            'title' => '',              // Section title (empty by default)
+            'columns' => 4,             // Grid columns
+        ), $atts);
+
+        // Get featured courses from ACF field
+        $featured_course_ids = get_field('featured_courses', intval($atts['homepage_id']));
+
+        // Fallback to specific courses if ACF field is empty
+        if (empty($featured_course_ids) || !is_array($featured_course_ids)) {
+            $featured_course_ids = array(17223, 17138, 17345, 17145);
+        }
+
+        if (empty($featured_course_ids)) {
+            return ''; // Return nothing if no courses found
+        }
+
+        // Start output buffering
+        ob_start();
+
+        // Enqueue styles if not already loaded
+        wp_enqueue_style(
+            'nyc-stem-course-styles',
+            NYC_STEM_COURSES_URL . 'assets/css/course-styles.css',
+            array(),
+            NYC_STEM_COURSES_VERSION
+        );
+
+        ?>
+        <section class="course-related featured-courses-section">
+            <div class="related-container">
+                <?php if (!empty($atts['title'])) : ?>
+                    <h2 class="related-title"><?php echo esc_html($atts['title']); ?></h2>
+                <?php endif; ?>
+                <div class="related-grid" style="grid-template-columns: repeat(<?php echo intval($atts['columns']); ?>, 1fr);">
+                    <?php
+                    $card_colors = array('card-blue', 'card-orange', 'card-tan');
+                    $btn_colors = array('btn-blue', 'btn-orange', 'btn-tan');
+                    $color_index = 0;
+
+                    foreach ($featured_course_ids as $course_id) :
+                        // Skip if course doesn't exist
+                        if (get_post_status($course_id) !== 'publish') {
+                            continue;
+                        }
+
+                        $card_class = $card_colors[$color_index % 3];
+                        $btn_class = $btn_colors[$color_index % 3];
+                        $color_index++;
+                    ?>
+                        <div class="course-card <?php echo $card_class; ?>">
+                            <h3 class="course-card-title"><?php echo get_the_title($course_id); ?></h3>
+
+                            <?php if (function_exists('get_field')) : ?>
+                                <div class="course-card-meta">
+                                    <?php
+                                    $duration = get_field('course_duration', $course_id);
+                                    $formats = get_field('class_format', $course_id);
+
+                                    if ($duration) {
+                                        echo '<span class="meta-badge"><span class="meta-icon">⏱️</span> ' . esc_html($duration) . '</span>';
+                                    }
+
+                                    if ($formats && is_array($formats)) {
+                                        $format_labels = array(
+                                            'private' => '1-on-1',
+                                            'group' => 'Group',
+                                        );
+                                        $format_text = array();
+                                        foreach ($formats as $format) {
+                                            if (isset($format_labels[$format])) {
+                                                $format_text[] = $format_labels[$format];
+                                            }
+                                        }
+                                        if (!empty($format_text)) {
+                                            echo '<span class="meta-badge"><span class="meta-icon">👥</span> ' . esc_html(implode(' • ', $format_text)) . '</span>';
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php
+                            $excerpt = get_the_excerpt($course_id);
+                            if ($excerpt) :
+                            ?>
+                                <p class="course-card-description">
+                                    <?php echo wp_trim_words($excerpt, 20); ?>
+                                </p>
+                            <?php endif; ?>
+
+                            <a href="<?php echo get_permalink($course_id); ?>" class="course-card-button <?php echo $btn_class; ?>">
+                                Learn More →
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+        <?php
+
+        return ob_get_clean();
+    }
+
+    /**
      * Display SHSAT Schools as colorful badges
      * Shortcode: [shsat_schools]
      *
@@ -1034,17 +1161,25 @@ class NYC_STEM_Courses {
      * @return string Why Choose section HTML
      */
     public function why_choose_sat_act_shortcode($atts) {
-        $output = '<section class="why-choose-sat-act" style="padding: 0 !important; margin: 0 !important; background: #CDE9F6 !important;">';
-        $output .= '<div style="max-width: 1200px !important; margin: 0 auto !important; padding: 10px 20px 24px 20px !important;">';
+        // Enqueue styles
+        wp_enqueue_style(
+            'nyc-stem-course-styles',
+            NYC_STEM_COURSES_URL . 'assets/css/course-styles.css',
+            array(),
+            NYC_STEM_COURSES_VERSION
+        );
+
+        $output = '<section class="why-choose-sat-act">';
+        $output .= '<div class="why-choose-container">';
 
         // Header
-        $output .= '<div style="text-align: center !important; margin-bottom: 12px !important;">';
+        $output .= '<div class="why-choose-header">';
         $output .= '<h2 style="font-family: \'Roboto\', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 15px !important;">Why Choose NYC STEM Club?</h2>';
         $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 18px !important; font-weight: 400 !important; color: #555 !important; line-height: 1.6 !important; max-width: 900px !important; margin: 0 auto !important;">Our comprehensive approach combines expert instruction, proven curriculum, and personalized attention to maximize every student\'s potential.</p>';
         $output .= '</div>';
 
         // Benefits Grid
-        $output .= '<div class="why-choose-grid" style="display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; margin-bottom: 16px !important;">';
+        $output .= '<div class="why-choose-grid">';
 
         // Card 1
         $output .= '<div style="background: #EFF8FB !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28AFCF !important;">';
@@ -1089,7 +1224,7 @@ class NYC_STEM_Courses {
         $output .= '</div>'; // Close grid
 
         // Badge
-        $output .= '<div style="background: linear-gradient(135deg, #134958, #1a5f73); border-radius: 12px; padding: 15px 20px; text-align: center; box-shadow: 0 6px 25px rgba(19, 73, 88, 0.3);">';
+        $output .= '<div style="background: linear-gradient(135deg, #134958, #1a5f73); border-radius: 12px; padding: 15px 20px; text-align: center; box-shadow: 0 6px 25px rgba(19, 73, 88, 0.3); margin-top: 20px;">';
         $output .= '<div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">';
         $output .= '<div style="display: flex; align-items: center; gap: 10px;">';
         $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#28AFCF" width="32" height="32"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>';
@@ -1099,32 +1234,6 @@ class NYC_STEM_Courses {
         $output .= '</div></div>';
 
         $output .= '</div>'; // Close container
-
-        // Add responsive styles
-        $output .= '<style>';
-        $output .= '@media (max-width: 992px) { ';
-        $output .= '.why-choose-grid { grid-template-columns: repeat(2, 1fr) !important; } ';
-        $output .= '}';
-        $output .= '@media (max-width: 768px) { ';
-        $output .= '.why-choose-grid { grid-template-columns: 1fr !important; } ';
-        $output .= '.why-choose-sat-act h2 { font-size: 28px !important; } ';
-        $output .= '.why-choose-sat-act p:first-of-type { font-size: 16px !important; } '; // Intro paragraph
-        $output .= '.why-choose-sat-act h3 { font-size: 18px !important; } '; // Card headings
-        $output .= '.why-choose-sat-act div[style*="max-width: 1200px"] { padding: 10px 15px 20px 15px !important; } '; // Container padding
-        $output .= '.why-choose-sat-act .why-choose-grid > div { padding: 12px !important; } '; // Card padding
-        $output .= '}';
-        $output .= '@media (max-width: 480px) { ';
-        $output .= '.why-choose-sat-act h2 { font-size: 24px !important; } ';
-        $output .= '.why-choose-sat-act p:first-of-type { font-size: 15px !important; } ';
-        $output .= '.why-choose-sat-act h3 { font-size: 17px !important; margin-left: 45px !important; } '; // Card headings with adjusted icon margin
-        $output .= '.why-choose-sat-act .why-choose-grid > div { padding: 10px !important; } ';
-        $output .= '.why-choose-sat-act div[style*="max-width: 1200px"] { padding: 10px 12px 15px 12px !important; } ';
-        $output .= '.why-choose-sat-act div[style*="background: linear-gradient(135deg, #134958"] { padding: 12px 15px !important; } '; // Badge padding
-        $output .= '.why-choose-sat-act div[style*="background: linear-gradient(135deg, #134958"] span:first-of-type { font-size: 16px !important; } '; // Badge title
-        $output .= '.why-choose-sat-act div[style*="background: linear-gradient(135deg, #134958"] span:last-of-type { font-size: 14px !important; } '; // Badge subtitle
-        $output .= '}';
-        $output .= '</style>';
-
         $output .= '</section>';
 
         return $output;
@@ -1272,6 +1381,121 @@ class NYC_STEM_Courses {
     }
 
     /**
+     * Why Choose NYC STEM Club - ISEE Shortcode
+     * Displays Why Choose section specifically for ISEE courses
+     * Usage: [why_choose_isee]
+     */
+    public function why_choose_isee_shortcode($atts) {
+        $output = '<style>';
+
+        // Section H2 Title
+        $output .= '.why-choose-isee h2 { font-family: \'Roboto\', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; color: #134958 !important; line-height: 1.3 !important; text-align: center !important; margin-bottom: 20px !important; }';
+
+        // Why Choose Grid Styles
+        $output .= '.why-choose-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; margin: 40px 0 !important; }';
+        $output .= '.section .why-choose-grid .benefit-card, .why-choose-grid .benefit-card { background: #EFF8FB !important; padding: 20px !important; border-radius: 12px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28AFCF !important; border-left: 3px solid #28AFCF !important; text-align: left !important; transition: all 0.3s ease !important; min-height: 140px !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(1) { border-left-color: #28AFCF !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(2) { border-left-color: #FF7F07 !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(3) { border-left-color: #F0B268 !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(4) { border-left-color: #28A745 !important; }';
+        $output .= '.why-choose-grid .benefit-card:hover { transform: translateY(-3px) !important; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important; }';
+        $output .= '.why-choose-grid .benefit-card .benefit-icon, .benefit-card .benefit-icon { width: 28px !important; height: 28px !important; border-radius: 6px !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-right: 10px !important; float: left !important; flex-shrink: 0 !important; }';
+        $output .= '.why-choose-grid .benefit-card .benefit-icon svg { width: 16px !important; height: 16px !important; flex-shrink: 0 !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(1) .benefit-icon { background: linear-gradient(135deg, #28AFCF, #1a9cb8) !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(2) .benefit-icon { background: linear-gradient(135deg, #FF7F07, #e66f00) !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(3) .benefit-icon { background: linear-gradient(135deg, #F0B268, #d99d52) !important; }';
+        $output .= '.why-choose-grid .benefit-card:nth-child(4) .benefit-icon { background: linear-gradient(135deg, #28A745, #1e7e34) !important; }';
+        $output .= '.why-choose-grid .benefit-card h3, .benefit-card h3 { font-family: \'Roboto\', sans-serif !important; font-size: 18px !important; font-weight: 600 !important; line-height: 1.3 !important; color: #134958 !important; margin: 0 0 8px 0 !important; margin-left: 40px !important; margin-top: 0 !important; text-align: left !important; }';
+        $output .= '.why-choose-grid .benefit-card p, .benefit-card p { font-family: \'Roboto\', sans-serif !important; font-size: 15px !important; line-height: 1.6 !important; color: #333 !important; margin: 0 !important; font-weight: 400 !important; clear: both !important; text-align: left !important; }';
+
+        // Responsive Styles
+        $output .= '@media (max-width: 992px) { ';
+        $output .= '.why-choose-grid { grid-template-columns: repeat(2, 1fr) !important; } ';
+        $output .= '}';
+        $output .= '@media (max-width: 768px) { ';
+        $output .= '.why-choose-grid { grid-template-columns: 1fr !important; } ';
+        $output .= '.why-choose-isee h2 { font-size: 28px !important; } ';
+        $output .= '.why-choose-isee .benefit-card { padding: 15px !important; } ';
+        $output .= '.why-choose-isee .benefit-card h3 { font-size: 17px !important; } ';
+        $output .= '.why-choose-isee .benefit-card p { font-size: 14px !important; } ';
+        $output .= '.why-choose-isee > div { padding: 10px 15px 20px 15px !important; } ';
+        $output .= '}';
+        $output .= '@media (max-width: 480px) { ';
+        $output .= '.why-choose-isee h2 { font-size: 24px !important; } ';
+        $output .= '.why-choose-isee .benefit-card { padding: 12px !important; } ';
+        $output .= '.why-choose-isee .benefit-card h3 { font-size: 16px !important; margin-left: 38px !important; } ';
+        $output .= '.why-choose-isee .benefit-card p { font-size: 14px !important; } ';
+        $output .= '.why-choose-isee > div { padding: 10px 12px 15px 12px !important; } ';
+        $output .= '}';
+
+        $output .= '</style>';
+
+        // HTML Content with Container
+        $output .= '<section class="why-choose-isee" style="padding: 0 !important; margin: 0 !important; background: #CDE9F6 !important;">';
+        $output .= '<div style="max-width: 1200px !important; margin: 0 auto !important; padding: 10px 20px 24px 20px !important;">';
+        $output .= '<h2>Why Choose NYC STEM Club for ISEE Prep?</h2>';
+        $output .= '<div class="why-choose-grid">';
+
+        // Card 1: Expert Instructors
+        $output .= '<div class="benefit-card">';
+        $output .= '<div style="text-align: left;">';
+        $output .= '<div class="benefit-icon">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20">';
+        $output .= '<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>';
+        $output .= '</svg>';
+        $output .= '</div>';
+        $output .= '<h3>Expert Instructors</h3>';
+        $output .= '<p>Experienced with all ISEE levels, providing personalized guidance tailored to your child\'s learning style.</p>';
+        $output .= '</div>';
+        $output .= '</div>';
+
+        // Card 2: Proven Results
+        $output .= '<div class="benefit-card">';
+        $output .= '<div style="text-align: left;">';
+        $output .= '<div class="benefit-icon">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20">';
+        $output .= '<path d="M12 3L1 9L5 11.18V17.18L12 21L19 17.18V11.18L21 10.09V17H23V9L12 3M18.82 9L12 12.72L5.18 9L12 5.28L18.82 9M17 16L12 18.72L7 16V12.27L12 15L17 12.27V16Z"/>';
+        $output .= '</svg>';
+        $output .= '</div>';
+        $output .= '<h3>Proven Results</h3>';
+        $output .= '<p>Over 85% of our students score stanine 7-9, gaining admission to top independent schools.</p>';
+        $output .= '</div>';
+        $output .= '</div>';
+
+        // Card 3: Comprehensive Materials
+        $output .= '<div class="benefit-card">';
+        $output .= '<div style="text-align: left;">';
+        $output .= '<div class="benefit-icon">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20">';
+        $output .= '<path d="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z"/>';
+        $output .= '</svg>';
+        $output .= '</div>';
+        $output .= '<h3>Flexible Programs</h3>';
+        $output .= '<p>Year-round classes, summer bootcamps, and 1-on-1 tutoring. Online and in-person options.</p>';
+        $output .= '</div>';
+        $output .= '</div>';
+
+        // Card 4: Digital ISEE Ready
+        $output .= '<div class="benefit-card">';
+        $output .= '<div style="text-align: left;">';
+        $output .= '<div class="benefit-icon">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20">';
+        $output .= '<path d="M17 1.01L7 1C5.9 1 5 1.9 5 3V21C5 22.1 5.9 23 7 23H17C18.1 23 19 22.1 19 21V3C19 1.9 18.1 1.01 17 1.01M17 19H7V5H17V19M16 13H13V16H11V13H8V11H11V8H13V11H16V13Z"/>';
+        $output .= '</svg>';
+        $output .= '</div>';
+        $output .= '<h3>Digital ISEE Ready</h3>';
+        $output .= '<p>We assist families with all formats: paper-based, Prometric centers, and online at-home tests.</p>';
+        $output .= '</div>';
+        $output .= '</div>';
+
+        $output .= '</div>'; // Close why-choose-grid
+        $output .= '</div>'; // Close container
+        $output .= '</section>'; // Close section
+
+        return $output;
+    }
+
+    /**
      * Testimonials Shortcode
      * Displays the "What our Students and Parents have to say" testimonials section
      * Usage: [testimonials]
@@ -1281,7 +1505,15 @@ class NYC_STEM_Courses {
         // Get the reviews shortcode from options (allows admin to customize)
         $reviews_shortcode = get_option('nyc_stem_reviews_shortcode', '[trustindex data-widget-id=d7ccd5b21eb1294a9186eebe1e6]');
 
-        // All styling now in course-styles.css under .course-testimonials
+        // Enqueue styles if not already loaded
+        wp_enqueue_style(
+            'nyc-stem-course-styles',
+            NYC_STEM_COURSES_URL . 'assets/css/course-styles.css',
+            array(),
+            NYC_STEM_COURSES_VERSION
+        );
+
+        // All styling in course-styles.css under .course-testimonials
         $output = '<section class="course-testimonials">';
         $output .= '<div class="testimonials-container">';
         $output .= '<h2 class="testimonials-title">What Our Students and Parents Say</h2>';

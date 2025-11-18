@@ -38,8 +38,8 @@ if (!empty($crosssell_courses)) {
             $crosssell_list[] = $course_id;
         }
     }
-    // Limit to 3 cross-sell courses
-    $crosssell_list = array_slice($crosssell_list, 0, 3);
+    // Limit to 4 cross-sell courses (increased from 3)
+    $crosssell_list = array_slice($crosssell_list, 0, 4);
 }
 
 // ============================================
@@ -86,12 +86,11 @@ if (!empty($related_courses)) {
                 'fields' => 'ids',
             ));
         } else {
-            // Get current course categories for non-SHSAT courses
-            $terms = get_the_terms($current_id, 'course_category');
+            // Check if user specified categories in admin
+            $custom_categories = get_field('related_course_categories', $current_id);
 
-            if ($terms && !is_wp_error($terms)) {
-                $category_ids = wp_list_pluck($terms, 'term_id');
-
+            if (!empty($custom_categories)) {
+                // Use custom categories specified by user
                 $category_courses = get_posts(array(
                     'post_type' => 'course',
                     'post_status' => 'publish',
@@ -101,7 +100,7 @@ if (!empty($related_courses)) {
                         array(
                             'taxonomy' => 'course_category',
                             'field' => 'term_id',
-                            'terms' => $category_ids,
+                            'terms' => $custom_categories,
                         ),
                     ),
                     'orderby' => 'menu_order title',
@@ -109,7 +108,70 @@ if (!empty($related_courses)) {
                     'fields' => 'ids',
                 ));
             } else {
-                $category_courses = array();
+                // Auto-detect based on current course categories
+                $terms = get_the_terms($current_id, 'course_category');
+
+                if ($terms && !is_wp_error($terms)) {
+                    // Check if current course is SAT/ACT
+                    $is_sat_act = false;
+                    $category_slugs = wp_list_pluck($terms, 'slug');
+
+                    foreach ($category_slugs as $slug) {
+                        if (strpos($slug, 'sat') !== false || strpos($slug, 'act') !== false) {
+                            $is_sat_act = true;
+                            break;
+                        }
+                    }
+
+                    // If SAT/ACT course, show all SAT and ACT courses
+                    if ($is_sat_act) {
+                        $category_courses = get_posts(array(
+                            'post_type' => 'course',
+                            'post_status' => 'publish',
+                            'posts_per_page' => 8,
+                            'post__not_in' => array_merge(array($current_id), $crosssell_list),
+                            'tax_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'taxonomy' => 'course_category',
+                                    'field' => 'slug',
+                                    'terms' => array('sat', 'act', 'sat-act-prep'),
+                                    'operator' => 'IN',
+                                ),
+                                array(
+                                    'taxonomy' => 'course_category',
+                                    'field' => 'slug',
+                                    'terms' => $category_slugs,
+                                ),
+                            ),
+                            'orderby' => 'menu_order title',
+                            'order' => 'ASC',
+                            'fields' => 'ids',
+                        ));
+                    } else {
+                        // For other courses, show same category
+                        $category_ids = wp_list_pluck($terms, 'term_id');
+
+                        $category_courses = get_posts(array(
+                            'post_type' => 'course',
+                            'post_status' => 'publish',
+                            'posts_per_page' => 8,
+                            'post__not_in' => array_merge(array($current_id), $crosssell_list),
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'course_category',
+                                    'field' => 'term_id',
+                                    'terms' => $category_ids,
+                                ),
+                            ),
+                            'orderby' => 'menu_order title',
+                            'order' => 'ASC',
+                            'fields' => 'ids',
+                        ));
+                    }
+                } else {
+                    $category_courses = array();
+                }
             }
         }
 
@@ -127,38 +189,11 @@ if (!empty($related_courses)) {
     }
 }
 
-// If still need more courses, fill with appropriate courses
-if (count($related_list) < 6) {
-    $remaining = 6 - count($related_list);
-
-    $filler_args = array(
-        'post_type' => 'course',
-        'post_status' => 'publish',
-        'posts_per_page' => $remaining,
-        'post__not_in' => array_merge(array($current_id), $crosssell_list, $related_list),
-        'orderby' => 'menu_order title',
-        'order' => 'ASC',
-        'fields' => 'ids',
-    );
-
-    // For SHSAT courses, still show only Upper ISEE courses (filtered by tag)
-    if ($is_shsat_course) {
-        $filler_args['tag'] = 'upper';
-        $filler_args['tax_query'] = array(
-            array(
-                'taxonomy' => 'course_category',
-                'field' => 'slug',
-                'terms' => 'isee',
-            ),
-        );
-    }
-
-    $filler_courses = get_posts($filler_args);
-
-    if (!empty($filler_courses)) {
-        $related_list = array_merge($related_list, $filler_courses);
-    }
-}
+// NO FILLER LOGIC - All related courses are controlled by:
+// 1. Manual related_courses ACF field, OR
+// 2. Manual related_course_categories ACF field, OR
+// 3. Auto-detected category matching
+// This ensures complete control over what courses are shown
 
 // Limit to 6 related courses
 $related_list = array_slice($related_list, 0, 6);
@@ -166,6 +201,26 @@ $related_list = array_slice($related_list, 0, 6);
 // Exit if no courses to show at all
 if (empty($crosssell_list) && empty($related_list)) {
     return;
+}
+
+// PERFORMANCE OPTIMIZATION: Bulk load all course data at once
+$all_course_ids = array_merge($crosssell_list, $related_list);
+$course_data_cache = array();
+
+if (!empty($all_course_ids)) {
+    // Prime post cache
+    _prime_post_caches($all_course_ids, false, true);
+
+    // Bulk load ACF fields for all courses at once
+    foreach ($all_course_ids as $course_id) {
+        $course_data_cache[$course_id] = array(
+            'title' => get_the_title($course_id),
+            'permalink' => get_permalink($course_id),
+            'excerpt' => get_the_excerpt($course_id),
+            'duration' => get_field('course_duration', $course_id),
+            'formats' => get_field('class_format', $course_id),
+        );
+    }
 }
 ?>
 
@@ -185,19 +240,22 @@ if (empty($crosssell_list) && empty($related_list)) {
                 $card_class = $card_colors[$color_index % 3];
                 $btn_class = $btn_colors[$color_index % 3];
                 $color_index++;
+
+                // Use cached data
+                $course_data = $course_data_cache[$course_id];
             ?>
                 <div class="course-card <?php echo $card_class; ?>">
                     <h3 class="course-card-title">
-                        <a href="<?php echo get_permalink($course_id); ?>">
-                            <?php echo get_the_title($course_id); ?>
+                        <a href="<?php echo $course_data['permalink']; ?>">
+                            <?php echo $course_data['title']; ?>
                         </a>
                     </h3>
 
                     <!-- Meta Information -->
                     <div class="course-card-meta">
                         <?php
-                        $duration = get_field('course_duration', $course_id);
-                        $formats = get_field('class_format', $course_id);
+                        $duration = $course_data['duration'];
+                        $formats = $course_data['formats'];
 
                         if ($duration) {
                             echo '<span class="meta-badge"><span class="meta-icon">⏱️</span> ' . esc_html($duration) . '</span>';
@@ -221,16 +279,13 @@ if (empty($crosssell_list) && empty($related_list)) {
                         ?>
                     </div>
 
-                    <?php
-                    $excerpt = get_the_excerpt($course_id);
-                    if ($excerpt) :
-                    ?>
+                    <?php if ($course_data['excerpt']) : ?>
                         <p class="course-card-description">
-                            <?php echo wp_trim_words($excerpt, 20); ?>
+                            <?php echo wp_trim_words($course_data['excerpt'], 20); ?>
                         </p>
                     <?php endif; ?>
 
-                    <a href="<?php echo get_permalink($course_id); ?>" class="course-card-button <?php echo $btn_class; ?>">
+                    <a href="<?php echo $course_data['permalink']; ?>" class="course-card-button <?php echo $btn_class; ?>">
                         Learn More →
                     </a>
                 </div>
@@ -263,19 +318,22 @@ $section_title = 'Related Programs';
                 $card_class = $card_colors[$color_index % 3];
                 $btn_class = $btn_colors[$color_index % 3];
                 $color_index++;
+
+                // Use cached data
+                $course_data = $course_data_cache[$course_id];
             ?>
                 <div class="course-card <?php echo $card_class; ?>">
                     <h3 class="course-card-title">
-                        <a href="<?php echo get_permalink($course_id); ?>">
-                            <?php echo get_the_title($course_id); ?>
+                        <a href="<?php echo $course_data['permalink']; ?>">
+                            <?php echo $course_data['title']; ?>
                         </a>
                     </h3>
 
                     <!-- Meta Information -->
                     <div class="course-card-meta">
                         <?php
-                        $duration = get_field('course_duration', $course_id);
-                        $formats = get_field('class_format', $course_id);
+                        $duration = $course_data['duration'];
+                        $formats = $course_data['formats'];
 
                         if ($duration) {
                             echo '<span class="meta-badge"><span class="meta-icon">⏱️</span> ' . esc_html($duration) . '</span>';
@@ -299,16 +357,13 @@ $section_title = 'Related Programs';
                         ?>
                     </div>
 
-                    <?php
-                    $excerpt = get_the_excerpt($course_id);
-                    if ($excerpt) :
-                    ?>
+                    <?php if ($course_data['excerpt']) : ?>
                         <p class="course-card-description">
-                            <?php echo wp_trim_words($excerpt, 20); ?>
+                            <?php echo wp_trim_words($course_data['excerpt'], 20); ?>
                         </p>
                     <?php endif; ?>
 
-                    <a href="<?php echo get_permalink($course_id); ?>" class="course-card-button <?php echo $btn_class; ?>">
+                    <a href="<?php echo $course_data['permalink']; ?>" class="course-card-button <?php echo $btn_class; ?>">
                         Learn More →
                     </a>
                 </div>

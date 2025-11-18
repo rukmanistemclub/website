@@ -19,6 +19,31 @@ if (!empty($course_description)) {
             <div class="course-description-content">
                 <?php echo do_shortcode($course_description); ?>
             </div>
+
+            <?php
+            // FAQ Footer - "Still have questions?" section
+            $faq_footer_text = get_field('faq_footer_text');
+            $faq_link_url = get_field('faq_link_url');
+            $faq_link_text = get_field('faq_link_text');
+
+            if ($faq_footer_text || $faq_link_url) :
+            ?>
+                <div class="faq-footer">
+                    <p class="faq-footer-text">
+                        <?php if ($faq_footer_text) : ?>
+                            <?php echo wp_kses_post(strip_tags($faq_footer_text, '<a>')); ?>
+                        <?php endif; ?>
+                        <?php if ($faq_link_url) : ?>
+                            <a href="<?php echo esc_attr($faq_link_url); ?>" class="faq-link">
+                                <?php echo esc_html($faq_link_text ? $faq_link_text : 'View All FAQs'); ?>
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                </svg>
+                            </a>
+                        <?php endif; ?>
+                    </p>
+                </div>
+            <?php endif; ?>
         </div>
     </section>
     <?php
@@ -81,6 +106,31 @@ if ($program_modules && is_array($program_modules)) :
                     </div>
                 <?php endforeach; ?>
             </div>
+
+            <?php
+            // FAQ Footer - "Still have questions?" section
+            $faq_footer_text = get_field('faq_footer_text');
+            $faq_link_url = get_field('faq_link_url');
+            $faq_link_text = get_field('faq_link_text');
+
+            if ($faq_footer_text || $faq_link_url) :
+            ?>
+                <div class="faq-footer">
+                    <p class="faq-footer-text">
+                        <?php if ($faq_footer_text) : ?>
+                            <?php echo wp_kses_post(strip_tags($faq_footer_text, '<a>')); ?>
+                        <?php endif; ?>
+                        <?php if ($faq_link_url) : ?>
+                            <a href="<?php echo esc_attr($faq_link_url); ?>" class="faq-link">
+                                <?php echo esc_html($faq_link_text ? $faq_link_text : 'View All FAQs'); ?>
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                </svg>
+                            </a>
+                        <?php endif; ?>
+                    </p>
+                </div>
+            <?php endif; ?>
         </div>
     </section>
 <?php

@@ -5,13 +5,6 @@
  */
 
 get_header();
-
-// Enqueue the global course styles
-wp_enqueue_style('course-styles',
-    get_site_url() . '/wp-content/plugins/nyc-stem-courses/assets/css/course-styles.css',
-    array(),
-    filemtime(WP_CONTENT_DIR . '/plugins/nyc-stem-courses/assets/css/course-styles.css')
-);
 ?>
 
 <style>
@@ -53,12 +46,20 @@ wp_enqueue_style('course-styles',
     .hero {
         background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
         color: white;
-        padding: 100px 20px;
+        padding: 60px 0;
         text-align: center;
     }
 
     .hero-container {
         max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        text-align: center;
         margin: 0 auto;
     }
 
@@ -66,20 +67,21 @@ wp_enqueue_style('course-styles',
         font-size: 3rem;
         margin-bottom: 20px;
         line-height: 1.2;
+        text-align: center;
     }
 
     .hero-content .subtitle {
         font-size: 1.3rem;
         margin-bottom: 30px;
         opacity: 0.95;
-        max-width: 800px;
+        max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
     }
 
     .hero-description {
         font-size: 1.1rem;
-        max-width: 900px;
+        max-width: 1200px;
         margin: 0 auto 40px;
         line-height: 1.8;
         opacity: 0.9;
@@ -88,7 +90,7 @@ wp_enqueue_style('course-styles',
     /* Content Section */
     .content-section {
         max-width: 1200px;
-        margin: 80px auto;
+        margin: 40px auto 0 auto;
         padding: 0 20px;
     }
 
@@ -103,9 +105,9 @@ wp_enqueue_style('course-styles',
         font-size: 1.1rem;
         line-height: 1.8;
         color: #555;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         text-align: center;
-        max-width: 900px;
+        max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -113,7 +115,22 @@ wp_enqueue_style('course-styles',
     /* Courses Section */
     .courses-section {
         background: #f8f9fa;
-        padding: 80px 20px;
+        padding: 10px 20px 50px 20px;
+        margin-top: 0;
+    }
+
+    /* Override global course-cards.css for this page specifically */
+    .courses-section .related-container {
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+
+    .courses-section .related-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        width: 100% !important;
     }
 
     .courses-section h2 {
@@ -128,16 +145,16 @@ wp_enqueue_style('course-styles',
         color: #666;
         text-align: center;
         margin-bottom: 50px;
-        max-width: 700px;
+        max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* Use global course card styles from course-styles.css */
-    .courses-grid-container {
-        max-width: 1400px;
+    /* Override global course card container width to match page width */
+    .courses-section .related-container {
+        max-width: 1200px !important;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 !important; /* Remove padding - parent already has it */
     }
 
     /* CTA Section */
@@ -151,7 +168,7 @@ wp_enqueue_style('course-styles',
     .cta-section h2 {
         font-size: 2.5rem;
         margin-bottom: 20px;
-        color: white;
+        color: white !important;
     }
 
     .cta-section p {
@@ -161,6 +178,7 @@ wp_enqueue_style('course-styles',
         max-width: 700px;
         margin-left: auto;
         margin-right: auto;
+        color: white !important;
     }
 
     .cta-btn {
@@ -185,6 +203,10 @@ wp_enqueue_style('course-styles',
 
     /* Responsive */
     @media (max-width: 768px) {
+        .hero {
+            padding: 40px 0;
+        }
+
         .hero-content h1 {
             font-size: 2rem;
         }
@@ -193,16 +215,75 @@ wp_enqueue_style('course-styles',
             font-size: 1.1rem;
         }
 
-        .courses-grid {
-            grid-template-columns: 1fr;
+        .hero-description {
+            font-size: 1rem;
+        }
+
+        .content-section {
+            margin: 30px auto 0 auto;
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+        }
+
+        .intro-text {
+            font-size: 1rem;
+        }
+
+        .courses-section {
+            padding: 10px 15px 40px 15px;
         }
 
         .courses-section h2 {
             font-size: 2rem;
         }
 
+        .section-subtitle {
+            font-size: 1rem;
+        }
+
+        /* Force 1 column on mobile */
+        .courses-section .related-grid {
+            grid-template-columns: 1fr !important;
+        }
+
         .course-card-title {
+            font-size: 1.2rem !important;
+        }
+
+        .cta-section {
+            padding: 60px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+        }
+
+        .cta-section p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-content h1 {
+            font-size: 1.75rem;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1rem;
+        }
+
+        .content-section h2 {
             font-size: 1.5rem;
+        }
+
+        .courses-section h2 {
+            font-size: 1.75rem;
+        }
+
+        .cta-section h2 {
+            font-size: 1.75rem;
         }
     }
 </style>
@@ -242,76 +323,80 @@ wp_enqueue_style('course-styles',
             Choose the counseling program that fits your admissions journey
         </p>
 
-        <div class="courses-grid-container">
-            <div class="courses-grid">
+        <div class="related-container">
+            <div class="related-grid">
 
                 <?php
-                // Query for counseling courses
-                $counseling_courses = new WP_Query(array(
+                // Query for counseling courses - matching shortcode structure
+                $counseling_courses = get_posts(array(
                     'post_type' => 'course',
                     'posts_per_page' => 2,
                     'post_name__in' => array('private-school-admissions-counseling', 'college-counseling'),
-                    'orderby' => 'post_name__in'
+                    'orderby' => 'menu_order title',
+                    'order' => 'ASC',
+                    'fields' => 'ids',
                 ));
 
-                if ($counseling_courses->have_posts()) :
-                    while ($counseling_courses->have_posts()) : $counseling_courses->the_post();
+                if ($counseling_courses) :
+                    $card_colors = array('card-blue', 'card-orange', 'card-tan');
+                    $btn_colors = array('btn-blue', 'btn-orange', 'btn-tan');
+                    $color_index = 0;
+
+                    foreach ($counseling_courses as $course_id) :
+                        $card_class = $card_colors[$color_index % 3];
+                        $btn_class = $btn_colors[$color_index % 3];
+                        $color_index++;
                 ?>
 
-                        <div class="course-card">
+                        <div class="course-card <?php echo $card_class; ?>">
+                            <h3 class="course-card-title"><?php echo get_the_title($course_id); ?></h3>
 
-                            <!-- Course Image (hidden by global CSS) -->
-                            <div class="course-card-image">
-                                <?php if (has_post_thumbnail()) : ?>
-                                    <?php the_post_thumbnail('large'); ?>
-                                <?php endif; ?>
-                            </div>
+                            <?php
+                            $duration = get_field('course_duration', $course_id);
+                            $formats = get_field('class_format', $course_id);
 
-                            <!-- Course Content -->
-                            <div class="course-card-content">
-
-                                <h2 class="course-card-title">
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                </h2>
-
-                                <?php
-                                $excerpt = get_the_excerpt();
-                                if (!$excerpt && function_exists('get_field')) {
-                                    $excerpt = get_field('hero_description');
-                                }
-                                if ($excerpt) : ?>
-                                    <div class="course-card-excerpt">
-                                        <?php echo wp_trim_words($excerpt, 25); ?>
-                                    </div>
-                                <?php endif; ?>
-
-                                <!-- Meta Information -->
+                            if ($duration || $formats) : ?>
                                 <div class="course-card-meta">
                                     <?php
-                                    $duration = get_field('course_duration');
-                                    $format = get_field('course_format');
-
                                     if ($duration) {
-                                        echo '<span class="course-card-meta-item">⏱️ ' . esc_html($duration) . '</span>';
+                                        echo '<span class="meta-badge"><span class="meta-icon">⏱️</span> ' . esc_html($duration) . '</span>';
                                     }
 
-                                    if ($format) {
-                                        echo '<span class="course-card-meta-item">👥 ' . esc_html($format) . '</span>';
+                                    if ($formats && is_array($formats)) {
+                                        $format_labels = array(
+                                            'private' => '1-on-1',
+                                            'group' => 'Group',
+                                        );
+                                        $format_text = array();
+                                        foreach ($formats as $format) {
+                                            if (isset($format_labels[$format])) {
+                                                $format_text[] = $format_labels[$format];
+                                            }
+                                        }
+                                        if (!empty($format_text)) {
+                                            echo '<span class="meta-badge"><span class="meta-icon">👥</span> ' . esc_html(implode(' • ', $format_text)) . '</span>';
+                                        }
                                     }
                                     ?>
                                 </div>
+                            <?php endif; ?>
 
-                                <a href="<?php the_permalink(); ?>" class="course-card-button">Learn More</a>
+                            <?php
+                            $excerpt = get_the_excerpt($course_id);
+                            if ($excerpt) :
+                            ?>
+                                <p class="course-card-description">
+                                    <?php echo wp_trim_words($excerpt, 20); ?>
+                                </p>
+                            <?php endif; ?>
 
-                            </div>
-
+                            <a href="<?php echo get_permalink($course_id); ?>" class="course-card-button <?php echo $btn_class; ?>">
+                                Learn More →
+                            </a>
                         </div>
 
-                <?php
-                    endwhile;
-                    wp_reset_postdata();
-                else :
-                ?>
+                <?php endforeach; ?>
+                <?php else : ?>
                     <div style="text-align: center; padding: 60px 20px; grid-column: 1/-1;">
                         <h3>Counseling Courses Coming Soon</h3>
                         <p>Our counseling programs are being updated. Please check back soon!</p>
@@ -326,7 +411,7 @@ wp_enqueue_style('course-styles',
     <section class="cta-section">
         <h2>Ready to Start Your Admissions Journey?</h2>
         <p>Schedule a consultation to discuss your goals and learn how our counseling services can help you succeed.</p>
-        <a href="/student-enrollment/" class="cta-btn">Schedule a Consultation</a>
+        <?php echo do_shortcode('[inquiry_button]'); ?>
     </section>
 
 </div>

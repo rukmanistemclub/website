@@ -1,0 +1,761 @@
+/**
+ * NYC STEM Club - Blog Post Styles
+ * Based on reference design - Clean, modern, professional
+ * Brand colors: #134958 (dark teal), #28AFCF (cyan), #FF7F07 (orange)
+ *
+ * APPROACH: Style the existing WordPress output with CSS only
+ */
+
+/* ===========================
+   HIDE FEATURED IMAGE
+   =========================== */
+
+.single-post .sk-thumbnail,
+.single-post .post-thumbnail,
+.single-post .entry-thumbnail,
+.single-post .wp-post-image {
+    display: none !important;
+}
+
+/* ===========================
+   GRADIENT HEADER FOR BLOG TITLE
+   =========================== */
+
+.single-post .container.py-8 {
+    background: linear-gradient(135deg, #134958 0%, #28AFCF 100%) !important;
+    padding: 60px 40px !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    position: relative;
+}
+
+.single-post .container.py-8::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #FF7F07;
+}
+
+.single-post .container.py-8 h1 {
+    color: white !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+}
+
+.single-post .container.py-8 p {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 1.1rem !important;
+}
+
+.single-post .container.py-8 .entry-meta,
+.single-post .container.py-8 .post-meta {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.single-post .container.py-8 .entry-meta a,
+.single-post .container.py-8 .post-meta a {
+    color: white !important;
+}
+
+/* ===========================
+   RESET & BASE
+   =========================== */
+
+.single-post {
+    background: #ffffff;
+}
+
+.single-post article {
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===========================
+   HERO SECTION - Gradient Header
+   =========================== */
+
+.nyc-blog-header {
+    background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
+    padding: 60px 20px 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.nyc-blog-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #FF7F07;
+}
+
+.nyc-blog-header-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nyc-blog-categories {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.nyc-blog-category {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nyc-blog-category:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.nyc-blog-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+    margin: 0 0 20px;
+    letter-spacing: -0.02em;
+}
+
+.nyc-blog-meta {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+    opacity: 0.9;
+    flex-wrap: wrap;
+}
+
+.nyc-blog-date,
+.nyc-blog-reading-time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+}
+
+.nyc-blog-excerpt {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+}
+
+/* NO Featured Image Section */
+.nyc-blog-featured-image {
+    display: none;
+}
+
+/* ===========================
+   CONTENT AREA
+   =========================== */
+
+.single-post .article__content,
+.single-post .entry-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #475569;
+}
+
+/* ===========================
+   TYPOGRAPHY
+   =========================== */
+
+/* Lead Paragraph */
+.single-post .article__content > p:first-child,
+.single-post .entry-content > p:first-child {
+    font-size: 1.25rem !important;
+    line-height: 1.7 !important;
+    color: #1e3a5f !important;
+    margin-bottom: 48px !important;
+    font-weight: 500 !important;
+}
+
+/* Regular Paragraphs */
+.single-post .article__content p,
+.single-post .entry-content p {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 20px !important;
+    color: #475569 !important;
+}
+
+/* Headings with Left Border */
+.single-post .article__content h2,
+.single-post .entry-content h2,
+.single-post .article__content .wp-block-heading,
+.single-post .entry-content .wp-block-heading {
+    font-size: 1.875rem !important;
+    font-weight: 700 !important;
+    color: #134958 !important;
+    margin: 56px 0 24px !important;
+    line-height: 1.3 !important;
+    position: relative;
+    padding-left: 20px !important;
+}
+
+.single-post .article__content h2::before,
+.single-post .entry-content h2::before,
+.single-post .article__content .wp-block-heading::before,
+.single-post .entry-content .wp-block-heading::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 4px;
+    height: 28px;
+    background: linear-gradient(to bottom, #28AFCF, #FF7F07);
+    border-radius: 2px;
+}
+
+.single-post .article__content h3,
+.single-post .entry-content h3 {
+    font-size: 1.375rem !important;
+    font-weight: 600 !important;
+    color: #28AFCF !important;
+    margin: 32px 0 16px !important;
+    line-height: 1.3 !important;
+}
+
+.single-post .article__content h4,
+.single-post .entry-content h4 {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #134958 !important;
+    margin: 24px 0 12px !important;
+}
+
+.single-post .article__content strong,
+.single-post .entry-content strong {
+    color: #1e3a5f !important;
+    font-weight: 600 !important;
+}
+
+/* ===========================
+   CALLOUT BOXES - Blue Gradient
+   =========================== */
+
+.single-post .article__content .wp-block-group,
+.single-post .entry-content .wp-block-group,
+.single-post .article__content .callout-box,
+.single-post .entry-content .callout-box {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%) !important;
+    border-left: 4px solid #28AFCF !important;
+    padding: 32px !important;
+    border-radius: 12px !important;
+    margin: 40px 0 !important;
+    box-shadow: 0 2px 8px rgba(40, 175, 207, 0.1) !important;
+}
+
+.single-post .article__content .wp-block-group h3,
+.single-post .entry-content .wp-block-group h3 {
+    margin-top: 0 !important;
+    color: #134958 !important;
+}
+
+.single-post .article__content .wp-block-group ul,
+.single-post .entry-content .wp-block-group ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin-top: 16px !important;
+}
+
+.single-post .article__content .wp-block-group li,
+.single-post .entry-content .wp-block-group li {
+    padding: 8px 0 !important;
+    padding-left: 28px !important;
+    position: relative;
+}
+
+.single-post .article__content .wp-block-group li::before,
+.single-post .entry-content .wp-block-group li::before {
+    content: '✓' !important;
+    position: absolute;
+    left: 0;
+    color: #28AFCF !important;
+    font-weight: bold !important;
+    font-size: 18px;
+}
+
+/* ===========================
+   COMPARISON CARDS - Side by Side
+   =========================== */
+
+.single-post .article__content .wp-block-columns,
+.single-post .entry-content .wp-block-columns {
+    background: #f8fafc !important;
+    padding: 48px 32px !important;
+    border-radius: 16px !important;
+    margin: 48px 0 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 24px !important;
+}
+
+.single-post .article__content .wp-block-column,
+.single-post .entry-content .wp-block-column {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 32px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    border-top: 4px solid #28AFCF !important;
+}
+
+.single-post .article__content .wp-block-column,
+.single-post .entry-content .wp-block-column:nth-child(2) {
+    border-top-color: #FF7F07 !important;
+}
+
+/* ===========================
+   TABLES - Professional Look
+   =========================== */
+
+.single-post .article__content table,
+.single-post .entry-content table {
+    width: 100% !important;
+    margin: 32px 0 !important;
+    border-collapse: collapse !important;
+    font-size: 16px !important;
+    background: white !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+.single-post .article__content table,
+.single-post .entry-content table th {
+    background: #134958 !important;
+    color: white !important;
+    padding: 14px 16px !important;
+    text-align: left !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+}
+
+.single-post .article__content table,
+.single-post .entry-content table td {
+    padding: 12px 16px !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    color: #475569 !important;
+}
+
+.single-post .article__content table,
+.single-post .entry-content table tr:nth-child(even) {
+    background: #f8fafc !important;
+}
+
+.single-post .article__content table,
+.single-post .entry-content table tr:hover {
+    background: #f0f9ff !important;
+}
+
+/* ===========================
+   LISTS
+   =========================== */
+
+.single-post .article__content ul,
+.single-post .entry-content ul,
+.single-post .article__content ol,
+.single-post .entry-content ol {
+    margin: 20px 0 !important;
+    padding-left: 24px !important;
+}
+
+.single-post .article__content li,
+.single-post .entry-content li {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 12px !important;
+    color: #475569 !important;
+}
+
+.single-post .article__content li,
+.single-post .entry-content li::marker {
+    color: #28AFCF !important;
+}
+
+/* ===========================
+   BUTTONS - Orange Primary
+   =========================== */
+
+.single-post .article__content .wp-block-button,
+.single-post .entry-content .wp-block-button__link,
+.single-post .article__content .wp-block-button,
+.single-post .entry-content .wp-block-buttons a {
+    display: inline-block !important;
+    padding: 14px 32px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    font-size: 1rem !important;
+    background: #FF7F07 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.single-post .article__content .wp-block-button,
+.single-post .entry-content .wp-block-button__link:hover {
+    background: #e67200 !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(255, 127, 7, 0.3) !important;
+}
+
+/* ===========================
+   BLOG FOOTER
+   =========================== */
+
+.nyc-blog-footer {
+    padding: 40px 0;
+    border-top: 2px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.nyc-blog-footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nyc-blog-tags {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.nyc-blog-tags-label {
+    font-weight: 700;
+    color: #134958;
+    font-size: 15px;
+}
+
+.nyc-blog-tag {
+    display: inline-block;
+    background: white;
+    color: #134958;
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.nyc-blog-tag:hover {
+    background: #28AFCF;
+    color: white;
+    border-color: #28AFCF;
+}
+
+.nyc-blog-share {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.nyc-blog-share-label {
+    font-weight: 700;
+    color: #134958;
+    font-size: 15px;
+}
+
+.nyc-blog-share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    color: #134958;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.nyc-blog-share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nyc-share-twitter:hover {
+    background: #1DA1F2;
+    color: white;
+    border-color: #1DA1F2;
+}
+
+.nyc-share-facebook:hover {
+    background: #1877F2;
+    color: white;
+    border-color: #1877F2;
+}
+
+.nyc-share-linkedin:hover {
+    background: #0A66C2;
+    color: white;
+    border-color: #0A66C2;
+}
+
+.nyc-share-email:hover {
+    background: #134958;
+    color: white;
+    border-color: #134958;
+}
+
+/* ===========================
+   RELATED POSTS
+   =========================== */
+
+.nyc-related-posts {
+    padding: 60px 0;
+    background: #f8fafc;
+}
+
+.nyc-related-posts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nyc-related-posts-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #134958;
+    margin: 0 0 40px;
+    text-align: center;
+}
+
+.nyc-related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.nyc-related-post-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-top: 4px solid #28AFCF;
+}
+
+.nyc-related-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.nyc-related-post-image {
+    overflow: hidden;
+    height: 200px;
+}
+
+.nyc-related-post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.nyc-related-post-card:hover .nyc-related-post-image img {
+    transform: scale(1.05);
+}
+
+.nyc-related-post-content {
+    padding: 24px;
+}
+
+.nyc-related-post-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 12px;
+}
+
+.nyc-related-post-title a {
+    color: #134958;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nyc-related-post-title a:hover {
+    color: #28AFCF;
+}
+
+.nyc-related-post-excerpt {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 0 0 16px;
+}
+
+.nyc-related-post-link {
+    display: inline-flex;
+    align-items: center;
+    color: #28AFCF;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nyc-related-post-link:hover {
+    color: #134958;
+    transform: translateX(5px);
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width: 992px) {
+    .nyc-blog-title {
+        font-size: 2rem;
+    }
+
+    .nyc-blog-content-container h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .nyc-related-posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nyc-blog-header {
+        padding: 40px 20px 30px;
+    }
+
+    .nyc-blog-title {
+        font-size: 1.875rem;
+    }
+
+    .nyc-blog-content-container {
+        padding: 40px 20px;
+    }
+
+    .nyc-blog-content-container h2 {
+        font-size: 1.5rem !important;
+        margin: 40px 0 20px !important;
+    }
+
+    .nyc-blog-content-container h3 {
+        font-size: 1.25rem !important;
+    }
+
+    .single-post .article__content .wp-block-columns,
+.single-post .entry-content .wp-block-columns {
+        grid-template-columns: 1fr !important;
+    }
+
+    .nyc-related-posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+   TESTIMONIALS SECTION
+   =========================== */
+
+.nyc-testimonials-section {
+    background: #ffffff !important;
+    padding: 80px 20px;
+    margin-top: 0;
+}
+
+/* Force white background EVERYWHERE on testimonials page - Override ALL Elementor colors */
+body.page-id-16284,
+body.page-id-16284 article,
+body.page-id-16284 .site-main,
+body.page-id-16284 .content-area,
+body.page-id-16284 #content,
+body.page-id-16284 .simple-page-container,
+.page-id-16284 .simple-page-container > *,
+.page-id-16284 .simple-page-container > div,
+.page-id-16284 .simple-page-container .elementor-section,
+.page-id-16284 .simple-page-container .elementor-container,
+.page-id-16284 .simple-page-container .elementor-column,
+.page-id-16284 .simple-page-container .elementor-widget-wrap,
+.page-id-16284 .simple-page-container .elementor-element,
+.page-id-16284 body > article > div.simple-page-container > div,
+body.page-id-16284 article div.simple-page-container > div,
+body.page-id-16284 .nyc-testimonials-section,
+body.page-id-16284 .nyc-testimonials-container,
+body.page-id-16284 .nyc-testimonials-content,
+body.page-id-16284 section,
+body.page-id-16284 div[class*="testimonial"],
+body.page-id-16284 div,
+body.page-id-16284 .elementor-section,
+body.page-id-16284 .elementor-container,
+body.page-id-16284 .elementor-column,
+body.page-id-16284 .elementor-widget-wrap,
+body.page-id-16284 .elementor-element {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+}
+
+/* Override Elementor CSS variables on testimonials page */
+body.page-id-16284 {
+    --e-global-color-info: #ffffff !important;
+    --info: #ffffff !important;
+}
+
+.nyc-testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nyc-testimonials-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #134958;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.nyc-testimonials-content {
+    margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nyc-testimonials-section {
+        padding: 60px 20px;
+    }
+
+    .nyc-testimonials-title {
+        font-size: 2rem;
+    }
+}

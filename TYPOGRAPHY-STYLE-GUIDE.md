@@ -1,7 +1,41 @@
 # NYC STEM Club - Typography Style Guide (REVISED)
-**Last Updated:** 2025-11-09
+**Last Updated:** 2025-11-13
 **Status:** ✅ REVISED - Ready for Implementation
-**Revision:** 2.0 - Modernized scale, consolidated special cases
+**Revision:** 2.1 - Added brand colors
+
+---
+
+## Brand Colors
+
+### Primary Colors
+```css
+/* Core Brand Colors */
+--dark-teal: #134958;
+--light-teal: #28AFCF;
+--orange: #FF7F07;
+--light-orange: #FFB84D;
+```
+
+### Secondary Colors
+```css
+/* Supporting Colors */
+--light-blue: #5DD3F0;
+
+/* Success/Accent Green (for callouts, key takeaways) */
+--mint-light: #f1f8f4;
+--sage-light: #e8f5e9;
+--green-accent: #a5d6a7;
+```
+
+### Usage Guidelines
+- **Dark Teal (#134958)**: Primary headings, navigation, footer backgrounds
+- **Light Teal (#28AFCF)**: CTAs, links, accents, gradients
+- **Orange (#FF7F07)**: Primary buttons, important highlights
+- **Light Orange (#FFB84D)**: Secondary accents, warm gradients
+- **Light Blue (#5DD3F0)**: Alternative accents, cool tones
+- **Green (Mint/Sage)**: Success messages, key takeaways, refreshing callout sections
+  - Background: Linear gradient from #f1f8f4 to #e8f5e9
+  - Border: 1px solid #a5d6a7
 
 ---
 
@@ -338,6 +372,124 @@ ul li:before {
 
 ---
 
+## 🔘 Button Shortcodes - Global Components
+
+### Primary Button: `[inquiry_button]`
+
+The global inquiry button shortcode provides a centralized, reusable button component. When you update the shortcode definition, changes automatically reflect across all pages.
+
+**Basic Usage (Default "Inquire Now" button):**
+```php
+<?php echo do_shortcode('[inquiry_button]'); ?>
+```
+
+**Custom Parameters:**
+```php
+// Custom text
+<?php echo do_shortcode('[inquiry_button text="View Programs"]'); ?>
+
+// Custom URL
+<?php echo do_shortcode('[inquiry_button url="/sat-act-test-prep/"]'); ?>
+
+// Custom text AND URL
+<?php echo do_shortcode('[inquiry_button text="View Programs" url="/sat-act-test-prep/"]'); ?>
+
+// Custom color
+<?php echo do_shortcode('[inquiry_button color="teal"]'); ?>
+
+// Disable rounded corners
+<?php echo do_shortcode('[inquiry_button rounded="no"]'); ?>
+
+// Add tracking source
+<?php echo do_shortcode('[inquiry_button source="timeline-page"]'); ?>
+
+// Combine multiple parameters
+<?php echo do_shortcode('[inquiry_button color="teal" text="View SAT/ACT Prep Program" url="/courses/sat-act-prep-course/"]'); ?>
+```
+
+**Available Parameters:**
+- `text` - Button text (default: "Inquire Now")
+- `url` - Destination URL (default: "/student-enrollment/")
+- `color` - Color variant: "orange" (default), "teal", "white"
+- `rounded` - Rounded corners: "yes" (default), "no"
+- `source` - Tracking parameter for analytics
+
+**Default Styling:**
+- Background: #FF7F07 (Orange)
+- Hover: #e66f00 with lift animation
+- Font: 18px, weight 700
+- Padding: 18px 45px
+- Border radius: 8px
+- Transition: all 0.3s ease
+
+**When to Use:**
+- Primary CTA in hero sections
+- Bottom CTA sections
+- Course/program inquiry pages
+- Any location needing "Inquire Now" action
+
+**DO NOT:**
+- Create hardcoded buttons - always use the shortcode
+- Style buttons inline - update the shortcode definition instead
+- Copy/paste button HTML - use `<?php echo do_shortcode('[inquiry_button]'); ?>`
+
+### Secondary Button
+
+For secondary actions (e.g., "View All Programs"), use standard HTML with `.cta-button.cta-secondary` classes:
+
+```html
+<a href="/sat-act-test-prep/" class="cta-button cta-secondary">View All SAT/ACT Programs</a>
+```
+
+**Styling:**
+- Background: white
+- Color: #134958 (Dark Teal)
+- Hover: #F0F9FC background
+- Same sizing as primary button
+
+**Button Container:**
+```html
+<div class="cta-buttons">
+    <?php echo do_shortcode('[inquiry_button]'); ?>
+    <a href="/programs/" class="cta-button cta-secondary">View All Programs</a>
+</div>
+```
+
+**CSS for Button Groups:**
+```css
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+```
+
+---
+
+## How to Prompt for Buttons
+
+When requesting button implementation, use these prompts:
+
+**For Primary CTA:**
+> "Add the inquiry button shortcode here"
+> "Use the global inquiry button"
+> "Add [inquiry_button] shortcode"
+
+**For Custom Button Text/URL:**
+> "Add inquiry button with text 'View Programs' linking to /sat-act-test-prep/"
+> "Use inquiry button shortcode with custom parameters: text='Schedule Now' url='/contact/'"
+
+**For Button Pairs:**
+> "Add inquiry button and secondary button for 'View All Programs' linking to /programs/"
+
+**DO NOT say:**
+> "Add an orange button" (too vague)
+> "Create a CTA button" (will result in hardcoded HTML)
+> "Style a button like..." (use shortcode instead)
+
+---
+
 ## 📋 Migration Guide: Old → New
 
 ### CSS Class Replacements
@@ -434,5 +586,9 @@ p { line-height: 1.7; }
 ---
 
 **Document Owner:** RV
-**Version:** 2.0
-**Last Updated:** 2025-11-09
+**Version:** 2.2
+**Last Updated:** 2025-11-13
+**Changelog:**
+- v2.2 (2025-11-13): Added Button Shortcodes section with inquiry_button documentation
+- v2.1 (2025-11-09): Added brand colors (green accent colors)
+- v2.0 (2025-11-09): Initial comprehensive typography standards

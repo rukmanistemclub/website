@@ -16,9 +16,9 @@ get_header();
         <?php
         $post_type_obj = get_post_type_object('course');
         if ($post_type_obj && !empty($post_type_obj->description)) {
-            echo '<p class="archive-description">' . esc_html($post_type_obj->description) . '</p>';
+            echo '<p class="archive-description" style="color: #ffffff !important; font-family: \'Roboto\', sans-serif; font-size: 18px; line-height: 1.6;">' . esc_html($post_type_obj->description) . '</p>';
         } else {
-            echo '<p class="archive-description">Explore our comprehensive range of courses designed to help students excel.</p>';
+            echo '<p class="archive-description" style="color: #ffffff !important; font-family: \'Roboto\', sans-serif; font-size: 18px; line-height: 1.6;">Explore our comprehensive range of courses designed to help students excel.</p>';
         }
         ?>
     </div>
@@ -60,10 +60,10 @@ get_header();
         <div class="courses-grid-container">
 
             <?php
-            // Get courses with pagination (shows all by default since client-side filtering is used)
+            // Get all courses in a simple grid
             $courses_query = new WP_Query(array(
                 'post_type' => 'course',
-                'posts_per_page' => -1, // Keep -1 for client-side JS filtering
+                'posts_per_page' => -1,
                 'orderby' => 'menu_order title',
                 'order' => 'ASC'
             ));
@@ -108,9 +108,8 @@ get_header();
 
                                 <!-- Category Badge -->
                                 <?php
-                                $categories = get_the_terms(get_the_ID(), 'course_category');
-                                if ($categories && !is_wp_error($categories)) {
-                                    $first_category = array_shift($categories);
+                                if ($course_categories && !is_wp_error($course_categories)) {
+                                    $first_category = array_shift($course_categories);
                                     echo '<span class="course-category-badge">' . esc_html($first_category->name) . '</span>';
                                 }
                                 ?>

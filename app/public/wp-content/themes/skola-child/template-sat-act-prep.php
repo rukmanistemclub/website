@@ -636,11 +636,17 @@ get_header();
         margin-bottom: 40px !important;
     }
 
+    /* Why Choose Section - Ensure seamless flow */
+    .why-choose-sat-act {
+        margin: 0 !important;
+        padding-bottom: 20px !important;
+    }
+
     /* Testimonials Section */
     .nyc-testimonials-section {
         background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
         padding: 40px 10px;
-        margin: 30px 0;
+        margin: 0;
     }
 
     .nyc-testimonials-container {
@@ -793,6 +799,13 @@ get_header();
         line-height: 1;
     }
 
+    /* Comparison Cards Grid */
+    .comparison-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
     /* Final CTA */
     .final-cta {
         background: linear-gradient(135deg, #28AFCF 0%, #134958 100%);
@@ -823,6 +836,13 @@ get_header();
     }
 
     /* Responsive */
+    @media (max-width: 992px) {
+        .comparison-cards-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    }
+
     @media (max-width: 768px) {
         .hero-container,
         .trust-container {
@@ -851,6 +871,11 @@ get_header();
 
         .format-cards {
             grid-template-columns: 1fr;
+        }
+
+        .comparison-cards-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
         }
     }
 </style>
@@ -894,7 +919,7 @@ get_header();
 
                         <!-- CTA Buttons -->
                         <div class="cta-group">
-                            <a href="#SATACTPrograms" class="cta-button cta-primary" style="background-color: #FF9574; color: #FFFFFF; padding: 12px 24px; border-radius: 3px; font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 700 !important; line-height: 1.8 !important; min-width: 180px !important; width: auto !important; display: inline-block !important; text-align: center !important; text-decoration: none; transition: all .3s;">View Our Programs</a>
+                            <a href="#SATACTPrograms" class="cta-button cta-primary" style="background-color: #FF9574; color: #FFFFFF; padding: 12px 24px; border-radius: 3px; font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 700 !important; line-height: 1.8 !important; min-width: 180px !important; width: auto !important; display: inline-block !important; text-align: center !important; text-decoration: none; transition: all .3s;">Jump to Courses</a>
                             <?php echo do_shortcode('[inquiry_button]'); ?>
                         </div>
                     </div>
@@ -1117,7 +1142,7 @@ get_header();
 
                 <!-- Comparison Cards -->
                 <div style="max-width: 1200px; margin: 0 auto;">
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px;">
+                    <div class="comparison-cards-grid" style="margin-bottom: 32px;">
 
                         <!-- SOPHOMORE CARD -->
                         <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 3px solid #28AFCF; display: flex; flex-direction: column; transition: transform 0.3s;">
@@ -1252,236 +1277,16 @@ get_header();
                 <?php echo do_shortcode('[course_category category="sat-act-prep" title="SAT & ACT Test Prep Programs" columns="4"]'); ?>
             </section>
 
-            <!-- Why Choose NYC STEM Club - Reusable Shortcode -->
-            <?php echo do_shortcode('[why_choose_sat_act]'); ?>
-
-            <!-- FAQ Section -->
-            <section class="section-light">
-                <div class="faq-section">
-                    <h2>Frequently Asked Questions</h2>
-
-                <div class="faq-grid">
-                    <div class="faq-card">
-                        <button class="faq-header" onclick="toggleFAQ(this)">
-                            <h3 class="faq-question" role="button" aria-expanded="false" tabindex="0">What's the difference between the SAT and ACT? Which should my child take?</h3>
-                            <div class="faq-icon">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Both tests are widely accepted by colleges, but they have distinct differences. The ACT tends to be more straightforward with direct reading passages and consistent scoring, while the SAT provides more time per question but can have more ambiguous passages and answer choices.</p>
-                            <p><strong>We help you decide through diagnostic testing.</strong> After your child takes practice tests for both exams, we analyze their performance and recommend the test where they'll reach their target score most efficiently. If performance is similar on both, we generally recommend starting with ACT prep because:</p>
-                            <ul>
-                                <li>ACT math covers more advanced topics (geometry, trigonometry), so mastering it makes switching to SAT easier</li>
-                                <li>The ACT has historically had more consistent scoring curves</li>
-                                <li>Reading passages are more straightforward</li>
-                            </ul>
-                            <p>That said, every student is different, and our diagnostic process ensures you choose the right test for your child's strengths.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-card">
-                        <button class="faq-header" onclick="toggleFAQ(this)">
-                            <h3 class="faq-question" role="button" aria-expanded="false" tabindex="0">How long does it take to see score improvements?</h3>
-                            <div class="faq-icon">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-answer">
-                            <p><strong>It depends on your starting point and target score, but here's what our data shows:</strong></p>
-                            <ul>
-                                <li>Students in <strong>3-6 month programs</strong> see an average <strong>6-point ACT increase</strong> or <strong>100-point SAT increase</strong></li>
-                                <li>Students in <strong>full-year programs</strong> (our recommended timeline) see an average <strong>9-point ACT increase</strong> and even larger SAT gains</li>
-                                <li><strong>96% of our students improve their scores</strong> from diagnostic to final test</li>
-                            </ul>
-                            <p><strong>The honest answer:</strong> Some students need very minimal preparation if they're already strong test-takers. Others need foundational work before intensive test prep. We assess your child's needs upfront and create a realistic timeline for reaching their target score.</p>
-                            <p><strong>Most students take the test 3 times</strong> to achieve their best score, which is why starting in sophomore spring gives you the time and flexibility to reach your goals without added stress.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-card">
-                        <button class="faq-header" onclick="toggleFAQ(this)">
-                            <h3 class="faq-question" role="button" aria-expanded="false" tabindex="0">When should my child start SAT/ACT prep?</h3>
-                            <div class="faq-icon">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-answer">
-                            <p><strong>Ideal timeline: Spring of sophomore year (10th grade)</strong></p>
-                            <p>This gives your child time to:</p>
-                            <ul>
-                                <li>Build a strong foundation without pressure</li>
-                                <li>Take the test multiple times to maximize superscoring opportunities</li>
-                                <li>Identify which test (SAT or ACT) suits them best</li>
-                                <li>Achieve their target score before college applications intensify in junior/senior year</li>
-                                <li>Focus on academics, extracurriculars, and application essays when it matters most</li>
-                            </ul>
-                            <p><strong>Minimum requirements:</strong></p>
-                            <ul>
-                                <li><strong>For ACT prep:</strong> Must have completed or be currently enrolled in <strong>Algebra 2</strong></li>
-                                <li><strong>For SAT prep:</strong> Algebra 1 and Geometry are sufficient</li>
-                            </ul>
-                            <p><strong>Late start?</strong> We also work with juniors and seniors who need accelerated timelines. Our intensive bootcamps can help students make significant gains in shorter periods.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-card">
-                        <button class="faq-header" onclick="toggleFAQ(this)">
-                            <h3 class="faq-question" role="button" aria-expanded="false" tabindex="0">Do you offer practice tests?</h3>
-                            <div class="faq-icon">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-answer">
-                            <p><strong>Yes! Practice tests are the cornerstone of our program.</strong></p>
-                            <ul>
-                                <li><strong>Foundational Course:</strong> 3 full-length practice tests</li>
-                                <li><strong>Intensive Programs:</strong> 6-8 full-length practice tests</li>
-                                <li>All tests administered under <strong>real test conditions</strong> (timed, proctored, proper environment)</li>
-                                <li><strong>Detailed score analysis</strong> after every test</li>
-                                <li>Personalized feedback identifying specific weaknesses</li>
-                                <li>Progress tracking across all practice tests</li>
-                            </ul>
-                            <p><strong>We also simulate test day conditions</strong> so students are fully prepared for the actual testing environment, timing pressure, and stamina requirements.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-card">
-                        <button class="faq-header" onclick="toggleFAQ(this)">
-                            <h3 class="faq-question" role="button" aria-expanded="false" tabindex="0">What if my child has already taken the SAT/ACT and wants to improve their score?</h3>
-                            <div class="faq-icon">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-answer">
-                            <p><strong>This is exactly what our bootcamps and intensive modules are designed for!</strong></p>
-                            <p>Most students <strong>need 2-3 attempts</strong> to reach their target score, and that's completely normal. If your child has already taken an official test, we:</p>
-                            <ul>
-                                <li>Analyze their score report to identify exactly where points were lost</li>
-                                <li>Create a targeted improvement plan focusing on their weakest areas</li>
-                                <li>Enroll them in our intensive bootcamp (typically 4-6 weeks before their next test date)</li>
-                                <li>Focus on timing, pacing, and stamina—often the biggest barriers to score improvement</li>
-                            </ul>
-                            <p><strong>Students who enroll in bootcamps:</strong></p>
-                            <ul>
-                                <li>Typically have already taken the test at least once</li>
-                                <li>Have strong foundational knowledge but need strategy refinement</li>
-                                <li>Are looking to gain those final 2-4 points (ACT) or 50-100 points (SAT) to hit their target</li>
-                                <li>Need focused work on specific sections rather than comprehensive review</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="faq-card">
-                        <button class="faq-header" onclick="toggleFAQ(this)">
-                            <h3 class="faq-question" role="button" aria-expanded="false" tabindex="0">How is the Digital SAT different from the paper SAT?</h3>
-                            <div class="faq-icon">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-answer">
-                            <p>The Digital SAT, introduced in 2024, has significant differences from the traditional paper test:</p>
-                            <p><strong>Adaptive Testing:</strong><br>The Digital SAT adjusts difficulty based on your performance in the first module of each section. Perform well, and you'll see harder questions worth more points. We teach strategies to recognize and adapt to this format.</p>
-                            <p><strong>Shorter Test, Less Time Per Section:</strong><br>While the overall test is shorter, sections move faster. Time management becomes even more critical.</p>
-                            <p><strong>New Tools &amp; Interface:</strong></p>
-                            <ul>
-                                <li>Built-in graphing calculator for all math questions</li>
-                                <li>Digital annotation and highlighting tools</li>
-                                <li>On-screen reference sheets</li>
-                                <li>Different navigation system</li>
-                            </ul>
-                            <p><strong>Our Digital SAT Prep Includes:</strong></p>
-                            <ul>
-                                <li>Technology training on the digital testing platform</li>
-                                <li>Strategies for reading and annotating on screen</li>
-                                <li>Time management specific to the digital format</li>
-                                <li>Practice with the exact tools students will use on test day</li>
-                            </ul>
-                            <p><a href="/resources/changes-to-the-new-digital-sat/" style="color: #28AFCF; font-weight: 600;">Learn more about Digital SAT changes →</a></p>
-                        </div>
-                    </div>
-
-                    <div class="faq-card">
-                        <button class="faq-header" onclick="toggleFAQ(this)">
-                            <h3 class="faq-question" role="button" aria-expanded="false" tabindex="0">What's included in your Enhanced ACT Prep program?</h3>
-                            <div class="faq-icon">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-answer">
-                            <p>The Enhanced ACT refers to the updated 2025 ACT format with significant structural changes that make the test shorter and more flexible.</p>
-                            <p><strong>What's New:</strong></p>
-                            <ul>
-                                <li><strong>Shorter test</strong> - 125 minutes (core) or 165 minutes (with optional Science) vs. 175 minutes previously</li>
-                                <li><strong>Fewer questions</strong> - 131 questions without Science, 171 with Science (vs. 215 before)</li>
-                                <li><strong>More time per question</strong> - 18% more time to think and reduce careless errors</li>
-                                <li><strong>Optional Science section</strong> - Science is now optional, like the Writing section</li>
-                                <li><strong>New Composite score</strong> - Based only on English, Math, and Reading (Science reported separately)</li>
-                            </ul>
-                            <p><strong>Our Enhanced ACT Prep:</strong></p>
-                            <ul>
-                                <li>Custom materials designed specifically for the Enhanced ACT format</li>
-                                <li>Comprehensive coverage of all three core sections: English, Math, and Reading</li>
-                                <li>Optional Science prep for STEM applicants or schools requiring Science scores</li>
-                                <li>Strategic guidance on whether to take the Science section</li>
-                                <li>Full-length practice tests in the Enhanced ACT format</li>
-                                <li>Timing and pacing techniques optimized for the new structure</li>
-                            </ul>
-                            <p>Students who complete Algebra 2 and have strong foundational skills tend to excel on the Enhanced ACT, as math comprises only 25% of the composite score, and the reading/grammar sections align well with high school English curriculum.</p>
-                            <p><a href="/whats-new-in-the-enhanced-act/" style="color: #28AFCF; font-weight: 600;">Learn more about the Enhanced ACT changes →</a></p>
-                        </div>
-                    </div>
-
-                    <div class="faq-card">
-                        <button class="faq-header" onclick="toggleFAQ(this)">
-                            <h3 class="faq-question" role="button" aria-expanded="false" tabindex="0">Do you help students choose between the SAT and ACT, or do you require them to pick one?</h3>
-                            <div class="faq-icon">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-answer">
-                            <p><strong>We offer complete flexibility</strong> and help you make the best strategic decision.</p>
-                            <p><strong>Our Process:</strong></p>
-                            <ul>
-                                <li><strong>Dual diagnostic testing</strong> - Students take practice tests for both SAT and ACT</li>
-                                <li><strong>Performance analysis</strong> - We compare scores, section strengths, and time management across both tests</li>
-                                <li><strong>Personalized recommendation</strong> - We advise which test offers the fastest path to your target score</li>
-                                <li><strong>Combo prep available</strong> - Students can prepare for both simultaneously through our foundational courses</li>
-                            </ul>
-                            <p><strong>Our Philosophy:</strong><br>Different students have different strengths. Some excel with the ACT's fast pace and straightforward passages. Others prefer the SAT's extra time per question. <strong>Our goal is efficiency</strong>—we want your child to reach their target score in the shortest time possible so they can focus on school, extracurriculars, and enjoying their high school experience while building a strong college resume.</p>
-                            <p><strong>Strategic Pivot Option:</strong><br>Many students start with ACT prep (which covers more advanced math and faster pacing) and can easily pivot to the SAT if needed. The reverse requires more effort, which is why we often recommend starting with the ACT when diagnostic scores are similar.</p>
-                            <p><a href="/resources/sat-vs-act-2025-which-test-is-right-for-you/" style="color: #28AFCF; font-weight: 600;">SAT vs ACT 2025: Which test is right for you? →</a></p>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </section>
-
             <!-- Final CTA -->
             <section class="final-cta">
                 <h2 style="font-family: 'Roboto', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; color: white !important; line-height: 1.3 !important; margin-bottom: 20px !important;">Ready to Achieve Your Target Score?</h2>
                 <p style="font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 400 !important; color: white !important; line-height: 1.7 !important; max-width: 1200px !important; margin: 0 auto 30px auto !important;">Join the program where 96% of students improve their scores and over 80% achieve Ivy League-level results. Our expert instructors, proven strategies, and personalized approach have helped hundreds of students gain admission to their dream colleges. Start your journey with a free consultation and diagnostic assessment.</p>
                 <?php echo do_shortcode('[inquiry_button]'); ?>
+                <h3 style="font-family: 'Roboto', sans-serif !important; font-size: 20px !important; font-weight: 600 !important; color: white !important; line-height: 1.3 !important; margin-top: 30px !important; margin-bottom: 0 !important;">Still have questions? <a href="/resources/sat-act-frequently-asked-questions/" style="color: #FF9574; text-decoration: none; font-weight: 600;">View All SAT & ACT FAQs</a></h3>
             </section>
 
-            <!-- Testimonials Section -->
-            <?php echo do_shortcode('[testimonials]'); ?>
+            <!-- Why Choose NYC STEM Club - Reusable Shortcode -->
+            <?php echo do_shortcode('[why_choose_sat_act]'); ?><?php echo do_shortcode('[testimonials]'); ?>
 
             <script>
                 function toggleFAQ(button) {

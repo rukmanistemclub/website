@@ -7,69 +7,26 @@
 get_header(); ?>
 
 <style>
-/* Reset theme styles for this page */
-.site-content {
-    padding: 0 !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-}
-.content-area {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-}
+/* Reset WordPress theme styles for this custom page */
+#primary.content-area,
+.site-main,
+.entry-content,
 article {
-    padding: 0 !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-}
-.entry-content {
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-}
-.entry-header {
-    display: none !important;
-}
-#primary {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-}
-#content {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-}
-
-/* Override any theme container styles */
-.container, .site-main {
     max-width: 100% !important;
     width: 100% !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-}
-
-/* Force full width and remove any theme-imposed offsets */
-.page-template-template-testing-timeline {
     padding: 0 !important;
     margin: 0 !important;
-}
-.page-template-template-testing-timeline .site-content,
-.page-template-template-testing-timeline .content-area,
-.page-template-template-testing-timeline article,
-.page-template-template-testing-timeline .entry-content {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    background: white !important;
 }
 
-/* Original HTML Styles */
+/* Hide default WordPress elements */
+.entry-header,
+.entry-footer,
+.post-navigation,
+.page-header {
+    display: none !important;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -77,251 +34,292 @@ article {
 }
 
 body {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 18px;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 400;
-    line-height: 1.8;
-    color: #2d3748;
+    line-height: 1.6;
+    color: #333;
     background: #f8f9fa;
 }
 
-.timeline-article {
+.timeline-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
-/* Hero Section */
-.hero {
+/* Hero Section - Full Width */
+.timeline-hero {
     background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
     color: white;
     padding: 80px 40px;
-    border-radius: 16px;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 0;
+    width: 100%;
 }
 
-.hero h1 {
+.timeline-hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
     font-weight: 700;
-    color: white;
+    color: white !important;
 }
 
-.hero p {
+.timeline-hero p {
     font-size: 20px;
-    opacity: 0.95;
     max-width: 700px;
     margin: 0 auto;
+    color: white !important;
 }
 
-/* Lead Section */
-.lead {
+/* Quick Navigation */
+.quick-nav {
     background: white;
-    padding: 40px;
+    padding: 30px;
     border-radius: 12px;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.lead p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 16px;
+.quick-nav h2 {
+    color: #134958;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
 }
 
-/* Test Cards Grid - 2x2 Layout */
-.tests-grid {
+.nav-buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-bottom: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
 }
 
-@media (max-width: 900px) {
-    .tests-grid {
-        grid-template-columns: 1fr;
-    }
+.nav-button {
+    background: linear-gradient(135deg, #28AFCF, #134958);
+    color: white !important;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: block;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 175, 207, 0.3);
+    color: white !important;
+}
+
+/* Visual Timeline Overview */
+.timeline-visual {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.timeline-visual h2 {
+    color: #134958;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.timeline-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.timeline-bar {
+    position: relative;
+}
+
+.bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.bar-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #134958;
+}
+
+.bar-grade {
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+}
+
+.bar-fill {
+    height: 40px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    background: #e9ecef;
+}
+
+.bar-inner {
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    transition: width 1s ease;
+}
+
+.shsat-bar { background: linear-gradient(90deg, #FF7F07, #FFB366); }
+.isee-bar { background: linear-gradient(90deg, #28AFCF, #6DD5F1); }
+.sat-bar { background: linear-gradient(90deg, #134958, #1B6B81); }
+.act-bar { background: linear-gradient(90deg, #F0B268, #F5D5A3); }
+
+/* Test Section Cards */
+.test-sections {
+    margin-bottom: 50px;
 }
 
 .test-card {
     background: white;
     border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    transition: all 0.3s ease;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-left: 5px solid;
 }
 
-.test-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-}
+.test-card.shsat { border-color: #FF7F07; }
+.test-card.isee { border-color: #28AFCF; }
+.test-card.sat { border-color: #134958; }
+.test-card.act { border-color: #F0B268; }
 
-.test-header {
+.test-card h3 {
+    font-size: 32px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-}
-
-.test-icon {
-    font-size: 48px;
-}
-
-.test-name {
-    font-size: 32px;
+    gap: 10px;
     font-weight: 700;
     color: #134958;
 }
 
-.test-card p {
-    margin-bottom: 12px;
-    color: #555;
-    font-size: 16px;
-}
-
-.test-card strong {
-    color: #134958;
-}
-
-.target-score {
-    margin-top: 16px;
-    padding: 12px 16px;
-    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-    border-left: 4px solid #28AFCF;
-    border-radius: 6px;
-    color: #134958;
-    font-size: 16px;
-}
-
-/* Learn More Button for ISEE */
-.learn-more-btn {
-    width: 100%;
-    margin-top: 20px;
-    padding: 14px 24px;
-    background: #28AFCF;
+.test-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
     color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(40, 175, 207, 0.3);
+    margin-left: auto;
 }
 
-.learn-more-btn:hover {
-    background: #1f8ba8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(40, 175, 207, 0.4);
-}
+.shsat .test-badge { background: #FF7F07; }
+.isee .test-badge { background: #28AFCF; }
+.sat .test-badge { background: #134958; }
+.act .test-badge { background: #F0B268; }
 
-.learn-more-btn::after {
-    content: " →";
-}
-
-/* ISEE Levels Expandable Section */
-.isee-levels-section {
-    display: none;
-    margin-top: 30px;
-    padding-top: 30px;
-    border-top: 3px solid #28AFCF;
-}
-
-.isee-levels-section.active {
-    display: block;
-    animation: slideDown 0.4s ease;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.isee-intro {
-    margin-bottom: 30px;
-}
-
-.isee-intro h3 {
-    font-size: 24px;
-    color: #134958;
-    margin-bottom: 12px;
-}
-
-.isee-intro p {
-    font-size: 16px;
-    color: #666;
-}
-
-.isee-levels-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.isee-level-card {
-    background: #f8f9fa;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 24px;
-}
-
-/* Level badges removed */
-
-.level-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #134958;
-    margin-bottom: 6px;
-}
-
-.level-grades {
-    font-size: 16px;
-    color: #FF7F07;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.level-details {
+.test-intro {
+    font-size: 18px;
     color: #555;
-    margin-bottom: 16px;
-    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.8;
 }
 
-.level-sections {
-    background: white;
-    padding: 14px;
-    border-radius: 8px;
+/* Step-by-Step Timeline */
+.prep-timeline {
+    margin: 30px 0;
 }
 
-.level-sections-title {
-    font-weight: 700;
+.prep-timeline h4 {
     color: #134958;
-    margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
-.level-sections ul {
+.timeline-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.timeline-step {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.timeline-step:hover {
+    background: #e9ecef;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #28AFCF, #134958);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.step-content h5 {
+    color: #134958;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.step-content p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Key Points */
+.key-points {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.key-points h5 {
+    color: #134958;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.key-points ul {
     list-style: none;
-    padding: 0;
+    padding-left: 0;
 }
 
-.level-sections li {
-    padding: 5px 0 5px 20px;
+.key-points li {
+    padding: 8px 0;
+    padding-left: 25px;
     position: relative;
     color: #555;
-    font-size: 16px;
 }
 
-.level-sections li::before {
+.key-points li:before {
     content: "✓";
     position: absolute;
     left: 0;
@@ -329,523 +327,896 @@ body {
     font-weight: 700;
 }
 
-.important-note {
+/* Comparison Section */
+.comparison-section {
     background: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.comparison-section h2 {
+    color: #134958;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.comparison-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 4px solid;
+}
+
+.comparison-card.shsat { border-color: #FF7F07; }
+.comparison-card.isee { border-color: #28AFCF; }
+.comparison-card.sat { border-color: #134958; }
+.comparison-card.act { border-color: #F0B268; }
+
+.comparison-card h4 {
+    color: #134958;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.comparison-item {
+    margin-bottom: 12px;
+}
+
+.comparison-label {
+    font-size: 13px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.comparison-value {
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Key Takeaways */
+.key-takeaways {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.key-takeaways h2 {
+    color: #134958;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.takeaway-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.takeaway-card {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
     padding: 20px;
     border-radius: 12px;
-    margin-top: 20px;
     border-left: 4px solid #28AFCF;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.important-note p {
-    margin: 0;
-    font-weight: 600;
+.takeaway-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.takeaway-card h4 {
     color: #134958;
-    font-size: 16px;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
-.close-isee-btn {
-    width: 100%;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background: #134958;
-    color: white;
-    border: none;
-    border-radius: 8px;
+.takeaway-card p {
+    color: #666;
     font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.close-isee-btn:hover {
-    background: #0f3740;
-}
-
-.close-isee-btn::after {
-    content: " ✕";
-}
-
-/* Timeline Section */
-.timeline-section {
-    margin: 60px 0;
-}
-
-.timeline-section h2 {
-    font-size: 36px;
-    color: #134958;
-    text-align: center;
-    margin-bottom: 50px;
-    font-weight: 700;
-}
-
-/* Timeline - Centered Signpost Style */
-.timeline {
-    position: relative;
-    padding: 0;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    bottom: 0;
-    width: 6px;
-    background: linear-gradient(180deg, #28AFCF 0%, #5DD3F0 25%, #FF7F07 60%, #FFB84D 100%);
-    border-radius: 3px;
-}
-
-.timeline-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-/* Timeline badges removed */
-
-.timeline-content {
-    width: 100%;
-    background: white;
-    border: 3px solid #28AFCF;
-    border-radius: 16px;
-    padding: 40px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-}
-
-.timeline-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #134958;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.test-emoji {
-    font-size: 32px;
-}
-
-.timeline-when {
-    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
-    color: #0891b2;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    display: inline-block;
-    font-size: 16px;
-}
-
-.timeline-content p {
-    margin-bottom: 16px;
-    color: #555;
-    line-height: 1.7;
-    font-size: 16px;
-}
-
-.timeline-content strong {
-    color: #134958;
-}
-
-.timeline-details {
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 2px solid #e5e7eb;
-}
-
-.timeline-details strong {
-    display: block;
-    font-size: 16px;
-    color: #134958;
-    margin-bottom: 12px;
-}
-
-.timeline-details ul {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-}
-
-.timeline-details li {
-    padding: 10px 16px;
-    background: #f8f9fa;
-    border-radius: 6px;
-    color: #555;
-    position: relative;
-    padding-left: 32px;
-    font-size: 16px;
-}
-
-.timeline-details li::before {
-    content: "→";
-    position: absolute;
-    left: 12px;
-    color: #28AFCF;
-    font-weight: 700;
-}
-
-/* Key Takeaway */
-.key-takeaway {
-    background: linear-gradient(135deg, #fff7ed, #ffedd5);
-    border: 3px solid #FF7F07;
-    border-radius: 12px;
-    padding: 40px;
-    margin: 60px 0;
-    text-align: center;
-}
-
-.key-takeaway h3 {
-    font-size: 28px;
-    color: #134958;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.key-takeaway p {
-    font-size: 17px;
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 12px;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* CTA Section */
-.cta-section {
-    background: linear-gradient(135deg, #134958, #28AFCF);
+.timeline-cta-section {
+    background: linear-gradient(135deg, #FF7F07, #FFB366);
     color: white;
+    padding: 50px 40px;
+    border-radius: 12px;
     text-align: center;
-    padding: 60px 40px;
-    border-radius: 16px;
 }
 
-.cta-section h2 {
+.timeline-cta-section h2 {
     font-size: 36px;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
+    color: white;
     font-weight: 700;
 }
 
-.cta-section p {
+.timeline-cta-section p {
     font-size: 18px;
-    margin-bottom: 16px;
+    margin-bottom: 30px;
     opacity: 0.95;
+    color: white;
 }
 
-/* CTA button styling removed - using global inquiry button */
+/* Tablet Responsive */
+@media (max-width: 992px) {
+    .timeline-container {
+        padding: 30px 15px;
+    }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .timeline::before {
-        left: 50px;
+    .comparison-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .takeaway-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .test-card {
+        padding: 30px;
     }
 }
 
+/* Mobile Responsive */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 36px;
+    .timeline-container {
+        padding: 20px 15px;
     }
 
-    .hero p {
-        font-size: 18px;
+    .timeline-hero {
+        padding: 40px 20px;
     }
 
-    .timeline::before {
-        display: none;
+    .timeline-hero h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
     }
 
-    .timeline-item {
+    .timeline-hero p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .quick-nav {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .quick-nav h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .nav-buttons {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .nav-button {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    .timeline-visual,
+    .comparison-section,
+    .key-takeaways,
+    .timeline-cta-section {
+        padding: 25px 20px;
+        margin-bottom: 30px;
+    }
+
+    .timeline-visual h2,
+    .comparison-section h2,
+    .key-takeaways h2 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    .bar-label {
+        font-size: 16px;
+    }
+
+    .bar-grade {
+        font-size: 12px;
+    }
+
+    .bar-inner {
+        font-size: 12px;
+        padding: 0 10px;
+    }
+
+    .test-card {
+        padding: 25px 20px;
+        margin-bottom: 20px;
+    }
+
+    .test-card h3 {
+        font-size: 22px;
         flex-direction: column;
-        gap: 16px;
+        align-items: flex-start;
+        gap: 8px;
     }
 
-    .timeline-title {
+    .test-badge {
+        margin-left: 0;
+        margin-top: 8px;
+        font-size: 13px;
+        padding: 4px 12px;
+    }
+
+    .test-intro {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .prep-timeline h4 {
+        font-size: 19px;
+        margin-bottom: 15px;
+    }
+
+    .timeline-step {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .step-content h5 {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+
+    .step-content p {
+        font-size: 14px;
+    }
+
+    .key-points {
+        padding: 20px;
+        margin: 15px 0;
+    }
+
+    .key-points h5 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .key-points li {
+        font-size: 14px;
+        padding: 6px 0;
+        padding-left: 22px;
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .comparison-card {
+        padding: 20px;
+    }
+
+    .comparison-card h4 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .comparison-label {
+        font-size: 12px;
+    }
+
+    .comparison-value {
+        font-size: 15px;
+    }
+
+    .takeaway-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .takeaway-card {
+        padding: 18px 15px;
+    }
+
+    .takeaway-card h4 {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+
+    .takeaway-card p {
+        font-size: 14px;
+    }
+
+    .timeline-cta-section h2 {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .timeline-cta-section p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+    .timeline-hero {
+        padding: 30px 15px;
+    }
+
+    .timeline-hero h1 {
         font-size: 24px;
     }
 
-    .tests-grid {
-        grid-template-columns: 1fr;
+    .timeline-hero p {
+        font-size: 14px;
     }
 
-    .isee-levels-grid {
-        grid-template-columns: 1fr;
+    .timeline-container {
+        padding: 15px 10px;
     }
 
-    .cta-section h2 {
-        font-size: 28px;
+    .quick-nav,
+    .timeline-visual,
+    .test-card,
+    .comparison-section,
+    .key-takeaways,
+    .timeline-cta-section {
+        padding: 20px 15px;
     }
+
+    .timeline-visual h2,
+    .comparison-section h2,
+    .key-takeaways h2 {
+        font-size: 20px;
+    }
+
+    .test-card h3 {
+        font-size: 20px;
+    }
+
+    .bar-fill {
+        height: 35px;
+    }
+
+    .bar-inner {
+        font-size: 11px;
+    }
+
+    .timeline-cta-section h2 {
+        font-size: 22px;
+    }
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
 }
 </style>
 
 <?php while (have_posts()) : the_post(); ?>
 
-    <article class="timeline-article">
-        <!-- Hero Section -->
-        <div class="hero">
-            <h1>📅 NYC Testing Timeline: When to Start</h1>
-            <p>Strategic preparation guidance for SHSAT, ISEE, SAT, and ACT success</p>
+<article>
+    <!-- Hero Section - Full Width -->
+    <div class="timeline-hero">
+        <h1>NYC Testing Timeline: When to Start</h1>
+        <p>Strategic preparation timelines for SHSAT, ISEE, SAT, and ACT success in New York City</p>
+    </div>
+
+    <div class="timeline-container">
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <h2>Jump to a Test:</h2>
+            <div class="nav-buttons">
+                <a href="#shsat" class="nav-button">SHSAT (Specialized High Schools)</a>
+                <a href="#isee" class="nav-button">ISEE (Independent Schools)</a>
+                <a href="#sat" class="nav-button">SAT (College Admission)</a>
+                <a href="#act" class="nav-button">ACT (College Admission)</a>
+            </div>
         </div>
 
-        <!-- Lead Section -->
-        <div class="lead">
-            <p>Navigating the journey of standardized testing can be overwhelming for both parents and students. To alleviate concerns and set the stage for success, it's crucial to understand <strong>when to begin preparing for each test</strong>.</p>
-            <p>In this comprehensive guide, we'll explore the ideal timelines for starting test preparation, drawing from NYC STEM Club's years of experience in guiding students to achieve their academic goals.</p>
-        </div>
-
-        <!-- Test Overview Cards -->
-        <div class="tests-grid">
-            <div class="test-card">
-                <div class="test-header">
-                    <div class="test-icon">🎓</div>
-                    <div class="test-name">SHSAT</div>
+        <!-- Visual Timeline Overview -->
+        <div class="timeline-visual">
+            <h2>At-a-Glance: Ideal Prep Start Times</h2>
+            <div class="timeline-bars">
+                <div class="timeline-bar">
+                    <div class="bar-header">
+                        <span class="bar-label">SHSAT</span>
+                        <span class="bar-grade">Grades 6-7</span>
+                    </div>
+                    <div class="bar-fill">
+                        <div class="bar-inner shsat-bar" style="width: 75%;">
+                            Start 12-18 months before test
+                        </div>
+                    </div>
                 </div>
-                <p><strong>Specialized High Schools Admissions Test</strong> - The gateway to New York City's elite specialized high schools, including Stuyvesant, Bronx Science, and Brooklyn Tech.</p>
-                <p>The SHSAT assesses students in English Language Arts and Mathematics and is the sole criterion for admission to these prestigious institutions.</p>
-                <div class="target-score">
-                    <strong>Target Score:</strong> ~565+ for Stuyvesant (varies by year and school)
+
+                <div class="timeline-bar">
+                    <div class="bar-header">
+                        <span class="bar-label">ISEE</span>
+                        <span class="bar-grade">1 year before application</span>
+                    </div>
+                    <div class="bar-fill">
+                        <div class="bar-inner isee-bar" style="width: 60%;">
+                            Start 6-12 months before test
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-bar">
+                    <div class="bar-header">
+                        <span class="bar-label">SAT</span>
+                        <span class="bar-grade">Grade 10-11</span>
+                    </div>
+                    <div class="bar-fill">
+                        <div class="bar-inner sat-bar" style="width: 50%;">
+                            Start sophomore/junior year
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-bar">
+                    <div class="bar-header">
+                        <span class="bar-label">ACT</span>
+                        <span class="bar-grade">Grade 10-11</span>
+                    </div>
+                    <div class="bar-fill">
+                        <div class="bar-inner act-bar" style="width: 50%;">
+                            Start sophomore/junior year
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="test-card">
-                <div class="test-header">
-                    <div class="test-icon">🏫</div>
-                    <div class="test-name">ISEE</div>
-                </div>
-                <p><strong>Independent School Entrance Examination</strong> - A nationwide test that paves the way for students seeking admission to private elementary, middle, and high schools.</p>
-                <p>The ISEE assesses verbal reasoning, quantitative aptitude, reading comprehension, mathematics, and writing skills. Students are evaluated holistically.</p>
-                <div class="target-score">
-                    <strong>Target Score:</strong> Stanines of 8-9 enhance admission chances
-                </div>
+        <!-- Test Sections -->
+        <div class="test-sections">
+            <!-- SHSAT Section -->
+            <div id="shsat" class="test-card shsat">
+                <h3>
+                    SHSAT: Specialized High Schools
+                    <span class="test-badge">Grades 8-9</span>
+                </h3>
+                <p class="test-intro">
+                    The SHSAT (Specialized High Schools Admissions Test) determines admission to NYC's elite specialized high schools including Stuyvesant, Bronx Science, and Brooklyn Tech. Students typically take it in the fall of 8th or 9th grade, but optimal preparation begins much earlier.
+                </p>
 
-                <button class="learn-more-btn" onclick="toggleISEELevels()">Learn More: Lower, Middle & Upper ISEE Levels</button>
-
-                <!-- ISEE Levels Expandable Section -->
-                <div id="isee-levels" class="isee-levels-section">
-                    <div class="isee-intro">
-                        <h3>Three ISEE Testing Levels</h3>
-                        <p>The ISEE is offered at three different levels based on the student's current grade. Each level is tailored to assess age-appropriate skills.</p>
-                    </div>
-
-                    <div class="isee-levels-grid">
-                        <!-- Lower Level -->
-                        <div class="isee-level-card">
-                            <span class="level-badge">Lower Level</span>
-                            <div class="level-title">Primary ISEE</div>
-                            <div class="level-grades">For students in Grades 2-4</div>
-                            <p class="level-details">Designed for younger students applying to private elementary schools. Focuses on foundational skills in reading, math, and writing.</p>
-                            <div class="level-sections">
-                                <div class="level-sections-title">Test Sections:</div>
-                                <ul>
-                                    <li>Reading Comprehension</li>
-                                    <li>Mathematics Achievement</li>
-                                    <li>Quantitative Reasoning</li>
-                                    <li>Essay (unscored)</li>
-                                </ul>
+                <div class="prep-timeline">
+                    <h4>Recommended Preparation Timeline</h4>
+                    <div class="timeline-steps">
+                        <div class="timeline-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Grade 6 (18 months out) - Foundation Building</h5>
+                                <p>Begin strengthening math fundamentals and reading comprehension. Focus on building confidence with problem-solving and developing strong reading habits.</p>
                             </div>
                         </div>
 
-                        <!-- Middle Level -->
-                        <div class="isee-level-card">
-                            <span class="level-badge" style="background: linear-gradient(135deg, #FF7F07, #FFB84D);">Middle Level</span>
-                            <div class="level-title">Middle ISEE</div>
-                            <div class="level-grades">For students in Grades 5-6</div>
-                            <p class="level-details">For students applying to middle school programs at private institutions. Tests more advanced reasoning and comprehension skills.</p>
-                            <div class="level-sections">
-                                <div class="level-sections-title">Test Sections:</div>
-                                <ul>
-                                    <li>Verbal Reasoning</li>
-                                    <li>Quantitative Reasoning</li>
-                                    <li>Reading Comprehension</li>
-                                    <li>Mathematics Achievement</li>
-                                    <li>Essay (unscored)</li>
-                                </ul>
+                        <div class="timeline-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Grade 7 (12 months out) - Core Skills Development</h5>
+                                <p>Master essential SHSAT content areas: advanced math concepts, reading strategies, and logical reasoning. Build test-taking stamina through regular practice.</p>
                             </div>
                         </div>
 
-                        <!-- Upper Level -->
-                        <div class="isee-level-card">
-                            <span class="level-badge" style="background: linear-gradient(135deg, #134958, #28AFCF);">Upper Level</span>
-                            <div class="level-title">Upper ISEE</div>
-                            <div class="level-grades">For students in Grades 7-11</div>
-                            <p class="level-details">The most challenging level, designed for students applying to competitive high schools. Requires advanced critical thinking and problem-solving abilities.</p>
-                            <div class="level-sections">
-                                <div class="level-sections-title">Test Sections:</div>
-                                <ul>
-                                    <li>Verbal Reasoning (40 questions)</li>
-                                    <li>Quantitative Reasoning (37 questions)</li>
-                                    <li>Reading Comprehension (36 questions)</li>
-                                    <li>Mathematics Achievement (47 questions)</li>
-                                    <li>Essay (unscored)</li>
-                                </ul>
+                        <div class="timeline-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Summer Before 8th Grade - Intensive Boot Camp</h5>
+                                <p>Dedicate focused time to full-length practice tests, strategy refinement, and targeted skill improvement. This is your power prep period.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h5>Fall of 8th Grade - Final Push</h5>
+                                <p>Fine-tune test strategies, maintain momentum, and peak at the right time. Focus on timing, accuracy, and confidence building.</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="important-note">
-                        <p>💡 <strong>Important Note:</strong> Students can only take the ISEE once per testing season (Fall, Winter, Spring/Summer). NYC STEM Club offers comprehensive preparation for all ISEE levels with tailored curriculum and practice materials.</p>
+                <div class="key-points">
+                    <h5>Why Start Early for SHSAT?</h5>
+                    <ul>
+                        <li>More time for gradual, stress-free learning</li>
+                        <li>Builds stronger math and reading foundations</li>
+                        <li>Allows multiple practice test cycles</li>
+                        <li>Develops test-taking stamina and confidence</li>
+                        <li>Early starters score significantly higher on average</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ISEE Section -->
+            <div id="isee" class="test-card isee">
+                <h3>
+                    ISEE: Independent School Entrance
+                    <span class="test-badge">All Grades</span>
+                </h3>
+                <p class="test-intro">
+                    The ISEE (Independent School Entrance Examination) is required for admission to many private schools in NYC. Students can take it once per testing season, making strategic preparation timing crucial for success.
+                </p>
+
+                <div class="prep-timeline">
+                    <h4>Recommended Preparation Timeline</h4>
+                    <div class="timeline-steps">
+                        <div class="timeline-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>12 Months Before - Assessment & Planning</h5>
+                                <p>Take a diagnostic test to identify strengths and weaknesses. Create a personalized study plan based on current level and target schools.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>9-6 Months Before - Foundation Building</h5>
+                                <p>Focus on vocabulary development, reading comprehension strategies, and math concept mastery. Build a strong foundation in all test sections.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>6-3 Months Before - Strategy Development</h5>
+                                <p>Learn test-specific strategies for each section. Practice timing, pacing, and answering techniques. Begin regular practice tests.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h5>3 Months Before - Intensive Practice</h5>
+                                <p>Complete multiple full-length practice tests under timed conditions. Analyze errors and refine strategies. Peak performance preparation.</p>
+                            </div>
+                        </div>
                     </div>
+                </div>
 
-                    <button class="close-isee-btn" onclick="toggleISEELevels()">Close ISEE Details</button>
+                <div class="key-points">
+                    <h5>Key ISEE Timing Considerations</h5>
+                    <ul>
+                        <li>Can only take once per testing season (Fall/Winter/Spring-Summer)</li>
+                        <li>Most NYC private schools require scores by December/January</li>
+                        <li>Vocabulary takes months to build - start early</li>
+                        <li>Essay section requires practice and refinement</li>
+                        <li>Strategic timing maximizes your one opportunity per season</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="test-card">
-                <div class="test-header">
-                    <div class="test-icon">📚</div>
-                    <div class="test-name">ACT</div>
+            <!-- SAT Section -->
+            <div id="sat" class="test-card sat">
+                <h3>
+                    SAT: College Admission Test
+                    <span class="test-badge">Grade 10-12</span>
+                </h3>
+                <p class="test-intro">
+                    The SAT is a standardized college admission test measuring reading, writing, and math skills. Students can take it multiple times, and most colleges accept both SAT and ACT. Strategic timing allows for score improvement across multiple test dates.
+                </p>
+
+                <div class="prep-timeline">
+                    <h4>Recommended Preparation Timeline</h4>
+                    <div class="timeline-steps">
+                        <div class="timeline-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Sophomore Year (Grade 10) - Early Start</h5>
+                                <p>Begin familiarization with SAT format and content. Take a baseline practice test. Start building vocabulary and math foundations during less stressful time.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Summer Before Junior Year - Foundation Building</h5>
+                                <p>Dedicate focused time to content review and strategy development. Complete practice sections and short practice tests. Build confidence without school pressure.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Junior Year Fall - First Test Attempt</h5>
+                                <p>Take your first official SAT (October/November/December). Use this as a baseline and learning experience. Continue targeted prep based on results.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h5>Junior Year Spring - Score Improvement</h5>
+                                <p>Take SAT again (March/May/June) after focused prep on weak areas. Most students see significant score improvements on second attempt.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h5>Senior Year Fall - Final Attempt (if needed)</h5>
+                                <p>Take one more SAT (August/October) if additional improvement needed. Most students have achieved target scores by this point.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p><strong>American College Testing</strong> - A staple in college admissions, the ACT gauges a student's readiness for college-level work.</p>
-                <p>It includes sections on English, mathematics, reading, science, and an optional writing test.</p>
-                <div class="target-score">
-                    <strong>Target Score:</strong> 34+ for top 20 universities
+
+                <div class="key-points">
+                    <h5>Why This SAT Timeline Works</h5>
+                    <ul>
+                        <li>Multiple test opportunities allow for score improvement</li>
+                        <li>Starting sophomore year reduces junior year stress</li>
+                        <li>Summer prep time is focused and efficient</li>
+                        <li>Scores are ready for early decision/action applications</li>
+                        <li>Room for unexpected challenges or retakes</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="test-card">
-                <div class="test-header">
-                    <div class="test-icon">✏️</div>
-                    <div class="test-name">SAT</div>
+            <!-- ACT Section -->
+            <div id="act" class="test-card act">
+                <h3>
+                    ACT: Alternative College Admission Test
+                    <span class="test-badge">Grade 10-12</span>
+                </h3>
+                <p class="test-intro">
+                    The ACT is another standardized college admission test covering English, Math, Reading, and Science, with an optional Writing section. Like the SAT, students can take it multiple times, and most colleges accept either test with no preference.
+                </p>
+
+                <div class="prep-timeline">
+                    <h4>Recommended Preparation Timeline</h4>
+                    <div class="timeline-steps">
+                        <div class="timeline-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Sophomore Year (Grade 10) - Diagnostic Phase</h5>
+                                <p>Take practice tests for both SAT and ACT to determine which test suits your strengths better. Some students score higher on one test versus the other.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Summer Before Junior Year - Content Review</h5>
+                                <p>Focus on ACT-specific content areas: science reasoning, grammar rules, and faster pacing. The ACT requires quicker timing than SAT.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Junior Year Fall - First Official Test</h5>
+                                <p>Take your first ACT (September/October/December). Use results to identify areas needing improvement and adjust preparation strategy.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h5>Junior Year Spring - Score Optimization</h5>
+                                <p>Take ACT again (February/April/June) after targeted prep. Focus on timing strategies and weak content areas identified in first attempt.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h5>Senior Year Fall - Final Opportunity</h5>
+                                <p>Take final ACT (September/October) if needed for additional improvement. Scores ready for all college application deadlines.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p><strong>Scholastic Assessment Test</strong> - The SAT, a college admissions test by the College Board, assesses mathematical proficiency, evidence-based reading, and writing skills.</p>
-                <p>Beginning in Spring 2023, the SAT is only available in a digital format.</p>
-                <div class="target-score">
-                    <strong>Target Score:</strong> 1500+ for top 20 schools
+
+                <div class="key-points">
+                    <h5>ACT-Specific Timeline Advantages</h5>
+                    <ul>
+                        <li>Science section requires different prep strategy than SAT</li>
+                        <li>Faster pacing means timing practice is crucial</li>
+                        <li>Some students naturally score higher on ACT format</li>
+                        <li>Optional essay allows flexibility in preparation</li>
+                        <li>Multiple test dates throughout the year provide flexibility</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <!-- MAIN TIMELINE SECTION -->
-        <div class="timeline-section">
-            <h2>📅 Ideal Testing Timeline: When to Start</h2>
-
-            <div class="timeline">
-                <!-- SHSAT Timeline -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-title">
-                            <span class="test-emoji">🎓</span> SHSAT Preparation
-                        </div>
-                        <div class="timeline-when">Start: Beginning of 7th Grade (or end of 6th Grade)</div>
-                        <p>Given the significance of the SHSAT, students should <strong>start early</strong>, for many topics on the test are not typically addressed in school curricula.</p>
-                        <p>Starting at the beginning of 7th grade (or end of 6th grade) gives students ample time to become familiar with the exam's unique format and content.</p>
-                        <div class="timeline-details">
-                            <strong>NYC STEM Club Offers:</strong>
-                            <ul>
-                                <li>Module 1: Year-Long Classes</li>
-                                <li>Module 2: Summer Bootcamps</li>
-                                <li>Module 3: Fall Classes</li>
-                                <li>Year-long Group Classes</li>
-                                <li>Pre-SHSAT 6th Grade Programs</li>
-                                <li>Private Lessons</li>
-                            </ul>
-                        </div>
+        <!-- Comparison Section -->
+        <div class="comparison-section">
+            <h2>Quick Test Comparison</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card shsat">
+                    <h4>SHSAT</h4>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Best Start Time</div>
+                        <div class="comparison-value">Grade 6-7</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Test Date</div>
+                        <div class="comparison-value">Fall of Grade 8</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Attempts</div>
+                        <div class="comparison-value">One per year</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Prep Duration</div>
+                        <div class="comparison-value">12-18 months</div>
                     </div>
                 </div>
 
-                <!-- ISEE Timeline -->
-                <div class="timeline-item">
-                    <div class="timeline-content" style="border-color: #5DD3F0;">
-                        <div class="timeline-title">
-                            <span class="test-emoji">🏫</span> ISEE Preparation
-                        </div>
-                        <div class="timeline-when" style="background: linear-gradient(135deg, #ecfeff, #cffafe); color: #0891b2;">Start: 1 Year Before Admissions Cycle</div>
-                        <p>The ISEE presents students with <strong>new material and thought processes</strong> that might be unfamiliar from their regular schooling.</p>
-                        <p>To ensure success, it is ideal to begin a year before the intended admissions cycle, providing ample time for preparation. This approach also allows students to take multiple practice tests.</p>
-                        <p>Early preparation can mitigate stress and build confidence as the testing period approaches.</p>
-                        <div class="timeline-details">
-                            <strong>NYC STEM Club Offers:</strong>
-                            <ul>
-                                <li>Tailored ISEE Classes</li>
-                                <li>Private Lessons</li>
-                                <li>Multiple Practice Tests</li>
-                            </ul>
-                        </div>
+                <div class="comparison-card isee">
+                    <h4>ISEE</h4>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Best Start Time</div>
+                        <div class="comparison-value">1 year before</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Test Date</div>
+                        <div class="comparison-value">Fall/Winter</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Attempts</div>
+                        <div class="comparison-value">Once per season</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Prep Duration</div>
+                        <div class="comparison-value">6-12 months</div>
                     </div>
                 </div>
 
-                <!-- ACT Timeline -->
-                <div class="timeline-item">
-                    <div class="timeline-content" style="border-color: #FF7F07;">
-                        <div class="timeline-title">
-                            <span class="test-emoji">📚</span> ACT Preparation
-                        </div>
-                        <div class="timeline-when" style="background: linear-gradient(135deg, #fff7ed, #ffedd5); color: #ea580c;">Start: End of Sophomore Year</div>
-                        <p>The ACT journey should begin in the <strong>latter part of a student's sophomore year</strong>, with students taking their first official ACT as early as the end of sophomore year.</p>
-                        <p>It's commonly advised to <strong>align ACT test-taking with the completion of Algebra-2 coursework</strong> in school. Since most magnet and specialized schools offer Algebra-2 during sophomore year, taking the ACT early allows students to focus on maintaining their grades, participating in extracurricular activities, and assuming leadership roles during their junior year.</p>
-                        <p>This timeline allows for multiple attempts to achieve desired scores before college applications are due.</p>
-                        <div class="timeline-details">
-                            <strong>NYC STEM Club Offers:</strong>
-                            <ul>
-                                <li>Private ACT Classes</li>
-                                <li>Group ACT Classes</li>
-                                <li>Multiple Retake Options</li>
-                            </ul>
-                        </div>
+                <div class="comparison-card sat">
+                    <h4>SAT</h4>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Best Start Time</div>
+                        <div class="comparison-value">Grade 10</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Test Date</div>
+                        <div class="comparison-value">Grade 11-12</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Attempts</div>
+                        <div class="comparison-value">Unlimited</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Prep Duration</div>
+                        <div class="comparison-value">3-12 months</div>
                     </div>
                 </div>
 
-                <!-- SAT Timeline -->
-                <div class="timeline-item">
-                    <div class="timeline-content" style="border-color: #FFB84D;">
-                        <div class="timeline-title">
-                            <span class="test-emoji">✏️</span> SAT Preparation
-                        </div>
-                        <div class="timeline-when" style="background: linear-gradient(135deg, #fefce8, #fef3c7); color: #d97706;">Start: End of Sophomore Year</div>
-                        <p>Like the ACT, SAT preparation can start during <strong>sophomore year</strong>, with students taking their first SAT as early as end of sophomore year.</p>
-                        <p>This recommended timeline offers <strong>adequate room for retesting and improvement</strong>, essential for compiling an impressive college application.</p>
-                        <div class="timeline-details">
-                            <strong>NYC STEM Club Offers:</strong>
-                            <ul>
-                                <li>Comprehensive SAT Prep</li>
-                                <li>Private SAT Classes</li>
-                                <li>Group SAT Classes</li>
-                                <li>Digital SAT Preparation</li>
-                            </ul>
-                        </div>
+                <div class="comparison-card act">
+                    <h4>ACT</h4>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Best Start Time</div>
+                        <div class="comparison-value">Grade 10</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Test Date</div>
+                        <div class="comparison-value">Grade 11-12</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Attempts</div>
+                        <div class="comparison-value">Unlimited</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-label">Prep Duration</div>
+                        <div class="comparison-value">3-12 months</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Key Takeaway -->
-        <div class="key-takeaway">
-            <h3>🔑 Key Takeaway: Start Early!</h3>
-            <p><strong>Achieving success in these exams is not solely dependent on studying smart; it also hinges on studying early.</strong></p>
-            <p>Starting years in advance is the key to admissions. At NYC STEM Club, we provide personalized study plans and tailored resources to meet each student's unique needs.</p>
-            <p>For sustained academic excellence, it is beneficial to enroll children in academic enrichment programs from a young age. By prioritizing excellence in education before test preparation becomes a concern, students can gain a competitive advantage in school and enhance their cognitive abilities.</p>
+        <!-- Key Takeaways -->
+        <div class="key-takeaways">
+            <h2>Key Takeaways</h2>
+            <div class="takeaway-cards">
+                <div class="takeaway-card">
+                    <h4>Start Earlier Than You Think</h4>
+                    <p>For specialized high school tests (SHSAT, ISEE), starting 12-18 months early builds strong foundations and reduces stress. For college tests (SAT, ACT), sophomore year is ideal.</p>
+                </div>
+
+                <div class="takeaway-card">
+                    <h4>Multiple Attempts = Better Scores</h4>
+                    <p>SAT and ACT allow unlimited retakes, so planning for 2-3 attempts leads to optimal scores. SHSAT and ISEE have limited opportunities, making preparation crucial.</p>
+                </div>
+
+                <div class="takeaway-card">
+                    <h4>Summer = Power Prep Time</h4>
+                    <p>Summer months before critical test years provide focused, uninterrupted preparation time without competing academic demands. This is when students make the biggest gains.</p>
+                </div>
+
+                <div class="takeaway-card">
+                    <h4>Diagnostic Tests Are Essential</h4>
+                    <p>Taking diagnostic tests early identifies strengths, weaknesses, and optimal test choice (SAT vs ACT). This allows for targeted, efficient preparation.</p>
+                </div>
+
+                <div class="takeaway-card">
+                    <h4>Consistent Practice Beats Cramming</h4>
+                    <p>Regular, distributed practice over many months produces better results than intensive last-minute cramming. Start early and maintain steady progress.</p>
+                </div>
+
+                <div class="takeaway-card">
+                    <h4>Strategic Timing = Less Stress</h4>
+                    <p>Proper timeline planning ensures test scores are ready for all application deadlines while leaving room for retakes if needed. Peace of mind matters.</p>
+                </div>
+            </div>
         </div>
 
         <!-- CTA Section -->
-        <div class="cta-section">
-            <h2>Ready to Start Your Testing Journey?</h2>
-            <p>At NYC STEM Club, we provide comprehensive support with personalized study plans, meticulously curated materials, abundant practice tests, and detailed test analysis reports.</p>
-            <p><strong>Starting early and exploring various avenues paves the way for long-term academic success.</strong></p>
-            <?php echo do_shortcode('[inquiry_button source="timeline-page"]'); ?>
+        <div class="timeline-cta-section">
+            <h2>Ready to Start Your Test Prep Journey?</h2>
+            <p>Let NYC STEM Club help you create a personalized preparation timeline for your student's success</p>
+            <?php echo do_shortcode('[inquiry_button color="dark-teal"]'); ?>
         </div>
+    </div>
+</article>
 
-        <!-- Testimonials Section -->
-        <?php echo do_shortcode('[testimonials]'); ?>
-    </article>
-
-    <script>
-        function toggleISEELevels() {
-            const section = document.getElementById('isee-levels');
-            section.classList.toggle('active');
-
-            // Smooth scroll to section when opening
-            if (section.classList.contains('active')) {
-                setTimeout(() => {
-                    section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 100);
-            }
+<script>
+// Smooth scroll for navigation buttons
+document.querySelectorAll('.nav-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    </script>
+    });
+});
+
+// Animate timeline bars on scroll
+const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const bars = entry.target.querySelectorAll('.bar-inner');
+            bars.forEach(bar => {
+                bar.style.width = bar.style.width; // Trigger animation
+            });
+        }
+    });
+}, observerOptions);
+
+const timelineVisual = document.querySelector('.timeline-visual');
+if (timelineVisual) {
+    observer.observe(timelineVisual);
+}
+</script>
 
 <?php endwhile; ?>
 

@@ -1363,3 +1363,103 @@ h4.elementor-heading-title,
 .elementor-widget-heading .elementor-heading-title {
     font-family: 'Roboto', sans-serif !important;
 }
+
+/* Center-aligned text containers with max-width */
+.max-width-1200 {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Course hero fixes removed - were breaking 2-column layouts globally */
+
+/* ==============================================================================
+   BLOG PAGE HERO - Gradient Blue Background, No Image, White Text
+   ============================================================================== */
+
+/* Target ONLY first Elementor section and page headers */
+body.blog .site-main > .elementor > .elementor-section:first-child,
+body.home .site-main > .elementor > .elementor-section:first-child,
+body.blog .content-area > .elementor > .elementor-section:first-child,
+body.home .content-area > .elementor > .elementor-section:first-child,
+body.blog #content > .elementor > .elementor-section:first-child,
+body.home #content > .elementor > .elementor-section:first-child,
+body.blog .page-header,
+body.blog .banner-area,
+body.blog .page-title-area,
+body.home .page-header,
+body.home .banner-area,
+body.home .page-title-area {
+    background: linear-gradient(135deg, #134958 0%, #28AFCF 100%) !important;
+    background-image: linear-gradient(135deg, #134958 0%, #28AFCF 100%) !important;
+    color: #ffffff !important;
+    padding: 60px 20px 40px !important;
+}
+
+/* Remove any background images from FIRST section only */
+body.blog .site-main > .elementor > .elementor-section:first-child,
+body.blog .site-main > .elementor > .elementor-section:first-child::before,
+body.blog .site-main > .elementor > .elementor-section:first-child::after,
+body.blog .content-area > .elementor > .elementor-section:first-child,
+body.blog .content-area > .elementor > .elementor-section:first-child::before,
+body.blog .content-area > .elementor > .elementor-section:first-child::after,
+body.home .site-main > .elementor > .elementor-section:first-child,
+body.home .site-main > .elementor > .elementor-section:first-child::before,
+body.home .site-main > .elementor > .elementor-section:first-child::after,
+body.home .content-area > .elementor > .elementor-section:first-child,
+body.home .content-area > .elementor > .elementor-section:first-child::before,
+body.home .content-area > .elementor > .elementor-section:first-child::after,
+body.blog .page-header,
+body.blog .page-header::before,
+body.blog .banner-area,
+body.blog .banner-area::before,
+body.home .page-header,
+body.home .page-header::before,
+body.home .banner-area,
+body.home .banner-area::before {
+    background-image: none !important;
+}
+
+/* Override Elementor section background overlays in FIRST section only */
+body.blog .site-main > .elementor > .elementor-section:first-child > .elementor-background-overlay,
+body.home .site-main > .elementor > .elementor-section:first-child > .elementor-background-overlay,
+body.blog .content-area > .elementor > .elementor-section:first-child > .elementor-background-overlay,
+body.home .content-area > .elementor > .elementor-section:first-child > .elementor-background-overlay {
+    display: none !important;
+}
+
+/* Force white text in FIRST section and page headers only */
+body.blog .site-main > .elementor > .elementor-section:first-child *,
+body.blog .content-area > .elementor > .elementor-section:first-child *,
+body.home .site-main > .elementor > .elementor-section:first-child *,
+body.home .content-area > .elementor > .elementor-section:first-child *,
+body.blog .page-header *,
+body.blog .banner-area *,
+body.blog .page-title,
+body.blog .entry-title,
+body.blog .archive-title,
+body.home .page-header *,
+body.home .banner-area *,
+body.home .page-title,
+body.home .entry-title,
+body.home .archive-title {
+    color: #ffffff !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    body.blog .site-main > .elementor > .elementor-section:first-child,
+    body.home .site-main > .elementor > .elementor-section:first-child,
+    body.blog .content-area > .elementor > .elementor-section:first-child,
+    body.home .content-area > .elementor > .elementor-section:first-child,
+    body.blog .page-header,
+    body.blog .banner-area,
+    body.home .page-header,
+    body.home .banner-area {
+        padding: 40px 20px 30px !important;
+    }
+}
+
+/* ==============================================================================
+   END BLOG PAGE HERO
+   ============================================================================== */
