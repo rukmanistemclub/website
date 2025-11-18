@@ -108,10 +108,7 @@ for ($i = 1; $i <= 4; $i++) {
                     <?php endforeach; ?>
                 </div>
             </div>
-        <?php
-            endif; // end elseif for ACF-driven cards
-        endif; // end else block
-        ?>
+        <?php endif; ?>
 
     </div>
 </section>
