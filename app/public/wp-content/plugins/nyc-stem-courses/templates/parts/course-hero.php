@@ -19,22 +19,18 @@ $hero_card_stats = get_field('hero_card_stats');
             <h1><?php the_title(); ?></h1>
 
             <?php
-            // Special tagline for ACT-SAT Foundational Course only (post ID 17138)
-            if (get_the_ID() == 17138) : ?>
-                <p class="hero-tagline" style="font-size: 20px; color: rgba(255, 255, 255, 0.95); margin: 15px 0 25px 0; padding-bottom: 20px; font-weight: 500; line-height: 1.6;">
-                    Transform Your Test Scores with NYC's Most Effective College Entrance Exam Prep. Over 80% of our students Score 34+ ACT or 1500+ SAT
-                </p>
-            <?php endif; ?>
+            $hero_tagline = get_field('hero_tagline');
+            $hide_excerpt = get_field('hide_hero_excerpt');
+            $hide_stats = get_field('hide_hero_stats');
 
-            <?php
-            // Hide excerpt for ACT-SAT Foundational Course (post ID 17138) as it has custom tagline
-            if (get_the_ID() != 17138 && has_excerpt()) : ?>
+            if ($hero_tagline) : ?>
+                <p class="hero-tagline"><?php echo wp_kses_post($hero_tagline); ?></p>
+            <?php elseif (!$hide_excerpt && has_excerpt()) : ?>
                 <p class="hero-excerpt"><?php echo get_the_excerpt(); ?></p>
             <?php endif; ?>
 
             <?php
-            // Hide mini stats for ACT-SAT Foundational Course (post ID 17138)
-            if (get_the_ID() != 17138 && $hero_stats && is_array($hero_stats)) : ?>
+            if (!$hide_stats && $hero_stats && is_array($hero_stats)) : ?>
                 <div class="hero-stats-mini">
                     <?php foreach ($hero_stats as $stat) : ?>
                         <div class="stat-mini">
