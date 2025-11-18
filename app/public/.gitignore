@@ -35,24 +35,3 @@ delete-all-courses.php
 find_course.php
 migrate-woo-to-courses.php
 update_*.php
-
-# Backups and SQL dumps
-/app/public/wp-content/updraft/
-/app/sql/
-*.sql
-*.sql.gz
-
-# Claude Code
-.claude/
-app/public/.claude/
-
-# Must-use plugins (managed by Local)
-/app/public/wp-content/mu-plugins/
-
-# Local by Flywheel
-/app/public/.user.ini
-/logs/
-
-# Excel temp files
-~$*.xlsx
-nul
