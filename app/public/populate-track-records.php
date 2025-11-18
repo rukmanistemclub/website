@@ -65,6 +65,37 @@ foreach ($isee_courses as $course_id) {
     echo "✓ Updated course $course_id<br>";
 }
 
+// SHSAT Courses - Find all courses with SHSAT category - 4 stats each
+$shsat_stats = [
+    ['number' => '90%+', 'label' => 'Acceptance Rate'],
+    ['number' => '50%+', 'label' => 'Stuy Score Rate'],
+    ['number' => 'Expert', 'label' => 'Instructors'],
+    ['number' => 'Small', 'label' => 'Group Classes']
+];
+
+$shsat_courses = get_posts([
+    'post_type' => 'course',
+    'posts_per_page' => -1,
+    'tax_query' => [
+        [
+            'taxonomy' => 'course_category',
+            'field' => 'slug',
+            'terms' => 'shsat'
+        ]
+    ],
+    'fields' => 'ids'
+]);
+
+echo "<h2>Populating SHSAT Courses</h2>";
+if (!empty($shsat_courses)) {
+    foreach ($shsat_courses as $course_id) {
+        populate_stats($course_id, $shsat_stats);
+        echo "✓ Updated course $course_id<br>";
+    }
+} else {
+    echo "No SHSAT courses found<br>";
+}
+
 echo "<h2 style='color: green;'>✓ All Done!</h2>";
-echo "<p>All 10 courses have been populated with track record data.</p>";
+echo "<p>All courses have been populated with track record data.</p>";
 echo "<p><strong>Next:</strong> Delete this file and test the courses.</p>";
