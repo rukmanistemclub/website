@@ -4,11 +4,6 @@
  * Displays trust indicators below hero
  */
 
-// Hide trust bar for ACT-SAT Foundational Course (post ID 17138)
-if (get_the_ID() == 17138) {
-    return;
-}
-
 $trust_items = get_field('trust_bar_items');
 
 if (!$trust_items || !is_array($trust_items)) {
