@@ -3268,3 +3268,88 @@ h4.elementor-heading-title,
         grid-template-columns: 1fr;
     }
 }
+
+/* ===========================
+   HERO TAGLINE
+   =========================== */
+.hero-tagline {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 15px 0 25px 0;
+    padding-bottom: 20px;
+    font-weight: 500;
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ===========================
+   CTA CONTENT BLOCKS
+   =========================== */
+.cta-content-block {
+    background: #f8f9fa;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cta-content-block-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cta-content-block h2 {
+    font-size: 2rem;
+    color: #134958;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.cta-content-block p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2d3748;
+}
+
+.cta-content-block a {
+    color: #134958;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid #28AFCF;
+    transition: all 0.3s ease;
+}
+
+.cta-content-block a:hover {
+    color: #28AFCF;
+    border-bottom-color: #134958;
+}
+
+/* CTA Pricing Note */
+.cta-pricing-note {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #ffffff !important;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-tagline {
+        font-size: 18px;
+        margin: 12px 0 20px 0;
+        padding-bottom: 15px;
+    }
+
+    .cta-content-block {
+        padding: 40px 15px;
+    }
+
+    .cta-content-block h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .cta-content-block p {
+        font-size: 1rem;
+    }
+}
