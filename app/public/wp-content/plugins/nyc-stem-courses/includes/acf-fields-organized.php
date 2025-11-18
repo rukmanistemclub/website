@@ -143,45 +143,7 @@ function nyc_stem_register_organized_course_fields() {
             ),
 
             // ========================================
-            // SECTION 2: TRUST BAR (Optional)
-            // ========================================
-            array(
-                'key' => 'field_trust_divider',
-                'label' => '✅ TRUST BAR (Optional white bar below hero)',
-                'type' => 'message',
-                'message' => 'Trust indicators like "Expert SHSAT Specialists", "Digital Test Ready". Leave empty to hide this section.',
-            ),
-            array(
-                'key' => 'field_trust_bar_items',
-                'label' => 'Trust Bar Items (Optional)',
-                'name' => 'trust_bar_items',
-                'type' => 'repeater',
-                'instructions' => '🛡️ OPTIONAL: Trust badges shown below the hero. Leave empty to hide. Recommended: 3-4 items.',
-                'layout' => 'block',
-                'button_label' => 'Add Trust Item',
-                'max' => 4,
-                'sub_fields' => array(
-                    array(
-                        'key' => 'field_trust_item_icon_svg',
-                        'label' => 'Icon SVG (Optional)',
-                        'name' => 'icon_svg',
-                        'type' => 'textarea',
-                        'instructions' => 'Optional custom icon',
-                        'rows' => 3,
-                    ),
-                    array(
-                        'key' => 'field_trust_item_text',
-                        'label' => 'Text',
-                        'name' => 'text',
-                        'type' => 'text',
-                        'required' => 1,
-                        'placeholder' => 'Expert SHSAT Specialists',
-                    ),
-                ),
-            ),
-
-            // ========================================
-            // SECTION 3: COURSE DESCRIPTION
+            // SECTION 2: COURSE DESCRIPTION
             // ========================================
             array(
                 'key' => 'field_description_divider',

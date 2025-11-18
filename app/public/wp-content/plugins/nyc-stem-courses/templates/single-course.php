@@ -16,9 +16,6 @@ while (have_posts()) : the_post();
     // Hero Section - Premium split design
     include NYC_STEM_COURSES_PATH . 'templates/parts/course-hero.php';
 
-    // Trust Bar - Optional (displays if trust_bar_items are populated)
-    include NYC_STEM_COURSES_PATH . 'templates/parts/course-trust-bar.php';
-
     // Course Description - Flexible content blocks (Program Timeline, Specialized Schools, etc.)
     include NYC_STEM_COURSES_PATH . 'templates/parts/course-description.php';
 
