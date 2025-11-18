@@ -2,14 +2,12 @@
 /**
  * Course Benefits Section - Why Choose NYC STEM Club
  * Uses appropriate shortcode based on course category
- * Excluded for certain counseling courses
+ * Can be hidden via ACF field
  */
 
-// Exclude "Why Choose" section for these courses
-$excluded_courses = [17145, 17143]; // College Counseling, Private School Admissions Counseling
-
-if (in_array(get_the_ID(), $excluded_courses)) {
-    return; // Don't show "Why Choose" section for these courses
+// Check if user wants to hide this section
+if (get_field('hide_why_choose_section')) {
+    return;
 }
 
 // Get course categories
