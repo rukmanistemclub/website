@@ -464,7 +464,7 @@ function nyc_stem_register_organized_course_fields() {
                 'post_type' => array('course'),
                 'filters' => array('search', 'post_type'),
                 'return_format' => 'object',
-                'max' => 3,
+                'max' => 4,
             ),
 
             // ========================================

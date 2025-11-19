@@ -20,6 +20,35 @@ define('NYC_STEM_COURSES_VERSION', '2.3.0');
 define('NYC_STEM_COURSES_PATH', plugin_dir_path(__FILE__));
 define('NYC_STEM_COURSES_URL', plugin_dir_url(__FILE__));
 
+// Standardized track record stats by category
+// Change these once and they update on all courses in that category
+define('NYC_STEM_TRACK_RECORDS', serialize([
+    'sat-act' => [
+        'title' => 'Our Track Record',
+        'stats' => [
+            ['number' => '96%', 'label' => 'Score Improvement Rate'],
+            ['number' => '6-9 Points', 'label' => 'Average ACT Increase'],
+            ['number' => '100+ Points', 'label' => 'Average SAT Increase'],
+            ['number' => 'Up to 13 Points', 'label' => 'Top ACT Student Improvement']
+        ]
+    ],
+    'shsat' => [
+        'title' => 'Our Track Record',
+        'stats' => [
+            ['number' => '85%', 'label' => 'Admission Rate'],
+            ['number' => '40+ Points', 'label' => 'Average Improvement'],
+            ['number' => '15+', 'label' => 'Years Experience'],
+        ]
+    ],
+    'isee' => [
+        'title' => 'Our Track Record',
+        'stats' => [
+            ['number' => 'Over 85%', 'label' => 'Scored a Stanine of 7-9 on the ISEE'],
+            ['number' => 'Top 3 Schools', 'label' => 'Our students have received offers in one of their top 3 schools: Trinity, Dalton, Horace Mann, Brearley, Collegiate, Riverdale, St. Ann\'s, prestigious boarding schools and many more top schools'],
+        ]
+    ]
+]));
+
 /**
  * Main Plugin Class
  */
@@ -68,6 +97,7 @@ class NYC_STEM_Courses {
         add_shortcode('why_choose_sat_act', array($this, 'why_choose_sat_act_shortcode'));
         add_shortcode('why_choose_shsat', array($this, 'why_choose_shsat_shortcode'));
         add_shortcode('why_choose_isee', array($this, 'why_choose_isee_shortcode'));
+        add_shortcode('why_choose_enrichment', array($this, 'why_choose_enrichment_shortcode'));
         add_shortcode('testimonials', array($this, 'testimonials_shortcode'));
 
         // Register query vars (fixes 404 with ?course_name= parameter)
@@ -1491,6 +1521,78 @@ class NYC_STEM_Courses {
         $output .= '</div>'; // Close why-choose-grid
         $output .= '</div>'; // Close container
         $output .= '</section>'; // Close section
+
+        return $output;
+    }
+
+    /**
+     * Why Choose Enrichment Shortcode
+     * Usage: [why_choose_enrichment]
+     */
+    public function why_choose_enrichment_shortcode($atts) {
+        // Enqueue styles
+        wp_enqueue_style(
+            'nyc-stem-course-styles',
+            NYC_STEM_COURSES_URL . 'assets/css/course-styles.css',
+            array(),
+            NYC_STEM_COURSES_VERSION
+        );
+
+        $output = '<section class="why-choose-sat-act">';
+        $output .= '<div class="why-choose-container">';
+
+        // Header
+        $output .= '<div class="why-choose-header">';
+        $output .= '<h2 style="font-family: \'Roboto\', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 15px !important;">Why Choose NYC STEM Club?</h2>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 18px !important; font-weight: 400 !important; color: #555 !important; line-height: 1.6 !important; max-width: 900px !important; margin: 0 auto !important;">Our enrichment programs combine rigorous curriculum, small group instruction, and experienced educators to help every student reach their full potential.</p>';
+        $output .= '</div>';
+
+        // Benefits Grid
+        $output .= '<div class="why-choose-grid">';
+
+        // Card 1: Small Group Instruction
+        $output .= '<div style="background: #EFF8FB !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28AFCF !important;">';
+        $output .= '<div style="text-align: left !important;">';
+        $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #28AFCF, #134958) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>';
+        $output .= '</div>';
+        $output .= '<h3 style="font-family: \'Roboto\', sans-serif !important; font-size: 20px !important; font-weight: 600 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 8px !important; margin-top: 0 !important; margin-left: 50px !important; text-align: left !important;">Small Group Instruction</h3>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; margin: 0 !important; clear: both !important;">Classes limited to 8 students ensure personalized attention and active participation for every child.</p>';
+        $output .= '</div></div>';
+
+        // Card 2: Skill-Based Placement
+        $output .= '<div style="background: #EFF8FB !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #FF7F07 !important;">';
+        $output .= '<div style="text-align: left !important;">';
+        $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #FF7F07, #e66f00) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>';
+        $output .= '</div>';
+        $output .= '<h3 style="font-family: \'Roboto\', sans-serif !important; font-size: 20px !important; font-weight: 600 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 8px !important; margin-top: 0 !important; margin-left: 50px !important; text-align: left !important;">Skill-Based Placement</h3>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; margin: 0 !important; clear: both !important;">Diagnostic assessments place students in appropriate groups, ensuring instruction matches their level.</p>';
+        $output .= '</div></div>';
+
+        // Card 3: Experienced Educators
+        $output .= '<div style="background: #EFF8FB !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #F0B268 !important;">';
+        $output .= '<div style="text-align: left !important;">';
+        $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #F0B268, #d99d52) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>';
+        $output .= '</div>';
+        $output .= '<h3 style="font-family: \'Roboto\', sans-serif !important; font-size: 20px !important; font-weight: 600 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 8px !important; margin-top: 0 !important; margin-left: 50px !important; text-align: left !important;">Experienced Educators</h3>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; margin: 0 !important; clear: both !important;">Our instructors are subject matter experts who understand how to engage and challenge young learners.</p>';
+        $output .= '</div></div>';
+
+        // Card 4: Proven Results
+        $output .= '<div style="background: #EFF8FB !important; border-radius: 12px !important; padding: 15px !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; border-top: 4px solid #28A745 !important;">';
+        $output .= '<div style="text-align: left !important;">';
+        $output .= '<div style="display: inline-block !important; width: 35px !important; height: 35px !important; background: linear-gradient(135deg, #28A745, #1e7e34) !important; border-radius: 8px !important; vertical-align: middle !important; text-align: center !important; line-height: 35px !important; margin-right: 10px !important; float: left !important;">';
+        $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>';
+        $output .= '</div>';
+        $output .= '<h3 style="font-family: \'Roboto\', sans-serif !important; font-size: 20px !important; font-weight: 600 !important; color: #134958 !important; line-height: 1.3 !important; margin-bottom: 8px !important; margin-top: 0 !important; margin-left: 50px !important; text-align: left !important;">Proven Results</h3>';
+        $output .= '<p style="font-family: \'Roboto\', sans-serif !important; font-size: 16px !important; font-weight: 400 !important; color: #333 !important; line-height: 1.7 !important; margin: 0 !important; clear: both !important;">Our students consistently excel on competitive exams and gain admission to top schools.</p>';
+        $output .= '</div></div>';
+
+        $output .= '</div>'; // Close grid
+        $output .= '</div>'; // Close container
+        $output .= '</section>';
 
         return $output;
     }

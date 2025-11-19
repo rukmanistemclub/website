@@ -6,27 +6,77 @@
 // Get hero stats (mini stats in left column)
 $hero_stats = get_field('hero_stats');
 
-// Get hero card stats (right column card) - Build array from individual fields
-$hero_card_title = get_field('hero_card_title');
+// Get hero card stats - Check for centralized stats first, then fall back to ACF fields
+$hero_card_title = '';
 $hero_card_stats = array();
 
-// Build stats array from individual ACF fields (ACF Free compatible)
-for ($i = 1; $i <= 4; $i++) {
-    $number = get_field("hero_card_stat_{$i}_number");
-    $label = get_field("hero_card_stat_{$i}_label");
+// Check if course uses centralized track record stats
+$track_records = unserialize(NYC_STEM_TRACK_RECORDS);
+$use_centralized = false;
 
-    // Only add stat if at least the label is filled
-    if (!empty($label)) {
+// SAT/ACT courses
+if (has_term(array('sat', 'act', 'sat-act', 'sat-act-prep', 'college-prep'), 'course_category') && isset($track_records['sat-act'])) {
+    $hero_card_title = $track_records['sat-act']['title'];
+    foreach ($track_records['sat-act']['stats'] as $stat) {
         $hero_card_stats[] = array(
-            'number' => $number,
-            'label' => $label,
+            'number' => $stat['number'],
+            'label' => $stat['label'],
             'icon_svg' => ''
         );
     }
+    $use_centralized = true;
 }
+// SHSAT courses
+elseif (has_term('shsat', 'course_category') && isset($track_records['shsat'])) {
+    $hero_card_title = $track_records['shsat']['title'];
+    foreach ($track_records['shsat']['stats'] as $stat) {
+        $hero_card_stats[] = array(
+            'number' => $stat['number'],
+            'label' => $stat['label'],
+            'icon_svg' => ''
+        );
+    }
+    $use_centralized = true;
+}
+// ISEE courses
+elseif (has_term(array('isee', 'isee-prep'), 'course_category') && isset($track_records['isee'])) {
+    $hero_card_title = $track_records['isee']['title'];
+    foreach ($track_records['isee']['stats'] as $stat) {
+        $hero_card_stats[] = array(
+            'number' => $stat['number'],
+            'label' => $stat['label'],
+            'icon_svg' => ''
+        );
+    }
+    $use_centralized = true;
+}
+
+// Fall back to individual ACF fields if not using centralized stats
+if (!$use_centralized) {
+    $hero_card_title = get_field('hero_card_title');
+
+    // Build stats array from individual ACF fields (ACF Free compatible)
+    for ($i = 1; $i <= 4; $i++) {
+        $number = get_field("hero_card_stat_{$i}_number");
+        $label = get_field("hero_card_stat_{$i}_label");
+
+        // Only add stat if at least the label is filled
+        if (!empty($label)) {
+            $hero_card_stats[] = array(
+                'number' => $number,
+                'label' => $label,
+                'icon_svg' => ''
+            );
+        }
+    }
+}
+
+// Check if this is an enrichment course (centered hero layout)
+$is_enrichment = has_term('enrichment', 'course_category');
+$hero_class = $is_enrichment ? 'hero-centered' : '';
 ?>
 
-<section class="course-hero">
+<section class="course-hero <?php echo esc_attr($hero_class); ?>">
     <div class="hero-container">
 
         <!-- Left Column: Content -->
@@ -85,7 +135,8 @@ for ($i = 1; $i <= 4; $i++) {
 
         <?php
         // All courses use ACF-driven hero card (replaces all hardcoded track record cards)
-        if ($hero_card_stats && is_array($hero_card_stats)) : ?>
+        // Hide for enrichment courses (they use centered layout)
+        if (!$is_enrichment && $hero_card_stats && is_array($hero_card_stats)) : ?>
             <div class="hero-card">
                 <h3><?php echo $hero_card_title ? esc_html($hero_card_title) : 'Our Track Record'; ?></h3>
                 <div class="hero-card-grid">

@@ -1387,6 +1387,12 @@ body.home #content > .elementor > .elementor-section:first-child,
 body.blog .page-header,
 body.blog .banner-area,
 body.blog .page-title-area,
+body.blog .site-banner,
+body.blog .archive-header,
+body.blog header.entry-header,
+body.blog .site-main > header,
+body.blog #main > header,
+body.blog .content-area header.py-8,
 body.home .page-header,
 body.home .banner-area,
 body.home .page-title-area {
@@ -1394,6 +1400,66 @@ body.home .page-title-area {
     background-image: linear-gradient(135deg, #134958 0%, #28AFCF 100%) !important;
     color: #ffffff !important;
     padding: 60px 20px 40px !important;
+    text-align: center !important;
+}
+
+/* Blog archive header - Skola theme specific */
+body.blog #primary header,
+body.blog .content-area > main > header {
+    background: linear-gradient(135deg, #134958 0%, #28AFCF 100%) !important;
+    color: #ffffff !important;
+    padding: 60px 20px 40px !important;
+    text-align: center !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+}
+
+body.blog #primary header h1,
+body.blog #primary header *,
+body.blog .content-area > main > header h1,
+body.blog .content-area > main > header * {
+    color: #ffffff !important;
+}
+
+/* Blog Elementor hero section with py-8 classes */
+body.blog .elementor-section.py-8.py-md-11,
+body.blog .elementor-top-section.py-8 {
+    background: linear-gradient(135deg, #134958 0%, #28AFCF 100%) !important;
+    color: #ffffff !important;
+    padding: 60px 20px 40px !important;
+}
+
+body.blog .elementor-section.py-8.py-md-11 .elementor-background-overlay,
+body.blog .elementor-top-section.py-8 .elementor-background-overlay {
+    display: none !important;
+}
+
+body.blog .elementor-section.py-8.py-md-11 *,
+body.blog .elementor-top-section.py-8 * {
+    color: #ffffff !important;
+}
+
+/* Add "Blog" heading text */
+body.blog .elementor-section.py-8.py-md-11 .elementor-container {
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+body.blog .elementor-section.py-8.py-md-11 .elementor-container::before {
+    content: "Blog";
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    text-align: center;
+    width: 100%;
+}
+
+/* Hide empty column divs */
+body.blog .elementor-section.py-8.py-md-11 .elementor-column {
+    display: none !important;
 }
 
 /* Remove any background images from FIRST section only */
@@ -1435,6 +1501,9 @@ body.home .site-main > .elementor > .elementor-section:first-child *,
 body.home .content-area > .elementor > .elementor-section:first-child *,
 body.blog .page-header *,
 body.blog .banner-area *,
+body.blog .site-banner *,
+body.blog .archive-header *,
+body.blog header.entry-header *,
 body.blog .page-title,
 body.blog .entry-title,
 body.blog .archive-title,

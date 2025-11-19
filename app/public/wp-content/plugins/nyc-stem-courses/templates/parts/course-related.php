@@ -3,8 +3,8 @@
  * Course Related Courses Section
  *
  * TWO SEPARATE SECTIONS:
- * 1. "You May Also Like" - Cross-Sell Courses (strategic promotions, max 3)
- * 2. "Related Courses" - Category-matched or manual courses (up to 6)
+ * 1. "You May Also Like" - Cross-Sell Courses (strategic promotions, max 4)
+ * 2. "Related Courses" - Category-matched or manual courses (up to 8)
  *
  * Cross-sell courses are shown separately and don't take slots from related courses.
  * Results cached for 12 hours for performance.
@@ -195,8 +195,8 @@ if (!empty($related_courses)) {
 // 3. Auto-detected category matching
 // This ensures complete control over what courses are shown
 
-// Limit to 6 related courses
-$related_list = array_slice($related_list, 0, 6);
+// Limit to 8 related courses
+$related_list = array_slice($related_list, 0, 8);
 
 // Exit if no courses to show at all
 if (empty($crosssell_list) && empty($related_list)) {
