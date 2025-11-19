@@ -116,7 +116,7 @@
     background: rgba(255, 255, 255, 0.2);
     padding: 6px 16px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -131,8 +131,8 @@
 }
 
 .nyc-blog-title {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 48px;
+    font-weight: 800;
     line-height: 1.2;
     color: white;
     margin: 0 0 20px;
@@ -176,10 +176,10 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 60px 20px;
-    font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
-    color: #475569;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
 }
 
 /* ===========================
@@ -189,20 +189,20 @@
 /* Lead Paragraph */
 .single-post .article__content > p:first-child,
 .single-post .entry-content > p:first-child {
-    font-size: 1.25rem !important;
-    line-height: 1.7 !important;
-    color: #1e3a5f !important;
-    margin-bottom: 48px !important;
-    font-weight: 500 !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: #555 !important;
+    margin-bottom: 24px !important;
+    font-weight: 400 !important;
 }
 
 /* Regular Paragraphs */
 .single-post .article__content p,
 .single-post .entry-content p {
-    font-size: 17px !important;
-    line-height: 1.7 !important;
-    margin-bottom: 20px !important;
-    color: #475569 !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 16px !important;
+    color: #333 !important;
 }
 
 /* Headings with Left Border */
@@ -210,10 +210,10 @@
 .single-post .entry-content h2,
 .single-post .article__content .wp-block-heading,
 .single-post .entry-content .wp-block-heading {
-    font-size: 1.875rem !important;
+    font-size: 32px !important;
     font-weight: 700 !important;
     color: #134958 !important;
-    margin: 56px 0 24px !important;
+    margin: 56px 0 16px !important;
     line-height: 1.3 !important;
     position: relative;
     padding-left: 20px !important;
@@ -235,19 +235,19 @@
 
 .single-post .article__content h3,
 .single-post .entry-content h3 {
-    font-size: 1.375rem !important;
+    font-size: 24px !important;
     font-weight: 600 !important;
-    color: #28AFCF !important;
-    margin: 32px 0 16px !important;
+    color: #134958 !important;
+    margin: 32px 0 12px !important;
     line-height: 1.3 !important;
 }
 
 .single-post .article__content h4,
 .single-post .entry-content h4 {
-    font-size: 1.1rem !important;
+    font-size: 18px !important;
     font-weight: 600 !important;
     color: #134958 !important;
-    margin: 24px 0 12px !important;
+    margin: 24px 0 10px !important;
 }
 
 .single-post .article__content strong,
@@ -384,15 +384,15 @@
 .single-post .article__content ol,
 .single-post .entry-content ol {
     margin: 20px 0 !important;
-    padding-left: 24px !important;
+    padding-left: 16px !important;
 }
 
 .single-post .article__content li,
 .single-post .entry-content li {
-    font-size: 17px !important;
-    line-height: 1.7 !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
     margin-bottom: 12px !important;
-    color: #475569 !important;
+    color: #333 !important;
 }
 
 .single-post .article__content li,
@@ -455,7 +455,7 @@
 .nyc-blog-tags-label {
     font-weight: 700;
     color: #134958;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .nyc-blog-tag {
@@ -486,7 +486,7 @@
 .nyc-blog-share-label {
     font-weight: 700;
     color: #134958;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .nyc-blog-share-btn {
@@ -596,8 +596,8 @@
 }
 
 .nyc-related-post-title {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 17.6px;
+    font-weight: 600;
     line-height: 1.3;
     margin: 0 0 12px;
 }
@@ -613,9 +613,9 @@
 }
 
 .nyc-related-post-excerpt {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
     margin: 0 0 16px;
 }
 
@@ -624,7 +624,7 @@
     align-items: center;
     color: #28AFCF;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px;
     text-decoration: none;
     transition: all 0.3s ease;
 }
@@ -640,11 +640,11 @@
 
 @media (max-width: 992px) {
     .nyc-blog-title {
-        font-size: 2rem;
+        font-size: 36px;
     }
 
     .nyc-blog-content-container h2 {
-        font-size: 1.5rem !important;
+        font-size: 32px !important;
     }
 
     .nyc-related-posts-grid {
@@ -658,7 +658,7 @@
     }
 
     .nyc-blog-title {
-        font-size: 1.875rem;
+        font-size: 36px;
     }
 
     .nyc-blog-content-container {
@@ -666,12 +666,12 @@
     }
 
     .nyc-blog-content-container h2 {
-        font-size: 1.5rem !important;
-        margin: 40px 0 20px !important;
+        font-size: 28px !important;
+        margin: 40px 0 16px !important;
     }
 
     .nyc-blog-content-container h3 {
-        font-size: 1.25rem !important;
+        font-size: 22px !important;
     }
 
     .single-post .article__content .wp-block-columns,
@@ -738,11 +738,11 @@ body.page-id-16284 {
 }
 
 .nyc-testimonials-title {
-    font-size: 2.5rem;
+    font-size: 32px;
     font-weight: 700;
     color: #134958;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
 }
 
 .nyc-testimonials-content {
