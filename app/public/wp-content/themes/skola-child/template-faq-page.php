@@ -819,4 +819,110 @@ function toggleFAQ(button) {
 }
 </script>
 
+<?php
+/**
+ * FAQPage Schema Markup for SEO/AEO
+ * Generates JSON-LD structured data for all FAQs on this page
+ */
+$faq_schema_items = array(
+    // Category 1: Choosing Between SAT & ACT
+    array(
+        'question' => "What's the difference between the SAT and ACT? Which should my child take?",
+        'answer' => "Both tests are widely accepted by colleges, but they have distinct differences. The ACT tends to be more straightforward with direct reading passages and consistent scoring, while the SAT provides more time per question but can have more ambiguous passages and answer choices. We help you decide through diagnostic testing. After your child takes practice tests for both exams, we analyze their performance and recommend the test where they'll reach their target score most efficiently."
+    ),
+    array(
+        'question' => "Do colleges prefer one test over the other?",
+        'answer' => "No. All U.S. colleges accept both SAT and ACT equally. There's no admissions advantage to either test. Choose based on which test format suits your strengths better."
+    ),
+    array(
+        'question' => "Can I take both tests?",
+        'answer' => "Yes. Some students do take both and submit the higher score, but most take diagnostic tests at the beginning and focus their prep on the one they perform better on."
+    ),
+    array(
+        'question' => "How do I know which test is right for me?",
+        'answer' => "Take full-length practice tests for both under timed conditions. Compare your scores and which test felt more comfortable. We offer free diagnostic testing and consultation to help you decide."
+    ),
+    array(
+        'question' => "What if I'm stronger in math?",
+        'answer' => "If math is your superpower and you want it to count for more, the SAT's 50% math weighting works in your favor. However, we see many strong math students actually prefer the ACT because they can dedicate their prep time to English since the math is straightforward for them."
+    ),
+    // Category 2: ACT/SAT Test Format
+    array(
+        'question' => "How is the Digital SAT different from the paper SAT?",
+        'answer' => "The Digital SAT, introduced in 2024, features adaptive testing that adjusts difficulty based on your performance, a shorter overall test with faster sections, and new digital tools including a built-in graphing calculator, annotation tools, and on-screen reference sheets. Our Digital SAT Prep includes technology training, screen reading strategies, and time management specific to the digital format."
+    ),
+    array(
+        'question' => "What's included in your Enhanced ACT Prep program?",
+        'answer' => "The Enhanced ACT refers to the updated 2025 ACT format with a shorter test (125-165 minutes), fewer questions, 18% more time per question, and optional Science section. Our prep includes custom materials for the Enhanced ACT format, comprehensive coverage of English, Math, and Reading, optional Science prep, and full-length practice tests."
+    ),
+    array(
+        'question' => "Is the ACT Science section hard?",
+        'answer' => "The Science section doesn't test memorized facts—it tests reading charts and graphs, which is a highly learnable skill. Plus, it's now optional! Most students improve their Science scores significantly with proper prep."
+    ),
+    // Category 3: When to Start Preparing
+    array(
+        'question' => "When should my child start SAT/ACT prep?",
+        'answer' => "Ideal timeline: Spring of sophomore year (10th grade). This gives your child time to build a strong foundation, take the test multiple times for superscoring, identify which test suits them best, and achieve their target score before applications intensify. Minimum requirements: For ACT prep, must have completed Algebra 2. For SAT prep, Algebra 1 and Geometry are sufficient."
+    ),
+    array(
+        'question' => "My peers and seniors tell me to wait until spring of junior year. Should I?",
+        'answer' => "That advice is valid if you're not in Algebra 2 during sophomore year. However, if you are taking Algebra 2 in sophomore year, starting ACT prep then creates a double win: the training helps with both your ACT preparation and your school grades. The majority of our students achieve a 34+ before entering junior year."
+    ),
+    // Category 4: Our Programs & Results
+    array(
+        'question' => "Do you help students choose between the SAT and ACT, or do you require them to pick one?",
+        'answer' => "We offer complete flexibility and help you make the best strategic decision through dual diagnostic testing, performance analysis, and personalized recommendations. Students can also prepare for both simultaneously through our foundational courses."
+    ),
+    array(
+        'question' => "Do you offer practice tests?",
+        'answer' => "Yes! Practice tests are the cornerstone of our program. Foundational Course includes 3 full-length practice tests, Intensive Programs include 2-3 tests. All tests are administered under real test conditions with detailed score analysis and personalized feedback."
+    ),
+    array(
+        'question' => "How long does it take to see score improvements?",
+        'answer' => "Students in 3-6 month programs see an average 6-point ACT increase or 100-point SAT increase. Students in full-year programs see an average 9-point ACT increase. 96% of our students improve their scores from diagnostic to final test. Most students take the test 3 times to achieve their best score."
+    ),
+    array(
+        'question' => "What if my child has already taken the SAT/ACT and wants to improve their score?",
+        'answer' => "This is exactly what our bootcamps and intensive modules are designed for! We analyze their score report, create a targeted improvement plan, and enroll them in our intensive bootcamp (typically 4-6 weeks before their next test date) focusing on timing, pacing, and stamina."
+    ),
+    array(
+        'question' => "Do you guarantee score improvements?",
+        'answer' => "While we don't offer a specific point guarantee, our track record demonstrates consistent results: 96% of students improve their scores, with average improvements of 6-point ACT increase or 100-point SAT increase in 3-6 month programs, and 9-point ACT increase in full-year programs. The majority of our students achieve 34+ on the ACT."
+    ),
+    // Category 5: Intensive Bootcamp Programs
+    array(
+        'question' => "How much can my score improve in 3 weeks?",
+        'answer' => "Students typically improve 2-4 composite points in our 3-week intensive bootcamp. The biggest gains come from improved timing, pacing, and test-taking strategies. This bootcamp is ideal for students who already have content knowledge but struggle with timing or need that final push to reach their target score."
+    ),
+    array(
+        'question' => "Is this bootcamp right for me if I've never taken the test?",
+        'answer' => "Our bootcamps are designed for students who have already taken the test at least once, have strong foundational knowledge but need strategy refinement, and need to improve their score by 2-4 points. If you're new to the test, we recommend our ACT-SAT Foundational Course instead."
+    ),
+    array(
+        'question' => "When should I take this bootcamp relative to my test date?",
+        'answer' => "We recommend completing the bootcamp either leading up to your test date or finishing approximately 4-6 weeks before your official test. This allows you to build momentum, use final weeks for independent review and private tutoring, and fine-tune your test-day strategy."
+    )
+);
+
+// Build FAQPage schema
+$faq_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => array()
+);
+
+foreach ($faq_schema_items as $item) {
+    $faq_schema['mainEntity'][] = array(
+        '@type' => 'Question',
+        'name' => $item['question'],
+        'acceptedAnswer' => array(
+            '@type' => 'Answer',
+            'text' => $item['answer']
+        )
+    );
+}
+
+echo '<script type="application/ld+json">' . wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+?>
+
 <?php get_footer(); ?>

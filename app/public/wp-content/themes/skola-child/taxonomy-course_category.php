@@ -266,7 +266,7 @@ $current_category = get_queried_object();
                             <!-- Course Image -->
                             <div class="course-card-image">
                                 <?php if (has_post_thumbnail()) : ?>
-                                    <?php the_post_thumbnail('large'); ?>
+                                    <?php the_post_thumbnail('large', array('alt' => get_the_title())); ?>
                                 <?php else : ?>
                                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/placeholder.jpg'); ?>" alt="<?php the_title_attribute(); ?>">
                                 <?php endif; ?>

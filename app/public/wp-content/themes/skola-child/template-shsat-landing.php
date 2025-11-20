@@ -1205,6 +1205,7 @@ get_header();
             </div>
 
             <div class="ready-footer">
+                <p style="font-size: 16px; margin-bottom: 15px; opacity: 0.9;">Located in Financial District, Manhattan • Serving all NYC boroughs</p>
                 <p>Questions? Check our <a href="/shsat-faq/">SHSAT FAQ</a> or <a href="/contact/">Contact Us</a> directly.</p>
                 <?php echo do_shortcode('[inquiry_button]'); ?>
             </div>

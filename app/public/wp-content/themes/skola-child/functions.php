@@ -198,26 +198,65 @@ function nycstemclub_add_organization_schema() {
 
     $schema = array(
         '@context' => 'https://schema.org',
-        '@type' => 'EducationalOrganization',
+        '@type' => array('EducationalOrganization', 'LocalBusiness'),
         'name' => 'NYC STEM Club',
         'url' => home_url(),
         'logo' => array(
             '@type' => 'ImageObject',
-            'url' => home_url('/wp-content/uploads/2023/10/nycstemclub-logo.png'), // Update with your actual logo path
+            'url' => home_url('/wp-content/uploads/2023/10/nycstemclub-logo.png'),
         ),
-        'description' => 'Top Rated test prep and college counseling in Manhattan. SAT, ACT, SHSAT, and academic tutoring.',
+        'image' => home_url('/wp-content/uploads/2023/10/nycstemclub-logo.png'),
+        'description' => 'Top rated test prep and college counseling in Manhattan. Expert SAT, ACT, SHSAT, and ISEE preparation with 90%+ success rates. Serving NYC students since 2010.',
         'address' => array(
             '@type' => 'PostalAddress',
+            'streetAddress' => '65 Broadway Suite 1105',
             'addressLocality' => 'New York',
             'addressRegion' => 'NY',
+            'postalCode' => '10006',
             'addressCountry' => 'US'
         ),
-        'contactPoint' => array(
-            '@type' => 'ContactPoint',
-            'contactType' => 'Customer Service',
-            'areaServed' => 'US',
-            'availableLanguage' => array('English')
-        )
+        'geo' => array(
+            '@type' => 'GeoCoordinates',
+            'latitude' => '40.7074',
+            'longitude' => '-74.0113'
+        ),
+        'telephone' => '+1-347-788-8332',
+        'email' => 'info@nycstemclub.com',
+        'priceRange' => '$$',
+        'areaServed' => array(
+            array('@type' => 'City', 'name' => 'New York', 'sameAs' => 'https://en.wikipedia.org/wiki/New_York_City'),
+            array('@type' => 'Borough', 'name' => 'Manhattan'),
+            array('@type' => 'Borough', 'name' => 'Brooklyn'),
+            array('@type' => 'Borough', 'name' => 'Queens'),
+            array('@type' => 'Borough', 'name' => 'Bronx'),
+            array('@type' => 'Borough', 'name' => 'Staten Island')
+        ),
+        'aggregateRating' => array(
+            '@type' => 'AggregateRating',
+            'ratingValue' => '5',
+            'bestRating' => '5',
+            'worstRating' => '1',
+            'ratingCount' => '75'
+        ),
+        'hasOfferCatalog' => array(
+            '@type' => 'OfferCatalog',
+            'name' => 'Test Prep & Tutoring Services',
+            'itemListElement' => array(
+                array('@type' => 'Offer', 'itemOffered' => array('@type' => 'Service', 'name' => 'SHSAT Prep')),
+                array('@type' => 'Offer', 'itemOffered' => array('@type' => 'Service', 'name' => 'SAT Prep')),
+                array('@type' => 'Offer', 'itemOffered' => array('@type' => 'Service', 'name' => 'ACT Prep')),
+                array('@type' => 'Offer', 'itemOffered' => array('@type' => 'Service', 'name' => 'ISEE Prep')),
+                array('@type' => 'Offer', 'itemOffered' => array('@type' => 'Service', 'name' => 'College Counseling'))
+            )
+        ),
+        'sameAs' => array(
+            'https://www.facebook.com/nycstemclub',
+            'https://www.instagram.com/nycstemclub',
+            'https://www.linkedin.com/company/nyc-stem-club-inc/'
+        ),
+        'foundingDate' => '2010',
+        'knowsAbout' => array('SHSAT', 'SAT', 'ACT', 'ISEE', 'Test Preparation', 'College Admissions', 'Academic Tutoring'),
+        'slogan' => 'Empowering NYC Students to Achieve Academic Excellence'
     );
 
     echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>' . "\n";
@@ -271,6 +310,250 @@ function nycstemclub_preload_resources() {
 
     // Preload web fonts if you're using any
     // echo '<link rel="preload" href="/path/to/font.woff2" as="font" type="font/woff2" crossorigin>' . "\n";
+}
+
+/**
+ * Add BreadcrumbList Schema Markup
+ * Generates structured breadcrumb data for better navigation in search results
+ */
+add_action('wp_head', 'nycstemclub_add_breadcrumb_schema');
+function nycstemclub_add_breadcrumb_schema() {
+    // Skip on homepage
+    if (is_front_page() || is_home()) {
+        return;
+    }
+
+    $breadcrumbs = array();
+    $position = 1;
+
+    // Always start with Home
+    $breadcrumbs[] = array(
+        '@type' => 'ListItem',
+        'position' => $position++,
+        'name' => 'Home',
+        'item' => home_url()
+    );
+
+    // Course archive
+    if (is_post_type_archive('course')) {
+        $breadcrumbs[] = array(
+            '@type' => 'ListItem',
+            'position' => $position++,
+            'name' => 'Courses',
+            'item' => get_post_type_archive_link('course')
+        );
+    }
+    // Single course
+    elseif (is_singular('course')) {
+        // Add Courses archive
+        $breadcrumbs[] = array(
+            '@type' => 'ListItem',
+            'position' => $position++,
+            'name' => 'Courses',
+            'item' => get_post_type_archive_link('course')
+        );
+
+        // Add course category if exists
+        $terms = get_the_terms(get_the_ID(), 'course_category');
+        if ($terms && !is_wp_error($terms)) {
+            $term = $terms[0];
+            $breadcrumbs[] = array(
+                '@type' => 'ListItem',
+                'position' => $position++,
+                'name' => $term->name,
+                'item' => get_term_link($term)
+            );
+        }
+
+        // Add current course
+        $breadcrumbs[] = array(
+            '@type' => 'ListItem',
+            'position' => $position++,
+            'name' => get_the_title(),
+            'item' => get_permalink()
+        );
+    }
+    // Course category taxonomy
+    elseif (is_tax('course_category')) {
+        $breadcrumbs[] = array(
+            '@type' => 'ListItem',
+            'position' => $position++,
+            'name' => 'Courses',
+            'item' => get_post_type_archive_link('course')
+        );
+
+        $term = get_queried_object();
+        $breadcrumbs[] = array(
+            '@type' => 'ListItem',
+            'position' => $position++,
+            'name' => $term->name,
+            'item' => get_term_link($term)
+        );
+    }
+    // Single blog post
+    elseif (is_single()) {
+        $breadcrumbs[] = array(
+            '@type' => 'ListItem',
+            'position' => $position++,
+            'name' => 'Blog',
+            'item' => get_permalink(get_option('page_for_posts'))
+        );
+
+        $breadcrumbs[] = array(
+            '@type' => 'ListItem',
+            'position' => $position++,
+            'name' => get_the_title(),
+            'item' => get_permalink()
+        );
+    }
+    // Regular page
+    elseif (is_page()) {
+        // Get parent pages
+        $ancestors = get_post_ancestors(get_the_ID());
+        $ancestors = array_reverse($ancestors);
+
+        foreach ($ancestors as $ancestor_id) {
+            $breadcrumbs[] = array(
+                '@type' => 'ListItem',
+                'position' => $position++,
+                'name' => get_the_title($ancestor_id),
+                'item' => get_permalink($ancestor_id)
+            );
+        }
+
+        // Current page
+        $breadcrumbs[] = array(
+            '@type' => 'ListItem',
+            'position' => $position++,
+            'name' => get_the_title(),
+            'item' => get_permalink()
+        );
+    }
+
+    // Only output if we have more than just Home
+    if (count($breadcrumbs) > 1) {
+        $schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => $breadcrumbs
+        );
+
+        echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+    }
+}
+
+/**
+ * Add Course Schema for Custom Course Post Type
+ * Enhanced schema with curriculum, duration, and educational details
+ */
+add_action('wp_head', 'nycstemclub_add_custom_course_schema');
+function nycstemclub_add_custom_course_schema() {
+    if (!is_singular('course')) {
+        return;
+    }
+
+    $course_id = get_the_ID();
+
+    // Get ACF fields
+    $hero_stats = get_field('hero_stats', $course_id);
+    $program_modules = get_field('program_modules', $course_id);
+
+    $schema = array(
+        '@context' => 'https://schema.org',
+        '@type' => 'Course',
+        'name' => get_the_title(),
+        'description' => wp_strip_all_tags(get_the_excerpt() ?: get_the_content()),
+        'url' => get_permalink(),
+        'provider' => array(
+            '@type' => 'EducationalOrganization',
+            'name' => 'NYC STEM Club',
+            'url' => home_url(),
+            'sameAs' => home_url()
+        )
+    );
+
+    // Add image if available
+    if (has_post_thumbnail()) {
+        $schema['image'] = get_the_post_thumbnail_url($course_id, 'full');
+    }
+
+    // Extract duration from hero stats if available
+    if ($hero_stats && is_array($hero_stats)) {
+        foreach ($hero_stats as $stat) {
+            if (isset($stat['label']) && stripos($stat['label'], 'duration') !== false) {
+                $schema['timeRequired'] = $stat['value'];
+            }
+            if (isset($stat['label']) && stripos($stat['label'], 'session') !== false) {
+                $schema['numberOfLessons'] = $stat['value'];
+            }
+        }
+    }
+
+    // Add syllabus/curriculum from program modules
+    if ($program_modules && is_array($program_modules)) {
+        $syllabus_items = array();
+        foreach ($program_modules as $module) {
+            if (isset($module['title'])) {
+                $syllabus_items[] = $module['title'];
+            }
+        }
+        if (!empty($syllabus_items)) {
+            $schema['syllabusSections'] = $syllabus_items;
+            $schema['hasCourseInstance'] = array(
+                '@type' => 'CourseInstance',
+                'courseMode' => 'onsite',
+                'courseWorkload' => 'PT' . count($syllabus_items) . 'H'
+            );
+        }
+    }
+
+    // Add course category as educationalLevel
+    $terms = get_the_terms($course_id, 'course_category');
+    if ($terms && !is_wp_error($terms)) {
+        $schema['educationalLevel'] = $terms[0]->name;
+        $schema['about'] = array(
+            '@type' => 'Thing',
+            'name' => $terms[0]->name
+        );
+    }
+
+    // Add audience
+    $schema['audience'] = array(
+        '@type' => 'EducationalAudience',
+        'educationalRole' => 'student'
+    );
+
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>' . "\n";
+}
+
+/**
+ * Add Canonical URL Fallback
+ * Provides canonical URLs when Yoast SEO is not handling them
+ */
+add_action('wp_head', 'nycstemclub_add_canonical_url', 5);
+function nycstemclub_add_canonical_url() {
+    // Skip if Yoast SEO is handling canonicals
+    if (defined('WPSEO_VERSION')) {
+        return;
+    }
+
+    $canonical = '';
+
+    if (is_singular()) {
+        $canonical = get_permalink();
+    } elseif (is_home() && !is_front_page()) {
+        $canonical = get_permalink(get_option('page_for_posts'));
+    } elseif (is_front_page()) {
+        $canonical = home_url('/');
+    } elseif (is_tax() || is_category() || is_tag()) {
+        $canonical = get_term_link(get_queried_object());
+    } elseif (is_post_type_archive()) {
+        $canonical = get_post_type_archive_link(get_post_type());
+    }
+
+    if ($canonical && !is_wp_error($canonical)) {
+        echo '<link rel="canonical" href="' . esc_url($canonical) . '" />' . "\n";
+    }
 }
 
 /**

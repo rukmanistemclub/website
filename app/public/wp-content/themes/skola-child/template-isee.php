@@ -1573,4 +1573,51 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php
+/**
+ * FAQPage Schema Markup for SEO/AEO
+ * Generates JSON-LD structured data for ISEE FAQs on this page
+ */
+$faq_schema_items = array(
+    array(
+        'question' => "What sections are on the ISEE test?",
+        'answer' => "The ISEE consists of five sections: Verbal Reasoning (40 questions in 20 minutes testing word meanings, relationships, and sentence completion), Quantitative Reasoning (37 questions in 35 minutes evaluating mathematical problem-solving), Reading Comprehension (36 questions in 35 minutes measuring understanding of passages across literature, science, history, and current events), Mathematics Achievement (47 questions in 40 minutes testing knowledge across number operations, algebra, geometry, measurement, data analysis, and probability), and Essay (1 prompt in 30 minutes, unscored but sent to schools to demonstrate writing ability)."
+    ),
+    array(
+        'question' => "When should I start preparing for the ISEE?",
+        'answer' => "We recommend starting 12 months before the test with diagnostic assessment and vocabulary building. At 9-10 months, focus on mastering content and test-taking strategies. At 6-8 months, tackle challenging problems and begin full-length practice tests. At 3-5 months, increase practice test frequency to bi-weekly. In the final 8-12 weeks, take weekly practice tests under actual conditions. The final 2 weeks should be light review only—focus on rest and confidence-building."
+    ),
+    array(
+        'question' => "How often can I take the ISEE?",
+        'answer' => "Students may take the ISEE only once per testing season: Fall (August-November), Winter (December-March), or Spring/Summer (April-July). Realistically, only Fall and early Winter (December) testing are viable for most students, as independent school application deadlines typically fall in early January."
+    ),
+    array(
+        'question' => "What is a good ISEE score?",
+        'answer' => "Competitive independent schools typically look for scores in the 8-9 stanine range (89th-99th percentile). Elite schools often expect scores consistently in the 9th stanine across all sections."
+    ),
+    array(
+        'question' => "Is the essay section scored?",
+        'answer' => "No, the essay is not scored. However, it is sent directly to schools along with your scores, providing admissions officers insight into your writing ability, creativity, and thought process. A well-written essay can strengthen your application."
+    )
+);
+
+// Build FAQPage schema
+$faq_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => array()
+);
+
+foreach ($faq_schema_items as $item) {
+    $faq_schema['mainEntity'][] = array(
+        '@type' => 'Question',
+        'name' => $item['question'],
+        'acceptedAnswer' => array(
+            '@type' => 'Answer',
+            'text' => $item['answer']
+        )
+    );
+}
+
+echo '<script type="application/ld+json">' . wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+
 get_footer();

@@ -120,7 +120,7 @@ if (have_posts()) {
             <?php if ( has_post_thumbnail() ) : ?>
                 <div class="nyc-blog-featured-image">
                     <div class="nyc-blog-featured-image-container">
-                        <?php the_post_thumbnail('full'); ?>
+                        <?php the_post_thumbnail('full', array('alt' => get_the_title())); ?>
                     </div>
                 </div>
             <?php endif; ?>
@@ -191,7 +191,7 @@ if (have_posts()) {
                                 <?php if ( has_post_thumbnail() ) : ?>
                                     <div class="nyc-related-post-image">
                                         <a href="<?php the_permalink(); ?>">
-                                            <?php the_post_thumbnail('medium'); ?>
+                                            <?php the_post_thumbnail('medium', array('alt' => get_the_title())); ?>
                                         </a>
                                     </div>
                                 <?php endif; ?>

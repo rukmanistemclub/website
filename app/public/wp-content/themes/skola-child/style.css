@@ -1486,11 +1486,9 @@ body.home .banner-area::before {
     background-image: none !important;
 }
 
-/* Override Elementor section background overlays in FIRST section only */
+/* Override Elementor section background overlays in FIRST section only - Blog pages */
 body.blog .site-main > .elementor > .elementor-section:first-child > .elementor-background-overlay,
-body.home .site-main > .elementor > .elementor-section:first-child > .elementor-background-overlay,
-body.blog .content-area > .elementor > .elementor-section:first-child > .elementor-background-overlay,
-body.home .content-area > .elementor > .elementor-section:first-child > .elementor-background-overlay {
+body.blog .content-area > .elementor > .elementor-section:first-child > .elementor-background-overlay {
     display: none !important;
 }
 

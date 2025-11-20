@@ -1064,5 +1064,90 @@ function toggleFAQ(element) {
 </script>
 
 <?php
+/**
+ * FAQPage Schema Markup for SEO/AEO
+ * Generates JSON-LD structured data for all SHSAT FAQs on this page
+ */
+$faq_schema_items = array(
+    array(
+        'question' => "When should my child start SHSAT prep?",
+        'answer' => "We recommend starting at least one year before the test date—typically beginning in 7th grade if your child will take the test in 8th grade. This timeline allows students to build strong foundations, learn test-taking strategies, get exposure to the digital format, identify and strengthen weak areas, and build confidence and stamina. Students can start at any time with programs ranging from year-long courses to intensive 3-month bootcamps."
+    ),
+    array(
+        'question' => "Can my child take the SHSAT more than once?",
+        'answer' => "No. Students get one opportunity to take the SHSAT—either in 8th grade (for 9th grade admission) or in 9th grade (for 10th grade admission). There are no retakes or second chances, which makes proper preparation absolutely essential."
+    ),
+    array(
+        'question' => "What score does my child need to get into Stuyvesant?",
+        'answer' => "Stuyvesant's cutoff score has ranged from 556-563 in recent years. We recommend aiming for 590+ to ensure admission even if cutoffs rise or to counter test-day variation. Other schools have lower cutoffs: Bronx Science (518-526), Brooklyn Tech (493-507), Staten Island Tech (515-525), HSMSE (493-505), HSAS (508-516), Brooklyn Latin (483-493), Queens Science at York (528-537)."
+    ),
+    array(
+        'question' => "How does the SHSAT ranking system work? Should I rank schools strategically?",
+        'answer' => "Always rank your true first choice first. There is no strategic advantage to ranking a safety school higher. The system places you at the first school on your list where your score meets the cutoff and stops there. If you score 570 (above Stuyvesant's cutoff) but rank Brooklyn Tech first, you'll be placed at Brooklyn Tech and never considered for Stuyvesant."
+    ),
+    array(
+        'question' => "How long is the SHSAT? What's the format?",
+        'answer' => "The SHSAT is a 3-hour computer-based exam with two sections: ELA (57 questions, 47 scored) and Math (57 questions, 47 scored). Students can allocate time between sections as they choose. ELA covers reading comprehension and revising/editing. Math covers word problems, arithmetic, algebra, geometry, probability, and statistics."
+    ),
+    array(
+        'question' => "Is the SHSAT still a paper test, or is it digital now?",
+        'answer' => "Starting in fall 2025, the SHSAT is fully digital and taken on a computer. The digital format allows students to zoom, highlight, take notes, flag questions, and choose which section to start with. Free online practice tests are available that look exactly like the real test."
+    ),
+    array(
+        'question' => "What challenges did students face when practicing with the digital SHSAT format?",
+        'answer' => "Common challenges include screen fatigue (overcome with practice and micro-breaks), digital math scratch work (students learn to use both digital notepad and scratch paper), navigation and time management (becomes automatic after practice), and over-using digital tools (we teach strategic tool use). These challenges are best mitigated by proper practice with the digital format."
+    ),
+    array(
+        'question' => "What if my child is struggling in math or reading?",
+        'answer' => "Our year-long program identifies gaps in foundational knowledge and builds skills systematically. Students who struggle initially often show the most dramatic improvement—we've seen 200-250 point score increases. We offer diagnostic testing, small group instruction, additional practice materials, and one-on-one tutoring options."
+    ),
+    array(
+        'question' => "Do you offer online SHSAT prep?",
+        'answer' => "Yes! We offer both in-person classes at our Manhattan Financial District location and live online instruction. In-person features small group classes; online is primarily 1-on-1 with group options available. Both formats include the same comprehensive curriculum, expert instructors, materials, and proven results."
+    ),
+    array(
+        'question' => "How much does SHSAT prep cost?",
+        'answer' => "Pricing varies based on program length (year-long vs. intensive bootcamp), class size (small group vs. 1-on-1), and format (in-person vs. online). Contact us through our enrollment form for current pricing and to discuss which program is right for your child."
+    ),
+    array(
+        'question' => "Which specialized high school is best?",
+        'answer' => "There's no single best school—it depends on your child's interests. Stuyvesant is most competitive with strong STEM focus (best for self-driven students in competitive environments). Bronx Science has excellent research programs and debate team, producing the most Nobel Laureates of any high school. Brooklyn Tech offers multiple technical majors (best for specific technical interests). Other specialized schools offer smaller, more intimate settings."
+    ),
+    array(
+        'question' => "What's the difference between the SHSAT and ISEE?",
+        'answer' => "SHSAT is for NYC public specialized high schools (free, once only, 2 sections). ISEE is for private school admissions ($225, 3 times per year, 5 sections). Content overlaps significantly—students preparing for one are well-prepared for the other. Many students take both to maximize school options."
+    ),
+    array(
+        'question' => "Should my child also prepare for private schools?",
+        'answer' => "Yes! We recommend a multi-pronged approach: specialized high schools via SHSAT (tuition-free), private schools via ISEE (our students have been accepted to Trinity, Dalton, Collegiate, Brearley, Riverdale, Horace Mann), Catholic schools via TACHS/HSPT (students accepted to Regis, Loyola, Dominican Academy with merit scholarships), and a backup zoned school. This maximizes chances of attending a top school."
+    ),
+    array(
+        'question' => "What happens after the SHSAT?",
+        'answer' => "Timeline: Test in October/November, results in March, accept/decline in spring, start 9th grade in September. If admitted, you'll receive one offer from your highest-ranked qualifying choice with ~2 weeks to accept. If not admitted, students attend their zoned high school or accepted private school—many paths to success exist beyond specialized high schools."
+    )
+);
+
+// Build FAQPage schema
+$faq_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => array()
+);
+
+foreach ($faq_schema_items as $item) {
+    $faq_schema['mainEntity'][] = array(
+        '@type' => 'Question',
+        'name' => $item['question'],
+        'acceptedAnswer' => array(
+            '@type' => 'Answer',
+            'text' => $item['answer']
+        )
+    );
+}
+
+echo '<script type="application/ld+json">' . wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+?>
+
+<?php
 get_footer();
 ?>

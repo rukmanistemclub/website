@@ -68,6 +68,31 @@ if (!$course_faqs || !is_array($course_faqs)) {
             </div>
         <?php endif; ?>
     </div>
+
+    <?php
+    // Generate FAQPage Schema for course FAQs
+    $faq_schema = array(
+        '@context' => 'https://schema.org',
+        '@type' => 'FAQPage',
+        'mainEntity' => array()
+    );
+
+    foreach ($course_faqs as $faq) {
+        // Strip HTML tags from answer for schema
+        $answer_text = wp_strip_all_tags($faq['answer']);
+
+        $faq_schema['mainEntity'][] = array(
+            '@type' => 'Question',
+            'name' => esc_html($faq['question']),
+            'acceptedAnswer' => array(
+                '@type' => 'Answer',
+                'text' => $answer_text
+            )
+        );
+    }
+
+    echo '<script type="application/ld+json">' . wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+    ?>
 </section>
 
 <script>

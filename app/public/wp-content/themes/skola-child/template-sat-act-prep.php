@@ -900,8 +900,8 @@ get_header();
                                     </svg>
                                 </div>
                                 <div class="stat-mini-text">
-                                    <span class="stat-mini-number">10+</span>
-                                    <span class="stat-mini-label">Years Experience</span>
+                                    <span class="stat-mini-number">Year-round</span>
+                                    <span class="stat-mini-label">Programs</span>
                                 </div>
                             </div>
                             <div class="stat-mini">

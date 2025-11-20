@@ -20,34 +20,12 @@ define('NYC_STEM_COURSES_VERSION', '2.3.0');
 define('NYC_STEM_COURSES_PATH', plugin_dir_path(__FILE__));
 define('NYC_STEM_COURSES_URL', plugin_dir_url(__FILE__));
 
-// Standardized track record stats by category
-// Change these once and they update on all courses in that category
-define('NYC_STEM_TRACK_RECORDS', serialize([
-    'sat-act' => [
-        'title' => 'Our Track Record',
-        'stats' => [
-            ['number' => '96%', 'label' => 'Score Improvement Rate'],
-            ['number' => '6-9 Points', 'label' => 'Average ACT Increase'],
-            ['number' => '100+ Points', 'label' => 'Average SAT Increase'],
-            ['number' => 'Up to 13 Points', 'label' => 'Top ACT Student Improvement']
-        ]
-    ],
-    'shsat' => [
-        'title' => 'Our Track Record',
-        'stats' => [
-            ['number' => '85%', 'label' => 'Admission Rate'],
-            ['number' => '40+ Points', 'label' => 'Average Improvement'],
-            ['number' => '15+', 'label' => 'Years Experience'],
-        ]
-    ],
-    'isee' => [
-        'title' => 'Our Track Record',
-        'stats' => [
-            ['number' => 'Over 85%', 'label' => 'Scored a Stanine of 7-9 on the ISEE'],
-            ['number' => 'Top 3 Schools', 'label' => 'Our students have received offers in one of their top 3 schools: Trinity, Dalton, Horace Mann, Brearley, Collegiate, Riverdale, St. Ann\'s, prestigious boarding schools and many more top schools'],
-        ]
-    ]
-]));
+// Track record stats are now managed per-course via ACF fields:
+// - hero_card_title
+// - hero_card_stat_1_number, hero_card_stat_1_label
+// - hero_card_stat_2_number, hero_card_stat_2_label
+// - hero_card_stat_3_number, hero_card_stat_3_label
+// - hero_card_stat_4_number, hero_card_stat_4_label
 
 /**
  * Main Plugin Class
