@@ -480,10 +480,10 @@ function nycstemclub_add_custom_course_schema() {
     // Extract duration from hero stats if available
     if ($hero_stats && is_array($hero_stats)) {
         foreach ($hero_stats as $stat) {
-            if (isset($stat['label']) && stripos($stat['label'], 'duration') !== false) {
+            if (isset($stat['label']) && isset($stat['value']) && stripos($stat['label'], 'duration') !== false) {
                 $schema['timeRequired'] = $stat['value'];
             }
-            if (isset($stat['label']) && stripos($stat['label'], 'session') !== false) {
+            if (isset($stat['label']) && isset($stat['value']) && stripos($stat['label'], 'session') !== false) {
                 $schema['numberOfLessons'] = $stat['value'];
             }
         }
