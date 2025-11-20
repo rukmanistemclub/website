@@ -2164,11 +2164,14 @@ p {
 
     .search-filter-bar {
         flex-direction: column;
+        gap: 15px;
     }
 
     .search-wrapper,
     .category-wrapper {
         width: 100%;
+        max-width: 100%;
+        flex: 1 1 100%;
     }
 
     .courses-grid,
