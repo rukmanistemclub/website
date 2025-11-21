@@ -834,11 +834,7 @@ class NYC_STEM_Courses {
         // Return button HTML WITHOUT inline styles (CSS handles all styling)
         // Styling controlled by: design-system.css and course-pages.css
         return sprintf(
-            '<a class="%s" href="%s">
-                <span class="elementor-button-content-wrapper">
-                    <span class="elementor-button-text">%s</span>
-                </span>
-            </a>',
+            '<a class="%s" href="%s">%s</a>',
             $css_classes,
             esc_url($button_url),
             esc_html($button_text)
