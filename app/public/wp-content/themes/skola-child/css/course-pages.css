@@ -1615,6 +1615,30 @@ Example HTML structure for Option B:
         text-align: left !important;
     }
 
+    /* Testimonials section ("What Our Parents Say") */
+    .nyc-testimonials-section h2,
+    .nyc-testimonials-title,
+    .testimonials-section h2,
+    .testimonials-section .section-title {
+        text-align: left !important;
+    }
+
+    /* CTA section ("Ready to Join") */
+    .cta-section h2,
+    .cta-section .section-title,
+    .course-cta h2 {
+        text-align: left !important;
+    }
+
+    /* Related courses / Cross-sell ("You May Also Like", "Related Programs") */
+    .course-related h2,
+    .course-crosssell h2,
+    .related-programs-section h2,
+    .featured-courses-section h2,
+    .nyc-related-posts-title {
+        text-align: left !important;
+    }
+
     /* Hero excerpts and descriptions */
     .course-hero .hero-excerpt,
     .course-hero .hero-tagline,
