@@ -1570,6 +1570,61 @@ Example HTML structure for Option B:
 }
 
 /* ==============================================================================
+   MOBILE: Left-align all headings (< 768px)
+   Hero and section headings left-aligned for better mobile readability
+   ============================================================================== */
+
+@media (max-width: 767px) {
+    /* Hero headings */
+    .course-hero h1,
+    .course-hero .hero-content h1,
+    .shsat-hero h1,
+    .hero-container h1 {
+        text-align: left !important;
+    }
+
+    /* Section headings */
+    section h2,
+    .section h2,
+    .section-alt h2,
+    .section-container > h2,
+    .programs-section h2,
+    .ready-section h2,
+    .combined-approach h2,
+    .faq-section h2,
+    .faq-intro h2,
+    .related-title,
+    .section h3,
+    .section-alt h3,
+    .section-container > h3 {
+        text-align: left !important;
+    }
+
+    /* Why Choose shortcode headings */
+    .why-choose-sat-act h2,
+    .why-choose-sat-act .why-choose-header h2,
+    .why-choose-shsat h2,
+    .why-choose-isee h2,
+    .why-choose-enrichment h2 {
+        text-align: left !important;
+    }
+
+    /* Why Choose shortcode descriptions */
+    .why-choose-sat-act .why-choose-header p,
+    .why-choose-shsat .why-choose-header p {
+        text-align: left !important;
+    }
+
+    /* Hero excerpts and descriptions */
+    .course-hero .hero-excerpt,
+    .course-hero .hero-tagline,
+    .shsat-hero .hero-excerpt,
+    .shsat-hero .hero-description {
+        text-align: left !important;
+    }
+}
+
+/* ==============================================================================
    PRINT STYLES
    ============================================================================== */
 

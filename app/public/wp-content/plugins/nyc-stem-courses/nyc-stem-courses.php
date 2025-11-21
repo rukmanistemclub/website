@@ -1257,7 +1257,7 @@ class NYC_STEM_Courses {
         $output .= '}';
         $output .= '@media (max-width: 768px) { ';
         $output .= '.why-choose-grid { grid-template-columns: 1fr !important; } ';
-        $output .= '.why-choose-shsat h2 { font-size: 28px !important; } ';
+        $output .= '.why-choose-shsat h2 { font-size: 28px !important; text-align: left !important; } ';
         $output .= '.why-choose-shsat .benefit-card { padding: 15px !important; } ';
         $output .= '.why-choose-shsat .benefit-card h3 { font-size: 17px !important; } ';
         $output .= '.why-choose-shsat .benefit-card p { font-size: 14px !important; } ';
@@ -1390,7 +1390,7 @@ class NYC_STEM_Courses {
         $output .= '}';
         $output .= '@media (max-width: 768px) { ';
         $output .= '.why-choose-grid { grid-template-columns: 1fr !important; } ';
-        $output .= '.why-choose-isee h2 { font-size: 28px !important; } ';
+        $output .= '.why-choose-isee h2 { font-size: 28px !important; text-align: left !important; } ';
         $output .= '.why-choose-isee .benefit-card { padding: 15px !important; } ';
         $output .= '.why-choose-isee .benefit-card h3 { font-size: 17px !important; } ';
         $output .= '.why-choose-isee .benefit-card p { font-size: 14px !important; } ';

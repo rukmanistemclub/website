@@ -115,44 +115,44 @@ get_header();
     }
 
     .shsat-hero .stat-line {
-        font-family: 'Roboto', sans-serif;
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 1.5;
-        margin-bottom: 8px;
-        color: white;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        line-height: 1.5 !important;
+        margin-bottom: 8px !important;
+        color: white !important;
     }
 
     .shsat-hero .stat-line .stat-highlight-orange {
-        color: #FF7F07;
-        font-weight: 800;
-        font-size: 22px;
+        color: #FF7F07 !important;
+        font-weight: 800 !important;
+        font-size: 22px !important;
     }
 
     .shsat-hero .stat-line .stat-highlight-gold {
-        color: #F0B26B;
-        font-weight: 800;
-        font-size: 22px;
+        color: #F0B26B !important;
+        font-weight: 800 !important;
+        font-size: 22px !important;
     }
 
     .shsat-hero .hero-description {
-        font-family: 'Roboto', sans-serif;
-        font-size: 16px;
-        line-height: 1.7;
-        color: rgba(255, 255, 255, 0.9);
-        margin: 16px 0 24px 0;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        color: white !important;
+        margin: 16px 0 24px 0 !important;
     }
 
     @media (min-width: 768px) {
         .shsat-hero .stat-line {
-            font-size: 20px;
+            font-size: 20px !important;
         }
         .shsat-hero .stat-line .stat-highlight-orange,
         .shsat-hero .stat-line .stat-highlight-gold {
-            font-size: 26px;
+            font-size: 26px !important;
         }
         .shsat-hero .hero-description {
-            font-size: 18px;
+            font-size: 18px !important;
         }
     }
 
