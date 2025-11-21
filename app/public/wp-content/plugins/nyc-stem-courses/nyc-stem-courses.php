@@ -821,7 +821,7 @@ class NYC_STEM_Courses {
         // Colors: Brand orange (#FF7F07) default, teal for secondary actions
         $color_lower = strtolower($atts['color']);
 
-        $css_classes = 'elementor-button elementor-button-link elementor-size-sm nyc-stem-inquiry-btn';
+        $css_classes = 'nyc-stem-inquiry-btn';
         if ($color_lower === 'teal') {
             $css_classes .= ' btn-teal';
         } elseif ($color_lower === 'dark-teal' || $color_lower === 'darkteal') {

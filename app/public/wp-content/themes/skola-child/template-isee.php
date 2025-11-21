@@ -57,8 +57,7 @@ get_header();
     .cta-button.cta-primary,
     .nyc-stem-inquiry-btn,
     a.nyc-stem-inquiry-btn,
-    button.nyc-stem-inquiry-btn,
-    .elementor-button.nyc-stem-inquiry-btn {
+    button.nyc-stem-inquiry-btn {
         background-color: #FF7F07 !important; /* Brand orange */
         background-image: none !important;
     }

@@ -293,7 +293,6 @@ a.nyc-stem-inquiry-btn {
 .nyc-stem-inquiry-btn:not(.btn-teal),
 a.nyc-stem-inquiry-btn:not(.btn-teal),
 button.nyc-stem-inquiry-btn:not(.btn-teal),
-.elementor-button.nyc-stem-inquiry-btn:not(.btn-teal),
 .cta-button.cta-primary {
     background-color: var(--color-orange) !important;
     background-image: none !important;

@@ -766,14 +766,19 @@ button.btn,
 /* Ensure NYC STEM buttons always have sharp edges and proper styling */
 .nyc-stem-inquiry-btn,
 a.nyc-stem-inquiry-btn,
-button.nyc-stem-inquiry-btn,
-.elementor-button.nyc-stem-inquiry-btn {
+button.nyc-stem-inquiry-btn {
     border-radius: 0 !important;
     border: none !important;
     box-shadow: none !important;
     padding: 16px 32px !important;
     font-size: 18px !important;
     font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    line-height: 1.5 !important;
+    color: white !important;
 }
 
 /* Global Inquiry Button Color - Vibrant Brand Orange */
@@ -786,13 +791,19 @@ button.nyc-stem-inquiry-btn:not(.btn-teal) {
 /* Teal button variant */
 .nyc-stem-inquiry-btn.btn-teal,
 a.nyc-stem-inquiry-btn.btn-teal,
-button.nyc-stem-inquiry-btn.btn-teal,
-.elementor-button.nyc-stem-inquiry-btn.btn-teal {
+button.nyc-stem-inquiry-btn.btn-teal {
     background-color: #28AFCF !important;
     color: white !important;
     border-radius: 0 !important;
     border: none !important;
     box-shadow: none !important;
+}
+
+.nyc-stem-inquiry-btn.btn-teal:hover,
+a.nyc-stem-inquiry-btn.btn-teal:hover,
+button.nyc-stem-inquiry-btn.btn-teal:hover {
+    background-color: #1f96b8 !important;
+    color: white !important;
 }
 
 /* Remove any border-related properties */
