@@ -41,72 +41,56 @@ body {
     color: #333;
 }
 
-/* Hero Section */
+/* Hero Section - Left Aligned */
 .hero {
     background: linear-gradient(135deg, #134958 0%, #28AFCF 100%) !important;
-    padding: 60px 20px !important;
-    text-align: center !important;
+    padding: 40px 0 !important;
+    text-align: left !important;
     max-width: 100% !important;
+}
+
+.hero h1,
+.hero .subtitle,
+.hero .cta-group {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .hero h1 {
     font-family: 'Roboto', sans-serif !important;
-    font-size: 3rem !important;
+    font-size: 48px !important;
     font-weight: 800 !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 16px !important;
     line-height: 1.2 !important;
+    letter-spacing: -1px;
     color: #FFFFFF !important;
 }
 
 .hero .subtitle {
     font-family: 'Roboto', sans-serif !important;
-    font-size: 1.3rem !important;
+    font-size: 18px !important;
     font-weight: 400 !important;
-    margin-bottom: 30px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 25px !important;
     opacity: 0.95;
     color: #FFFFFF !important;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.btn {
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    padding: 12px 24px;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.btn-orange {
-    background-color: #FF9574;
-    color: #FFFFFF;
-}
-
-.btn-orange:hover {
-    background-color: #e87d5a;
-    color: #FFFFFF;
-}
-
-.btn-teal {
-    background-color: #28AFCF;
-    color: #FFFFFF;
-}
-
-.btn-teal:hover {
-    background-color: #1e8fa8;
-    color: #FFFFFF;
+.hero .cta-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 0;
 }
 
 /* Content Section */
 .content-section {
-    max-width: 900px;
-    margin: 40px auto 0 auto;
-    padding: 0 20px 40px;
+    max-width: 1200px;
+    margin: 30px auto 0 auto;
+    padding: 0 20px 30px;
 }
 
 .content-section p {
@@ -115,7 +99,7 @@ body {
     font-weight: 400;
     line-height: 1.6;
     color: #333;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .content-section p:last-child {
@@ -125,14 +109,21 @@ body {
 /* Courses Section */
 .courses-section {
     background: white;
-    padding: 50px 20px;
+    padding: 40px 20px;
     margin-top: 0;
+}
+
+/* Override course cards to match content width */
+.courses-section .related-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
 }
 
 /* CTA Section */
 .cta-section {
     text-align: center !important;
-    padding: 60px 20px !important;
+    padding: 40px 20px !important;
     background: linear-gradient(135deg, #134958 0%, #28AFCF 100%) !important;
     width: 100vw !important;
     margin-left: calc(-50vw + 50%) !important;
@@ -141,15 +132,18 @@ body {
 
 .cta-section h2 {
     font-family: 'Roboto', sans-serif !important;
-    font-size: 2rem !important;
+    font-size: 32px !important;
     font-weight: 700 !important;
+    line-height: 1.3 !important;
     color: #FFFFFF !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 12px !important;
 }
 
 .cta-section p {
     font-family: 'Roboto', sans-serif !important;
-    font-size: 1.1rem !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
     color: #FFFFFF !important;
     opacity: 0.95;
     margin-bottom: 25px !important;
@@ -161,34 +155,71 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
-        padding: 40px 0;
+        padding: 30px 0;
     }
 
-    .hero-content h1 {
-        font-size: 2rem;
+    .hero h1 {
+        font-size: 32px !important;
+        margin-bottom: 12px !important;
     }
 
-    .hero-content .subtitle {
-        font-size: 1.1rem;
+    .hero .subtitle {
+        font-size: 16px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero .cta-group {
+        gap: 15px;
     }
 
     .content-section {
-        margin: 30px auto 0 auto;
-        padding: 0 20px 30px;
+        margin: 20px auto 0 auto;
+        padding: 0 20px 25px;
+    }
+
+    .content-section p {
+        margin-bottom: 16px;
     }
 
     .courses-section {
-        padding: 40px 15px;
+        padding: 30px 15px;
+    }
+
+    .cta-section {
+        padding: 30px 20px !important;
+    }
+
+    .cta-section h2 {
+        font-size: 24px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .cta-section p {
+        font-size: 16px !important;
+        margin-bottom: 20px !important;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.75rem;
+    .hero {
+        padding: 25px 0;
     }
 
-    .hero-content .subtitle {
-        font-size: 1rem;
+    .hero h1 {
+        font-size: 28px !important;
+    }
+
+    .hero .subtitle {
+        font-size: 14px !important;
+    }
+
+    .hero .cta-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .cta-section h2 {
+        font-size: 22px !important;
     }
 }
 </style>
@@ -199,8 +230,10 @@ body {
     <section class="hero">
         <h1>Academic Enrichment</h1>
         <p class="subtitle">Building strong foundations and a lifelong love for learning</p>
-        <a href="/student-enrollment/" class="btn btn-orange">Inquire Now</a>
-        <a href="#programs" class="btn btn-teal">View Our Programs</a>
+        <div class="cta-group">
+            <?php echo do_shortcode('[inquiry_button]'); ?>
+            <?php echo do_shortcode('[inquiry_button color="teal" text="View Our Programs" url="#programs"]'); ?>
+        </div>
     </section>
 
     <!-- Content Section -->
@@ -212,13 +245,13 @@ body {
         <p>Our team of dedicated educators serve as mentors, going beyond teaching to encourage critical thinking, creativity, and independent learning. They empower students to explore new ideas, ask questions, and become confident advocates for themselves. These skills are crucial as students progress into higher education, enabling them to navigate complex challenges and excel in their academic pursuits. We believe in nurturing well-rounded individuals who are equipped with the tools needed to succeed academically as well as in all other aspects of life.</p>
     </section>
 
-    <!-- Why Choose Section -->
-    <?php echo do_shortcode('[why_choose_enrichment]'); ?>
-
-    <!-- Courses Section -->
+    <!-- Courses Section - MOVED ABOVE Why Choose -->
     <section id="programs" class="courses-section">
         <?php echo do_shortcode('[course_category category="enrichment" title="Our Programs" columns="3" limit="3"]'); ?>
     </section>
+
+    <!-- Why Choose Section -->
+    <?php echo do_shortcode('[why_choose_enrichment]'); ?>
 
     <!-- CTA Section -->
     <section class="cta-section">

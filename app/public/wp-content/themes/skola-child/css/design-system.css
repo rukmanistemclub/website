@@ -1,0 +1,806 @@
+/* ==============================================================================
+   NYC STEM CLUB - MODERN DESIGN SYSTEM
+   Mobile-First, Clean, Professional
+   ============================================================================== */
+
+/* ==============================================================================
+   DESIGN TOKENS - Single Source of Truth
+   ============================================================================== */
+
+:root {
+    /* ==========================================================================
+       COLORS - 3-Color Professional Palette
+       ========================================================================== */
+
+    /* Primary - Trust, Authority (Dark Blue) */
+    --color-primary: #134958;
+    --color-primary-dark: #0a2e38;
+    --color-primary-light: #1a5a6d;
+
+    /* Accent - CTAs, Links, Highlights (Teal) */
+    --color-accent: #28AFCF;
+    --color-accent-dark: #1e8fa8;
+    --color-accent-light: #5bc4dc;
+
+    /* Brand Orange - Primary inquiry buttons, accents */
+    --color-orange: #FF7F07;
+    --color-orange-dark: #e67106;
+
+    /* Neutrals */
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-text-muted: #999999;
+    --color-background: #ffffff;
+    --color-background-alt: #f8f9fa;
+    --color-background-dark: #e9ecef;
+    --color-border: #dee2e6;
+
+    /* Semantic */
+    --color-success: #28a745;
+    --color-warning: #ffc107;
+    --color-error: #dc3545;
+
+    /* ==========================================================================
+       TYPOGRAPHY
+       ========================================================================== */
+
+    /* Font Families */
+    --font-heading: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Font Sizes - Mobile First (base 16px) */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+    --text-5xl: 3rem;       /* 48px */
+
+    /* Font Weights */
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+
+    /* Line Heights */
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 1.75;
+
+    /* ==========================================================================
+       SPACING
+       ========================================================================== */
+
+    --space-1: 0.25rem;     /* 4px */
+    --space-2: 0.5rem;      /* 8px */
+    --space-3: 0.75rem;     /* 12px */
+    --space-4: 1rem;        /* 16px */
+    --space-5: 1.25rem;     /* 20px */
+    --space-6: 1.5rem;      /* 24px */
+    --space-8: 2rem;        /* 32px */
+    --space-10: 2.5rem;     /* 40px */
+    --space-12: 3rem;       /* 48px */
+    --space-16: 4rem;       /* 64px */
+    --space-20: 5rem;       /* 80px */
+    --space-24: 6rem;       /* 96px */
+
+    /* ==========================================================================
+       BORDERS & SHADOWS
+       ========================================================================== */
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+    /* ==========================================================================
+       TRANSITIONS
+       ========================================================================== */
+
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+
+    /* ==========================================================================
+       LAYOUT
+       ========================================================================== */
+
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1200px;
+}
+
+/* ==============================================================================
+   BASE STYLES - Mobile First
+   ============================================================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+}
+
+/* ==============================================================================
+   TYPOGRAPHY - Mobile First
+   ============================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-top: 0;
+    line-height: var(--leading-tight);
+}
+
+/* Mobile sizes (default) */
+h1 {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-4);
+}
+
+h2 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-3);
+}
+
+h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-3);
+}
+
+h4 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-2);
+}
+
+h5, h6 {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-2);
+}
+
+p {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    margin-top: 0;
+    margin-bottom: var(--space-4);
+    color: var(--color-text);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    h1 {
+        font-size: var(--text-4xl);
+    }
+
+    h2 {
+        font-size: var(--text-3xl);
+    }
+
+    h3 {
+        font-size: var(--text-2xl);
+    }
+
+    h4 {
+        font-size: var(--text-xl);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    h1 {
+        font-size: var(--text-5xl);
+    }
+
+    h2 {
+        font-size: var(--text-4xl);
+    }
+}
+
+/* Links */
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-accent-dark);
+}
+
+/* Lists */
+ul, ol {
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-4);
+}
+
+li {
+    margin-bottom: var(--space-2);
+    line-height: var(--leading-relaxed);
+}
+
+/* ==============================================================================
+   BUTTONS - Consistent System
+
+   2025 INQUIRY BUTTON STANDARD:
+   Global inquiry buttons use brand orange: #FF7F07 (--color-orange)
+   This provides better contrast and visual hierarchy than standard teal accent
+   Implemented globally via: .nyc-stem-inquiry-btn:not(.btn-teal)
+   ============================================================================== */
+
+.btn,
+button,
+.elementor-button,
+.nyc-stem-inquiry-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    line-height: 1;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    min-height: 44px; /* Touch target */
+    min-width: 44px;
+}
+
+/* Primary Button - Main CTAs */
+.btn-primary,
+.elementor-button,
+.nyc-stem-inquiry-btn,
+a.nyc-stem-inquiry-btn {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+/* Inquiry Buttons - Brand Orange Override */
+.nyc-stem-inquiry-btn:not(.btn-teal),
+a.nyc-stem-inquiry-btn:not(.btn-teal),
+button.nyc-stem-inquiry-btn:not(.btn-teal),
+.elementor-button.nyc-stem-inquiry-btn:not(.btn-teal),
+.cta-button.cta-primary {
+    background-color: var(--color-orange) !important;
+    background-image: none !important;
+    border-color: var(--color-orange) !important;
+}
+
+.btn-primary:hover,
+.elementor-button:hover,
+.nyc-stem-inquiry-btn:hover {
+    background-color: var(--color-accent-dark);
+    border-color: var(--color-accent-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.nyc-stem-inquiry-btn:not(.btn-teal):hover,
+a.nyc-stem-inquiry-btn:not(.btn-teal):hover,
+.cta-button.cta-primary:hover {
+    background-color: var(--color-orange-dark) !important;
+    border-color: var(--color-orange-dark) !important;
+    opacity: 0.95;
+}
+
+/* Secondary Button - Less prominent actions */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Ghost Button - Minimal style */
+.btn-ghost {
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: transparent;
+}
+
+.btn-ghost:hover {
+    background-color: var(--color-background-alt);
+}
+
+/* Button Sizes */
+.btn-sm {
+    font-size: var(--text-sm);
+    padding: var(--space-2) var(--space-4);
+    min-height: 36px;
+}
+
+.btn-lg {
+    font-size: var(--text-lg);
+    padding: var(--space-4) var(--space-8);
+    min-height: 52px;
+}
+
+/* Full width on mobile */
+@media (max-width: 767px) {
+    .btn-mobile-full {
+        width: 100%;
+    }
+}
+
+/* ==============================================================================
+   HERO SECTION - Mobile First
+
+   SPACING STANDARDS (2025 Update - Tighter, Modern):
+   Mobile:  padding: var(--space-6) var(--space-4)  = 24px 16px
+   Tablet:  padding: var(--space-8) var(--space-6)  = 32px 24px
+   Desktop: padding: var(--space-10) var(--space-8) = 40px 32px
+
+   Goal: Achieve ~20px visual gap between sections for cleaner, tighter aesthetic
+   ============================================================================== */
+
+.hero-section,
+.course-hero,
+.faq-hero,
+.cta-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    color: white;
+    padding: var(--space-12) var(--space-4);
+    text-align: center; /* Mobile: centered */
+}
+
+.hero-content {
+    max-width: var(--container-lg);
+    margin: 0 auto;
+}
+
+.hero-section h1,
+.hero-content h1,
+.course-hero h1,
+.faq-hero h1 {
+    color: white;
+    font-size: var(--text-3xl);
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--space-4);
+}
+
+.hero-section p,
+.hero-content p,
+.hero-excerpt {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-6);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: center;
+}
+
+/* Tablet and up - side by side buttons, left align text */
+@media (min-width: 768px) {
+    .hero-section,
+    .course-hero,
+    .faq-hero {
+        padding: var(--space-16) var(--space-6);
+        text-align: left;
+    }
+
+    .hero-section h1,
+    .hero-content h1,
+    .course-hero h1 {
+        font-size: var(--text-4xl);
+    }
+
+    .hero-section p,
+    .hero-content p {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-section h1,
+    .hero-content h1,
+    .course-hero h1 {
+        font-size: var(--text-5xl);
+    }
+
+    .hero-section p,
+    .hero-content p {
+        font-size: var(--text-xl);
+    }
+}
+
+/* ==============================================================================
+   HERO CARD / TRACK RECORD ARCHITECTURE - CODE MAINTENANCE GUIDELINES
+   Last Updated: 2025-11-20
+   ==============================================================================
+
+   SINGLE SOURCE OF TRUTH:
+   - ALL .hero-card styling lives ONLY in: /themes/skola-child/css/course-pages.css
+   - Plugin CSS (/plugins/nyc-stem-courses/assets/css/course-styles.css) has ZERO hero-card styles
+   - Theme CSS loads at priority 1000, plugin loads at priority 10 (theme overrides)
+
+   DEFAULT PATTERN (Modern Inline - 2025):
+   - Transparent background, no white boxes
+   - Horizontal inline text: "90%+ Acceptance Rate • 50%+ Stuy Score Rate"
+   - Typography: 18px (mobile: 16px), Roboto, weight 400, rgba(255,255,255,0.9)
+   - Bullet separator: "•" with rgba(255, 255, 255, 0.5)
+   - Spacing: margin 0 var(--space-3) between bullets
+   - Benefits: Unobtrusive, clean, modern, mobile-friendly
+
+   LEGACY PATTERN (Old Boxed - Opt-In):
+   - Add body class: .hero-boxed-stats to any page that needs old white box style
+   - White background with shadows, grid layout
+   - Only use for legacy pages that must maintain old design
+
+   MAINTENANCE RULES:
+   1. NEVER add hero-card styles to plugin CSS
+   2. ALWAYS edit course-pages.css for hero-card changes
+   3. Bump plugin version (nyc-stem-courses.php) after CSS changes to bust cache
+   4. Test on: /courses/shsat-fall-bootcamp-mockup/ (reference mockup)
+   5. Default pattern applies to ALL new courses automatically
+
+   ============================================================================== */
+
+.track-record,
+.stats-box,
+.achievement-box {
+    background: white;
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+}
+
+.stat-item {
+    padding: var(--space-4);
+}
+
+.stat-number {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-extrabold);
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: var(--space-2);
+}
+
+.stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Tablet - 2 columns */
+@media (min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-number {
+        font-size: var(--text-4xl);
+    }
+}
+
+/* Desktop - 4 columns */
+@media (min-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* On dark backgrounds */
+.dark-bg .track-record,
+.dark-bg .stats-box {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* ==============================================================================
+   CARDS - Clean, Modern
+   ============================================================================== */
+
+.card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-body {
+    padding: var(--space-6);
+}
+
+.card-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-3);
+    color: var(--color-primary);
+}
+
+.card-text {
+    color: var(--color-text-light);
+    margin-bottom: var(--space-4);
+}
+
+/* ==============================================================================
+   SECTIONS - Consistent Spacing
+
+   2025 SPACING STANDARDS - Tighter, Modern Layout:
+   Course sections (description, benefits, program, schedule, etc.):
+   Mobile:  var(--space-5) var(--space-4)  = 20px 16px
+   Tablet:  var(--space-8) var(--space-6)  = 32px 24px
+   Desktop: var(--space-10) var(--space-8) = 40px 32px
+
+   Goal: Reduce visual whitespace for tighter, more content-dense pages
+   ============================================================================== */
+
+.section {
+    padding: var(--space-12) var(--space-4);
+}
+
+.section-sm {
+    padding: var(--space-8) var(--space-4);
+}
+
+.section-lg {
+    padding: var(--space-16) var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: var(--space-16) var(--space-6);
+    }
+
+    .section-lg {
+        padding: var(--space-20) var(--space-6);
+    }
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.section-title h2 {
+    margin-bottom: var(--space-3);
+}
+
+.section-title p {
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Alternate background */
+.section-alt {
+    background-color: var(--color-background-alt);
+}
+
+/* ==============================================================================
+   CONTAINER
+   ============================================================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: var(--space-6);
+        padding-right: var(--space-6);
+    }
+}
+
+/* ==============================================================================
+   FORMS - Clean, Accessible
+   ============================================================================== */
+
+input,
+textarea,
+select {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    padding: var(--space-3) var(--space-4);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    width: 100%;
+    transition: border-color var(--transition-fast);
+    min-height: 44px; /* Touch target */
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(40, 175, 207, 0.1);
+}
+
+label {
+    display: block;
+    font-weight: var(--font-medium);
+    margin-bottom: var(--space-2);
+    color: var(--color-text);
+}
+
+/* ==============================================================================
+   UTILITY CLASSES
+   ============================================================================== */
+
+/* Text alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Text colors */
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+.text-white { color: white; }
+.text-muted { color: var(--color-text-muted); }
+
+/* Background colors */
+.bg-primary { background-color: var(--color-primary); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-white { background-color: white; }
+.bg-alt { background-color: var(--color-background-alt); }
+
+/* Spacing utilities */
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.my-4 { margin-top: var(--space-4); margin-bottom: var(--space-4); }
+.my-8 { margin-top: var(--space-8); margin-bottom: var(--space-8); }
+
+/* Display */
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+/* Flex utilities */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Gap */
+.gap-2 { gap: var(--space-2); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+
+/* ==============================================================================
+   RESPONSIVE VISIBILITY
+   ============================================================================== */
+
+@media (max-width: 767px) {
+    .hide-mobile { display: none !important; }
+}
+
+@media (min-width: 768px) {
+    .hide-tablet { display: none !important; }
+}
+
+@media (min-width: 1024px) {
+    .hide-desktop { display: none !important; }
+}
+
+@media (max-width: 767px) {
+    .show-mobile { display: block !important; }
+}
+
+/* ==============================================================================
+   ELEMENTOR OVERRIDES - Clean Integration
+   ============================================================================== */
+
+/* Force Elementor to use our design tokens */
+.elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: var(--container-xl);
+}
+
+/* Override Elementor heading sizes */
+.elementor-widget-heading .elementor-heading-title {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+}
+
+/* Override Elementor text editor */
+.elementor-widget-text-editor {
+    font-family: var(--font-body);
+    color: var(--color-text);
+}
+
+/* Elementor buttons use our system */
+.elementor-button-wrapper .elementor-button {
+    font-family: var(--font-body);
+    font-weight: var(--font-semibold);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+/* ==============================================================================
+   PRINT STYLES
+   ============================================================================== */
+
+@media print {
+    body {
+        font-size: 12pt;
+        color: black;
+        background: white;
+    }
+
+    .hero-section,
+    .btn,
+    nav,
+    footer {
+        display: none;
+    }
+}

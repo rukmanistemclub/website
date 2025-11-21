@@ -1,0 +1,56 @@
+URL,Page Title Correct,Headline Accurate,Course Description Accurate,Schedule/Dates Current,Pricing Accurate,Duration Correct,Grade Levels Correct,Prerequisites Listed,Contact Phone Correct,Contact Email Correct,Address Correct,Spelling Errors,Grammar Issues,Tone Consistent,CTAs Clear,Copyright Year Current,Legal Links Present,Issues Found,Reviewer,Date,Status
+
+HOMEPAGE,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/,Check browser tab title,Main headline matches brand messaging,N/A,N/A,N/A,N/A,N/A,N/A,Verify phone number,Verify email,Verify address,Check all text,Check all text,Professional and parent-friendly,Clear next steps,Shows 2024 or 2025,Privacy Policy and Terms in footer,,,
+
+SHSAT PROGRAM - Verify all program details are current,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/nyc-top-shsat-prep-program/,SHSAT Prep title,Overview headline accurate,Program overview matches offerings,Test dates for 2024-2025,If shown - verify rates,N/A,6th-8th grade focus,N/A,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/shsat-fall-boot-camp/,Course name,Course title,Boot camp curriculum accurate,Fall 2024 dates,Current pricing,Week count,Grades served,Any prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/shsat-spring-boot-camp/,Course name,Course title,Boot camp curriculum accurate,Spring 2025 dates,Current pricing,Week count,Grades served,Any prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/shsat-summer-boot-camp/,Course name,Course title,Boot camp curriculum accurate,Summer 2025 dates,Current pricing,Week count,Grades served,Any prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/shsat-private-tutoring/,Course name,Course title,Tutoring description accurate,Flexible scheduling noted,Hourly/package rates,N/A,Grades served,Any prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/shsat-faq/,FAQ title,N/A,N/A,Any date references,Any pricing mentioned,N/A,N/A,N/A,,,,Check all Q&As,Check all Q&As,Helpful tone,,,,,,
+
+SAT/ACT PROGRAM - Verify test info matches College Board/ACT updates,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/sat-act-test-prep/,SAT/ACT Prep title,Overview headline,Program overview accurate,Test dates 2024-2025,If shown,N/A,High school focus,N/A,,,,,,,,,,,
+https://dev.nycstemclub.com/resources/sat-vs-act-2025-which-test-is-right-for-you/,Comparison title,2025 in title,Comparison points accurate,References current test formats,N/A,N/A,N/A,N/A,,,,Verify all comparisons,,,,,,,
+https://dev.nycstemclub.com/resources/changes-to-the-new-digital-sat/,Digital SAT title,Accurate headline,Matches College Board info,Current as of 2024,N/A,N/A,N/A,N/A,,,,Technical accuracy,,,,,,,
+https://dev.nycstemclub.com/whats-new-in-the-enhanced-act/,Enhanced ACT title,Accurate headline,Matches ACT.org info,Current as of 2024,N/A,N/A,N/A,N/A,,,,Technical accuracy,,,,,,,
+https://dev.nycstemclub.com/courses/act-sat-foundational-course/,Course name,Course title,Foundation curriculum,Dates,Pricing,Duration,Grades,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/act-year-round-boot-camp/,Course name,Course title,ACT curriculum,Year-round dates,Pricing,Duration,Grades,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/act-summer-boot-camp/,Course name,Course title,ACT curriculum,Summer 2025 dates,Pricing,Duration,Grades,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/sat-year-round-boot-camp/,Course name,Course title,SAT curriculum,Year-round dates,Pricing,Duration,Grades,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/sat-summer-boot-camp/,Course name,Course title,SAT curriculum,Summer 2025 dates,Pricing,Duration,Grades,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/sat-private-tutoring/,Course name,Course title,Tutoring description,Flexible,Rates,N/A,Grades,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/act-private-tutoring/,Course name,Course title,Tutoring description,Flexible,Rates,N/A,Grades,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/sat-act-faqs/,FAQ title,N/A,N/A,Date references,Pricing refs,N/A,N/A,N/A,,,,All Q&As,All Q&As,,,,,,,
+
+ISEE PROGRAM - Verify level-specific details,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/isee-test-preparation/,ISEE Prep title,Overview headline,Program overview,Test windows,If shown,N/A,By level,N/A,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/lower-level-isee/,Course name,Course title,Lower level curriculum,Test dates,Pricing,Duration,Grades 4-5 applying to 5-6,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/middle-level-isee/,Course name,Course title,Middle level curriculum,Test dates,Pricing,Duration,Grades 6-7 applying to 7-8,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/upper-level-isee/,Course name,Course title,Upper level curriculum,Test dates,Pricing,Duration,Grades 8-11 applying to 9-12,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/isee-private-tutoring/,Course name,Course title,Tutoring description,Flexible,Rates,N/A,All levels,Prereqs,,,,,,,,,,,
+
+ENRICHMENT PROGRAM - Verify grade-appropriate content,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/academic-enrichment/,Enrichment title,Overview headline,Program overview,N/A,If shown,N/A,Grades 3-8,N/A,,,,,,,,,,,
+https://dev.nycstemclub.com/math-enrichment/,Math title,Math headline,Math curriculum overview,N/A,If shown,N/A,Grades 3-8,N/A,,,,,,,,,,,
+https://dev.nycstemclub.com/ela-enrichment/,ELA title,ELA headline,ELA curriculum overview,N/A,If shown,N/A,Grades 3-8,N/A,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/math-enrichment-grades-3-5/,Course name,Course title,Age-appropriate math topics,Session dates,Pricing,Duration,Grades 3-5,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/math-enrichment-grades-6-8/,Course name,Course title,Age-appropriate math topics,Session dates,Pricing,Duration,Grades 6-8,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/ela-enrichment-grades-3-5/,Course name,Course title,Age-appropriate ELA topics,Session dates,Pricing,Duration,Grades 3-5,Prereqs,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/ela-enrichment-grades-6-8/,Course name,Course title,Age-appropriate ELA topics,Session dates,Pricing,Duration,Grades 6-8,Prereqs,,,,,,,,,,,
+
+COLLEGE COUNSELING - Verify services and university claims,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/admissions-counseling/,Counseling title,Overview headline,Services description,Application deadlines if mentioned,Pricing/packages,N/A,High school,N/A,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/college-counseling/,Course name,Course title,Services accurate,Timeline if shown,Pricing,Duration,Grades 9-12,N/A,,,,University acceptances are verifiable,,,,,,,
+
+RESOURCES,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/testing-timeline/,Timeline title,N/A,N/A,All test dates current for 2024-2025,N/A,N/A,N/A,N/A,,,,Verify all dates with official sources,,,,,,,
+
+LEGAL PAGES - Have legal review if needed,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/privacy-policy/,Privacy Policy,N/A,N/A,Last updated date,N/A,N/A,N/A,N/A,Matches footer,Matches footer,Matches footer,Legal accuracy,Legal accuracy,Professional,,,,,,
+https://dev.nycstemclub.com/terms-of-service/,Terms of Service,N/A,N/A,Last updated date,N/A,N/A,N/A,N/A,,,,,Legal accuracy,Professional,,,,,,
+
+TRACK RECORD STATS - Verify all hero stats are accurate and verifiable,,,,,,,,,,,,,,,,,,,,
+All course pages,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Students helped number,Score improvements,Years in business,N/A,N/A,N/A,,,

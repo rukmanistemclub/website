@@ -3,7 +3,7 @@
  * Plugin Name: NYC STEM Club Courses
  * Plugin URI: https://nycstemclub.com
  * Description: Custom course management system for NYC STEM Club - replaces WooCommerce for course display with modern design and inquiry functionality.
- * Version: 2.3.0
+ * Version: 2.3.3
  * Author: NYC STEM Club
  * Author URI: https://nycstemclub.com
  * License: GPL v2 or later
@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('NYC_STEM_COURSES_VERSION', '2.3.0');
+define('NYC_STEM_COURSES_VERSION', '2.3.3');
 define('NYC_STEM_COURSES_PATH', plugin_dir_path(__FILE__));
 define('NYC_STEM_COURSES_URL', plugin_dir_url(__FILE__));
 
@@ -817,32 +817,10 @@ class NYC_STEM_Courses {
             $button_url .= $separator . 'course_name=' . urlencode(get_the_title());
         }
 
-        // Get styling settings from WordPress
-        $orange_color = get_option('nyc_stem_inquiry_button_orange_color', '#FF9574');
-        $teal_color = get_option('nyc_stem_inquiry_button_teal_color', '#28AFCF');
-        $dark_teal_color = get_option('nyc_stem_inquiry_button_dark_teal_color', '#134958');
-        $text_color = get_option('nyc_stem_inquiry_button_text_color', '#FFFFFF');
-        $font_size = get_option('nyc_stem_inquiry_button_font_size', '24px');
-        $font_weight = get_option('nyc_stem_inquiry_button_font_weight', '700');
-        $padding = get_option('nyc_stem_inquiry_button_padding', '12px 24px');
-        $width = get_option('nyc_stem_inquiry_button_width', '200px');
-        $sharp_radius = get_option('nyc_stem_inquiry_button_sharp_radius', '8px');
-        $rounded_radius = get_option('nyc_stem_inquiry_button_rounded_radius', '50px');
-
-        // Determine colors
+        // Build CSS classes - NO INLINE STYLES (styling controlled by CSS)
+        // Colors: Brand orange (#FF7F07) default, teal for secondary actions
         $color_lower = strtolower($atts['color']);
-        if ($color_lower === 'teal') {
-            $bg_color = $teal_color;
-        } elseif ($color_lower === 'dark-teal' || $color_lower === 'darkteal') {
-            $bg_color = $dark_teal_color;
-        } else {
-            $bg_color = $orange_color;
-        }
 
-        // Determine border-radius
-        $border_radius = (strtolower($atts['rounded']) === 'yes') ? $rounded_radius : $sharp_radius;
-
-        // Build CSS classes
         $css_classes = 'elementor-button elementor-button-link elementor-size-sm nyc-stem-inquiry-btn';
         if ($color_lower === 'teal') {
             $css_classes .= ' btn-teal';
@@ -853,22 +831,16 @@ class NYC_STEM_Courses {
             $css_classes .= ' ' . esc_attr($atts['class']);
         }
 
-        // Build inline styles from WordPress settings
-        $button_style = sprintf(
-            'background-color: %s; color: %s; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Helvetica Neue", sans-serif; font-size: %s; font-weight: %s; padding: %s; border: none; text-decoration: none; display: inline-block; text-align: center; line-height: 1.8; transition: all 0.3s; cursor: pointer; -webkit-font-smoothing: antialiased; width: %s; min-width: %s; border-radius: %s; box-sizing: border-box;',
-            $bg_color, $text_color, $font_size, $font_weight, $padding, $width, $width, $border_radius
-        );
-
-        // Return button HTML with inline styles
+        // Return button HTML WITHOUT inline styles (CSS handles all styling)
+        // Styling controlled by: design-system.css and course-pages.css
         return sprintf(
-            '<a class="%s" href="%s" style="%s">
+            '<a class="%s" href="%s">
                 <span class="elementor-button-content-wrapper">
                     <span class="elementor-button-text">%s</span>
                 </span>
             </a>',
             $css_classes,
             esc_url($button_url),
-            $button_style,
             esc_html($button_text)
         );
     }

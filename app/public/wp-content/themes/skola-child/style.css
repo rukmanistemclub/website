@@ -82,7 +82,7 @@ a.button.product_type_external {
     text-align: right;
 }
 
-.paoc-popup-btn{ font-size:18px; padding:5px 25px !important;}
+.paoc-popup-btn{ font-size:18px; padding:10px 25px !important;}
 
 .paoc-popup-inr .fserv-container label.fserv-label{ font-size:17px !important; color:#000 !important; font-weight:500;}
 .fs-webform-container .fserv-input-text{ font-size:16px !important; color:#000 !important; font-weight:500;}
@@ -128,6 +128,9 @@ a.button.product_type_external {
 .std-form .fs-webform-container .fserv-container .select2-selection__rendered{font-size:16px !important; font-weight:500;}
 
 /* Popup Form */
+.paoc-cb-popup-body {
+    max-width: 500px !important;
+}
 .paoc-popup-inr .fserv-container {
     padding: 0 !important; box-shadow:none !important; border-radius:0 !important;
 }
@@ -1529,4 +1532,278 @@ body.home .archive-title {
 
 /* ==============================================================================
    END BLOG PAGE HERO
+   ============================================================================== */
+/* ==============================================================================
+   HEADER BUTTONS - Standardized Styling (All Courses & Contact)
+   ============================================================================== */
+
+/* Target all header action buttons - All Courses, Contact, etc. */
+.site-header .elementor-button,
+.site-header .btn,
+.site-header a.elementor-button,
+#masthead .elementor-button,
+#masthead .btn,
+#masthead a.elementor-button,
+header .elementor-button,
+header .btn,
+header a.elementor-button {
+    /* Consistent sizing */
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    
+    /* Consistent padding */
+    padding: 12px 24px !important;
+    
+    /* White border as requested */
+    border: 2px solid white !important;
+    border-radius: 4px !important;
+    
+    /* Consistent display */
+    display: inline-block !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    
+    /* Smooth transitions */
+    transition: all 0.3s ease !important;
+    
+    /* Prevent text wrapping */
+    white-space: nowrap !important;
+    
+    /* Consistent box model */
+    box-sizing: border-box !important;
+    min-width: 120px !important;
+}
+
+/* Hover state for all header buttons */
+.site-header .elementor-button:hover,
+.site-header .btn:hover,
+#masthead .elementor-button:hover,
+#masthead .btn:hover,
+header .elementor-button:hover,
+header .btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    border-color: white !important;
+}
+
+/* Ensure consistent height even with different content */
+.site-header .elementor-button span,
+.site-header .btn span,
+#masthead .elementor-button span,
+#masthead .btn span,
+header .elementor-button span,
+header .btn span {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+
+/* Mobile responsive - stack vertically if needed */
+@media (max-width: 768px) {
+    .site-header .elementor-button,
+    .site-header .btn,
+    #masthead .elementor-button,
+    #masthead .btn,
+    header .elementor-button,
+    header .btn {
+        font-size: 14px !important;
+        padding: 10px 20px !important;
+        min-width: 100px !important;
+    }
+}
+
+/* ==============================================================================
+   END HEADER BUTTONS
+   ============================================================================== */
+
+/* ==============================================================================
+   FIXED/FLOATING CONTACT BUTTONS - Override Elementor
+   ============================================================================== */
+
+/* Target fixed position buttons (Contact, floating CTAs) - EXCLUDE footer and icon lists */
+.elementor-button[style*="position: fixed"],
+.elementor-button[style*="position:fixed"],
+a.elementor-button[style*="position: fixed"],
+a.elementor-button[style*="position:fixed"],
+.elementor-element a.elementor-button:not(footer a):not(.elementor-icon-list-item a) {
+    /* Match course page buttons exactly */
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+
+    /* Match course button padding */
+    padding: 12px 24px !important;
+
+    /* White border to match header buttons */
+    border: 2px solid white !important;
+    border-radius: 4px !important;
+
+    /* Consistent display */
+    display: inline-block !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    min-width: 120px !important;
+
+    /* Override Elementor's box-shadow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+
+    /* Smooth transitions */
+    transition: all 0.3s ease !important;
+
+    /* Ensure text is readable */
+    color: white !important;
+}
+
+/* Hover state for fixed buttons - EXCLUDE footer and icon lists */
+.elementor-button[style*="position: fixed"]:hover,
+.elementor-button[style*="position:fixed"]:hover,
+a.elementor-button[style*="position: fixed"]:hover,
+a.elementor-button[style*="position:fixed"]:hover,
+.elementor-element a.elementor-button:not(footer a):not(.elementor-icon-list-item a):hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
+    border-color: white !important;
+}
+
+/* Ensure consistent text styling inside button */
+.elementor-button .elementor-button-text,
+.elementor-button span {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+}
+
+/* More aggressive targeting for Elementor widgets with fixed positioning */
+.elementor-widget-button a.elementor-button,
+div[style*="position: fixed"] .elementor-button,
+div[style*="position:fixed"] .elementor-button,
+.elementor-element[style*="position: fixed"] a,
+.elementor-element[style*="position:fixed"] a,
+#elementor-popup-modal .elementor-button,
+.elementor-widget a.elementor-button[href*="contact"],
+.elementor-widget a.elementor-button[href*="enrollment"] {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    padding: 12px 24px !important;
+    border: 2px solid white !important;
+    border-radius: 4px !important;
+    min-width: 120px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Nuclear option - target ANY fixed position element with button class */
+[style*="position: fixed"][class*="button"],
+[style*="position:fixed"][class*="button"],
+[style*="bottom:"][class*="elementor"],
+[style*="bottom: "][class*="elementor"] {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    padding: 12px 24px !important;
+    border: 2px solid white !important;
+    border-radius: 4px !important;
+}
+
+/* ULTIMATE OVERRIDE - Target fixed buttons by position specifically */
+a[style*="position: fixed"][style*="right: 15px"][style*="bottom: 15px"],
+a[style*="position:fixed"][style*="right:15px"][style*="bottom:15px"],
+a[style*="position: fixed"][style*="bottom: 15px"],
+a[style*="position:fixed"][style*="bottom:15px"] {
+    padding: 12px 24px !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
+    line-height: 1.5 !important;
+    border: 2px solid white !important;
+    border-radius: 4px !important;
+    min-width: 120px !important;
+}
+
+/* Target PAOC (Popup Anything on Click) plugin buttons - ONLY buttons/links, NOT the popup container! */
+a.paoc-popup-button,
+button.paoc-popup-button,
+a.paoc-popup-btn,
+button.paoc-popup-btn,
+a.paoc-popup-click,
+button.paoc-popup-click {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    padding: 10px 25px !important;
+    border: 2px solid white !important;
+    border-radius: 3px !important;
+    width: 145px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    text-align: center !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+}
+
+/* Hover state for PAOC buttons */
+a.paoc-popup-button:hover,
+button.paoc-popup-button:hover,
+a.paoc-popup-btn:hover,
+button.paoc-popup-btn:hover,
+a.paoc-popup-click:hover,
+button.paoc-popup-click:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
+    text-decoration: none !important;
+}
+
+/* ==============================================================================
+   END FIXED/FLOATING CONTACT BUTTONS
+   ============================================================================== */
+
+/* ==============================================================================
+   POPUP BUTTONS - Match All Courses floating button style
+   ============================================================================== */
+
+/* Target all buttons inside PAOC popups - match All Courses button */
+.paoc-popup-modal-content button,
+.paoc-popup-modal-content .button,
+.paoc-popup-modal-content input[type="submit"],
+.paoc-popup-modal-content input[type="button"],
+.paoc-popup-modal-content .btn,
+.paoc-popup-modal-content a.button,
+.paoc-popup-modal-content .elementor-button,
+.paoc-popup-modal-content .wpcf7-submit {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    padding: 10px 25px !important;
+    border: 2px solid white !important;
+    border-radius: 3px !important;
+    min-width: 145px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    text-align: center !important;
+    display: inline-block !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    color: white !important;
+}
+
+/* Hover state for popup buttons */
+.paoc-popup-modal-content button:hover,
+.paoc-popup-modal-content .button:hover,
+.paoc-popup-modal-content input[type="submit"]:hover,
+.paoc-popup-modal-content input[type="button"]:hover,
+.paoc-popup-modal-content .elementor-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
+    text-decoration: none !important;
+}
+
+/* ==============================================================================
+   END POPUP BUTTONS
    ============================================================================== */

@@ -564,6 +564,22 @@ function nycstemclub_add_canonical_url() {
 
 /**
  * ==============================================================================
+ * NYC STEM Club Modern Design System
+ * Mobile-first, clean, professional styles
+ * ==============================================================================
+ */
+add_action('wp_enqueue_scripts', 'nycstemclub_enqueue_design_system', 998);
+function nycstemclub_enqueue_design_system() {
+    wp_enqueue_style(
+        'nyc-design-system',
+        get_stylesheet_directory_uri() . '/css/design-system.css',
+        array(),
+        filemtime(get_stylesheet_directory() . '/css/design-system.css') // Cache busting
+    );
+}
+
+/**
+ * ==============================================================================
  * NYC STEM Club Custom Blog Styles
  * Enqueue custom blog post stylesheet - FORCE LOAD WITH HIGH PRIORITY
  * ==============================================================================
@@ -611,6 +627,25 @@ function nycstemclub_enqueue_course_card_styles() {
         array(),
         filemtime(get_stylesheet_directory() . '/course-cards.css') // Cache busting
     );
+}
+
+/**
+ * ==============================================================================
+ * NYC STEM Club Course Pages Design System
+ * Mobile-first styles for course hero, track record, and SHSAT pages
+ * ==============================================================================
+ */
+add_action('wp_enqueue_scripts', 'nycstemclub_enqueue_course_pages_styles', 1000);
+function nycstemclub_enqueue_course_pages_styles() {
+    // Load on course pages, SHSAT page, and related pages
+    if (is_singular('course') || is_post_type_archive('course') || is_tax('course_category') || is_page(array('nyc-top-shsat-prep-program', 'sat-act-test-prep', 'isee-test-preparation'))) {
+        wp_enqueue_style(
+            'nyc-course-pages',
+            get_stylesheet_directory_uri() . '/css/course-pages.css',
+            array('nyc-design-system'), // Load after design system
+            filemtime(get_stylesheet_directory() . '/css/course-pages.css')
+        );
+    }
 }
 
 /**

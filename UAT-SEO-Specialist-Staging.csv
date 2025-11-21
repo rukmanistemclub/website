@@ -1,0 +1,57 @@
+URL,Page Title Unique,Meta Description,Canonical URL,OG Title,OG Description,OG Image,Twitter Card,Course Schema,Organization Schema,Breadcrumb Schema,Article Schema,FAQ Schema,H1 Present,H1 Unique,Heading Hierarchy,Alt Text on Images,Internal Linking,Issues Found,Tester,Date,Status
+
+HOMEPAGE,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/,Unique descriptive title,150-160 chars with keywords,Self-referencing,Matches page title,Compelling summary,Logo or hero image,summary_large_image,N/A,In footer,N/A,N/A,N/A,One H1 only,Unique to page,H1 > H2 > H3 logical,All images have alt,Links to key pages,,,,
+
+SHSAT PAGES,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/nyc-top-shsat-prep-program/,SHSAT focused title,SHSAT keywords,Correct URL,Matches,Compelling,Relevant image,Set,Course type,Footer,Home > Page,N/A,N/A,One H1,Unique,Logical,All have alt,To courses and FAQ,,,,
+https://dev.nycstemclub.com/courses/shsat-fall-boot-camp/,Course name in title,Course + SHSAT keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema with price/dates,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related courses,,,,
+https://dev.nycstemclub.com/courses/shsat-spring-boot-camp/,Course name in title,Course + SHSAT keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related courses,,,,
+https://dev.nycstemclub.com/courses/shsat-summer-boot-camp/,Course name in title,Course + SHSAT keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related courses,,,,
+https://dev.nycstemclub.com/courses/shsat-private-tutoring/,Course name in title,Tutoring + SHSAT keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related courses,,,,
+https://dev.nycstemclub.com/course-category/shsat/,Category in title,Category description,Correct URL,Matches,Category summary,Category image,Set,N/A,Footer,Home > Category,N/A,N/A,One H1,Unique,Logical,All have alt,To all SHSAT courses,,,,
+https://dev.nycstemclub.com/shsat-faq/,FAQ in title,FAQ keywords,Correct URL,Matches,FAQ summary,Relevant,Set,N/A,Footer,Home > FAQ,N/A,FAQ schema for Q&As,One H1,Unique,Logical,If any,To SHSAT courses,,,,
+
+SAT/ACT PAGES,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/sat-act-test-prep/,SAT ACT in title,SAT ACT keywords,Correct URL,Matches,Compelling,Relevant,Set,Course type,Footer,Home > Page,N/A,N/A,One H1,Unique,Logical,All have alt,To courses,,,,
+https://dev.nycstemclub.com/resources/sat-vs-act-2025-which-test-is-right-for-you/,Comparison in title,2025 + comparison keywords,Correct URL,Matches,Compelling,Comparison graphic,Set,N/A,Footer,Home > Resources > Article,Article schema,N/A,One H1,Unique,Logical,All have alt,To SAT and ACT courses,,,,
+https://dev.nycstemclub.com/resources/changes-to-the-new-digital-sat/,Digital SAT in title,Digital SAT keywords,Correct URL,Matches,Compelling,Digital SAT image,Set,N/A,Footer,Home > Resources > Article,Article schema,N/A,One H1,Unique,Logical,All have alt,To SAT courses,,,,
+https://dev.nycstemclub.com/whats-new-in-the-enhanced-act/,Enhanced ACT in title,Enhanced ACT keywords,Correct URL,Matches,Compelling,ACT image,Set,N/A,Footer,Home > Resources > Article,Article schema,N/A,One H1,Unique,Logical,All have alt,To ACT courses,,,,
+https://dev.nycstemclub.com/courses/act-sat-foundational-course/,Course in title,Foundational keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/act-year-round-boot-camp/,Course in title,ACT keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/act-summer-boot-camp/,Course in title,ACT summer keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/sat-year-round-boot-camp/,Course in title,SAT keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/sat-summer-boot-camp/,Course in title,SAT summer keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/sat-private-tutoring/,Course in title,SAT tutoring keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/act-private-tutoring/,Course in title,ACT tutoring keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/sat-act-faqs/,FAQ in title,SAT ACT FAQ keywords,Correct URL,Matches,FAQ summary,Relevant,Set,N/A,Footer,Home > FAQ,N/A,FAQ schema,One H1,Unique,Logical,If any,To courses,,,,
+
+ISEE PAGES,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/isee-test-preparation/,ISEE in title,ISEE keywords,Correct URL,Matches,Compelling,Relevant,Set,Course type,Footer,Home > Page,N/A,N/A,One H1,Unique,Logical,All have alt,To courses,,,,
+https://dev.nycstemclub.com/courses/lower-level-isee/,Lower ISEE in title,Lower level keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/middle-level-isee/,Middle ISEE in title,Middle level keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/upper-level-isee/,Upper ISEE in title,Upper level keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/isee-private-tutoring/,ISEE tutoring in title,ISEE tutoring keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+
+ENRICHMENT PAGES,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/academic-enrichment/,Enrichment in title,Enrichment keywords,Correct URL,Matches,Compelling,Relevant,Set,N/A,Footer,Home > Page,N/A,N/A,One H1,Unique,Logical,All have alt,To courses,,,,
+https://dev.nycstemclub.com/courses/math-enrichment-grades-3-5/,Math 3-5 in title,Math enrichment keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/math-enrichment-grades-6-8/,Math 6-8 in title,Math enrichment keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/ela-enrichment-grades-3-5/,ELA 3-5 in title,ELA enrichment keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+https://dev.nycstemclub.com/courses/ela-enrichment-grades-6-8/,ELA 6-8 in title,ELA enrichment keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To related,,,,
+
+COLLEGE COUNSELING,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/college-counseling/,College counseling title,College counseling keywords,Correct URL,Matches,Compelling,Course image,Set,Full course schema,Footer,Home > Courses > Course,N/A,N/A,One H1,Unique,Logical,All have alt,To enrollment,,,,
+
+COURSE ARCHIVE,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/courses/,All Courses in title,Course archive keywords,Correct URL,Matches,All courses summary,Relevant,Set,N/A,Footer,Home > Courses,N/A,N/A,One H1,Unique,Logical,All course images,To all courses,,,,
+
+TECHNICAL SEO,,,,,,,,,,,,,,,,,,,,
+https://dev.nycstemclub.com/sitemap.xml,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,All pages included - valid XML format,,,,
+https://dev.nycstemclub.com/robots.txt,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Sitemap URL - not blocking pages,,,,
+
+VALIDATION TOOLS TO USE,,,,,,,,,,,,,,,,,,,,
+Google Rich Results Test,Test all course pages for Course schema validity,,,,,,,,,,,,,,,,,,,,
+Schema Markup Validator,Validate Organization and BreadcrumbList,,,,,,,,,,,,,,,,,,,,
+Google Search Console,Check for crawl errors and indexing issues,,,,,,,,,,,,,,,,,,,,
+Screaming Frog or similar,Crawl site for duplicate titles/missing meta,,,,,,,,,,,,,,,,,,,,

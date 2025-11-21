@@ -1,0 +1,1305 @@
+/* ==============================================================================
+   COURSE PAGES - Mobile-First Design System Integration
+   Applies design tokens to course hero, track record, and SHSAT pages
+   ============================================================================== */
+
+/* ==============================================================================
+   COURSE HERO - Mobile First
+   ============================================================================== */
+
+.course-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    min-height: auto;
+    padding: var(--space-6) var(--space-4) var(--space-6) var(--space-4); /* Tighter padding */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Remove decorative pseudo-element on mobile for cleaner look */
+.course-hero::before {
+    display: none;
+}
+
+.hero-container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column !important; /* Single column on all devices */
+    align-items: flex-start !important;
+    gap: 0 !important;
+}
+
+/* Hero Content - Full width, left-aligned, matches body width below */
+.hero-content {
+    display: contents !important; /* Allow children to be reordered in container */
+}
+
+/* Order 1: Title - Left aligned, full width */
+.course-hero .hero-content h1,
+.hero-content h1,
+.course-hero h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-extrabold);
+    color: white;
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-tight);
+    order: 1 !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+
+/* Order 2: Excerpt - Left aligned, matches body width */
+.hero-tagline,
+.hero-excerpt,
+.hero-content > p,
+.course-hero .hero-content > p {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-relaxed);
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    order: 2 !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+
+/* Order 4: Mini Stats - Left aligned */
+.hero-stats-mini {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start !important;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+    order: 4 !important;
+    width: 100% !important;
+}
+
+.stat-mini {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+}
+
+.stat-mini-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent-light);
+}
+
+.stat-mini-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.stat-mini-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-mini-number {
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: white;
+}
+
+.stat-mini-label {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Order 5: CTA Buttons - Left aligned */
+.cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: var(--space-3);
+    order: 5 !important;
+    margin-top: var(--space-2) !important;
+    width: 100% !important;
+}
+
+.cta-group .nyc-stem-inquiry-btn,
+.cta-group a.nyc-stem-inquiry-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    text-align: center;
+    border-radius: var(--radius-md);
+    min-height: 48px;
+}
+
+/* ==============================================================================
+   TRACK RECORD (Hero Card) - Order 3: Horizontal Inline Text Pattern
+   Modern, unobtrusive display with bullet separators
+   ============================================================================== */
+
+/* Order 3: Track Record appears after excerpt, before mini stats */
+.hero-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 var(--space-4) 0 !important;
+    order: 3 !important;
+}
+
+/* Hide heading */
+.hero-card h3 {
+    display: none !important;
+}
+
+/* Horizontal inline layout */
+.hero-card-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 0 !important;
+}
+
+.card-stat-box {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    gap: var(--space-2) !important;
+}
+
+/* Hide icons */
+.card-stat-icon {
+    display: none !important;
+}
+
+.card-stat-text {
+    display: inline !important;
+}
+
+/* Number and label inline - match excerpt typography */
+.card-stat-number,
+.card-stat-label {
+    display: inline !important;
+    font-size: var(--text-lg) !important; /* 18px - matches excerpt */
+    font-weight: var(--font-normal) !important; /* 400 - same as excerpt */
+    color: rgba(255, 255, 255, 0.9) !important; /* Same as excerpt */
+    line-height: var(--leading-relaxed) !important; /* 1.625 */
+    margin: 0 !important;
+    font-family: var(--font-body) !important; /* Roboto */
+}
+
+/* Bullet separator after each stat (except last) */
+.card-stat-box:not(:last-child)::after {
+    content: "•" !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    margin: 0 var(--space-3) !important;
+    font-size: 15px !important;
+}
+
+/* ==============================================================================
+   MOBILE BREAKPOINT (max 767px) - Responsive Typography
+   ============================================================================== */
+
+@media (max-width: 767px) {
+    /* Slightly smaller but still readable on mobile */
+    .course-hero .hero-content h1,
+    .hero-content h1,
+    .course-hero h1 {
+        font-size: var(--text-3xl) !important; /* 30px on mobile */
+    }
+
+    /* Track record stats readable on mobile */
+    .card-stat-number,
+    .card-stat-label {
+        font-size: var(--text-base) !important; /* 16px on mobile */
+    }
+
+    /* Tighter bullet spacing on mobile */
+    .card-stat-box:not(:last-child)::after {
+        margin: 0 var(--space-2) !important;
+    }
+
+    /* Full width buttons on mobile */
+    .cta-group .nyc-stem-inquiry-btn,
+    .cta-group a.nyc-stem-inquiry-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+/* ==============================================================================
+   TABLET BREAKPOINT (768px+) - Maintains Single Column Layout
+   ============================================================================== */
+
+@media (min-width: 768px) {
+    .course-hero {
+        padding: var(--space-8) var(--space-6) var(--space-8) var(--space-6);
+    }
+
+    /* Maintain single column - do NOT change to row */
+    .hero-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    /* Larger typography on tablet */
+    .course-hero .hero-content h1,
+    .hero-content h1,
+    .course-hero h1 {
+        font-size: var(--text-4xl) !important;
+    }
+
+    /* Keep track record same typography as excerpt */
+    .card-stat-number,
+    .card-stat-label {
+        font-size: var(--text-lg) !important; /* 18px on tablet */
+    }
+
+    /* Horizontal CTA buttons on tablet+ */
+    .cta-group {
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+    }
+
+    .cta-group .nyc-stem-inquiry-btn,
+    .cta-group a.nyc-stem-inquiry-btn {
+        width: auto;
+        max-width: none;
+    }
+}
+
+/* ==============================================================================
+   DESKTOP BREAKPOINT (1024px+)
+   ============================================================================== */
+
+@media (min-width: 1024px) {
+    .course-hero {
+        padding: var(--space-10) var(--space-8) var(--space-10) var(--space-8);
+        min-height: auto;
+    }
+
+    /* Larger title on desktop */
+    .course-hero .hero-content h1,
+    .hero-content h1,
+    .course-hero h1 {
+        font-size: var(--text-5xl) !important;
+    }
+
+    /* Larger excerpt on desktop */
+    .hero-tagline,
+    .hero-excerpt,
+    .hero-content > p,
+    .course-hero .hero-content > p {
+        font-size: var(--text-xl) !important;
+    }
+
+    /* Track record maintains consistent typography with excerpt */
+    .card-stat-number,
+    .card-stat-label {
+        font-size: var(--text-xl) !important; /* 20px on desktop - matches excerpt */
+    }
+}
+
+/* ==============================================================================
+   CENTERED HERO VARIANT (Enrichment courses)
+   ============================================================================== */
+
+.course-hero.hero-centered .hero-container {
+    flex-direction: column;
+    max-width: 800px;
+    text-align: center;
+}
+
+.course-hero.hero-centered .hero-content {
+    text-align: center;
+}
+
+.course-hero.hero-centered .hero-tagline,
+.course-hero.hero-centered .hero-excerpt {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.course-hero.hero-centered .hero-stats-mini {
+    justify-content: center;
+}
+
+.course-hero.hero-centered .cta-group {
+    justify-content: center;
+}
+
+/* ==============================================================================
+   COURSE SECTIONS - Consistent Spacing
+   ============================================================================== */
+
+.course-description,
+.course-benefits,
+.course-program,
+.course-schedule,
+.course-testimonials,
+.course-faqs,
+.course-cta,
+.course-related {
+    padding: var(--space-5) var(--space-4); /* Reduced from space-10 to space-5 (20px) */
+}
+
+@media (min-width: 768px) {
+    .course-description,
+    .course-benefits,
+    .course-program,
+    .course-schedule,
+    .course-testimonials,
+    .course-faqs,
+    .course-cta,
+    .course-related {
+        padding: var(--space-8) var(--space-6); /* Reduced from space-12 to space-8 */
+    }
+}
+
+@media (min-width: 1024px) {
+    .course-description,
+    .course-benefits,
+    .course-program,
+    .course-schedule,
+    .course-testimonials,
+    .course-faqs,
+    .course-cta,
+    .course-related {
+        padding: var(--space-10) var(--space-8); /* Reduced from space-16 to space-10 */
+    }
+}
+
+/* Alternate background sections */
+.course-benefits,
+.course-schedule,
+.course-faqs {
+    background-color: var(--color-background-alt);
+}
+
+/* Section headings */
+.course-description h2,
+.course-benefits h2,
+.course-program h2,
+.course-schedule h2,
+.course-testimonials h2,
+.course-faqs h2,
+.course-cta h2,
+.course-related h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+    .course-description h2,
+    .course-benefits h2,
+    .course-program h2,
+    .course-schedule h2,
+    .course-testimonials h2,
+    .course-faqs h2,
+    .course-cta h2,
+    .course-related h2 {
+        font-size: var(--text-3xl);
+    }
+}
+
+/* ==============================================================================
+   SHSAT PAGE SPECIFIC - Tab Styling
+   ============================================================================== */
+
+/* Clean up tabs to match design system */
+.elementor-element-78fc5ee .elementor-tab-title {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    transition: all var(--transition-base);
+}
+
+.elementor-element-78fc5ee .elementor-tab-title.elementor-active {
+    background: white;
+    border-color: var(--color-accent);
+}
+
+.elementor-element-78fc5ee .elementor-tabs-content-wrapper {
+    border-color: var(--color-accent);
+    padding: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .elementor-element-78fc5ee .elementor-tab-title {
+        font-size: var(--text-base);
+        padding: var(--space-4) var(--space-5);
+    }
+
+    .elementor-element-78fc5ee .elementor-tabs-content-wrapper {
+        padding: var(--space-6);
+    }
+}
+
+/* ==============================================================================
+   COURSE CARDS GRID
+   ============================================================================== */
+
+.course-cards-grid,
+.related-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+    .course-cards-grid,
+    .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .course-cards-grid,
+    .related-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==============================================================================
+   FAQ SECTION
+   ============================================================================== */
+
+.course-faqs .faq-item {
+    background: white;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-3);
+    box-shadow: var(--shadow-sm);
+}
+
+.course-faqs .faq-question {
+    padding: var(--space-4);
+    font-weight: var(--font-semibold);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-faqs .faq-answer {
+    padding: 0 var(--space-4) var(--space-4);
+    color: var(--color-text-light);
+    line-height: var(--leading-relaxed);
+}
+
+/* ==============================================================================
+   CTA SECTION
+   ============================================================================== */
+
+.course-cta {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    text-align: center;
+    color: white;
+}
+
+.course-cta h2 {
+    color: white;
+}
+
+.course-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-6);
+}
+
+/* ==============================================================================
+   PRINT STYLES
+   ============================================================================== */
+
+/* ==============================================================================
+   GLOBAL BUTTON STANDARDIZATION - All buttons site-wide
+   ============================================================================== */
+
+/* Reset and standardize ALL buttons across the entire site */
+.nyc-stem-inquiry-btn,
+a.nyc-stem-inquiry-btn,
+button.nyc-stem-inquiry-btn,
+.elementor-button,
+a.elementor-button,
+button.elementor-button,
+.cta-button,
+.btn,
+a.btn,
+button.btn,
+.course-hero .cta-group a,
+.course-hero .cta-group button,
+.hero-section .cta-group a,
+.hero-section .cta-group button,
+.hero-content a,
+.hero-content button,
+.course-cta .nyc-stem-inquiry-btn,
+.elementor-widget-button .elementor-button,
+a[href*="inquiry"],
+a[href*="contact"] {
+    font-family: var(--font-body) !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    text-transform: none !important;
+    padding: 16px 32px !important;
+    border-radius: 0 !important;
+    transition: all var(--transition-base) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    min-height: 54px !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Global Inquiry Button Color - Vibrant Brand Orange */
+.nyc-stem-inquiry-btn:not(.btn-teal),
+a.nyc-stem-inquiry-btn:not(.btn-teal),
+button.nyc-stem-inquiry-btn:not(.btn-teal) {
+    background-color: #FF7F07 !important; /* Brand orange matching Final Push chevron */
+}
+
+/* Remove any border-related properties */
+.nyc-stem-inquiry-btn:hover,
+a.nyc-stem-inquiry-btn:hover,
+.elementor-button:hover,
+a.elementor-button:hover,
+.cta-button:hover,
+.btn:hover,
+a.btn:hover {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Mobile: Keep same size for consistency */
+@media (max-width: 767px) {
+    .nyc-stem-inquiry-btn,
+    a.nyc-stem-inquiry-btn,
+    .elementor-button,
+    a.elementor-button,
+    .cta-button,
+    .btn,
+    a.btn {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0 !important;
+        padding: 16px 32px !important;
+        min-height: 54px !important;
+        width: auto !important;
+        border-radius: 0 !important;
+    }
+}
+
+/* Tablet and up: Maintain consistency */
+@media (min-width: 768px) {
+    .nyc-stem-inquiry-btn,
+    a.nyc-stem-inquiry-btn,
+    .elementor-button,
+    a.elementor-button,
+    .cta-button,
+    .btn,
+    a.btn,
+    .course-hero .cta-group a,
+    .hero-section .cta-group a {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0 !important;
+        padding: 16px 32px !important;
+        border-radius: 0 !important;
+    }
+}
+
+/* Desktop: Maintain consistency */
+@media (min-width: 1024px) {
+    .nyc-stem-inquiry-btn,
+    a.nyc-stem-inquiry-btn,
+    .elementor-button,
+    a.elementor-button,
+    .cta-button,
+    .btn,
+    a.btn {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0 !important;
+        border-radius: 0 !important;
+    }
+}
+
+/* ==============================================================================
+   TRACK RECORD CARD - Stronger overrides
+   ============================================================================== */
+
+.course-hero .hero-card {
+    background: white !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-5) !important;
+    box-shadow: var(--shadow-lg) !important;
+    width: 100% !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;
+}
+
+.course-hero .hero-card h3 {
+    font-family: var(--font-heading) !important;
+    font-size: var(--text-lg) !important;
+    font-weight: var(--font-bold) !important;
+    color: var(--color-primary) !important;
+    text-align: center !important;
+    margin-bottom: var(--space-4) !important;
+    padding: 0 !important;
+}
+
+.course-hero .hero-card-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-3) !important;
+}
+
+.course-hero .card-stat-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: var(--space-3) !important;
+    background: var(--color-background-alt) !important;
+    border-radius: var(--radius-md) !important;
+}
+
+.course-hero .card-stat-number {
+    font-size: var(--text-lg) !important;
+    font-weight: var(--font-extrabold) !important;
+    color: var(--color-primary) !important;
+    line-height: 1 !important;
+    margin-bottom: var(--space-1) !important;
+}
+
+.course-hero .card-stat-label {
+    font-size: 11px !important;
+    color: var(--color-text-light) !important;
+    line-height: var(--leading-snug) !important;
+}
+
+@media (min-width: 768px) {
+    .course-hero .hero-card {
+        width: 320px !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: var(--space-6) !important;
+    }
+
+    .course-hero .hero-card h3 {
+        font-size: var(--text-xl) !important;
+    }
+
+    .course-hero .card-stat-number {
+        font-size: var(--text-xl) !important;
+    }
+
+    .course-hero .card-stat-label {
+        font-size: var(--text-xs) !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .course-hero .hero-card {
+        width: 360px !important;
+    }
+
+    .course-hero .card-stat-number {
+        font-size: var(--text-2xl) !important;
+    }
+
+    .course-hero .card-stat-label {
+        font-size: var(--text-sm) !important;
+    }
+}
+
+/* ==============================================================================
+   MOCKUP PAGE RULES - NOW APPLIED GLOBALLY ABOVE
+   These mockup-specific rules are no longer needed as they've been applied
+   to all course pages globally. Keeping for reference only.
+   ============================================================================== */
+
+/*
+.postid-17429 .course-hero .hero-container,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+}
+
+/* Hero content takes full width matching body sections below */
+/* Use display: contents to allow children to be ordered within hero-container */
+.postid-17429 .course-hero .hero-content,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-content {
+    display: contents !important; /* Makes children behave as direct children of hero-container */
+}
+
+/* Order 1: Title */
+.postid-17429 .course-hero h1,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero h1 {
+    order: 1 !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+/* Order 2: Excerpt paragraph */
+.postid-17429 .course-hero .hero-excerpt,
+.postid-17429 .course-hero .hero-content > p,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-excerpt,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-content > p {
+    order: 2 !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+/* Order 3: Track record stats (90%+ Acceptance Rate • 50%+ Stuy Score Rate...) */
+.postid-17429 .course-hero .hero-card,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    order: 3 !important;
+    margin: 0 0 var(--space-4) 0 !important;
+}
+
+/* Order 4: Mini stats (24-30 Sessions, 12-15 Weeks, etc.) */
+.postid-17429 .course-hero .hero-stats-mini,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-stats-mini {
+    order: 4 !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+/* Order 5: CTA buttons */
+.postid-17429 .course-hero .cta-group,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .cta-group {
+    order: 5 !important;
+    margin-top: var(--space-2) !important;
+}
+
+/* Hide the heading */
+.postid-17429 .course-hero .hero-card h3,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-card h3 {
+    display: none !important;
+}
+
+/* Stats display as horizontal row */
+.postid-17429 .course-hero .hero-card-grid,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-card-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 0 !important;
+}
+
+.postid-17429 .course-hero .card-stat-box,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .card-stat-box {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    gap: var(--space-2) !important;
+}
+
+/* Hide icons */
+.postid-17429 .course-hero .card-stat-icon,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .card-stat-icon {
+    display: none !important;
+}
+
+.postid-17429 .course-hero .card-stat-text,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .card-stat-text {
+    display: inline !important;
+}
+
+/* Number and label in same line - match excerpt typography */
+.postid-17429 .course-hero .card-stat-number,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .card-stat-number {
+    display: inline !important;
+    font-size: var(--text-lg) !important; /* 18px - matches excerpt */
+    font-weight: var(--font-normal) !important; /* 400 - same as excerpt */
+    color: rgba(255, 255, 255, 0.9) !important; /* Same as excerpt */
+    line-height: var(--leading-relaxed) !important; /* 1.625 - matches excerpt */
+    margin: 0 !important;
+    font-family: var(--font-body) !important; /* Roboto */
+}
+
+.postid-17429 .course-hero .card-stat-label,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .card-stat-label {
+    display: inline !important;
+    font-size: var(--text-lg) !important; /* 18px - matches excerpt */
+    font-weight: var(--font-normal) !important; /* 400 */
+    color: rgba(255, 255, 255, 0.9) !important; /* Same as excerpt */
+    line-height: var(--leading-relaxed) !important; /* 1.625 */
+    font-family: var(--font-body) !important; /* Roboto */
+}
+
+/* Add bullet separator after each stat (except last) */
+.postid-17429 .course-hero .card-stat-box:not(:last-child)::after,
+body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .card-stat-box:not(:last-child)::after {
+    content: "•" !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    margin: 0 var(--space-3) !important;
+    font-size: 15px !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+    /* Single column hero on mobile */
+    .postid-17429 .course-hero .hero-container,
+    body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-container {
+        padding: var(--space-6) var(--space-4) !important;
+    }
+
+    .postid-17429 .course-hero .hero-content,
+    body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-content {
+        text-align: left !important;
+    }
+
+    .postid-17429 .course-hero h1,
+    body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero h1 {
+        font-size: var(--text-3xl) !important; /* 30px - larger on mobile */
+    }
+
+    .postid-17429 .course-hero .hero-card-grid,
+    body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-card-grid {
+        justify-content: flex-start !important;
+    }
+
+    /* Keep track record stats same size as desktop - they match excerpt */
+    .postid-17429 .course-hero .card-stat-number,
+    .postid-17429 .course-hero .card-stat-label,
+    body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .card-stat-number,
+    body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .card-stat-label {
+        font-size: var(--text-base) !important; /* 16px on mobile - readable */
+    }
+
+    .postid-17429 .course-hero .card-stat-box:not(:last-child)::after,
+    body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .card-stat-box:not(:last-child)::after {
+        margin: 0 var(--space-2) !important;
+    }
+}
+
+Desktop: Keep left-aligned
+@media (min-width: 768px) {
+    .postid-17429 .course-hero .hero-card-grid,
+    body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-card-grid {
+        justify-content: flex-start !important;
+    }
+}
+*/
+
+/* ==============================================================================
+   TRACK RECORD - OPTION B: Stats Strip Below Hero (Alternative)
+   To use this instead of Option A, hide the .hero-card and create a stats strip
+   section after the hero in your HTML
+   ============================================================================== */
+
+/*
+Example HTML structure for Option B:
+<section class="stats-strip">
+    <div class="stats-container">
+        <div class="stat-item">
+            <span class="stat-number">90%+</span>
+            <span class="stat-label">Acceptance Rate</span>
+        </div>
+        // ... repeat for each stat
+    </div>
+</section>
+*/
+
+.stats-strip {
+    background: linear-gradient(to bottom, rgba(19, 73, 88, 0.03), transparent);
+    padding: var(--space-8) var(--space-4);
+    border-top: 1px solid rgba(19, 73, 88, 0.1);
+}
+
+.stats-container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 120px;
+}
+
+.stat-item .stat-number {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: var(--space-2);
+}
+
+.stat-item .stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    .stats-strip {
+        padding: var(--space-10) var(--space-6);
+    }
+
+    .stats-container {
+        gap: var(--space-10);
+    }
+
+    .stat-item {
+        min-width: 140px;
+    }
+
+    .stat-item .stat-number {
+        font-size: 42px;
+    }
+
+    .stat-item .stat-label {
+        font-size: var(--text-base);
+    }
+}
+
+/* ==============================================================================
+   WHY CHOOSE SECTION - Mobile Compact Version
+   ============================================================================== */
+
+/* Keep content for SEO/AEO but make it more compact on mobile */
+.course-benefits {
+    padding: var(--space-8) var(--space-4) !important;
+}
+
+.course-benefits h2 {
+    font-size: var(--text-xl) !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+/* Collapse image on mobile if it's decorative */
+.course-benefits img,
+.course-benefits .benefit-image,
+.why-choose-image {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .course-benefits {
+        padding: var(--space-12) var(--space-6) !important;
+    }
+
+    .course-benefits h2 {
+        font-size: var(--text-2xl) !important;
+        margin-bottom: var(--space-6) !important;
+    }
+
+    /* Show image on tablet+ */
+    .course-benefits img,
+    .course-benefits .benefit-image,
+    .why-choose-image {
+        display: block;
+    }
+}
+
+/* Benefit cards - stack tighter on mobile */
+.benefit-card,
+.why-choose-item {
+    padding: var(--space-3) !important;
+    margin-bottom: var(--space-3) !important;
+}
+
+@media (min-width: 768px) {
+    .benefit-card,
+    .why-choose-item {
+        padding: var(--space-4) !important;
+    }
+}
+
+/* ==============================================================================
+   CHEVRON TIMELINE - Mobile First
+   ============================================================================== */
+
+/* Mobile: Hide non-focus chevrons, show only the important one */
+@media (max-width: 767px) {
+    .chevron-timeline {
+        padding: var(--space-4) 0 !important;
+    }
+
+    .chevron-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+        margin-bottom: var(--space-6) !important;
+    }
+
+    /* Remove any pseudo-element brackets */
+    .chevron-timeline::before,
+    .chevron-timeline::after,
+    .chevron-bar::before,
+    .chevron-bar::after,
+    .chevron::before,
+    .chevron::after {
+        display: none !important;
+        border: none !important;
+    }
+
+    /* Hide non-focus chevrons (Foundation & Bootcamp) */
+    .chevron-1,
+    .chevron-2 {
+        display: none !important;
+    }
+
+    /* Show only the focus chevron (Final Push) */
+    .chevron-3 {
+        width: 100% !important;
+        margin: 0 0 var(--space-4) 0 !important;
+        border-radius: var(--radius-md) !important;
+        clip-path: none !important;
+        -webkit-clip-path: none !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    .chevron-content {
+        padding: var(--space-4) !important;
+        text-align: center !important;
+    }
+
+    .chevron-date {
+        font-size: var(--text-sm) !important;
+        margin-bottom: var(--space-2) !important;
+        opacity: 0.9;
+    }
+
+    .chevron-title {
+        font-size: var(--text-xl) !important;
+        font-weight: var(--font-bold) !important;
+    }
+
+    /* Phase details - enhanced styling with dates */
+    .phase-details {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+    }
+
+    .phase-detail {
+        padding: var(--space-4) !important;
+        background: var(--color-background-alt) !important;
+        border-radius: var(--radius-md) !important;
+        border-left: 3px solid var(--color-text-muted) !important;
+        font-size: var(--text-sm) !important;
+        line-height: var(--leading-relaxed) !important;
+    }
+
+    /* Add dates via CSS for context */
+    .phase-detail:nth-child(1) strong::after {
+        content: " (SEPT–JUNE)";
+        font-weight: normal;
+        opacity: 0.7;
+        font-size: var(--text-xs);
+    }
+
+    .phase-detail:nth-child(2) strong::after {
+        content: " (JULY–AUG)";
+        font-weight: normal;
+        opacity: 0.7;
+        font-size: var(--text-xs);
+    }
+
+    .phase-detail:nth-child(3) strong::after {
+        content: " (SEPT–OCT)";
+        font-weight: normal;
+        opacity: 0.7;
+        font-size: var(--text-xs);
+    }
+
+    .phase-detail strong {
+        display: block !important;
+        margin-bottom: var(--space-2) !important;
+        color: var(--color-primary) !important;
+        font-size: var(--text-base) !important;
+    }
+
+    /* Highlight the focus phase (Final Push) */
+    .final-push-focus .phase-detail:nth-child(3) {
+        border-left-color: var(--color-accent) !important;
+        border-left-width: 4px !important;
+        background: white !important;
+        box-shadow: var(--shadow-sm) !important;
+    }
+
+    .final-push-focus .phase-detail:nth-child(3) strong {
+        color: var(--color-accent) !important;
+    }
+}
+
+/* Tablet - can show horizontal but simpler */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .chevron-bar {
+        gap: var(--space-2) !important;
+    }
+
+    .chevron {
+        /* Simpler chevron shape on tablet */
+    }
+}
+
+/* ==============================================================================
+   COURSE DESCRIPTION - Image and Timeline handling on mobile
+   ============================================================================== */
+
+/* Scale down all images in course description on mobile */
+@media (max-width: 767px) {
+    .course-description img {
+        max-width: 50% !important;
+        height: auto !important;
+        margin: var(--space-3) auto !important;
+        display: block !important;
+    }
+
+    /* Chevron/arrow/timeline images - hide on mobile, show styled boxes instead */
+    .course-description img[src*="chevron"],
+    .course-description img[src*="arrow"],
+    .course-description img[src*="timeline"],
+    .course-description img[src*="process"],
+    .course-description img[alt*="chevron"],
+    .course-description img[alt*="arrow"] {
+        display: none !important;
+    }
+
+    /* Timeline/process step boxes - stack vertically on mobile */
+    .course-description-content table {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .course-description-content table tr {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+        margin-bottom: var(--space-4) !important;
+    }
+
+    .course-description-content table td {
+        display: block !important;
+        width: 100% !important;
+        padding: var(--space-3) !important;
+        background: var(--color-background-alt) !important;
+        border-radius: var(--radius-md) !important;
+        text-align: center !important;
+    }
+
+    /* Hide empty cells that just contain arrows/chevrons */
+    .course-description-content table td:empty,
+    .course-description-content table td img:only-child {
+        display: none !important;
+    }
+
+    /* Hide dotted bracket/chevron connector on mobile */
+    .course-description-content [style*="dashed"],
+    .course-description-content [style*="dotted"],
+    .course-description-content *[style*="border-right: dashed"],
+    .course-description-content *[style*="border-right: dotted"],
+    .course-description-content *[style*="border: dashed"],
+    .course-description-content *[style*="border: dotted"] {
+        border: none !important;
+    }
+
+    /* Hide SVG brackets/connectors */
+    .course-description-content svg[class*="bracket"],
+    .course-description-content svg[class*="connector"],
+    .course-description-content .bracket,
+    .course-description-content .connector,
+    .course-description-content .chevron-bracket {
+        display: none !important;
+    }
+
+    /* Timeline boxes should be full width without the bracket */
+    .course-description-content .timeline-box,
+    .course-description-content [class*="step"],
+    .course-description-content [class*="phase"] {
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* Tablet - slightly larger */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .course-description img {
+        max-width: 70% !important;
+        margin: var(--space-4) auto !important;
+    }
+}
+
+/* Desktop - full size for timeline visuals */
+@media (min-width: 1024px) {
+    .course-description img {
+        max-width: 100% !important;
+    }
+}
+
+/* ==============================================================================
+   DECORATIVE IMAGES - Hide on mobile if not essential
+   ============================================================================== */
+
+/* Generic approach for decorative images */
+@media (max-width: 767px) {
+    .decorative-image,
+    .hero-decoration,
+    [class*="decoration"],
+    .elementor-section img[src*="chevron"],
+    .elementor-section img[src*="arrow"],
+    .elementor-section img[src*="decoration"] {
+        display: none !important;
+    }
+}
+
+/* ==============================================================================
+   PRINT STYLES
+   ============================================================================== */
+
+@media print {
+    .course-hero {
+        background: #134958;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .hero-card {
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+    }
+}

@@ -39,6 +39,16 @@ get_header();
         scroll-behavior: smooth;
     }
 
+    /* Global Brand Orange for All Inquiry/CTA Buttons */
+    .cta-button.cta-primary,
+    .nyc-stem-inquiry-btn,
+    a.nyc-stem-inquiry-btn,
+    button.nyc-stem-inquiry-btn,
+    .elementor-button.nyc-stem-inquiry-btn {
+        background-color: #FF7F07 !important; /* Brand orange */
+        background-image: none !important;
+    }
+
     .cta-button.cta-primary:hover {
         opacity: 0.9;
     }

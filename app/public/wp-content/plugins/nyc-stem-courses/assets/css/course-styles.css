@@ -290,85 +290,24 @@ p {
     color: white !important;
 }
 
-/* Hero Card - Floating Stats */
-.hero-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 10px 18px 20px 18px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    max-width: 340px;
-}
+/* ==============================================================================
+   ⚠️ HERO CARD STYLING - DO NOT ADD STYLES HERE
+   Last Cleaned: 2025-11-20
 
-.hero-card h3 {
-    font-size: 24px !important;
-    color: #134958 !important;
-    margin-bottom: 12px !important;
-    text-align: center !important;
-    font-weight: 700 !important;
-    line-height: 1.3 !important;
-}
+   ALL .hero-card, .hero-card-grid, .card-stat-* styles have been REMOVED from this file.
 
-.hero-card-grid {
-    display: grid;
-    gap: 8px;
-}
+   REASON: Single source of truth architecture
+   - Theme CSS (/themes/skola-child/css/course-pages.css) controls ALL hero-card styling
+   - Theme loads at priority 1000, plugin loads at priority 10
+   - Adding styles here creates conflicts and inconsistent designs
 
-.card-stat-box {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 12px;
-    background: linear-gradient(135deg, #f8f9fa, #ffffff);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    border: 1px solid #eee;
-}
+   IF YOU NEED TO MODIFY HERO CARD STYLES:
+   → Edit: /themes/skola-child/css/course-pages.css (lines 140-270)
+   → Do NOT add styles to this file
 
-.card-stat-box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(40, 175, 207, 0.15);
-    border-color: #28AFCF;
-}
-
-.card-stat-icon {
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, #28AFCF, #134958);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.card-stat-icon svg {
-    width: 20px;
-    height: 20px;
-    color: white;
-}
-
-.card-stat-text {
-    flex: 1;
-    text-align: left;
-}
-
-.card-stat-number {
-    font-size: 24px;
-    font-weight: 700;
-    color: #134958;
-    display: block;
-    line-height: 1.3;
-    margin-bottom: 2px;
-}
-
-.card-stat-label {
-    font-size: 14px;
-    color: #666;
-    font-weight: 600;
-    line-height: 1.5;
-}
+   Current pattern: Modern inline horizontal text with bullets (default)
+   Legacy pattern: Opt-in via body class .hero-boxed-stats
+   ============================================================================== */
 
 /* ===========================
    TRUST BAR
@@ -1736,10 +1675,7 @@ p {
         gap: 50px;
     }
 
-    .hero-card {
-        max-width: 500px;
-        margin: 0 auto;
-    }
+    /* .hero-card styling removed - now in theme's course-pages.css */
 
     .features-bento {
         grid-template-columns: repeat(2, 1fr);
@@ -3158,14 +3094,7 @@ p {
     color: #ffffff !important;
 }
 
-/* EXCEPTION: Hero card titles should be dark teal and bold (Our Track Record, 1-on-1 Advantages, etc.) */
-.course-hero .hero-card h3,
-.hero-card h3 {
-    color: #134958 !important;
-    font-size: 24px !important;
-    font-weight: 700 !important;
-    line-height: 1.3 !important;
-}
+/* Hero card h3 styling removed - now controlled by theme's course-pages.css (hidden by default in inline pattern) */
 
 /* H2 Headings - 32px */
 .elementor-widget-heading h2,

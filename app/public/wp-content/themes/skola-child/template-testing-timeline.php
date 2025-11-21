@@ -35,6 +35,7 @@ article {
 
 body {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
     color: #333;
@@ -44,62 +45,74 @@ body {
 .timeline-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px 20px;
 }
 
-/* Hero Section - Full Width */
+/* Hero Section - Full Width Background, Constrained Content */
 .timeline-hero {
     background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
     color: white;
-    padding: 80px 40px;
-    text-align: center;
+    padding: 40px 0;
+    text-align: left;
     margin-bottom: 0;
     width: 100%;
 }
 
+.timeline-hero h1,
+.timeline-hero p {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
 .timeline-hero h1 {
     font-size: 48px;
-    margin-bottom: 20px;
-    font-weight: 700;
+    margin-bottom: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
     color: white !important;
 }
 
 .timeline-hero p {
-    font-size: 20px;
-    max-width: 700px;
-    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
     color: white !important;
 }
 
 /* Quick Navigation */
 .quick-nav {
     background: white;
-    padding: 30px;
+    padding: 25px;
     border-radius: 12px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .quick-nav h2 {
     color: #134958;
-    margin-bottom: 20px;
-    font-size: 24px;
+    margin-bottom: 16px;
+    font-size: 32px;
     font-weight: 700;
+    line-height: 1.3;
 }
 
 .nav-buttons {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    gap: 12px;
 }
 
 .nav-button {
     background: linear-gradient(135deg, #28AFCF, #134958);
     color: white !important;
-    padding: 15px 25px;
+    padding: 12px 20px;
     border-radius: 8px;
     text-decoration: none;
     text-align: center;
+    font-size: 16px;
     font-weight: 700;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -115,24 +128,25 @@ body {
 /* Visual Timeline Overview */
 .timeline-visual {
     background: white;
-    padding: 40px;
+    padding: 30px;
     border-radius: 12px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .timeline-visual h2 {
     color: #134958;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 32px;
     font-weight: 700;
+    line-height: 1.3;
 }
 
 .timeline-bars {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
 
 .timeline-bar {
@@ -143,7 +157,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .bar-label {
@@ -154,6 +168,7 @@ body {
 
 .bar-grade {
     font-size: 14px;
+    line-height: 1.5;
     color: #666;
     font-weight: 600;
 }
@@ -175,6 +190,7 @@ body {
     color: white;
     font-weight: 700;
     font-size: 14px;
+    line-height: 1.5;
     transition: width 1s ease;
 }
 
@@ -185,14 +201,14 @@ body {
 
 /* Test Section Cards */
 .test-sections {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .test-card {
     background: white;
     border-radius: 12px;
-    padding: 40px;
-    margin-bottom: 30px;
+    padding: 30px;
+    margin-bottom: 25px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     border-left: 5px solid;
 }
@@ -203,20 +219,22 @@ body {
 .test-card.act { border-color: #F0B268; }
 
 .test-card h3 {
-    font-size: 32px;
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 10px;
-    font-weight: 700;
+    font-weight: 600;
+    line-height: 1.3;
     color: #134958;
 }
 
 .test-badge {
     display: inline-block;
-    padding: 5px 15px;
+    padding: 4px 12px;
     border-radius: 20px;
     font-size: 14px;
+    line-height: 1.5;
     font-weight: 700;
     color: white;
     margin-left: auto;
@@ -230,32 +248,33 @@ body {
 .test-intro {
     font-size: 18px;
     color: #555;
-    margin-bottom: 30px;
-    line-height: 1.8;
+    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
 /* Step-by-Step Timeline */
 .prep-timeline {
-    margin: 30px 0;
+    margin: 25px 0;
 }
 
 .prep-timeline h4 {
     color: #134958;
-    font-size: 22px;
-    margin-bottom: 20px;
-    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .timeline-steps {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .timeline-step {
     display: flex;
-    gap: 20px;
-    padding: 20px;
+    gap: 16px;
+    padding: 16px;
     background: #f8f9fa;
     border-radius: 8px;
     transition: background 0.3s ease;
@@ -267,8 +286,8 @@ body {
 
 .step-number {
     flex-shrink: 0;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: linear-gradient(135deg, #28AFCF, #134958);
     color: white;
@@ -281,30 +300,32 @@ body {
 
 .step-content h5 {
     color: #134958;
-    margin-bottom: 8px;
-    font-size: 18px;
-    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .step-content p {
     color: #666;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
 }
 
 /* Key Points */
 .key-points {
     background: #f8f9fa;
-    padding: 25px;
+    padding: 20px;
     border-radius: 8px;
     margin: 20px 0;
 }
 
 .key-points h5 {
     color: #134958;
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: 700;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .key-points ul {
@@ -313,9 +334,11 @@ body {
 }
 
 .key-points li {
-    padding: 8px 0;
+    padding: 6px 0;
     padding-left: 25px;
     position: relative;
+    font-size: 16px;
+    line-height: 1.6;
     color: #555;
 }
 
@@ -330,29 +353,30 @@ body {
 /* Comparison Section */
 .comparison-section {
     background: white;
-    padding: 40px;
+    padding: 30px;
     border-radius: 12px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .comparison-section h2 {
     color: #134958;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     font-size: 32px;
     font-weight: 700;
+    line-height: 1.3;
 }
 
 .comparison-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 16px;
 }
 
 .comparison-card {
     background: #f8f9fa;
-    padding: 25px;
+    padding: 20px;
     border-radius: 8px;
     border-top: 4px solid;
 }
@@ -364,17 +388,19 @@ body {
 
 .comparison-card h4 {
     color: #134958;
-    margin-bottom: 15px;
-    font-size: 20px;
-    font-weight: 700;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .comparison-item {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .comparison-label {
-    font-size: 13px;
+    font-size: 14px;
+    line-height: 1.5;
     color: #666;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -383,6 +409,7 @@ body {
 
 .comparison-value {
     font-size: 16px;
+    line-height: 1.6;
     color: #333;
     font-weight: 700;
 }
@@ -390,24 +417,25 @@ body {
 /* Key Takeaways */
 .key-takeaways {
     background: white;
-    padding: 40px;
+    padding: 30px;
     border-radius: 12px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .key-takeaways h2 {
     color: #134958;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     font-size: 32px;
     font-weight: 700;
+    line-height: 1.3;
 }
 
 .takeaway-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    gap: 20px;
 }
 
 .takeaway-card {
@@ -426,13 +454,14 @@ body {
 .takeaway-card h4 {
     color: #134958;
     margin-bottom: 8px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .takeaway-card p {
     color: #666;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
     margin: 0;
 }
@@ -441,21 +470,23 @@ body {
 .timeline-cta-section {
     background: linear-gradient(135deg, #FF7F07, #FFB366);
     color: white;
-    padding: 50px 40px;
+    padding: 40px 30px;
     border-radius: 12px;
     text-align: center;
 }
 
 .timeline-cta-section h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
+    font-size: 32px;
+    margin-bottom: 12px;
     color: white;
     font-weight: 700;
+    line-height: 1.3;
 }
 
 .timeline-cta-section p {
     font-size: 18px;
-    margin-bottom: 30px;
+    line-height: 1.6;
+    margin-bottom: 25px;
     opacity: 0.95;
     color: white;
 }
@@ -463,7 +494,7 @@ body {
 /* Tablet Responsive */
 @media (max-width: 992px) {
     .timeline-container {
-        padding: 30px 15px;
+        padding: 20px 15px;
     }
 
     .comparison-grid {
@@ -475,63 +506,72 @@ body {
     }
 
     .test-card {
-        padding: 30px;
+        padding: 25px;
     }
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .timeline-container {
-        padding: 20px 15px;
+        padding: 15px;
     }
 
     .timeline-hero {
-        padding: 40px 20px;
+        padding: 30px 0;
+    }
+
+    .timeline-hero h1,
+    .timeline-hero p {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .timeline-hero h1 {
-        font-size: 28px;
-        margin-bottom: 15px;
+        font-size: 32px;
+        margin-bottom: 12px;
     }
 
     .timeline-hero p {
         font-size: 16px;
-        line-height: 1.5;
     }
 
     .quick-nav {
         padding: 20px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .quick-nav h2 {
-        font-size: 20px;
-        margin-bottom: 15px;
+        font-size: 24px;
+        margin-bottom: 12px;
     }
 
     .nav-buttons {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 10px;
     }
 
     .nav-button {
-        padding: 12px 20px;
-        font-size: 15px;
+        padding: 10px 16px;
+        font-size: 14px;
     }
 
     .timeline-visual,
     .comparison-section,
     .key-takeaways,
     .timeline-cta-section {
-        padding: 25px 20px;
-        margin-bottom: 30px;
+        padding: 20px;
+        margin-bottom: 20px;
     }
 
     .timeline-visual h2,
     .comparison-section h2,
     .key-takeaways h2 {
-        font-size: 22px;
-        margin-bottom: 25px;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .timeline-bars {
+        gap: 16px;
     }
 
     .bar-label {
@@ -539,21 +579,21 @@ body {
     }
 
     .bar-grade {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .bar-inner {
-        font-size: 12px;
+        font-size: 14px;
         padding: 0 10px;
     }
 
     .test-card {
-        padding: 25px 20px;
-        margin-bottom: 20px;
+        padding: 20px;
+        margin-bottom: 16px;
     }
 
     .test-card h3 {
-        font-size: 22px;
+        font-size: 20px;
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
@@ -561,31 +601,34 @@ body {
 
     .test-badge {
         margin-left: 0;
-        margin-top: 8px;
-        font-size: 13px;
-        padding: 4px 12px;
+        margin-top: 6px;
+        font-size: 14px;
+        padding: 4px 10px;
     }
 
     .test-intro {
         font-size: 16px;
-        line-height: 1.6;
         margin-bottom: 20px;
     }
 
     .prep-timeline h4 {
-        font-size: 19px;
-        margin-bottom: 15px;
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .timeline-steps {
+        gap: 12px;
     }
 
     .timeline-step {
         flex-direction: column;
-        padding: 15px;
-        gap: 15px;
+        padding: 12px;
+        gap: 12px;
     }
 
     .step-number {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         font-size: 16px;
     }
 
@@ -599,50 +642,50 @@ body {
     }
 
     .key-points {
-        padding: 20px;
-        margin: 15px 0;
+        padding: 16px;
+        margin: 16px 0;
     }
 
     .key-points h5 {
         font-size: 16px;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
 
     .key-points li {
         font-size: 14px;
-        padding: 6px 0;
-        padding-left: 22px;
+        padding: 5px 0;
+        padding-left: 20px;
     }
 
     .comparison-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 12px;
     }
 
     .comparison-card {
-        padding: 20px;
+        padding: 16px;
     }
 
     .comparison-card h4 {
         font-size: 18px;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
 
     .comparison-label {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .comparison-value {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .takeaway-cards {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
     }
 
     .takeaway-card {
-        padding: 18px 15px;
+        padding: 16px;
     }
 
     .takeaway-card h4 {
@@ -654,9 +697,13 @@ body {
         font-size: 14px;
     }
 
+    .timeline-cta-section {
+        padding: 30px 20px;
+    }
+
     .timeline-cta-section h2 {
-        font-size: 26px;
-        margin-bottom: 12px;
+        font-size: 24px;
+        margin-bottom: 10px;
     }
 
     .timeline-cta-section p {
@@ -668,11 +715,17 @@ body {
 /* Extra Small Mobile */
 @media (max-width: 480px) {
     .timeline-hero {
-        padding: 30px 15px;
+        padding: 25px 0;
+    }
+
+    .timeline-hero h1,
+    .timeline-hero p {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .timeline-hero h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .timeline-hero p {
@@ -680,7 +733,7 @@ body {
     }
 
     .timeline-container {
-        padding: 15px 10px;
+        padding: 12px;
     }
 
     .quick-nav,
@@ -689,7 +742,7 @@ body {
     .comparison-section,
     .key-takeaways,
     .timeline-cta-section {
-        padding: 20px 15px;
+        padding: 16px;
     }
 
     .timeline-visual h2,
@@ -699,7 +752,7 @@ body {
     }
 
     .test-card h3 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .bar-fill {
@@ -707,7 +760,7 @@ body {
     }
 
     .bar-inner {
-        font-size: 11px;
+        font-size: 14px;
     }
 
     .timeline-cta-section h2 {
@@ -1177,7 +1230,7 @@ html {
         <div class="timeline-cta-section">
             <h2>Ready to Start Your Test Prep Journey?</h2>
             <p>Let NYC STEM Club help you create a personalized preparation timeline for your student's success</p>
-            <?php echo do_shortcode('[inquiry_button color="dark-teal"]'); ?>
+            <?php echo do_shortcode('[inquiry_button color="white"]'); ?>
         </div>
     </div>
 </article>
