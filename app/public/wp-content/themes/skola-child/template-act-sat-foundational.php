@@ -1555,9 +1555,7 @@ get_header();
                                 <p style="font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.6; color: white; margin: 0 0 20px; opacity: 0.95;">
                                     Read our guide on SAT vs. ACT to determine which test aligns with your strengths. Part of the Foundational Course includes helping you make this decision.
                                 </p>
-                                <a href="/resources/sat-vs-act-2025-which-test-is-right-for-you/" style="display: inline-block; font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600; background: white; color: #28AFCF; padding: 12px 30px; text-decoration: none; border-radius: 50px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); transition: all 0.3s;">
-                                    Read SAT vs ACT Guide →
-                                </a>
+                                <?php echo do_shortcode('[inquiry_button text="Read SAT vs ACT Guide →" url="/resources/sat-vs-act-2025-which-test-is-right-for-you/" color="teal"]'); ?>
                             </div>
                         </div>
 
@@ -1889,7 +1887,7 @@ get_header();
                     <p>Schedule your free consultation and diagnostic assessment today.</p>
                     <div class="cta-buttons">
                         <?php echo do_shortcode('[inquiry_button]'); ?>
-                        <a href="/sat-act-test-prep/" class="cta-button cta-secondary">View All SAT/ACT Programs</a>
+                        <?php echo do_shortcode('[inquiry_button text="View All SAT/ACT Programs" url="/sat-act-test-prep/" color="teal"]'); ?>
                     </div>
                 </div>
             </section>

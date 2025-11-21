@@ -51,110 +51,117 @@ get_header();
         background-image: none !important;
     }
 
-    /* Hero Section - Matching SHSAT FAQ Page */
+    /* Hero Section - Left aligned like other pages */
     .shsat-hero {
         background: linear-gradient(135deg, #134958 0%, #28AFCF 100%) !important;
         color: white !important;
-        padding: 15px 20px !important;
-        text-align: center !important;
+        padding: 40px 20px !important;
+        text-align: left !important;
         display: block !important;
     }
 
     .hero-container {
         max-width: 1200px !important;
         margin: 0 auto !important;
-        display: block !important;
-        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        padding: 0 var(--space-4, 16px) !important;
     }
 
     .shsat-hero h1,
     .shsat-hero .hero-container h1 {
         font-family: 'Roboto', sans-serif !important;
-        font-size: 48px !important;
+        font-size: 32px !important;
         font-weight: 800 !important;
         line-height: 1.2 !important;
         color: white !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 16px !important;
         margin-top: 0 !important;
-        text-align: center !important;
-        display: block !important;
+        text-align: left !important;
         width: 100% !important;
     }
 
-    .shsat-hero h2,
-    .shsat-hero .hero-container h2 {
+    @media (min-width: 768px) {
+        .shsat-hero h1,
+        .shsat-hero .hero-container h1 {
+            font-size: 48px !important;
+        }
+    }
+
+    .shsat-hero .hero-excerpt {
         font-family: 'Roboto', sans-serif !important;
-        font-size: 32px !important;
-        font-weight: 700 !important;
-        line-height: 1.3 !important;
-        color: #F0B26B !important;
-        margin-bottom: 5px !important;
-        margin-top: 20px !important;
-        text-align: center !important;
-        display: block !important;
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        margin: 0 0 20px 0 !important;
+        max-width: none !important;
+        text-align: left !important;
         width: 100% !important;
     }
 
-    .shsat-hero p,
-    .shsat-hero .hero-container p {
-        font-family: 'Roboto', sans-serif !important;
-        font-size: 20px !important;
-        line-height: 1.6 !important;
-        color: white !important;
-        margin: 0 auto 15px !important;
-        max-width: 900px !important;
-        text-align: center !important;
-        display: block !important;
-        width: 100% !important;
+    @media (min-width: 768px) {
+        .shsat-hero .hero-excerpt {
+            font-size: 18px !important;
+        }
     }
 
-    .shsat-hero p:last-of-type,
-    .shsat-hero .hero-container p:last-of-type {
-        margin-bottom: 40px !important;
+    /* Hero Stats - Narrative format */
+    .shsat-hero .hero-stats-narrative {
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: left;
     }
 
-    .shsat-hero .hero-full-width,
-    .shsat-hero .hero-container .hero-full-width {
-        max-width: 100% !important;
+    .shsat-hero .stat-line {
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 8px;
+        color: white;
     }
 
-    .shsat-hero .hero-stat,
-    .shsat-hero .hero-container .hero-stat {
-        color: #F0B26B !important;
-        font-weight: 600 !important;
-        font-size: 24px !important;
-        margin-bottom: 30px !important;
+    .shsat-hero .stat-line .stat-highlight-orange {
+        color: #FF7F07;
+        font-weight: 800;
+        font-size: 22px;
+    }
+
+    .shsat-hero .stat-line .stat-highlight-gold {
+        color: #F0B26B;
+        font-weight: 800;
+        font-size: 22px;
+    }
+
+    .shsat-hero .hero-description {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 16px 0 24px 0;
+    }
+
+    @media (min-width: 768px) {
+        .shsat-hero .stat-line {
+            font-size: 20px;
+        }
+        .shsat-hero .stat-line .stat-highlight-orange,
+        .shsat-hero .stat-line .stat-highlight-gold {
+            font-size: 26px;
+        }
+        .shsat-hero .hero-description {
+            font-size: 18px;
+        }
     }
 
     .hero-buttons {
         display: flex;
-        gap: 20px;
-        justify-content: center;
+        gap: 16px;
+        justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
-    }
-
-    .btn-view-programs {
-        display: inline-block !important;
-        background: #FF9574 !important;
-        color: white !important;
-        padding: 15px 35px !important;
-        border-radius: 0 !important;
-        font-family: 'Roboto', sans-serif !important;
-        font-size: 18px !important;
-        font-weight: 700 !important;
-        text-decoration: none !important;
-        transition: all 0.3s !important;
-        box-shadow: 0 4px 15px rgba(255, 149, 116, 0.3) !important;
-        border: none !important;
-    }
-
-    .btn-view-programs:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 6px 20px rgba(255, 149, 116, 0.5) !important;
-        background: #ff8f84 !important;
-        color: white !important;
-        text-decoration: none !important;
     }
 
     /* Style inquiry button in hero to match */
@@ -926,11 +933,6 @@ get_header();
             gap: 15px !important;
         }
 
-        .btn-view-programs {
-            width: 100% !important;
-            text-align: center !important;
-        }
-
         /* Make inquiry button full width on mobile too */
         .hero-buttons .inquiry-button,
         .hero-buttons .nyc-stem-inquiry-btn,
@@ -1036,12 +1038,19 @@ get_header();
     <section class="shsat-hero">
         <div class="hero-container">
             <h1>Digital SHSAT Prep</h1>
-            <h2>90%+ Specialized High School Acceptance Rate</h2>
-            <p class="hero-stat">50%+ of our students qualify for Stuyvesant – the most selective school in NYC.</p>
-            <p class="hero-full-width">NYC STEM CLUB has helped hundreds of students gain admission to Stuyvesant, Bronx Science, Brooklyn Tech, and other top specialized high schools.</p>
+
+            <!-- Stats Narrative -->
+            <div class="hero-stats-narrative">
+                <p class="stat-line"><span class="stat-highlight-orange">90%+</span> Specialized High School Acceptance Rate</p>
+                <p class="stat-line"><span class="stat-highlight-gold">50%+</span> of our students qualify for Stuyvesant – the most selective school in NYC.</p>
+            </div>
+
+            <p class="hero-description">NYC STEM CLUB has helped hundreds of students gain admission to Stuyvesant, Bronx Science, Brooklyn Tech, and other top specialized high schools.</p>
+
+            <!-- CTA Buttons -->
             <div class="hero-buttons">
-                <a href="#shsat-programs" class="btn-view-programs">Jump to Courses</a>
                 <?php echo do_shortcode('[inquiry_button]'); ?>
+                <?php echo do_shortcode('[inquiry_button text="Jump to Courses" url="#SHSATPrograms" color="teal"]'); ?>
             </div>
         </div>
     </section>

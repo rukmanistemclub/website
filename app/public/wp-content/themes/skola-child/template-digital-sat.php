@@ -678,7 +678,7 @@ body {
             <p>NYC STEM Club's expert instructors are fully trained on the Digital SAT format. Our comprehensive prep program combines content mastery with digital test-taking strategies to maximize your score.</p>
             <div class="cta-buttons-container">
                 <?php echo do_shortcode('[inquiry_button]'); ?>
-                <?php echo do_shortcode('[inquiry_button text="View Programs" url="/sat-act-test-prep/"]'); ?>
+                <?php echo do_shortcode('[inquiry_button text="View Programs" url="/sat-act-test-prep/" color="teal"]'); ?>
             </div>
         </div>
     </article>

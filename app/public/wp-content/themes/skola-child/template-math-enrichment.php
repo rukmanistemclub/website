@@ -42,12 +42,12 @@ body {
     padding: 40px 20px;
 }
 
-/* Hero Section */
+/* Hero Section - Left Aligned */
 .hero-section {
     background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
     color: white;
-    padding: 60px 20px;
-    text-align: center;
+    padding: 40px 0;
+    text-align: left;
     margin-bottom: 0;
 }
 
@@ -57,15 +57,19 @@ body {
     font-weight: 800;
     line-height: 1.2;
     color: white !important;
-    margin: 0;
+    margin: 0 auto 16px auto;
     letter-spacing: -1px;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* Intro Section */
 .intro-section {
     text-align: center;
-    margin: 40px 0 60px;
-    padding: 0 40px;
+    max-width: 1200px;
+    margin: 40px auto 60px auto;
+    padding: 0 20px;
 }
 
 .intro-section p {
@@ -83,7 +87,7 @@ body {
 }
 
 .program-details-section .inner {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -186,6 +190,54 @@ body {
 @media (max-width: 968px) {
     .detail-row {
         grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 30px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 32px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .intro-section {
+        margin: 30px 0 40px;
+        padding: 0 20px;
+    }
+
+    .intro-section p {
+        font-size: 16px !important;
+    }
+
+    .cta-section {
+        padding: 40px 20px;
+    }
+
+    .cta-section h2 {
+        font-size: 24px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .cta-section p {
+        font-size: 16px !important;
+        margin-bottom: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 25px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 28px !important;
+    }
+
+    .cta-section h2 {
+        font-size: 22px !important;
     }
 }
 </style>

@@ -42,56 +42,86 @@ get_header();
         color: #2d3748;
     }
 
-    /* Hero Section */
-    .hero {
+    /* Hero Section - Left Aligned */
+    .admissions-counseling-page .hero {
         background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
         color: white;
-        padding: 60px 0;
-        text-align: center;
+        padding: 40px 0;
+        text-align: left;
     }
 
-    .hero-container {
-        max-width: 1200px;
+    .admissions-counseling-page .hero-container {
+        max-width: var(--container-xl, 1200px);
         margin: 0 auto;
-        padding: 0 20px;
-        text-align: center;
+        padding: 0 var(--space-4, 16px);
+        text-align: left;
+        display: block !important;
     }
 
-    .hero-content {
+    @media (min-width: 768px) {
+        .admissions-counseling-page .hero-container {
+            padding-left: var(--space-6, 24px);
+            padding-right: var(--space-6, 24px);
+        }
+    }
+
+    .admissions-counseling-page .hero-content {
         width: 100%;
-        text-align: center;
-        margin: 0 auto;
+        text-align: left;
+        display: block !important;
     }
 
-    .hero-content h1 {
-        font-size: 3rem;
-        margin-bottom: 20px;
+    .admissions-counseling-page .hero-content h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 48px;
+        font-weight: 800;
+        margin-bottom: 16px;
         line-height: 1.2;
-        text-align: center;
+        letter-spacing: -1px;
+        color: #FFFFFF;
     }
 
-    .hero-content .subtitle {
-        font-size: 1.3rem;
-        margin-bottom: 30px;
+    .admissions-counseling-page .hero-content .subtitle {
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        margin-bottom: 25px;
         opacity: 0.95;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
+        color: #FFFFFF;
     }
 
-    .hero-description {
-        font-size: 1.1rem;
-        max-width: 1200px;
-        margin: 0 auto 40px;
-        line-height: 1.8;
+    .admissions-counseling-page .hero-description {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6;
+        margin-bottom: 25px;
         opacity: 0.9;
+        color: #FFFFFF;
+        width: 100%;
+        max-width: none;
+    }
+
+    .admissions-counseling-page .hero-cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 20px;
     }
 
     /* Content Section */
     .content-section {
-        max-width: 1200px;
+        max-width: var(--container-xl, 1200px);
         margin: 40px auto 0 auto;
-        padding: 0 20px;
+        padding: 0 var(--space-4, 16px);
+    }
+
+    @media (min-width: 768px) {
+        .content-section {
+            padding-left: var(--space-6, 24px);
+            padding-right: var(--space-6, 24px);
+        }
     }
 
     .content-section h2 {
@@ -102,28 +132,34 @@ get_header();
     }
 
     .intro-text {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: #555;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #333;
         margin-bottom: 30px;
-        text-align: center;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
+        text-align: left;
     }
 
     /* Courses Section */
     .courses-section {
         background: #f8f9fa;
-        padding: 10px 20px 50px 20px;
+        padding: 10px 0 50px 0;
         margin-top: 0;
     }
 
     /* Override global course-cards.css for this page specifically */
     .courses-section .related-container {
-        max-width: 1200px !important;
+        max-width: var(--container-xl, 1200px) !important;
         margin: 0 auto !important;
-        padding: 0 !important;
+        padding: 0 var(--space-4, 16px) !important;
+    }
+
+    @media (min-width: 768px) {
+        .courses-section .related-container {
+            padding-left: var(--space-6, 24px) !important;
+            padding-right: var(--space-6, 24px) !important;
+        }
     }
 
     .courses-section .related-grid {
@@ -150,13 +186,6 @@ get_header();
         margin-right: auto;
     }
 
-    /* Override global course card container width to match page width */
-    .courses-section .related-container {
-        max-width: 1200px !important;
-        margin: 0 auto;
-        padding: 0 !important; /* Remove padding - parent already has it */
-    }
-
     /* CTA Section */
     .cta-section {
         background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
@@ -175,9 +204,8 @@ get_header();
         font-size: 1.2rem;
         margin-bottom: 30px;
         opacity: 0.95;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
+        max-width: none;
+        width: 100%;
         color: white !important;
     }
 
@@ -203,20 +231,33 @@ get_header();
 
     /* Responsive */
     @media (max-width: 768px) {
-        .hero {
-            padding: 40px 0;
+        .admissions-counseling-page .hero {
+            padding: 30px 0;
         }
 
-        .hero-content h1 {
-            font-size: 2rem;
+        .admissions-counseling-page .hero-content h1 {
+            font-size: 32px !important;
+            margin-bottom: 12px !important;
         }
 
-        .hero-content .subtitle {
-            font-size: 1.1rem;
+        .admissions-counseling-page .hero-content .subtitle {
+            font-size: 16px !important;
+            margin-bottom: 20px !important;
         }
 
-        .hero-description {
-            font-size: 1rem;
+        .admissions-counseling-page .hero-description {
+            font-size: 14px !important;
+        }
+
+        .admissions-counseling-page .hero-cta-group {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .admissions-counseling-page .hero-cta-group .nyc-stem-inquiry-btn {
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
         }
 
         .content-section {
@@ -266,12 +307,16 @@ get_header();
     }
 
     @media (max-width: 480px) {
-        .hero-content h1 {
-            font-size: 1.75rem;
+        .admissions-counseling-page .hero {
+            padding: 25px 0;
         }
 
-        .hero-content .subtitle {
-            font-size: 1rem;
+        .admissions-counseling-page .hero-content h1 {
+            font-size: 28px !important;
+        }
+
+        .admissions-counseling-page .hero-content .subtitle {
+            font-size: 14px !important;
         }
 
         .content-section h2 {
@@ -301,6 +346,10 @@ get_header();
                     comprehensive support from school selection and application strategy to essay development and
                     submission, helping you present your strongest profile to admissions committees.
                 </p>
+                <div class="hero-cta-group">
+                    <?php echo do_shortcode('[inquiry_button source="Admissions Counseling"]'); ?>
+                    <?php echo do_shortcode('[inquiry_button color="teal" text="View Our Services" url="#services"]'); ?>
+                </div>
             </div>
         </div>
     </section>
@@ -317,7 +366,7 @@ get_header();
     </section>
 
     <!-- Courses Section -->
-    <section class="courses-section">
+    <section class="courses-section" id="services">
         <h2>Our Admissions Counseling Services</h2>
         <p class="section-subtitle">
             Choose the counseling program that fits your admissions journey

@@ -106,22 +106,22 @@ p {
 }
 
 .hero-container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px 40px;
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 1.857fr 1fr;
-    gap: 60px;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
 }
 
 /* Centered Hero (for enrichment courses) */
 .course-hero.hero-centered .hero-container {
-    grid-template-columns: 1fr;
     max-width: 900px;
     text-align: center;
+    align-items: center;
     padding: 40px 20px;
 }
 
@@ -1671,8 +1671,8 @@ p {
    =========================== */
 @media (max-width: 1200px) {
     .hero-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
+        /* Already flex column by default, just adjust padding if needed */
+        padding: 20px;
     }
 
     /* .hero-card styling removed - now in theme's course-pages.css */

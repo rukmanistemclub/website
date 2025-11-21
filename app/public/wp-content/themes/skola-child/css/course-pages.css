@@ -18,7 +18,7 @@
 .course-hero {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
     min-height: auto;
-    padding: var(--space-6) var(--space-4) var(--space-6) var(--space-4); /* Tighter padding */
+    padding: var(--space-6) 0; /* Vertical only - horizontal padding on container */
     position: relative;
     overflow: hidden;
 }
@@ -30,12 +30,23 @@
 
 .hero-container {
     max-width: var(--container-xl);
+    width: 100%;
     margin: 0 auto;
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
     display: flex;
     flex-direction: column !important; /* Single column on all devices */
     align-items: flex-start !important;
     gap: 0 !important;
+}
+
+@media (min-width: 768px) {
+    .hero-container {
+        padding-left: var(--space-6);
+        padding-right: var(--space-6);
+    }
 }
 
 /* Hero Content - Use display: contents to allow element reordering */
@@ -74,6 +85,45 @@
     order: 2 !important;
     width: 100% !important;
     text-align: left !important;
+}
+
+/* Order 3: Track Record Stats - Inline bullets */
+.hero-track-record {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    width: 100% !important;
+    order: 3 !important;
+}
+
+.track-record-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--text-base);
+    line-height: 1.4;
+}
+
+.track-record-item::before {
+    content: "✓";
+    color: var(--color-orange, #FF7F07);
+    font-weight: var(--font-bold);
+    font-size: var(--text-sm);
+}
+
+.track-number {
+    color: var(--color-orange, #FF7F07);
+    font-weight: var(--font-bold);
+}
+
+@media (min-width: 768px) {
+    .hero-track-record {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--space-3) var(--space-6);
+    }
 }
 
 /* Order 4: Mini Stats - Left aligned */
@@ -180,11 +230,9 @@ body.single-course .hero-card h3,
 .hero-container .hero-card-grid,
 body.single-course .hero-card-grid,
 .hero-card-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    gap: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--space-2) !important;
 }
 
 .course-hero .card-stat-box,
@@ -274,7 +322,7 @@ body.hero-boxed-stats .hero-card h3 {
 
 body.hero-boxed-stats .hero-card-grid {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: 1fr !important;
     gap: var(--space-3) !important;
 }
 
@@ -360,7 +408,7 @@ body.hero-boxed-stats .card-stat-label {
 
 @media (min-width: 768px) {
     .course-hero {
-        padding: var(--space-8) var(--space-6) var(--space-8) var(--space-6);
+        padding: var(--space-8) 0; /* Vertical only - horizontal padding on container */
     }
 
     /* Maintain single column layout on all devices */
@@ -508,26 +556,26 @@ body.hero-boxed-stats .card-stat-label {
 
 .course-hero.hero-centered .hero-container {
     flex-direction: column;
-    max-width: 800px;
-    text-align: center;
+    max-width: var(--container-xl);
+    text-align: left;
 }
 
 .course-hero.hero-centered .hero-content {
-    text-align: center;
+    text-align: left;
 }
 
 .course-hero.hero-centered .hero-tagline,
 .course-hero.hero-centered .hero-excerpt {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .course-hero.hero-centered .hero-stats-mini {
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .course-hero.hero-centered .cta-group {
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* ==============================================================================
@@ -782,9 +830,9 @@ button.nyc-stem-inquiry-btn {
 }
 
 /* Global Inquiry Button Color - Vibrant Brand Orange */
-.nyc-stem-inquiry-btn:not(.btn-teal),
-a.nyc-stem-inquiry-btn:not(.btn-teal),
-button.nyc-stem-inquiry-btn:not(.btn-teal) {
+.nyc-stem-inquiry-btn:not(.btn-teal):not(.btn-dark-teal),
+a.nyc-stem-inquiry-btn:not(.btn-teal):not(.btn-dark-teal),
+button.nyc-stem-inquiry-btn:not(.btn-teal):not(.btn-dark-teal) {
     background-color: #FF7F07 !important; /* Brand orange matching Final Push chevron */
 }
 
@@ -803,6 +851,24 @@ button.nyc-stem-inquiry-btn.btn-teal {
 a.nyc-stem-inquiry-btn.btn-teal:hover,
 button.nyc-stem-inquiry-btn.btn-teal:hover {
     background-color: #1f96b8 !important;
+    color: white !important;
+}
+
+/* Dark Teal button variant */
+.nyc-stem-inquiry-btn.btn-dark-teal,
+a.nyc-stem-inquiry-btn.btn-dark-teal,
+button.nyc-stem-inquiry-btn.btn-dark-teal {
+    background-color: #134958 !important;
+    color: white !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.nyc-stem-inquiry-btn.btn-dark-teal:hover,
+a.nyc-stem-inquiry-btn.btn-dark-teal:hover,
+button.nyc-stem-inquiry-btn.btn-dark-teal:hover {
+    background-color: #0f3a45 !important;
     color: white !important;
 }
 
@@ -899,7 +965,7 @@ a.btn:hover {
 
 .course-hero .hero-card-grid {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: 1fr !important;
     gap: var(--space-3) !important;
 }
 
@@ -1032,14 +1098,12 @@ body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-card 
     display: none !important;
 }
 
-/* Stats display as horizontal row */
+/* Stats display as single column */
 .postid-17429 .course-hero .hero-card-grid,
 body.single-course[class*="shsat-fall-bootcamp-mockup"] .course-hero .hero-card-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    gap: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--space-2) !important;
 }
 
 .postid-17429 .course-hero .card-stat-box,

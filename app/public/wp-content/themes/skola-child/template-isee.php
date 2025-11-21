@@ -66,7 +66,7 @@ get_header();
         opacity: 0.9;
     }
 
-    /* Hero Section - Course Style */
+    /* Hero Section - Left aligned single column */
     .course-hero {
         display: flex;
         align-items: center;
@@ -74,199 +74,113 @@ get_header();
         overflow: hidden;
         background: linear-gradient(135deg, #134958 0%, #1a5f73 50%, #28AFCF 100%);
         margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
+        padding: 40px 20px !important;
     }
 
     .course-hero::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 80%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(40, 175, 207, 0.15) 0%, transparent 70%);
-        border-radius: 50%;
-        animation: pulse 8s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 0.5; }
-        50% { transform: scale(1.1); opacity: 0.3; }
+        display: none;
     }
 
     .hero-container {
-        max-width: 1400px;
+        max-width: 1200px;
         margin: 0 auto;
-        padding: 50px 10px;
+        padding: 0 var(--space-4, 16px);
         position: relative;
         z-index: 1;
-        display: grid;
-        grid-template-columns: 1.857fr 1fr;
-        gap: 60px;
-        align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-content {
+        width: 100%;
+        text-align: left;
     }
 
     .course-hero .hero-content h1 {
-        font-size: 48px !important;
+        font-size: 32px !important;
         font-weight: 800 !important;
         color: #ffffff !important;
-        margin-bottom: 8px;
-        line-height: 1.1;
-        letter-spacing: -1px;
+        margin-bottom: 16px;
+        line-height: 1.2;
+        text-align: left;
     }
 
-    .hero-content .highlight {
-        background: linear-gradient(135deg, #FF7F07, #F0B268);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+    @media (min-width: 768px) {
+        .course-hero .hero-content h1 {
+            font-size: 48px !important;
+        }
+        .hero-container {
+            padding: 0 var(--space-6, 24px);
+        }
     }
 
     .hero-excerpt {
-        font-size: 18px;
+        font-size: 16px;
         color: rgba(255, 255, 255, 0.9);
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         font-weight: 400;
         line-height: 1.7;
+        text-align: left;
     }
 
-    .hero-stats-mini {
+    @media (min-width: 768px) {
+        .hero-excerpt {
+            font-size: 18px;
+        }
+    }
+
+    /* Track Record Stats - Inline bullets */
+    .hero-track-record {
         display: flex;
-        gap: 16px;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 20px;
+        width: 100%;
     }
 
-    .stat-mini {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .stat-mini-icon {
-        width: 44px;
-        height: 44px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
+    .track-record-item {
         display: flex;
         align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        line-height: 1.4;
     }
 
-    .stat-mini-icon svg {
-        width: 22px;
-        height: 22px;
+    .track-record-item::before {
+        content: "\2713";
         color: #FF7F07;
-    }
-
-    .stat-mini-text {
-        color: white;
-    }
-
-    .stat-mini-number {
-        font-size: 24px;
         font-weight: 700;
-        display: block;
-        line-height: 1;
-        margin-bottom: 3px;
+        font-size: 14px;
     }
 
-    .stat-mini-label {
-        font-size: 12px;
-        opacity: 0.8;
-        font-weight: 400;
+    .track-number {
+        color: #FF7F07;
+        font-weight: 700;
+    }
+
+    @media (min-width: 768px) {
+        .hero-track-record {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+        }
+        .track-record-item {
+            font-size: 16px;
+        }
     }
 
     .cta-group {
         display: flex;
-        gap: 20px;
+        gap: 16px;
         flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
+    /* Hide hero card - using inline stats now */
     .hero-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border-radius: 20px;
-        padding: 20px 18px;
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        max-width: 340px;
-    }
-
-    .hero-card h3 {
-        font-size: 16px;
-        color: #134958;
-        margin-bottom: 12px;
-        text-align: center;
-        font-weight: 700;
-    }
-
-    .hero-card-grid {
-        display: grid;
-        gap: 8px;
-    }
-
-    .card-stat-box {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 10px 12px;
-        background: linear-gradient(135deg, #f8f9fa, #ffffff);
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        border: 1px solid #eee;
-    }
-
-    .card-stat-box:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 20px rgba(40, 175, 207, 0.15);
-        border-color: #28AFCF;
-    }
-
-    .card-stat-icon {
-        width: 36px;
-        height: 36px;
-        background: linear-gradient(135deg, #28AFCF, #134958);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-
-    .card-stat-icon svg {
-        width: 20px;
-        height: 20px;
-        color: white;
-    }
-
-    .card-stat-text {
-        flex: 1;
-        text-align: left;
-    }
-
-    .card-stat-number {
-        font-size: 22px;
-        font-weight: 800;
-        color: #134958;
-        display: block;
-        line-height: 1;
-        margin-bottom: 2px;
-    }
-
-    .card-stat-label {
-        font-size: 12px;
-        color: #666;
-        font-weight: 500;
-    }
-
-    .card-stat-schools {
-        font-size: 11px;
-        color: #666;
-        line-height: 1.4;
-        margin-top: 4px;
+        display: none !important;
     }
 
     .test-comparison-badge {
@@ -911,216 +825,157 @@ get_header();
         box-shadow: 0 6px 20px rgba(255, 127, 7, 0.4);
     }
 
-    /* FAQ Section - Modern Collapsible - Typography Compliant */
+    /* FAQ Section - Matching SHSAT FAQ Page Style */
     .faq-section {
         margin-bottom: 60px;
         font-family: 'Roboto', sans-serif;
     }
 
-    .faq-header {
+    .faq-section .faq-intro {
         text-align: center;
-        margin-bottom: 40px;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0 20px;
+        margin-bottom: 30px;
     }
 
-    .faq-header h2 {
+    .faq-section .faq-intro h2 {
         font-family: 'Roboto', sans-serif;
         font-size: 32px;
-        color: #134958;
         font-weight: 700;
         line-height: 1.3;
+        color: #134958;
         margin-bottom: 16px;
         text-align: center;
     }
 
-    .faq-container {
+    .faq-section .faq-list {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        overflow: hidden;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
     }
 
-    .faq-item {
-        background: white;
-        margin-bottom: 16px;
-        border-radius: 12px;
-        border: 2px solid #e5e7eb;
-        transition: all 0.3s ease;
-        overflow: hidden;
+    .faq-section .faq-item {
+        border-bottom: 1px solid #e7e7ec;
     }
 
-    .faq-item.active {
-        border-color: #28AFCF;
-        box-shadow: 0 4px 12px rgba(40, 175, 207, 0.15);
+    .faq-section .faq-item:last-child {
+        border-bottom: none;
     }
 
-    .faq-question {
-        padding: 24px 28px;
+    .faq-section .faq-question {
+        width: 100%;
+        background: transparent;
+        border: none;
+        padding: 1.25rem 1.5rem;
         cursor: pointer;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        gap: 20px;
-        transition: all 0.3s ease;
-        user-select: none;
-    }
-
-    .faq-question:hover {
-        background: #f8f9fa;
-    }
-
-    .faq-item.active .faq-question {
-        background: linear-gradient(135deg, #ecfeff, #cffafe);
-        border-bottom: 2px solid #e5e7eb;
-    }
-
-    .faq-question h3 {
+        justify-content: space-between;
+        transition: background-color 0.2s ease;
+        text-align: left;
         font-family: 'Roboto', sans-serif;
         font-size: 18px;
-        color: #134958;
         font-weight: 600;
-        line-height: 1.3;
-        margin: 0;
-        flex: 1;
+        line-height: 1.4;
+        color: #134958;
     }
 
-    .faq-toggle {
-        width: 32px;
-        height: 32px;
-        background: #28AFCF;
-        border-radius: 50%;
+    .faq-section .faq-question:hover {
+        background-color: #f8f9fa;
+    }
+
+    .faq-section .faq-item.active .faq-question {
+        background-color: #f8f9fa;
+    }
+
+    .faq-section .faq-toggle {
+        flex-shrink: 0;
+        margin-left: 1.25rem;
+        color: #28AFCF;
+        transition: transform 0.3s ease;
         display: flex;
         align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        transition: all 0.3s ease;
-    }
-
-    .faq-toggle:after {
-        content: '+';
-        color: white;
-        font-size: 24px;
+        font-size: 1.5rem;
         font-weight: 700;
-        line-height: 1;
     }
 
-    .faq-item.active .faq-toggle {
-        background: #134958;
-        transform: rotate(45deg);
+    .faq-section .faq-item.active .faq-toggle {
+        transform: rotate(90deg);
     }
 
-    .faq-answer {
+    .faq-section .faq-answer {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.4s ease, padding 0.4s ease;
-        padding: 0 28px;
+        transition: max-height 0.4s ease;
+        background: #fafbfc;
     }
 
-    .faq-item.active .faq-answer {
-        max-height: 2000px;
-        padding: 24px 28px;
+    .faq-section .faq-item.active .faq-answer {
+        max-height: 3000px;
     }
 
-    .faq-answer p {
+    .faq-section .faq-answer-content {
+        padding: 1rem 1.5rem 1.25rem;
+    }
+
+    .faq-section .faq-answer p {
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
+        font-weight: 400;
         line-height: 1.6;
-        color: #333;
-        margin-bottom: 16px;
+        color: #666;
+        margin: 0 0 0.75rem 0;
     }
 
-    .faq-answer p:last-child {
+    .faq-section .faq-answer p:last-child {
         margin-bottom: 0;
     }
 
-    .faq-answer ul {
+    .faq-section .faq-answer ul {
         list-style: none;
-        padding-left: 0;
-        margin: 16px 0;
+        margin: 0 0 0.75rem 0;
+        padding: 0;
     }
 
-    .faq-answer ul li {
+    .faq-section .faq-answer ul li {
         font-family: 'Roboto', sans-serif;
-        padding-left: 30px;
-        position: relative;
-        margin-bottom: 8px;
         font-size: 16px;
-        line-height: 1.6;
-        color: #333;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #666;
+        padding-left: 1.5rem;
+        position: relative;
+        margin-bottom: 0.5rem;
     }
 
-    .faq-answer ul li:before {
+    .faq-section .faq-answer ul li:before {
         content: "▸";
         position: absolute;
         left: 0;
-        font-size: 18px;
-        font-weight: 700;
         color: #28AFCF;
+        font-weight: 700;
+        font-size: 18px;
     }
 
-    .faq-answer strong {
+    .faq-section .faq-answer strong {
         font-weight: 700;
         color: #134958;
     }
 
     /* Mobile Responsive - FAQ Section */
     @media (max-width: 768px) {
-        .faq-header h2 {
+        .faq-section .faq-intro h2 {
             font-size: 28px;
         }
 
-        .faq-question {
-            padding: 20px 20px;
-            gap: 16px;
-        }
-
-        .faq-question h3 {
+        .faq-section .faq-question {
+            padding: 1rem 1.25rem;
             font-size: 16px;
         }
 
-        .faq-toggle {
-            width: 28px;
-            height: 28px;
-        }
-
-        .faq-toggle:after {
-            font-size: 20px;
-        }
-
-        .faq-answer {
-            padding: 0 20px;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 20px 20px;
-        }
-
-        .faq-container {
-            padding: 0 16px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .faq-header h2 {
-            font-size: 24px;
-        }
-
-        .faq-question {
-            padding: 16px 16px;
-        }
-
-        .faq-question h3 {
-            font-size: 18px;
-        }
-
-        .faq-answer {
-            padding: 0 16px;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 16px 16px;
+        .faq-section .faq-answer-content {
+            padding: 0.75rem 1.25rem 1rem;
         }
     }
 
@@ -1152,13 +1007,7 @@ get_header();
     /* Responsive */
     @media (max-width: 1024px) {
         .hero-container {
-            grid-template-columns: 1fr;
-            gap: 40px;
             padding: 40px 20px;
-        }
-
-        .hero-card {
-            max-width: 100%;
         }
 
         .section-row {
@@ -1183,13 +1032,9 @@ get_header();
             font-size: 16px;
         }
 
-        .hero-stats-mini {
+        .hero-track-record {
             flex-direction: column;
-            gap: 12px;
-        }
-
-        .stat-mini-number {
-            font-size: 18px;
+            gap: 8px;
         }
 
         .cta-group {
@@ -1248,60 +1093,19 @@ get_header();
             <!-- Hero Section -->
             <section class="course-hero">
                 <div class="hero-container">
-                    <!-- Left Column: Main Content -->
                     <div class="hero-content">
                         <h1>ISEE Test Preparation</h1>
-                        <p class="hero-excerpt">Comprehensive preparation for the Independent School Entrance Examination across all three testing levels</p>
+                        <p class="hero-excerpt">Comprehensive preparation for the Independent School Entrance Examination across all three testing levels. Our program develops foundational reading, math, and reasoning skills through personalized instruction and proven strategies - and our students consistently receive multiple offers, most from schools within their top three choices. Over the years, they have been accepted to Trinity, Dalton, Horace Mann, Brearley, Collegiate, Riverdale, St. Ann's, and numerous prestigious private schools. Group and Private lessons offered.</p>
 
-                        <!-- Mini Stats -->
-                        <div class="hero-stats-mini">
-                            <div class="stat-mini">
-                                <div class="stat-mini-icon">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                                    </svg>
-                                </div>
-                                <div class="stat-mini-text">
-                                    <span class="stat-mini-number">85%+</span>
-                                    <span class="stat-mini-label">Stanine 7-9 Achievement</span>
-                                </div>
-                            </div>
+                        <!-- Track Record Stats -->
+                        <div class="hero-track-record">
+                            <div class="track-record-item"><span class="track-number">Over 85%</span> Scored a Stanine of 7-9 on the ISEE</div>
                         </div>
 
                         <!-- CTA Buttons -->
                         <div class="cta-group">
-                            <a href="#programs" class="cta-button cta-primary" style="background-color: #FF9574; color: #FFFFFF; padding: 12px 24px; border-radius: 3px; font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 700 !important; line-height: 1.8 !important; min-width: 180px !important; width: auto !important; display: inline-block !important; text-align: center !important; text-decoration: none; transition: all .3s;">Jump to Programs</a>
                             <?php echo do_shortcode('[inquiry_button]'); ?>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Track Record Card -->
-                    <div class="hero-card">
-                        <h3>Our Track Record</h3>
-                        <div class="hero-card-grid">
-                            <div class="card-stat-box">
-                                <div class="card-stat-icon">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                                    </svg>
-                                </div>
-                                <div class="card-stat-text">
-                                    <span class="card-stat-number">Over 85%</span>
-                                    <span class="card-stat-label">Scored a Stanine of 7-9 on the ISEE</span>
-                                </div>
-                            </div>
-                            <div class="card-stat-box">
-                                <div class="card-stat-icon">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                                    </svg>
-                                </div>
-                                <div class="card-stat-text">
-                                    <span class="card-stat-number">Top 3 Schools</span>
-                                    <span class="card-stat-label">Our students have received offers in one of their top 3 schools</span>
-                                    <div class="card-stat-schools">Trinity, Dalton, Horace Mann, Brearley, Collegiate, Riverdale, St. Ann's, prestigious boarding schools and many more top schools</div>
-                                </div>
-                            </div>
+                            <?php echo do_shortcode('[inquiry_button text="Jump to Programs" url="#programs" color="teal"]'); ?>
                         </div>
                     </div>
                 </div>
@@ -1474,70 +1278,80 @@ get_header();
 
                 <!-- FAQ Section -->
                 <div id="faq" class="faq-section">
-                    <div class="faq-header">
+                    <div class="faq-intro">
                         <h2>Frequently Asked Questions</h2>
                     </div>
 
-                    <div class="faq-container">
-                        <div class="faq-item active">
-                            <div class="faq-question">
-                                <h3>What sections are on the ISEE test?</h3>
-                                <div class="faq-toggle"></div>
-                            </div>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                What sections are on the ISEE test?
+                                <span class="faq-toggle">▸</span>
+                            </button>
                             <div class="faq-answer">
-                                <p>The ISEE consists of five sections:</p>
-                                <ul>
-                                    <li><strong>Verbal Reasoning:</strong> 40 questions in 20 minutes testing word meanings, relationships, and sentence completion</li>
-                                    <li><strong>Quantitative Reasoning:</strong> 37 questions in 35 minutes evaluating mathematical problem-solving</li>
-                                    <li><strong>Reading Comprehension:</strong> 36 questions in 35 minutes measuring understanding of passages across literature, science, history, and current events</li>
-                                    <li><strong>Mathematics Achievement:</strong> 47 questions in 40 minutes testing knowledge across number operations, algebra, geometry, measurement, data analysis, and probability</li>
-                                    <li><strong>Essay (Unscored):</strong> 1 prompt in 30 minutes sent to schools to demonstrate writing ability</li>
-                                </ul>
+                                <div class="faq-answer-content">
+                                    <p>The ISEE consists of five sections:</p>
+                                    <ul>
+                                        <li><strong>Verbal Reasoning:</strong> 40 questions in 20 minutes testing word meanings, relationships, and sentence completion</li>
+                                        <li><strong>Quantitative Reasoning:</strong> 37 questions in 35 minutes evaluating mathematical problem-solving</li>
+                                        <li><strong>Reading Comprehension:</strong> 36 questions in 35 minutes measuring understanding of passages across literature, science, history, and current events</li>
+                                        <li><strong>Mathematics Achievement:</strong> 47 questions in 40 minutes testing knowledge across number operations, algebra, geometry, measurement, data analysis, and probability</li>
+                                        <li><strong>Essay (Unscored):</strong> 1 prompt in 30 minutes sent to schools to demonstrate writing ability</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>When should I start preparing for the ISEE?</h3>
-                                <div class="faq-toggle"></div>
-                            </div>
+                            <button class="faq-question">
+                                When should I start preparing for the ISEE?
+                                <span class="faq-toggle">▸</span>
+                            </button>
                             <div class="faq-answer">
-                                <p><strong>12 Months Before Test:</strong> Begin with diagnostic assessment, build vocabulary systematically, review fundamental math concepts, and establish consistent study habits.</p>
-                                <p><strong>9-10 Months Before:</strong> Focus on mastering content in each section, learn test-taking strategies, practice timed drills, and begin essay writing development.</p>
-                                <p><strong>6-8 Months Before:</strong> Tackle challenging problems, begin full-length practice tests, analyze results, and strengthen weak areas.</p>
-                                <p><strong>3-5 Months Before:</strong> Increase practice test frequency to bi-weekly, fine-tune time management, and practice remaining calm under pressure.</p>
-                                <p><strong>Final 8-12 Weeks:</strong> Take weekly practice tests under actual conditions, maintain consistency, and build test-day confidence.</p>
-                                <p><strong>Final 2 Weeks:</strong> Light review only—avoid cramming. Focus on rest, confidence-building, and test-day logistics.</p>
+                                <div class="faq-answer-content">
+                                    <p><strong>12 Months Before Test:</strong> Begin with diagnostic assessment, build vocabulary systematically, review fundamental math concepts, and establish consistent study habits.</p>
+                                    <p><strong>9-10 Months Before:</strong> Focus on mastering content in each section, learn test-taking strategies, practice timed drills, and begin essay writing development.</p>
+                                    <p><strong>6-8 Months Before:</strong> Tackle challenging problems, begin full-length practice tests, analyze results, and strengthen weak areas.</p>
+                                    <p><strong>3-5 Months Before:</strong> Increase practice test frequency to bi-weekly, fine-tune time management, and practice remaining calm under pressure.</p>
+                                    <p><strong>Final 8-12 Weeks:</strong> Take weekly practice tests under actual conditions, maintain consistency, and build test-day confidence.</p>
+                                    <p><strong>Final 2 Weeks:</strong> Light review only - avoid cramming. Focus on rest, confidence-building, and test-day logistics.</p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>How often can I take the ISEE?</h3>
-                                <div class="faq-toggle"></div>
-                            </div>
+                            <button class="faq-question">
+                                How often can I take the ISEE?
+                                <span class="faq-toggle">▸</span>
+                            </button>
                             <div class="faq-answer">
-                                <p>Students may take the ISEE only once per testing season: Fall (August-November), Winter (December-March), or Spring/Summer (April-July). Realistically, only Fall and early Winter (December) testing are viable for most students, as independent school application deadlines typically fall in early January.</p>
+                                <div class="faq-answer-content">
+                                    <p>Students may take the ISEE only once per testing season: Fall (August-November), Winter (December-March), or Spring/Summer (April-July). Realistically, only Fall and early Winter (December) testing are viable for most students, as independent school application deadlines typically fall in early January.</p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>What is a good ISEE score?</h3>
-                                <div class="faq-toggle"></div>
-                            </div>
+                            <button class="faq-question">
+                                What is a good ISEE score?
+                                <span class="faq-toggle">▸</span>
+                            </button>
                             <div class="faq-answer">
-                                <p>Competitive independent schools typically look for scores in the 8-9 stanine range (89th-99th percentile). Elite schools often expect scores consistently in the 9th stanine across all sections.</p>
+                                <div class="faq-answer-content">
+                                    <p>Competitive independent schools typically look for scores in the 8-9 stanine range (89th-99th percentile). Elite schools often expect scores consistently in the 9th stanine across all sections.</p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>Is the essay section scored?</h3>
-                                <div class="faq-toggle"></div>
-                            </div>
+                            <button class="faq-question">
+                                Is the essay section scored?
+                                <span class="faq-toggle">▸</span>
+                            </button>
                             <div class="faq-answer">
-                                <p>No, the essay is not scored. However, it is sent directly to schools along with your scores, providing admissions officers insight into your writing ability, creativity, and thought process. A well-written essay can strengthen your application.</p>
+                                <div class="faq-answer-content">
+                                    <p>No, the essay is not scored. However, it is sent directly to schools along with your scores, providing admissions officers insight into your writing ability, creativity, and thought process. A well-written essay can strengthen your application.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1593,7 +1407,7 @@ $faq_schema_items = array(
     ),
     array(
         'question' => "When should I start preparing for the ISEE?",
-        'answer' => "We recommend starting 12 months before the test with diagnostic assessment and vocabulary building. At 9-10 months, focus on mastering content and test-taking strategies. At 6-8 months, tackle challenging problems and begin full-length practice tests. At 3-5 months, increase practice test frequency to bi-weekly. In the final 8-12 weeks, take weekly practice tests under actual conditions. The final 2 weeks should be light review only—focus on rest and confidence-building."
+        'answer' => "We recommend starting 12 months before the test with diagnostic assessment and vocabulary building. At 9-10 months, focus on mastering content and test-taking strategies. At 6-8 months, tackle challenging problems and begin full-length practice tests. At 3-5 months, increase practice test frequency to bi-weekly. In the final 8-12 weeks, take weekly practice tests under actual conditions. The final 2 weeks should be light review only - focus on rest and confidence-building."
     ),
     array(
         'question' => "How often can I take the ISEE?",

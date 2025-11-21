@@ -260,8 +260,7 @@ li {
 
 .btn,
 button,
-.elementor-button,
-.nyc-stem-inquiry-btn {
+.elementor-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -279,6 +278,26 @@ button,
     min-width: 44px;
 }
 
+/* Inquiry buttons inherit base button styles but with sharp corners */
+.nyc-stem-inquiry-btn,
+a.nyc-stem-inquiry-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    line-height: 1;
+    padding: var(--space-3) var(--space-6);
+    border-radius: 0; /* Sharp corners - default behavior */
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    min-height: 44px;
+    min-width: 44px;
+}
+
 /* Primary Button - Main CTAs */
 .btn-primary,
 .elementor-button,
@@ -290,9 +309,9 @@ a.nyc-stem-inquiry-btn {
 }
 
 /* Inquiry Buttons - Brand Orange Override */
-.nyc-stem-inquiry-btn:not(.btn-teal),
-a.nyc-stem-inquiry-btn:not(.btn-teal),
-button.nyc-stem-inquiry-btn:not(.btn-teal),
+.nyc-stem-inquiry-btn:not(.btn-teal):not(.btn-dark-teal),
+a.nyc-stem-inquiry-btn:not(.btn-teal):not(.btn-dark-teal),
+button.nyc-stem-inquiry-btn:not(.btn-teal):not(.btn-dark-teal),
 .cta-button.cta-primary {
     background-color: var(--color-orange) !important;
     background-image: none !important;
@@ -309,8 +328,8 @@ button.nyc-stem-inquiry-btn:not(.btn-teal),
     box-shadow: var(--shadow-md);
 }
 
-.nyc-stem-inquiry-btn:not(.btn-teal):hover,
-a.nyc-stem-inquiry-btn:not(.btn-teal):hover,
+.nyc-stem-inquiry-btn:not(.btn-teal):not(.btn-dark-teal):hover,
+a.nyc-stem-inquiry-btn:not(.btn-teal):not(.btn-dark-teal):hover,
 .cta-button.cta-primary:hover {
     background-color: var(--color-orange-dark) !important;
     border-color: var(--color-orange-dark) !important;

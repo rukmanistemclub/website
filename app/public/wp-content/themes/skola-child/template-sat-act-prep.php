@@ -62,53 +62,62 @@ get_header();
         -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Hero Section - Course Style */
+    /* Hero Section - Single Column Layout */
     .course-hero {
-        display: flex;
-        align-items: center;
+        display: block;
         position: relative;
         overflow: hidden;
         background: linear-gradient(135deg, #134958 0%, #1a5f73 50%, #28AFCF 100%);
         margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
+        padding: var(--space-6, 24px) 0;
     }
 
     .course-hero::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 80%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(40, 175, 207, 0.15) 0%, transparent 70%);
-        border-radius: 50%;
-        animation: pulse 8s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 0.5; }
-        50% { transform: scale(1.1); opacity: 0.3; }
+        display: none; /* Remove decorative element */
     }
 
     .hero-container {
-        max-width: 1400px;
+        max-width: var(--container-xl, 1200px);
+        width: 100%;
         margin: 0 auto;
-        padding: 50px 10px;
+        padding: 0 var(--space-4, 16px);
         position: relative;
         z-index: 1;
-        display: grid;
-        grid-template-columns: 1.857fr 1fr;
-        gap: 60px;
-        align-items: center;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        grid-template-columns: 1fr !important; /* Override plugin's 2-column grid */
+    }
+
+    @media (min-width: 768px) {
+        .course-hero {
+            padding: var(--space-8, 32px) 0;
+        }
+        .hero-container {
+            padding-left: var(--space-6, 24px);
+            padding-right: var(--space-6, 24px);
+        }
+    }
+
+    .hero-content {
+        width: 100%;
+        text-align: left;
     }
 
     .course-hero .hero-content h1 {
-        font-size: 48px !important;
-        font-weight: 800 !important;
-        color: #ffffff !important;
-        margin-bottom: 8px;
-        line-height: 1.1;
-        letter-spacing: -1px;
+        font-size: 32px;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 16px;
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+        .course-hero .hero-content h1 {
+            font-size: 42px;
+        }
     }
 
     .hero-content .highlight {
@@ -119,18 +128,71 @@ get_header();
     }
 
     .hero-excerpt {
-        font-size: 18px;
+        font-size: 16px;
         color: rgba(255, 255, 255, 0.9);
-        margin-bottom: 40px;
+        margin-bottom: 24px;
         font-weight: 400;
         line-height: 1.7;
+        width: 100%;
+        max-width: none;
+    }
+
+    @media (min-width: 768px) {
+        .hero-excerpt {
+            font-size: 18px;
+        }
+    }
+
+    /* Track Record Inline Stats */
+    .hero-track-record {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 20px;
+        width: 100%;
+        order: 3 !important; /* Between excerpt (2) and mini stats (4) */
+    }
+
+    .track-record-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    .track-record-item::before {
+        content: "✓";
+        color: #FF7F07;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    .track-number {
+        color: #FF7F07;
+        font-weight: 700;
+    }
+
+    @media (min-width: 768px) {
+        .hero-track-record {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+        }
+
+        .track-record-item {
+            font-size: 16px;
+        }
     }
 
     .hero-stats-mini {
         display: flex;
         gap: 16px;
-        margin-bottom: 30px;
+        margin-bottom: 24px;
         flex-wrap: wrap;
+        width: 100%;
+        justify-content: flex-start;
     }
 
     .stat-mini {
@@ -177,116 +239,11 @@ get_header();
 
     .cta-group {
         display: flex;
-        gap: 20px;
+        gap: 16px;
         flex-wrap: wrap;
+        width: 100%;
+        justify-content: flex-start;
     }
-
-    .hero-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border-radius: 20px;
-        padding: 20px 18px;
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        max-width: 340px;
-    }
-
-    .hero-card h3 {
-        font-size: 16px;
-        color: #134958;
-        margin-bottom: 12px;
-        text-align: center;
-        font-weight: 700;
-    }
-
-    .hero-card-grid {
-        display: grid;
-        gap: 8px;
-    }
-
-    .card-stat-box {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 10px 12px;
-        background: linear-gradient(135deg, #f8f9fa, #ffffff);
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        border: 1px solid #eee;
-    }
-
-    .card-stat-box:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 20px rgba(40, 175, 207, 0.15);
-        border-color: #28AFCF;
-    }
-
-    .card-stat-icon {
-        width: 36px;
-        height: 36px;
-        background: linear-gradient(135deg, #28AFCF, #134958);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-
-    .card-stat-icon svg {
-        width: 20px;
-        height: 20px;
-        color: white;
-    }
-
-    .card-stat-text {
-        flex: 1;
-        text-align: left;
-    }
-
-    .card-stat-number {
-        font-size: 22px;
-        font-weight: 800;
-        color: #134958;
-        display: block;
-        line-height: 1;
-        margin-bottom: 2px;
-    }
-
-    .card-stat-label {
-        font-size: 12px;
-        color: #666;
-        font-weight: 500;
-        line-height: 1.2;
-    }
-
-    /* Mobile responsive */
-    @media (max-width: 768px) {
-        .hero-container {
-            grid-template-columns: 1fr;
-            gap: 30px;
-            padding: 40px 20px;
-        }
-
-        .course-hero .hero-content h1 {
-            font-size: 36px !important;
-        }
-
-        .hero-excerpt {
-            font-size: 18px;
-        }
-
-        .hero-card {
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        .hero-stats-mini {
-            flex-direction: column;
-            gap: 12px;
-        }
-    }
-
-    /* Button styling controlled by course-styles.css */
 
     /* Trust Bar */
     .trust-bar {
@@ -853,7 +810,6 @@ get_header();
     }
 
     @media (max-width: 768px) {
-        .hero-container,
         .trust-container {
             grid-template-columns: 1fr;
         }
@@ -864,14 +820,6 @@ get_header();
 
         .benefit-card {
             padding: 18px;
-        }
-
-        .hero-stats-mini {
-            flex-direction: column;
-        }
-
-        .hero-content h1 {
-            font-size: 2rem;
         }
 
         .step-container {
@@ -899,6 +847,14 @@ get_header();
                     <div class="hero-content">
                         <h1>SAT & ACT Test Prep - Achieve Your Dream College Score</h1>
                         <p class="hero-excerpt">Join the program where 96% of students improve their scores - with an average 6-point ACT increase and 100-point SAT increase. Most of our students score high enough to get into Ivy League schools.</p>
+
+                        <!-- Track Record Stats - Inline -->
+                        <div class="hero-track-record">
+                            <div class="track-record-item"><span class="track-number">96%</span> Score Improvement Rate</div>
+                            <div class="track-record-item"><span class="track-number">6-9 Points</span> Average ACT Increase</div>
+                            <div class="track-record-item"><span class="track-number">100+ Points</span> Average SAT Increase</div>
+                            <div class="track-record-item"><span class="track-number">Up to 13 Points</span> Top ACT Student Improvement</div>
+                        </div>
 
                         <!-- Mini Stats -->
                         <div class="hero-stats-mini">
@@ -928,59 +884,8 @@ get_header();
 
                         <!-- CTA Buttons -->
                         <div class="cta-group">
-                            <a href="#SATACTPrograms" class="cta-button cta-primary" style="background-color: #FF9574; color: #FFFFFF; padding: 12px 24px; border-radius: 3px; font-family: 'Roboto', sans-serif !important; font-size: 18px !important; font-weight: 700 !important; line-height: 1.8 !important; min-width: 180px !important; width: auto !important; display: inline-block !important; text-align: center !important; text-decoration: none; transition: all .3s;">Jump to Courses</a>
+                            <?php echo do_shortcode('[inquiry_button text="Jump to Courses" url="#SATACTPrograms" color="teal"]'); ?>
                             <?php echo do_shortcode('[inquiry_button]'); ?>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Stats Card -->
-                    <div class="hero-card">
-                        <h3>Our Track Record</h3>
-                        <div class="hero-card-grid">
-                            <div class="card-stat-box">
-                                <div class="card-stat-icon">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                                    </svg>
-                                </div>
-                                <div class="card-stat-text">
-                                    <span class="card-stat-number">96%</span>
-                                    <span class="card-stat-label">Score Improvement Rate</span>
-                                </div>
-                            </div>
-                            <div class="card-stat-box">
-                                <div class="card-stat-icon">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                                    </svg>
-                                </div>
-                                <div class="card-stat-text">
-                                    <span class="card-stat-number">6-9 Points</span>
-                                    <span class="card-stat-label">Average ACT Increase</span>
-                                </div>
-                            </div>
-                            <div class="card-stat-box">
-                                <div class="card-stat-icon">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                                    </svg>
-                                </div>
-                                <div class="card-stat-text">
-                                    <span class="card-stat-number">100+ Points</span>
-                                    <span class="card-stat-label">Average SAT Increase</span>
-                                </div>
-                            </div>
-                            <div class="card-stat-box">
-                                <div class="card-stat-icon">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                                    </svg>
-                                </div>
-                                <div class="card-stat-text">
-                                    <span class="card-stat-number">Up to 13 Points</span>
-                                    <span class="card-stat-label">Top ACT Student Improvement</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1070,15 +975,9 @@ get_header();
                         </ul>
 
                         <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                            <a href="/sat-vs-act-2025-which-test-is-right-for-you/" style="display: inline-block; background: #28AFCF; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.3s;">
-                                SAT vs ACT: Complete Guide
-                            </a>
-                            <a href="/changes-to-the-new-digital-sat/" style="display: inline-block; background: #134958; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.3s;">
-                                What's New in Digital SAT
-                            </a>
-                            <a href="/whats-new-in-the-enhanced-act/" style="display: inline-block; background: #FF7F07; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.3s;">
-                                What's New in Enhanced ACT
-                            </a>
+                            <?php echo do_shortcode('[inquiry_button text="SAT vs ACT: Complete Guide" url="/sat-vs-act-2025-which-test-is-right-for-you/" color="teal"]'); ?>
+                            <?php echo do_shortcode('[inquiry_button text="What\'s New in Digital SAT" url="/changes-to-the-new-digital-sat/" color="dark-teal"]'); ?>
+                            <?php echo do_shortcode('[inquiry_button text="What\'s New in Enhanced ACT" url="/whats-new-in-the-enhanced-act/" color="orange"]'); ?>
                         </div>
                         </div>
                     </div>

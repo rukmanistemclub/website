@@ -25,9 +25,9 @@ for ($i = 1; $i <= 4; $i++) {
     }
 }
 
-// Check if this is an enrichment course (centered hero layout)
+// All courses use consistent single-column hero layout
 $is_enrichment = has_term('enrichment', 'course_category');
-$hero_class = $is_enrichment ? 'hero-centered' : '';
+$hero_class = 'hero-centered'; // Always use single-column layout for consistency
 ?>
 
 <section class="course-hero <?php echo esc_attr($hero_class); ?>">
@@ -46,6 +46,30 @@ $hero_class = $is_enrichment ? 'hero-centered' : '';
                 <p class="hero-tagline"><?php echo wp_kses_post($hero_tagline); ?></p>
             <?php elseif (!$hide_excerpt && has_excerpt()) : ?>
                 <p class="hero-excerpt"><?php echo get_the_excerpt(); ?></p>
+            <?php endif; ?>
+
+            <?php
+            // SAT/ACT Track Record Stats - All courses in sat-act-prep category
+            if (has_term('sat-act-prep', 'course_category')) : ?>
+                <div class="hero-track-record">
+                    <div class="track-record-item"><span class="track-number">96%</span> Score Improvement Rate</div>
+                    <div class="track-record-item"><span class="track-number">6-9 Points</span> Average ACT Increase</div>
+                    <div class="track-record-item"><span class="track-number">100+ Points</span> Average SAT Increase</div>
+                    <div class="track-record-item"><span class="track-number">Up to 13 Points</span> Top ACT Student Improvement</div>
+                </div>
+            <?php
+            // SHSAT Track Record Stats - All SHSAT courses
+            elseif (has_term('shsat', 'course_category')) : ?>
+                <div class="hero-track-record">
+                    <div class="track-record-item"><span class="track-number">90%+</span> Acceptance Rate</div>
+                    <div class="track-record-item"><span class="track-number">50%+</span> Stuy Score Rate</div>
+                </div>
+            <?php
+            // ISEE Track Record Stats - All ISEE courses
+            elseif (has_term(array('isee', 'isee-prep'), 'course_category')) : ?>
+                <div class="hero-track-record">
+                    <div class="track-record-item"><span class="track-number">Over 85%</span> Scored a Stanine of 7-9 on the ISEE</div>
+                </div>
             <?php endif; ?>
 
             <?php
@@ -92,9 +116,10 @@ $hero_class = $is_enrichment ? 'hero-centered' : '';
         </div>
 
         <?php
-        // All courses use ACF-driven hero card (replaces all hardcoded track record cards)
-        // Hide for enrichment courses (they use centered layout)
-        if (!$is_enrichment && $hero_card_stats && is_array($hero_card_stats)) : ?>
+        // Hero card is hidden when using hero-centered layout (single column)
+        // Only show for courses NOT using hero-centered layout that have stats configured
+        $show_hero_card = ($hero_class !== 'hero-centered') && $hero_card_stats && is_array($hero_card_stats);
+        if ($show_hero_card) : ?>
             <div class="hero-card">
                 <h3><?php echo $hero_card_title ? esc_html($hero_card_title) : 'Our Track Record'; ?></h3>
                 <div class="hero-card-grid">
