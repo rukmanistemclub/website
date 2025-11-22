@@ -733,10 +733,10 @@ get_header();
         font-weight: 700 !important;
         line-height: 1.3 !important;
         color: #FFFFFF !important;
-        text-align: center !important;
         margin-bottom: 20px !important;
         margin-top: 0 !important;
         padding-bottom: 0 !important;
+        /* text-align handled by external CSS */
     }
 
     .ready-grid {
