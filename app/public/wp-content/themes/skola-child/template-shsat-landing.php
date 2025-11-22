@@ -905,6 +905,16 @@ get_header();
     }
 
     @media (max-width: 768px) {
+        /* ALL headings left-aligned on mobile */
+        h1, h2, h3,
+        .section h2,
+        .section-alt h2,
+        .combined-approach h2,
+        .ready-section h2,
+        .related-title {
+            text-align: left !important;
+        }
+
         /* Hero Section */
         .shsat-hero {
             min-height: auto !important;
