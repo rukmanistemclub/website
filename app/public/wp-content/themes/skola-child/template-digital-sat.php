@@ -770,4 +770,27 @@ body {
     </article>
 </div>
 
-<?php get_footer(); ?>
+<?php
+/**
+ * Article Schema Markup for SEO
+ */
+$article_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Article',
+    'headline' => 'Changes to the New Digital SAT: What Students Need to Know',
+    'description' => 'Complete guide to the Digital SAT format changes including adaptive testing, shorter duration, and new digital tools.',
+    'author' => array(
+        '@type' => 'Organization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'publisher' => array(
+        '@type' => 'Organization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'keywords' => 'Digital SAT, SAT 2024, SAT changes, adaptive testing, College Board, SAT prep'
+);
+echo '<script type="application/ld+json">' . wp_json_encode($article_schema, JSON_UNESCAPED_SLASHES) . '</script>';
+
+get_footer(); ?>

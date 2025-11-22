@@ -722,4 +722,26 @@ function toggleFAQ(element) {
 </script>
 
 <?php
+/**
+ * Article Schema Markup for SEO
+ */
+$article_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Article',
+    'headline' => "What's New in the Enhanced ACT 2025: Complete Guide",
+    'description' => 'Complete guide to Enhanced ACT 2025 changes including shorter test time, optional Science section, and new scoring.',
+    'author' => array(
+        '@type' => 'Organization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'publisher' => array(
+        '@type' => 'Organization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'keywords' => 'Enhanced ACT, ACT 2025, ACT changes, optional Science, ACT prep'
+);
+echo '<script type="application/ld+json">' . wp_json_encode($article_schema, JSON_UNESCAPED_SLASHES) . '</script>';
+
 get_footer();

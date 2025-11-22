@@ -1001,4 +1001,26 @@ function toggleFAQ(button) {
 </script>
 
 <?php
+/**
+ * Article Schema Markup for SEO
+ */
+$article_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Article',
+    'headline' => 'SAT vs ACT 2025: Which Test Is Right for You?',
+    'description' => 'Comprehensive comparison of Digital SAT and Enhanced ACT. Learn key differences and how to choose the right test.',
+    'author' => array(
+        '@type' => 'Organization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'publisher' => array(
+        '@type' => 'Organization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'keywords' => 'SAT vs ACT, Digital SAT, Enhanced ACT, test comparison, college admissions'
+);
+echo '<script type="application/ld+json">' . wp_json_encode($article_schema, JSON_UNESCAPED_SLASHES) . '</script>';
+
 get_footer();

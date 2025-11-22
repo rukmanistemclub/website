@@ -1302,4 +1302,27 @@ if (timelineVisual) {
 
 <?php endwhile; ?>
 
-<?php get_footer(); ?>
+<?php
+/**
+ * Article Schema Markup for SEO
+ */
+$article_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Article',
+    'headline' => 'SAT & ACT Testing Timeline: When to Start and What to Expect',
+    'description' => 'Complete guide to SAT and ACT testing timelines. Learn when to start prep, optimal test dates, and planning strategies.',
+    'author' => array(
+        '@type' => 'Organization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'publisher' => array(
+        '@type' => 'Organization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'keywords' => 'SAT timeline, ACT timeline, when to take SAT, when to take ACT, test prep schedule'
+);
+echo '<script type="application/ld+json">' . wp_json_encode($article_schema, JSON_UNESCAPED_SLASHES) . '</script>';
+
+get_footer(); ?>
