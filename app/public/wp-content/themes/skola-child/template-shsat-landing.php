@@ -953,14 +953,14 @@ get_header();
             text-align: center !important;
         }
 
-        /* Section Headings - Maintain H2 standard 32px per typography guide */
+        /* Section Headings - Mobile responsive (24px) */
         .section h2,
         .section-alt h2 {
-            font-size: 32px !important;
+            font-size: 24px !important;
         }
 
         .combined-approach h2 {
-            font-size: 32px !important;
+            font-size: 24px !important;
             margin-bottom: 15px !important;
         }
 
@@ -1013,7 +1013,7 @@ get_header();
         }
 
         .ready-section h2 {
-            font-size: 26px !important;
+            font-size: 24px !important;
         }
 
         .ready-column h3 {
