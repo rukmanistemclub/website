@@ -49,12 +49,12 @@ h4, .h4 {
 }
 
 /* ===========================
-   MOBILE: Responsive headings
-   Left-aligned + scaled font sizes
+   MOBILE: Responsive content
+   ALL content left-aligned + scaled font sizes
    =========================== */
 @media (max-width: 768px) {
-    /* Left-align all headings */
-    h1, h2, h3, h4,
+    /* GLOBAL: All content left-aligned on mobile */
+    h1, h2, h3, h4, h5, h6, p,
     .related-title,
     h2.related-title,
     .course-related .related-title,
@@ -64,7 +64,13 @@ h4, .h4 {
     .testimonials-title,
     .schedule-title,
     [class*="title"],
-    [class*="heading"] {
+    [class*="heading"],
+    [class*="section"],
+    [class*="container"],
+    .course-related,
+    .course-cta,
+    .course-description,
+    .course-benefits {
         text-align: left !important;
     }
 

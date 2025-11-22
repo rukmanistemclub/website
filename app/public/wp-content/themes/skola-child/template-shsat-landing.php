@@ -905,25 +905,34 @@ get_header();
     }
 
     @media (max-width: 768px) {
-        /* ALL headings - left-aligned and responsive font size on mobile */
+        /* GLOBAL: ALL content left-aligned on mobile */
+        h1, h2, h3, h4, h5, h6, p,
+        .section,
+        .section-alt,
+        .section-container,
+        .combined-approach,
+        .ready-section,
+        .ready-footer,
+        .ready-footer p,
+        .related-title,
+        h2.related-title,
+        .course-related,
+        .course-related .related-title,
+        .section-alt .course-related .related-title,
+        .section-container .course-related .related-title,
+        [class*="section"],
+        [class*="container"] {
+            text-align: left !important;
+        }
+
+        /* Headings - responsive font size on mobile */
         h1, h2, h3,
         .section h2,
         .section-alt h2,
         .combined-approach h2,
         .ready-section h2,
-        .related-title,
-        h2.related-title,
-        .course-related .related-title,
-        .section-alt .course-related .related-title,
-        .section-container .course-related .related-title {
-            text-align: left !important;
+        .related-title {
             font-size: 24px !important;
-        }
-
-        /* Footer text left-aligned on mobile */
-        .ready-footer,
-        .ready-footer p {
-            text-align: left !important;
         }
 
         /* Hero Section */
