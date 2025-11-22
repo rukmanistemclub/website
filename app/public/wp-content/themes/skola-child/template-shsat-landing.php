@@ -916,6 +916,12 @@ get_header();
             font-size: 24px !important;
         }
 
+        /* Footer text left-aligned on mobile */
+        .ready-footer,
+        .ready-footer p {
+            text-align: left !important;
+        }
+
         /* Hero Section */
         .shsat-hero {
             min-height: auto !important;
