@@ -220,8 +220,8 @@ get_header();
         font-weight: 700 !important;
         line-height: 1.3 !important;
         color: #134958 !important;
-        text-align: center !important;
         margin-bottom: 40px !important;
+        /* text-align handled by external CSS - centered on desktop, left on mobile */
     }
 
     .combined-approach h2 {
@@ -905,18 +905,6 @@ get_header();
     }
 
     @media (max-width: 768px) {
-        /* GLOBAL: All headings left-aligned on mobile */
-        h1, h2, h3,
-        .section h2,
-        .section-alt h2,
-        .section-container > h2,
-        .programs-section h2,
-        .ready-section h2,
-        .combined-approach h2,
-        .related-title {
-            text-align: left !important;
-        }
-
         /* Hero Section */
         .shsat-hero {
             min-height: auto !important;

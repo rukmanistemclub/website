@@ -1570,10 +1570,29 @@ Example HTML structure for Option B:
 }
 
 /* ==============================================================================
-   MOBILE: Left-align ALL headings and content (< 768px)
-   Generic rule - applies to all sections automatically, no need to add selectors
+   HEADING ALIGNMENT - Desktop centered, Mobile left-aligned
+   Single source of truth for all heading alignment across the site
    ============================================================================== */
 
+/* Desktop: Section headings centered */
+.section h2,
+.section-alt h2,
+.section-container > h2,
+.programs-section h2,
+.ready-section h2,
+.combined-approach h2,
+.related-title,
+.cta-section h2,
+.course-cta h2,
+.course-related h2,
+.testimonials-section h2,
+.nyc-testimonials-title,
+.faq-section h2,
+.faq-intro h2 {
+    text-align: center;
+}
+
+/* Mobile: ALL headings left-aligned for better readability */
 @media (max-width: 767px) {
     /* GENERIC: All headings left-aligned on mobile */
     h1, h2, h3,
