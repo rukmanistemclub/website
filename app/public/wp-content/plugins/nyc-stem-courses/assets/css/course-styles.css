@@ -59,26 +59,38 @@ h4, .h4 {
     h2.related-title,
     .course-related .related-title,
     .section-alt .related-title,
+    .section-title,
+    .cta-title,
+    .testimonials-title,
+    .schedule-title,
     [class*="title"],
     [class*="heading"] {
         text-align: left !important;
     }
 
-    /* Responsive font sizes */
-    h1, .h1 {
-        font-size: 28px !important;
-    }
-
+    /* Responsive font sizes - H2 */
     h2, .h2,
     .related-title,
     h2.related-title,
     .course-related .related-title,
     .section-alt .related-title,
-    .section-title {
+    .section-title,
+    .cta-title,
+    .testimonials-title,
+    .schedule-title {
         font-size: 24px !important;
     }
 
-    h3, .h3 {
+    /* Responsive font sizes - H1 */
+    h1, .h1 {
+        font-size: 28px !important;
+    }
+
+    /* Responsive font sizes - H3 */
+    h3, .h3,
+    .module-title,
+    .course-card-title,
+    .highlight-title {
         font-size: 20px !important;
     }
 
