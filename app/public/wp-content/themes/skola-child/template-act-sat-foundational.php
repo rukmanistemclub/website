@@ -132,7 +132,7 @@ get_header();
         font-weight: 600 !important;
         color: #134958 !important;
         margin-bottom: 25px !important;
-        text-align: center !important;
+        text-align: center;
         line-height: 1.3 !important;
     }
 
@@ -211,7 +211,7 @@ get_header();
         font-weight: 700 !important;
         line-height: 1.3 !important;
         color: #134958 !important;
-        text-align: center !important;
+        text-align: center;
         margin-bottom: 15px !important;
     }
 
@@ -824,7 +824,7 @@ get_header();
         font-size: 24px !important;
         font-weight: 600 !important;
         color: #134958 !important;
-        text-align: center !important;
+        text-align: center;
         margin-bottom: 20px !important;
     }
 
@@ -1035,7 +1035,7 @@ get_header();
         font-size: 20px !important;
         font-weight: 600 !important;
         color: #134958 !important;
-        text-align: center !important;
+        text-align: center;
         margin-bottom: 20px !important;
         padding-bottom: 15px;
         border-bottom: 3px solid #28AFCF;

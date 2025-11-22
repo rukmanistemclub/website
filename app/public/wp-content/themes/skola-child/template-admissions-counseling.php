@@ -236,17 +236,20 @@ get_header();
         }
 
         .admissions-counseling-page .hero-content h1 {
-            font-size: 32px !important;
+            font-size: 28px !important;
             margin-bottom: 12px !important;
+            text-align: left !important;
         }
 
         .admissions-counseling-page .hero-content .subtitle {
             font-size: 16px !important;
             margin-bottom: 20px !important;
+            text-align: left !important;
         }
 
         .admissions-counseling-page .hero-description {
             font-size: 14px !important;
+            text-align: left !important;
         }
 
         .admissions-counseling-page .hero-cta-group {
@@ -265,11 +268,13 @@ get_header();
         }
 
         .content-section h2 {
-            font-size: 1.8rem;
+            font-size: 24px !important;
+            text-align: left !important;
         }
 
         .intro-text {
             font-size: 1rem;
+            text-align: left !important;
         }
 
         .courses-section {
@@ -277,11 +282,13 @@ get_header();
         }
 
         .courses-section h2 {
-            font-size: 2rem;
+            font-size: 24px !important;
+            text-align: left !important;
         }
 
         .section-subtitle {
             font-size: 1rem;
+            text-align: left !important;
         }
 
         /* Force 1 column on mobile */
@@ -295,14 +302,17 @@ get_header();
 
         .cta-section {
             padding: 60px 20px;
+            text-align: left !important;
         }
 
         .cta-section h2 {
-            font-size: 2rem;
+            font-size: 24px !important;
+            text-align: left !important;
         }
 
         .cta-section p {
             font-size: 1rem;
+            text-align: left !important;
         }
     }
 

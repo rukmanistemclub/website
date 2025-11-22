@@ -415,37 +415,82 @@ get_header();
 
     /* Responsive */
     @media (max-width: 768px) {
+        /* Left-align all content on mobile */
+        .faq-hero,
+        .faq-hero h1,
+        .faq-hero .subtitle,
+        .faq-container,
+        .faq-intro,
+        .faq-intro h2,
+        .faq-intro p,
+        .faq-question,
+        .faq-answer,
+        .faq-answer p,
+        .faq-answer ul,
+        .faq-answer ol,
+        .faq-cta,
+        .faq-cta h2,
+        .faq-cta p {
+            text-align: left !important;
+        }
+
+        .faq-hero {
+            padding: 30px 16px;
+        }
+
         .faq-hero h1 {
-            font-size: 2rem;
+            font-size: 28px !important;
+            line-height: 1.3 !important;
         }
 
         .faq-hero .subtitle {
-            font-size: 1rem;
+            font-size: 16px !important;
+            line-height: 1.5 !important;
         }
 
         .faq-container {
-            padding: 20px 7px;
+            padding: 20px 16px;
+        }
+
+        .faq-intro h2 {
+            font-size: 24px !important;
         }
 
         .faq-question {
-            font-size: 1rem;
-            padding: 10px;
+            font-size: 16px !important;
+            padding: 1rem;
         }
 
         .faq-answer.active {
-            padding: 10px 12px;
+            padding: 10px 16px;
+        }
+
+        .faq-answer p,
+        .faq-answer ul,
+        .faq-answer ol {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
         }
 
         .nyc-testimonials-section {
-            padding: 30px 10px;
+            padding: 30px 16px;
         }
 
         .nyc-testimonials-title {
-            font-size: 2rem;
+            font-size: 24px !important;
+            text-align: left !important;
+        }
+
+        .faq-cta {
+            padding: 40px 16px !important;
         }
 
         .faq-cta h2 {
-            font-size: 1.5rem;
+            font-size: 24px !important;
+        }
+
+        .faq-cta p {
+            font-size: 16px !important;
         }
     }
 </style>

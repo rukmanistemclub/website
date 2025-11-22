@@ -512,36 +512,65 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    /* Left-align all content on mobile */
+    .timeline-hero,
+    .timeline-hero h1,
+    .timeline-hero p,
+    .timeline-container,
+    .quick-nav,
+    .quick-nav h2,
+    .timeline-visual,
+    .timeline-visual h2,
+    .comparison-section,
+    .comparison-section h2,
+    .key-takeaways,
+    .key-takeaways h2,
+    .test-card,
+    .test-card h3,
+    .test-intro,
+    .prep-timeline h4,
+    .step-content h5,
+    .step-content p,
+    .key-points h5,
+    .comparison-card h4,
+    .takeaway-card h4,
+    .takeaway-card p,
+    .timeline-cta-section,
+    .timeline-cta-section h2,
+    .timeline-cta-section p {
+        text-align: left !important;
+    }
+
     .timeline-container {
-        padding: 15px;
+        padding: 16px;
     }
 
     .timeline-hero {
-        padding: 30px 0;
+        padding: 30px 16px;
     }
 
     .timeline-hero h1,
     .timeline-hero p {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .timeline-hero h1 {
-        font-size: 32px;
+        font-size: 28px !important;
         margin-bottom: 12px;
     }
 
     .timeline-hero p {
-        font-size: 16px;
+        font-size: 16px !important;
     }
 
     .quick-nav {
-        padding: 20px;
+        padding: 16px;
         margin-bottom: 20px;
     }
 
     .quick-nav h2 {
-        font-size: 24px;
+        font-size: 24px !important;
         margin-bottom: 12px;
     }
 
@@ -559,14 +588,14 @@ body {
     .comparison-section,
     .key-takeaways,
     .timeline-cta-section {
-        padding: 20px;
+        padding: 16px;
         margin-bottom: 20px;
     }
 
     .timeline-visual h2,
     .comparison-section h2,
     .key-takeaways h2 {
-        font-size: 24px;
+        font-size: 24px !important;
         margin-bottom: 20px;
     }
 
@@ -698,16 +727,16 @@ body {
     }
 
     .timeline-cta-section {
-        padding: 30px 20px;
+        padding: 30px 16px;
     }
 
     .timeline-cta-section h2 {
-        font-size: 24px;
+        font-size: 24px !important;
         margin-bottom: 10px;
     }
 
     .timeline-cta-section p {
-        font-size: 16px;
+        font-size: 16px !important;
         margin-bottom: 20px;
     }
 }

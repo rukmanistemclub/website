@@ -320,62 +320,68 @@ em, i {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    /* Left-align all content on mobile */
+    .simple-page-hero,
+    .simple-page-hero h1,
+    .simple-page-hero p,
+    .simple-page-container,
+    .simple-page-container h1,
+    .simple-page-container h2,
+    .simple-page-container h3,
+    .simple-page-container h4,
+    .simple-page-container h5,
+    .simple-page-container h6,
+    .simple-page-container p,
+    .simple-page-container ul,
+    .simple-page-container ol,
+    .simple-page-container li,
+    .simple-page-cta,
+    .simple-page-cta h2,
+    .simple-page-cta p {
+        text-align: left !important;
+    }
+
     .simple-page-hero {
-        padding: 40px 20px;
+        padding: 30px 16px;
     }
 
     .simple-page-hero h1 {
-        font-size: 36px;
+        font-size: 28px !important;
     }
 
     .simple-page-hero p {
-        font-size: 16px;
+        font-size: 16px !important;
+        margin: 16px 0;
     }
 
     .simple-page-container {
-        padding: 30px 15px;
+        padding: 30px 16px;
     }
 
     .simple-page-cta {
-        padding: 60px 20px;
+        padding: 40px 16px;
     }
 
     .simple-page-container h1 {
-        font-size: 32px;
+        font-size: 28px !important;
     }
 
-    .simple-page-container h2 {
-        font-size: 28px;
+    .simple-page-container h2,
+    .simple-page-cta h2 {
+        font-size: 24px !important;
     }
 
     .simple-page-container h3 {
-        font-size: 22px;
+        font-size: 20px !important;
     }
 
     .simple-page-container h4 {
-        font-size: 17px;
-    }
-}
-
-@media (max-width: 480px) {
-    .simple-page-hero h1 {
-        font-size: 28px;
+        font-size: 18px !important;
     }
 
-    .simple-page-hero p {
-        font-size: 15px;
-    }
-
-    .simple-page-container h1 {
-        font-size: 28px;
-    }
-
-    .simple-page-container h2 {
-        font-size: 24px;
-    }
-
-    .simple-page-container h3 {
-        font-size: 20px;
+    .simple-page-container p,
+    .simple-page-cta p {
+        font-size: 16px !important;
     }
 }
 

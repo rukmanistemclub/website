@@ -316,7 +316,7 @@ body.hero-boxed-stats .hero-card h3 {
     font-size: var(--text-xl) !important;
     font-weight: var(--font-bold) !important;
     color: var(--color-primary) !important;
-    text-align: center !important;
+    text-align: center;
     margin-bottom: var(--space-4) !important;
 }
 
@@ -958,7 +958,7 @@ a.btn:hover {
     font-size: var(--text-lg) !important;
     font-weight: var(--font-bold) !important;
     color: var(--color-primary) !important;
-    text-align: center !important;
+    text-align: center;
     margin-bottom: var(--space-4) !important;
     padding: 0 !important;
 }
@@ -973,7 +973,7 @@ a.btn:hover {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    text-align: center !important;
+    text-align: center;
     padding: var(--space-3) !important;
     background: var(--color-background-alt) !important;
     border-radius: var(--radius-md) !important;
@@ -1374,7 +1374,7 @@ Example HTML structure for Option B:
 
     .chevron-content {
         padding: var(--space-3) !important; /* Reduced from space-4 */
-        text-align: center !important;
+        text-align: center;
     }
 
     .chevron-date {
@@ -1500,7 +1500,7 @@ Example HTML structure for Option B:
         padding: var(--space-2) !important; /* Reduced from space-3 */
         background: var(--color-background-alt) !important;
         border-radius: var(--radius-md) !important;
-        text-align: center !important;
+        text-align: center;
         font-size: var(--text-sm) !important; /* Smaller text */
     }
 
@@ -1570,11 +1570,11 @@ Example HTML structure for Option B:
 }
 
 /* ==============================================================================
-   HEADING ALIGNMENT - Desktop centered, Mobile left-aligned
-   Single source of truth for all heading alignment across the site
+   ALIGNMENT - Desktop centered sections, Mobile ALL left-aligned
+   SINGLE SOURCE OF TRUTH for text alignment across the entire site
    ============================================================================== */
 
-/* Desktop: Section headings centered */
+/* Desktop: Section headings and content centered */
 .section h2,
 .section-alt h2,
 .section-container > h2,
@@ -1592,22 +1592,223 @@ Example HTML structure for Option B:
     text-align: center;
 }
 
-/* Mobile: ALL headings left-aligned for better readability */
+/* ==============================================================================
+   MOBILE: EVERYTHING LEFT-ALIGNED
+   This single rule applies to ALL pages, templates, and shortcodes
+   Excludes: Elementor elements, fixed/floating buttons, footer
+   ============================================================================== */
 @media (max-width: 768px) {
-    /* GENERIC: All headings left-aligned on mobile */
-    h1, h2, h3,
-    [class*="title"],
-    [class*="heading"] {
+    /* GLOBAL: All content left-aligned on mobile */
+    /* Target specific content areas only - NOT Elementor widgets */
+    .course-hero,
+    .course-hero h1,
+    .course-hero p,
+    .course-hero.hero-centered,
+    .course-hero.hero-centered .hero-container,
+    .course-hero.hero-centered .hero-content,
+    .course-hero.hero-centered h1,
+    .course-hero.hero-centered p,
+    .hero-content,
+    .hero-content h1,
+    .hero-content p,
+    .hero-container,
+    .hero-title,
+    .hero-tagline,
+    .hero-excerpt,
+    .hero-track-record,
+    .hero-track-record *,
+    .track-record-item,
+    .section,
+    .section h2,
+    .section h3,
+    .section p,
+    .section-alt,
+    .section-alt h2,
+    .section-alt h3,
+    .section-alt p,
+    .section-header,
+    .section-title,
+    .section-subtitle,
+    .content-section,
+    .content-section h2,
+    .content-section h3,
+    .content-section p,
+    .faq-section h2,
+    .faq-intro,
+    .faq-intro h2,
+    .faq-intro p,
+    .faq-question,
+    .faq-answer,
+    .faq-answer p,
+    .testimonials-section,
+    .testimonials-section h2,
+    .nyc-testimonials-section,
+    .nyc-testimonials-section h2,
+    .nyc-testimonials-title,
+    .testimonials-container,
+    .testimonials-title,
+    .course-testimonials,
+    .course-cta,
+    .course-cta h2,
+    .course-cta p,
+    .cta-section,
+    .cta-section h2,
+    .cta-section p,
+    .cta-container,
+    .cta-content,
+    .cta-title,
+    .cta-subtitle,
+    .final-cta,
+    .final-cta h2,
+    .final-cta p,
+    .course-related,
+    .course-related h2,
+    .course-crosssell,
+    .course-crosssell h2,
+    .related-title,
+    h2.related-title,
+    .why-choose-section,
+    .why-choose-section h2,
+    .why-choose-section p,
+    .why-choose-sat-act h2,
+    .programs-section,
+    .programs-section h2,
+    .programs-section p,
+    .combined-approach,
+    .combined-approach h2,
+    .combined-approach p,
+    .ready-section,
+    .ready-section h2,
+    .ready-section p,
+    .course-description,
+    .course-description p,
+    .course-description-content,
+    .course-description-content h2,
+    .course-description-content h3,
+    .course-description-content p,
+    .module-title,
+    .module-description,
+    .timeline-content,
+    .course-benefits,
+    .course-benefits li,
+    .admissions-universities-section,
+    .admissions-universities-section h2,
+    .admissions-universities-section p {
         text-align: left !important;
     }
 
-    /* GENERIC: All section descriptions/excerpts left-aligned */
-    .hero-excerpt,
+    /* MOBILE FONT SIZES - Responsive typography */
+    /* H1 - Hero titles */
+    .course-hero h1,
+    .course-hero .hero-content h1,
+    .course-hero.hero-centered .hero-content h1,
+    .hero-content h1,
+    h1 {
+        font-size: 28px !important;
+    }
+
+    /* H2 - Section titles */
+    .course-hero h2,
+    .section h2,
+    .section-alt h2,
+    .section-title,
+    .content-section h2,
+    .faq-section h2,
+    .faq-intro h2,
+    .testimonials-section h2,
+    .nyc-testimonials-section h2,
+    .nyc-testimonials-title,
+    .testimonials-title,
+    .course-cta h2,
+    .cta-section h2,
+    .cta-title,
+    .final-cta h2,
+    .course-related h2,
+    .course-crosssell h2,
+    .related-title,
+    h2.related-title,
+    .why-choose-section h2,
+    .why-choose-sat-act h2,
+    .programs-section h2,
+    .combined-approach h2,
+    .ready-section h2,
+    .course-description-content h2,
+    .admissions-universities-section h2,
+    h2 {
+        font-size: 24px !important;
+    }
+
+    /* H3 - Sub-section titles */
+    .section h3,
+    .section-alt h3,
+    .content-section h3,
+    .course-description-content h3,
+    .module-title,
+    h3 {
+        font-size: 20px !important;
+    }
+
+    /* Body text */
     .hero-tagline,
-    .hero-description,
-    [class*="header"] p,
-    [class*="intro"] p {
+    .hero-excerpt,
+    .section-subtitle,
+    .cta-subtitle,
+    .module-description,
+    .section p,
+    .section-alt p,
+    .content-section p,
+    .cta-section p,
+    .course-description p,
+    .admissions-universities-section p {
+        font-size: 16px !important;
+    }
+
+    /* Small text */
+    .hero-track-record,
+    .track-record-item {
+        font-size: 14px !important;
+    }
+
+    /* Keep buttons text centered but container left-aligned */
+    .cta-group,
+    .hero-buttons,
+    .course-hero.hero-centered .cta-group {
         text-align: left !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+
+    /* Button text stays centered */
+    .nyc-stem-inquiry-btn,
+    button,
+    .btn,
+    a.btn,
+    .elementor-button,
+    .elementor-button-text {
+        text-align: center !important;
+    }
+
+    /* Preserve Elementor alignment classes */
+    .elementor-align-right,
+    .elementor-align-right * {
+        text-align: right !important;
+    }
+
+    .elementor-align-center,
+    .elementor-align-center * {
+        text-align: center !important;
+    }
+
+    /* CTA section - consistent padding with other sections */
+    .cta-section {
+        padding: 40px 16px !important;
+    }
+
+    /* Footer stays centered */
+    footer,
+    footer *,
+    footer a {
+        text-align: center !important;
     }
 }
 

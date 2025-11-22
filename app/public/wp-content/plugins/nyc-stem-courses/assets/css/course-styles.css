@@ -51,26 +51,58 @@ h4, .h4 {
 /* ===========================
    MOBILE: Responsive content
    ALL content left-aligned + scaled font sizes
+   NOTE: Avoid broad selectors that affect Elementor widgets
    =========================== */
 @media (max-width: 768px) {
-    /* GLOBAL: All content left-aligned on mobile */
-    h1, h2, h3, h4, h5, h6, p,
+    /* Content left-aligned on mobile - specific selectors only */
+    .course-single h1,
+    .course-single h2,
+    .course-single h3,
+    .course-single h4,
+    .course-single h5,
+    .course-single h6,
+    .course-single p,
+    /* Hero section */
+    .course-hero,
+    .course-hero h1,
+    .course-hero p,
+    .hero-content,
+    .hero-content h1,
+    .hero-content p,
+    .hero-tagline,
+    .hero-excerpt,
+    .hero-track-record,
+    .hero-track-record *,
+    .track-record-item,
+    .hero-stats-mini,
+    /* Related/Cross-sell sections */
     .related-title,
     h2.related-title,
     .course-related .related-title,
+    .course-crosssell .related-title,
     .section-alt .related-title,
     .section-title,
+    .course-related,
+    .course-related h2,
+    .course-related p,
+    .course-crosssell,
+    .course-crosssell h2,
+    /* CTA section */
     .cta-title,
+    .cta-subtitle,
     .testimonials-title,
     .schedule-title,
-    [class*="title"],
-    [class*="heading"],
-    [class*="section"],
-    [class*="container"],
-    .course-related,
     .course-cta,
+    .cta-section,
+    .cta-section h2,
+    .cta-section p,
+    .cta-content,
+    /* Other content */
     .course-description,
-    .course-benefits {
+    .course-benefits,
+    .admissions-universities-section,
+    .admissions-universities-section h2,
+    .admissions-universities-section p {
         text-align: left !important;
     }
 
@@ -79,16 +111,28 @@ h4, .h4 {
     .related-title,
     h2.related-title,
     .course-related .related-title,
+    .course-crosssell .related-title,
     .section-alt .related-title,
     .section-title,
     .cta-title,
+    .cta-section h2,
     .testimonials-title,
-    .schedule-title {
+    .schedule-title,
+    .admissions-universities-section h2 {
         font-size: 24px !important;
     }
 
+    /* Responsive font sizes - subtitle/body */
+    .cta-subtitle,
+    .cta-section p,
+    .admissions-universities-section p {
+        font-size: 16px !important;
+    }
+
     /* Responsive font sizes - H1 */
-    h1, .h1 {
+    h1, .h1,
+    .course-hero h1,
+    .hero-content h1 {
         font-size: 28px !important;
     }
 
@@ -102,6 +146,111 @@ h4, .h4 {
 
     h4, .h4 {
         font-size: 16px !important;
+    }
+
+    /* Hero tagline/excerpt */
+    .hero-tagline,
+    .hero-excerpt {
+        font-size: 16px !important;
+    }
+
+    /* Track record stats */
+    .hero-track-record,
+    .track-record-item {
+        font-size: 14px !important;
+    }
+
+    /* Override hero-centered text-align for mobile */
+    .course-hero.hero-centered .hero-container,
+    .course-hero.hero-centered .hero-content,
+    .course-hero.hero-centered .hero-content h1,
+    .course-hero.hero-centered .hero-content p,
+    .course-hero.hero-centered .hero-tagline,
+    .course-hero.hero-centered .hero-excerpt,
+    .course-hero.hero-centered .hero-track-record,
+    .course-hero.hero-centered .cta-group {
+        text-align: left !important;
+    }
+
+    .course-hero.hero-centered .cta-group {
+        justify-content: flex-start !important;
+    }
+
+    /* Override desktop h1 font-size for mobile */
+    .course-hero .hero-content h1,
+    .course-hero.hero-centered .hero-content h1 {
+        font-size: 28px !important;
+    }
+
+    /* Related section titles - override desktop center */
+    .course-related .related-title,
+    .course-crosssell .related-title,
+    h2.related-title {
+        text-align: left !important;
+        font-size: 24px !important;
+    }
+
+    /* CTA section - override desktop styles */
+    .cta-section .cta-container,
+    .cta-section .cta-content,
+    .cta-section .cta-title,
+    .cta-section p {
+        text-align: left !important;
+    }
+
+    .cta-section .cta-title {
+        font-size: 24px !important;
+    }
+
+    /* CTA section - consistent padding with other sections */
+    .cta-section {
+        padding: 40px 16px !important; /* Match other sections on mobile */
+    }
+
+    /* Course description section */
+    .section .section-header,
+    .section .section-title,
+    .section .section-subtitle,
+    .section-alt .section-header,
+    .section-alt .section-title,
+    .section-alt .section-subtitle,
+    .course-description-content,
+    .course-description-content h2,
+    .course-description-content h3,
+    .course-description-content p,
+    .module-title,
+    .module-description,
+    .timeline-content,
+    .faq-footer,
+    .faq-footer-text {
+        text-align: left !important;
+    }
+
+    .section .section-title,
+    .section-alt .section-title {
+        font-size: 24px !important;
+    }
+
+    .module-title {
+        font-size: 20px !important;
+    }
+
+    .section .section-subtitle,
+    .section-alt .section-subtitle,
+    .module-description {
+        font-size: 16px !important;
+    }
+
+    /* Testimonials section */
+    .course-testimonials,
+    .testimonials-container,
+    .testimonials-title,
+    .testimonials-content {
+        text-align: left !important;
+    }
+
+    .testimonials-title {
+        font-size: 24px !important;
     }
 }
 
@@ -1630,7 +1779,7 @@ p {
     color: #134958 !important;
     font-weight: 600 !important;
     margin: 0 auto !important;
-    text-align: center !important;
+    text-align: center;
     display: block !important;
     width: 100% !important;
     line-height: 1.3 !important;

@@ -362,8 +362,29 @@ get_header();
 
     /* Responsive */
     @media (max-width: 768px) {
+        /* Left-align all content on mobile */
+        article .hero,
+        article .hero h1,
+        article .hero .subtitle,
+        article section,
+        article h2,
+        article h3,
+        article p,
+        article .highlight-box,
+        article .highlight-box p,
+        article .warning-box,
+        article .warning-box p,
+        article .card,
+        article .card h3,
+        article .card p,
+        article .faq-question,
+        article .faq-answer,
+        article .faq-answer p {
+            text-align: left !important;
+        }
+
         .act-content-wrapper {
-            padding: 0 15px;
+            padding: 0 16px;
         }
 
         article section {
@@ -371,24 +392,24 @@ get_header();
         }
 
         article .hero {
-            padding: 20px 0;
+            padding: 30px 16px;
         }
 
         article .hero h1 {
-            font-size: 32px;
+            font-size: 28px !important;
         }
 
         article .hero .subtitle {
-            font-size: 16px;
+            font-size: 16px !important;
         }
 
         article h2 {
-            font-size: 24px;
+            font-size: 24px !important;
             display: block;
         }
 
         article h3 {
-            font-size: 20px;
+            font-size: 20px !important;
         }
 
         article .comparison-table {
@@ -412,16 +433,16 @@ get_header();
 
         article .highlight-box,
         article .warning-box {
-            padding: 15px 20px;
+            padding: 15px 16px;
             margin: 20px 0;
         }
 
         article .card {
-            padding: 20px;
+            padding: 20px 16px;
         }
 
         article .faq-question {
-            font-size: 16px;
+            font-size: 16px !important;
             padding: 15px 12px;
         }
 

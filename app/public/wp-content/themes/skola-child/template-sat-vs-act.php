@@ -572,20 +572,44 @@ get_header();
 
     /* Responsive */
     @media (max-width: 768px) {
+        /* Left-align all content on mobile */
+        .hero-section,
+        .hero-section h1,
+        .hero-subtitle,
+        .container,
+        .container h2,
+        .container h3,
+        .container p,
+        .section,
+        .section h2,
+        .section p,
+        .vs-card h3,
+        .vs-card p,
+        .recommendation-card,
+        .recommendation-card h3,
+        .recommendation-card p,
+        .feature-card h3,
+        .feature-card p,
+        .quick-stats,
+        .nyc-testimonials-section,
+        .nyc-testimonials-title {
+            text-align: left !important;
+        }
+
         .hero-section {
-            padding: 40px 20px 30px;
+            padding: 30px 16px;
         }
 
         .hero-section h1 {
-            font-size: 32px;
+            font-size: 28px !important;
         }
 
         .hero-subtitle {
-            font-size: 18px;
+            font-size: 16px !important;
         }
 
         h2 {
-            font-size: 1.75rem;
+            font-size: 24px !important;
         }
 
         .vs-comparison {
@@ -608,15 +632,15 @@ get_header();
 
         .cta-buttons {
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .nyc-testimonials-section {
-            padding: 60px 20px;
+            padding: 40px 16px;
         }
 
         .nyc-testimonials-title {
-            font-size: 2rem;
+            font-size: 24px !important;
         }
     }
 </style>

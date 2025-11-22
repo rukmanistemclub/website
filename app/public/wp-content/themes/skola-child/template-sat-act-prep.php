@@ -507,7 +507,7 @@ get_header();
         font-size: 32px !important;
         font-weight: 700 !important;
         line-height: 1.3 !important;
-        text-align: center !important;
+        text-align: center;
         margin-bottom: 30px !important;
         color: #134958 !important;
     }
@@ -598,7 +598,7 @@ get_header();
         font-weight: 700 !important;
         line-height: 1.3 !important;
         color: #134958 !important;
-        text-align: center !important;
+        text-align: center;
         margin-bottom: 40px !important;
     }
 
@@ -626,7 +626,7 @@ get_header();
         font-weight: 700 !important;
         line-height: 1.3 !important;
         color: #134958 !important;
-        text-align: center !important;
+        text-align: center;
         margin-bottom: 40px !important;
     }
 
@@ -787,7 +787,7 @@ get_header();
         line-height: 1.3 !important;
         margin-bottom: 25px !important;
         color: white !important;
-        text-align: center !important;
+        text-align: center;
     }
 
     .final-cta p {
@@ -810,6 +810,75 @@ get_header();
     }
 
     @media (max-width: 768px) {
+        /* Left-align all content on mobile */
+        .course-hero,
+        .hero-content,
+        .hero-content h1,
+        .hero-excerpt,
+        .hero-track-record,
+        .hero-stats-mini,
+        .cta-group,
+        .section-light h2,
+        .section-blue-light h2,
+        .why-choose h2,
+        .why-choose-sat-act h2,
+        .faq-section h2,
+        .final-cta,
+        .final-cta h2,
+        .final-cta p,
+        .nyc-testimonials-title {
+            text-align: left !important;
+        }
+
+        /* Hero section fonts */
+        .course-hero .hero-content h1 {
+            font-size: 28px !important;
+            line-height: 1.3 !important;
+        }
+
+        .hero-excerpt {
+            font-size: 16px !important;
+            line-height: 1.5 !important;
+        }
+
+        .course-hero {
+            padding: 30px 16px !important;
+        }
+
+        .hero-container {
+            padding: 0 !important;
+        }
+
+        /* Section padding and fonts */
+        .section-light,
+        .section-white,
+        .section-blue-light,
+        .why-choose {
+            padding: 30px 16px !important;
+        }
+
+        .section-light h2,
+        .section-blue-light h2,
+        .why-choose h2,
+        .why-choose-sat-act h2,
+        .faq-section h2,
+        .nyc-testimonials-title {
+            font-size: 24px !important;
+        }
+
+        /* Final CTA section */
+        .final-cta {
+            padding: 40px 16px !important;
+        }
+
+        .final-cta h2 {
+            font-size: 24px !important;
+        }
+
+        .final-cta p {
+            font-size: 16px !important;
+        }
+
         .trust-container {
             grid-template-columns: 1fr;
         }
@@ -894,7 +963,7 @@ get_header();
             <!-- Your Path to Success -->
             <section class="section-light" style="padding-top: 4px; margin-top: 0;">
                 <div style="max-width: 1200px; margin: 0 auto;">
-                    <h2 style="font-family: 'Roboto', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; line-height: 1.3 !important; text-align: center !important; color: #134958 !important; margin-bottom: 20px !important;">Your Path to Success: A Strategic 3-Step Process</h2>
+                    <h2 style="font-family: 'Roboto', sans-serif !important; font-size: 32px !important; font-weight: 700 !important; line-height: 1.3 !important; text-align: center; color: #134958 !important; margin-bottom: 20px !important;">Your Path to Success: A Strategic 3-Step Process</h2>
                     <p style="text-align: center; margin: 0 auto 35px; line-height: 1.7;">Achieving your target score isn't just about studying harder—it's about choosing the right test, the right format, and the right timeline.</p>
                 </div>
 

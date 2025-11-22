@@ -493,8 +493,64 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Left-align all content on mobile */
+    .article-hero,
+    .article-title,
+    .article-subtitle,
+    .article-container,
+    .section-title,
+    .section-subtitle,
+    .change-step,
+    .change-step h3,
+    .change-step p,
+    .comparison-card,
+    .comparison-card h4,
+    .comparison-card p,
+    .feature-card,
+    .feature-card h4,
+    .feature-card p,
+    .info-box,
+    .info-box h4,
+    .info-box p,
+    .impact-section,
+    .impact-section h3,
+    .impact-section p,
+    .decision-box,
+    .decision-box h3,
+    .decision-box p,
+    .cta-buttons-container {
+        text-align: left !important;
+    }
+
+    /* Hero section fonts */
+    .article-hero .article-title,
     .article-title {
-        font-size: 36px;
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+    }
+
+    .article-hero .article-subtitle,
+    .article-subtitle {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+    }
+
+    .announcement-badge {
+        font-size: 12px !important;
+        padding: 6px 14px !important;
+    }
+
+    .timeline-badge {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+    }
+
+    /* Section titles */
+    .section-title,
+    .changes-list h2,
+    .impact-section h2,
+    .decision-box h2 {
+        font-size: 24px !important;
     }
 
     .comparison-cards,
@@ -513,15 +569,45 @@ body {
 
     .change-step h3 {
         padding-left: 55px;
+        font-size: 20px !important;
     }
 
     .article-hero {
-        padding: 40px 20px 30px;
+        padding: 30px 16px;
     }
 
-    .impact-section,
+    .lead-intro {
+        padding: 24px 16px;
+        font-size: 16px !important;
+    }
+
+    .changes-list {
+        padding: 20px 16px 30px;
+    }
+
+    .impact-section {
+        padding: 20px 16px 30px;
+    }
+
+    /* Decision box / CTA section */
     .decision-box {
-        padding: 32px 24px;
+        padding: 40px 16px;
+        margin-bottom: 30px;
+    }
+
+    .decision-box p {
+        font-size: 16px !important;
+        margin-bottom: 24px;
+    }
+
+    .cta-buttons-container {
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .article-container {
+        padding: 0 16px;
     }
 }
 </style>

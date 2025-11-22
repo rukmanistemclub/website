@@ -905,28 +905,10 @@ get_header();
     }
 
     @media (max-width: 768px) {
-        /* GLOBAL: ALL content left-aligned on mobile */
-        h1, h2, h3, h4, h5, h6, p,
-        .section,
-        .section-alt,
-        .section-container,
-        .combined-approach,
-        .ready-section,
-        .ready-footer,
-        .ready-footer p,
-        .related-title,
-        h2.related-title,
-        .course-related,
-        .course-related .related-title,
-        .section-alt .course-related .related-title,
-        .section-container .course-related .related-title,
-        [class*="section"],
-        [class*="container"] {
-            text-align: left !important;
-        }
+        /* Text-align handled by global rule in course-pages.css */
 
         /* Headings - responsive font size on mobile */
-        h1, h2, h3,
+        h2, h3,
         .section h2,
         .section-alt h2,
         .combined-approach h2,

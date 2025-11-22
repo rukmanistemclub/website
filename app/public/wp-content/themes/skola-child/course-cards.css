@@ -310,8 +310,14 @@ section.course-related.course-crosssell {
     max-width: 1200px !important;
     width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 !important;
+    padding: 0 16px !important; /* Match other sections - 16px horizontal padding on mobile */
     box-sizing: border-box !important;
+}
+
+@media (min-width: 768px) {
+    .course-related .related-container {
+        padding: 0 24px !important; /* 24px horizontal padding on desktop */
+    }
 }
 
 /* Related courses section title */
@@ -645,5 +651,23 @@ section.course-related.course-crosssell {
 
 .courses-grid .course-card-image {
     position: relative !important;
+}
+
+/* ========================================
+   MOBILE: Left-align related section titles
+   Override desktop !important rules
+   ======================================== */
+@media (max-width: 768px) {
+    /* Related courses section title - override desktop center */
+    .course-related .related-title,
+    .course-related h2.related-title,
+    .course-related .related-container h2,
+    .course-related h2,
+    .course-crosssell .related-title,
+    .course-crosssell h2.related-title,
+    .course-crosssell h2 {
+        text-align: left !important;
+        font-size: 24px !important;
+    }
 }
 

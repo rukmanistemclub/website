@@ -166,18 +166,45 @@ get_header();
 
     /* Responsive */
     @media (max-width: 768px) {
+        /* Left-align all content on mobile */
+        .hero,
+        .hero h1,
+        .hero p,
+        .resources-container,
+        .section-intro,
+        .section-intro h2,
+        .section-intro p,
+        .category-header,
+        .category-header h2,
+        .resource-link h3,
+        .resource-description {
+            text-align: left !important;
+        }
+
+        .hero {
+            padding: 30px 16px;
+        }
+
         .hero h1 {
-            font-size: 2rem;
+            font-size: 28px !important;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 16px !important;
+            margin: 0;
         }
 
+        .resources-container {
+            padding: 20px 16px;
+        }
 
         .section-intro h2,
         .category-header h2 {
-            font-size: 1.75rem;
+            font-size: 24px !important;
+        }
+
+        .resource-link h3 {
+            font-size: 20px !important;
         }
     }
 </style>
