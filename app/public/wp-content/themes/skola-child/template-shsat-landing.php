@@ -1227,7 +1227,7 @@ get_header();
             </div>
 
             <div class="ready-footer">
-                <p style="font-size: 16px; margin-bottom: 15px; opacity: 0.9;">Located in Financial District, Manhattan • Serving all NYC boroughs</p>
+                <p>Located in Financial District, Manhattan • Serving all NYC boroughs</p>
                 <p>Questions? Check our <a href="/shsat-faq/">SHSAT FAQ</a> or <a href="/contact/">Contact Us</a> directly.</p>
                 <?php echo do_shortcode('[inquiry_button]'); ?>
             </div>
@@ -1252,11 +1252,11 @@ get_header();
     </section>
 
     <!-- Beyond Specialized Schools -->
-    <section class="section">
+    <section class="section bg-alt" style="padding-top: 10px; padding-bottom: 10px;">
         <div class="section-container">
             <h2>Beyond Specialized School</h2>
-            <p style="text-align: center; margin: 30px auto 2px;">NYC STEM CLUB students also excel in private and Catholic school admissions, gaining acceptance and scholarships at:</p>
-            <p class="private-schools-list" style="text-align: center; margin: 0 auto; font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600;">
+            <p style="text-align: center; margin: 20px auto 8px;">NYC STEM CLUB students also excel in private and Catholic school admissions, gaining acceptance and scholarships at:</p>
+            <p class="private-schools-list" style="text-align: center; margin: 0 auto 0 auto; font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600;">
                 <a href="https://www.trinityschoolnyc.org/" target="_blank" rel="noopener noreferrer">Trinity</a> •
                 <a href="https://www.brearley.org/" target="_blank" rel="noopener noreferrer">Brearley</a> •
                 <a href="https://www.dalton.org/" target="_blank" rel="noopener noreferrer">Dalton</a> •
@@ -1295,4 +1295,32 @@ function openTab(evt, tabId) {
 }
 </script>
 
-<?php get_footer(); ?>
+<?php
+/**
+ * Service Schema Markup for SEO
+ */
+$service_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Service',
+    'name' => 'SHSAT Test Preparation',
+    'description' => 'NYC SHSAT prep programs for all 8 specialized high schools: Stuyvesant High School, Bronx High School of Science, Brooklyn Technical High School (Brooklyn Tech), High School for Mathematics Science and Engineering (HSMSE), High School of American Studies at Lehman College, Queens High School for the Sciences at York College, Staten Island Technical High School, and Brooklyn Latin School.',
+    'provider' => array(
+        '@type' => 'EducationalOrganization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'serviceType' => 'Test Preparation',
+    'areaServed' => array(
+        array(
+            '@type' => 'City',
+            'name' => 'New York City'
+        ),
+        array(
+            '@type' => 'Country',
+            'name' => 'United States (Online)'
+        )
+    )
+);
+echo '<script type="application/ld+json">' . wp_json_encode($service_schema, JSON_UNESCAPED_SLASHES) . '</script>';
+
+get_footer(); ?>

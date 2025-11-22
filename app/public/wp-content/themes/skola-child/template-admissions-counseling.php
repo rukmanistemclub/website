@@ -475,4 +475,32 @@ get_header();
 
 </div>
 
-<?php get_footer(); ?>
+<?php
+/**
+ * Service Schema Markup for SEO
+ */
+$service_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Service',
+    'name' => 'Admissions Counseling',
+    'description' => 'Private school and college admissions counseling in NYC and online. Application strategy, essay coaching, school selection, and interview preparation.',
+    'provider' => array(
+        '@type' => 'EducationalOrganization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'serviceType' => 'Admissions Counseling',
+    'areaServed' => array(
+        array(
+            '@type' => 'City',
+            'name' => 'New York City'
+        ),
+        array(
+            '@type' => 'Country',
+            'name' => 'United States (Online)'
+        )
+    )
+);
+echo '<script type="application/ld+json">' . wp_json_encode($service_schema, JSON_UNESCAPED_SLASHES) . '</script>';
+
+get_footer(); ?>

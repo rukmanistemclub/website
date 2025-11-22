@@ -262,4 +262,37 @@ body {
 
 </div>
 
-<?php get_footer(); ?>
+<?php
+/**
+ * Service Schema Markup for SEO
+ */
+$service_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Service',
+    'name' => 'Academic Enrichment Programs',
+    'description' => 'Math and ELA enrichment programs for grades 3-8 in NYC and online. Build strong foundations in problem-solving, reading comprehension, and critical thinking.',
+    'provider' => array(
+        '@type' => 'EducationalOrganization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'serviceType' => 'Academic Enrichment',
+    'areaServed' => array(
+        array(
+            '@type' => 'City',
+            'name' => 'New York City'
+        ),
+        array(
+            '@type' => 'Country',
+            'name' => 'United States (Online)'
+        )
+    ),
+    'audience' => array(
+        '@type' => 'EducationalAudience',
+        'educationalRole' => 'student',
+        'audienceType' => 'Grades 3-8'
+    )
+);
+echo '<script type="application/ld+json">' . wp_json_encode($service_schema, JSON_UNESCAPED_SLASHES) . '</script>';
+
+get_footer(); ?>

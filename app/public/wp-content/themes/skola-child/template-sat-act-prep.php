@@ -1293,5 +1293,46 @@ get_header();
 </div>
 
 <?php
+/**
+ * Service Schema Markup for SEO
+ */
+$service_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Service',
+    'name' => 'SAT & ACT Test Preparation',
+    'description' => 'Comprehensive Digital SAT and Enhanced ACT test prep programs in NYC and online. Expert instructors, personalized strategies, and proven results.',
+    'provider' => array(
+        '@type' => 'EducationalOrganization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'serviceType' => 'Test Preparation',
+    'areaServed' => array(
+        array(
+            '@type' => 'City',
+            'name' => 'New York City'
+        ),
+        array(
+            '@type' => 'Country',
+            'name' => 'United States (Online)'
+        )
+    ),
+    'availableChannel' => array(
+        array(
+            '@type' => 'ServiceChannel',
+            'serviceLocation' => array(
+                '@type' => 'Place',
+                'name' => 'In-Person (NYC)'
+            )
+        ),
+        array(
+            '@type' => 'ServiceChannel',
+            'serviceUrl' => 'https://nycstemclub.com',
+            'name' => 'Online'
+        )
+    )
+);
+echo '<script type="application/ld+json">' . wp_json_encode($service_schema, JSON_UNESCAPED_SLASHES) . '</script>';
+
 get_footer();
 

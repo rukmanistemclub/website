@@ -40,4 +40,32 @@ while (have_posts()) : the_post();
 <?php
 endwhile;
 
+/**
+ * Course Schema Markup for SEO - Dynamic for each course
+ */
+$course_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Course',
+    'name' => get_the_title(),
+    'description' => wp_strip_all_tags(get_the_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 30)),
+    'provider' => array(
+        '@type' => 'EducationalOrganization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'url' => get_permalink(),
+    'courseMode' => array('In-Person', 'Online'),
+    'areaServed' => array(
+        array(
+            '@type' => 'City',
+            'name' => 'New York City'
+        ),
+        array(
+            '@type' => 'Country',
+            'name' => 'United States (Online)'
+        )
+    )
+);
+echo '<script type="application/ld+json">' . wp_json_encode($course_schema, JSON_UNESCAPED_SLASHES) . '</script>';
+
 get_footer();

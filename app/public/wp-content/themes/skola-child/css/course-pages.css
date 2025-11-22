@@ -1554,6 +1554,105 @@ Example HTML structure for Option B:
 }
 
 /* ==============================================================================
+   READY TO START SECTION - CTA Section with Grid Layout
+   ============================================================================== */
+
+.ready-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    color: white;
+    padding: var(--space-12) var(--space-4);
+}
+
+.ready-section .section-container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+}
+
+.ready-section h2 {
+    color: white;
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-8);
+    text-align: center;
+}
+
+.ready-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-4);
+}
+
+.ready-column h3 {
+    color: white;
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-4);
+}
+
+.ready-column ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.ready-column li {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-3);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.ready-footer {
+    text-align: center;
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ready-footer p {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-4);
+}
+
+.ready-footer a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.ready-footer a:hover {
+    opacity: 0.8;
+}
+
+/* Tablet and up - 2 column grid */
+@media (min-width: 768px) {
+    .ready-section {
+        padding: var(--space-16) var(--space-6);
+    }
+
+    .ready-section h2 {
+        font-size: var(--text-4xl);
+    }
+
+    .ready-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-12);
+    }
+
+    .ready-column h3 {
+        font-size: var(--text-2xl);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .ready-section {
+        padding: var(--space-20) var(--space-8);
+    }
+}
+
+/* ==============================================================================
    DECORATIVE IMAGES - Hide on mobile if not essential
    ============================================================================== */
 
@@ -1679,7 +1778,13 @@ Example HTML structure for Option B:
     .combined-approach p,
     .ready-section,
     .ready-section h2,
+    .ready-section h3,
     .ready-section p,
+    .ready-column,
+    .ready-column h3,
+    .ready-column li,
+    .ready-footer,
+    .ready-footer p,
     .course-description,
     .course-description p,
     .course-description-content,
@@ -1743,6 +1848,8 @@ Example HTML structure for Option B:
     .section-alt h3,
     .content-section h3,
     .course-description-content h3,
+    .ready-section h3,
+    .ready-column h3,
     .module-title,
     h3 {
         font-size: 20px !important;
@@ -1759,6 +1866,9 @@ Example HTML structure for Option B:
     .content-section p,
     .cta-section p,
     .course-description p,
+    .ready-section p,
+    .ready-footer p,
+    .ready-column li,
     .admissions-universities-section p {
         font-size: 16px !important;
     }
