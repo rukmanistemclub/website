@@ -1001,37 +1001,4 @@ function toggleFAQ(button) {
 </script>
 
 <?php
-/**
- * Article Schema Markup for SEO
- */
-$article_schema = array(
-    '@context' => 'https://schema.org',
-    '@type' => 'Article',
-    'headline' => 'SAT vs ACT 2025: Which Test Is Right for You?',
-    'description' => 'Comprehensive comparison of the Digital SAT and Enhanced ACT in 2025. Learn the key differences, which test suits your strengths, and how to choose the right one for your college admissions journey.',
-    'author' => array(
-        '@type' => 'Organization',
-        'name' => 'NYC STEM Club',
-        'url' => 'https://nycstemclub.com'
-    ),
-    'publisher' => array(
-        '@type' => 'Organization',
-        'name' => 'NYC STEM Club',
-        'url' => 'https://nycstemclub.com',
-        'logo' => array(
-            '@type' => 'ImageObject',
-            'url' => 'https://nycstemclub.com/wp-content/uploads/nyc-stem-club-logo.png'
-        )
-    ),
-    'datePublished' => '2024-06-01',
-    'dateModified' => '2025-01-15',
-    'mainEntityOfPage' => array(
-        '@type' => 'WebPage',
-        '@id' => home_url('/resources/sat-vs-act-2025-which-test-is-right-for-you/')
-    ),
-    'keywords' => 'SAT vs ACT, SAT or ACT, Digital SAT, Enhanced ACT, college admissions, test comparison, SAT prep, ACT prep'
-);
-
-echo '<script type="application/ld+json">' . wp_json_encode($article_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
-
 get_footer();
