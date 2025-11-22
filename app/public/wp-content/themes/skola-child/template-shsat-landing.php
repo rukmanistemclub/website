@@ -905,6 +905,11 @@ get_header();
     }
 
     @media (max-width: 768px) {
+        /* GLOBAL: All headings left-aligned on mobile */
+        h1, h2, h3 {
+            text-align: left !important;
+        }
+
         /* Hero Section */
         .shsat-hero {
             min-height: auto !important;
