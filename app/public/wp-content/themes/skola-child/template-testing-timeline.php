@@ -1302,4 +1302,39 @@ if (timelineVisual) {
 
 <?php endwhile; ?>
 
-<?php get_footer(); ?>
+<?php
+/**
+ * Article Schema Markup for SEO
+ */
+$article_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Article',
+    'headline' => 'SAT & ACT Testing Timeline: When to Start and What to Expect',
+    'description' => 'Complete guide to SAT and ACT testing timelines for high school students. Learn when to start prep, optimal test dates by grade, and how to plan your college entrance exam strategy.',
+    'author' => array(
+        '@type' => 'Organization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com'
+    ),
+    'publisher' => array(
+        '@type' => 'Organization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com',
+        'logo' => array(
+            '@type' => 'ImageObject',
+            'url' => 'https://nycstemclub.com/wp-content/uploads/nyc-stem-club-logo.png'
+        )
+    ),
+    'datePublished' => '2024-05-01',
+    'dateModified' => '2025-01-15',
+    'mainEntityOfPage' => array(
+        '@type' => 'WebPage',
+        '@id' => home_url('/resources/sat-act-testing-timeline/')
+    ),
+    'keywords' => 'SAT timeline, ACT timeline, when to take SAT, when to take ACT, test prep schedule, college admissions timeline'
+);
+
+echo '<script type="application/ld+json">' . wp_json_encode($article_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+
+get_footer();
+?>

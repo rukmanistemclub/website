@@ -1295,4 +1295,61 @@ function openTab(evt, tabId) {
 }
 </script>
 
-<?php get_footer(); ?>
+<?php
+/**
+ * Service Schema Markup for SEO
+ */
+$service_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Service',
+    'name' => 'SHSAT Test Preparation',
+    'description' => 'Comprehensive SHSAT prep program with 90%+ admission rate to NYC specialized high schools. Expert instructors, proven curriculum, and 50%+ Stuyvesant qualification rate.',
+    'provider' => array(
+        '@type' => 'EducationalOrganization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com',
+        'address' => array(
+            '@type' => 'PostalAddress',
+            'addressLocality' => 'New York',
+            'addressRegion' => 'NY',
+            'addressCountry' => 'US'
+        )
+    ),
+    'serviceType' => 'Test Preparation',
+    'areaServed' => array(
+        '@type' => 'City',
+        'name' => 'New York City'
+    ),
+    'hasOfferCatalog' => array(
+        '@type' => 'OfferCatalog',
+        'name' => 'SHSAT Prep Programs',
+        'itemListElement' => array(
+            array(
+                '@type' => 'Offer',
+                'itemOffered' => array(
+                    '@type' => 'Service',
+                    'name' => 'SHSAT Year-Long Program'
+                )
+            ),
+            array(
+                '@type' => 'Offer',
+                'itemOffered' => array(
+                    '@type' => 'Service',
+                    'name' => 'SHSAT Summer Bootcamp'
+                )
+            ),
+            array(
+                '@type' => 'Offer',
+                'itemOffered' => array(
+                    '@type' => 'Service',
+                    'name' => 'SHSAT Fall Intensive'
+                )
+            )
+        )
+    )
+);
+
+echo '<script type="application/ld+json">' . wp_json_encode($service_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+
+get_footer();
+?>

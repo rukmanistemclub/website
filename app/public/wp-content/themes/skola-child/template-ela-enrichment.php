@@ -331,4 +331,39 @@ body {
 
 <?php endwhile; ?>
 
-<?php get_footer(); ?>
+<?php
+/**
+ * Service Schema Markup for SEO
+ */
+$service_schema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Service',
+    'name' => 'ELA Enrichment Program (Grades 3-8)',
+    'description' => 'Comprehensive ELA enrichment program for grades 3-8 students in NYC. Develop advanced reading comprehension, writing skills, vocabulary, and critical analysis abilities.',
+    'provider' => array(
+        '@type' => 'EducationalOrganization',
+        'name' => 'NYC STEM Club',
+        'url' => 'https://nycstemclub.com',
+        'address' => array(
+            '@type' => 'PostalAddress',
+            'addressLocality' => 'New York',
+            'addressRegion' => 'NY',
+            'addressCountry' => 'US'
+        )
+    ),
+    'serviceType' => 'Academic Enrichment',
+    'areaServed' => array(
+        '@type' => 'City',
+        'name' => 'New York City'
+    ),
+    'audience' => array(
+        '@type' => 'EducationalAudience',
+        'educationalRole' => 'student',
+        'audienceType' => 'Grades 3-8'
+    )
+);
+
+echo '<script type="application/ld+json">' . wp_json_encode($service_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+
+get_footer();
+?>
