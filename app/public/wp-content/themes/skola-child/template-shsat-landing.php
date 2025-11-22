@@ -906,7 +906,14 @@ get_header();
 
     @media (max-width: 768px) {
         /* GLOBAL: All headings left-aligned on mobile */
-        h1, h2, h3 {
+        h1, h2, h3,
+        .section h2,
+        .section-alt h2,
+        .section-container > h2,
+        .programs-section h2,
+        .ready-section h2,
+        .combined-approach h2,
+        .related-title {
             text-align: left !important;
         }
 
