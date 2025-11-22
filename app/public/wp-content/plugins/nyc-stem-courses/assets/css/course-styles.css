@@ -49,14 +49,35 @@ h4, .h4 {
 }
 
 /* ===========================
-   MOBILE: Left-align ALL headings
+   MOBILE: Responsive headings
+   Left-aligned + scaled font sizes
    =========================== */
 @media (max-width: 768px) {
+    /* Left-align all headings */
     h1, h2, h3, h4,
     .related-title,
     [class*="title"],
     [class*="heading"] {
         text-align: left !important;
+    }
+
+    /* Responsive font sizes */
+    h1, .h1 {
+        font-size: 28px !important;
+    }
+
+    h2, .h2,
+    .related-title,
+    .section-title {
+        font-size: 24px !important;
+    }
+
+    h3, .h3 {
+        font-size: 20px !important;
+    }
+
+    h4, .h4 {
+        font-size: 16px !important;
     }
 }
 
