@@ -1593,7 +1593,7 @@ Example HTML structure for Option B:
 }
 
 /* Mobile: ALL headings left-aligned for better readability */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     /* GENERIC: All headings left-aligned on mobile */
     h1, h2, h3,
     [class*="title"],
