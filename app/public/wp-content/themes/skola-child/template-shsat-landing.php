@@ -905,7 +905,7 @@ get_header();
     }
 
     @media (max-width: 768px) {
-        /* ALL headings left-aligned on mobile */
+        /* ALL headings - left-aligned and responsive font size on mobile */
         h1, h2, h3,
         .section h2,
         .section-alt h2,
@@ -913,6 +913,7 @@ get_header();
         .ready-section h2,
         .related-title {
             text-align: left !important;
+            font-size: 24px !important;
         }
 
         /* Hero Section */
