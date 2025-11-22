@@ -80,7 +80,7 @@ body {
     font-family: 'Roboto', sans-serif !important;
     font-size: 16px;
     font-weight: 400;
-    line-height: 1.7;
+    line-height: 1.625;
     color: #333;
     background: #f8f9fa;
 }
@@ -131,17 +131,18 @@ body {
 }
 
 .article-title {
-    font-size: 48px;
+    font-size: 30px;
     font-weight: 800;
     margin-bottom: 16px;
-    line-height: 1.2;
+    line-height: 1.25;
     color: white !important;
 }
 
 .article-subtitle {
-    font-size: 20px;
+    font-size: 18px;
     opacity: 0.95;
     margin-bottom: 24px;
+    line-height: 1.625;
 }
 
 .timeline-badge {
@@ -166,8 +167,8 @@ body {
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-    line-height: 1.8;
+    font-size: 18px;
+    line-height: 1.625;
     margin-bottom: 50px;
     border-left: 5px solid #28AFCF;
 }
@@ -182,11 +183,11 @@ body {
 }
 
 .changes-list h2 {
-    font-size: 32px;
+    font-size: 24px;
     color: #134958;
     margin-bottom: 40px;
     text-align: center;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .change-steps {
@@ -201,10 +202,10 @@ body {
 }
 
 .change-step h3 {
-    font-size: 26px;
+    font-size: 20px;
     color: #28AFCF;
     margin-bottom: 20px;
-    font-weight: 700;
+    font-weight: 600;
     position: relative;
     padding-left: 60px;
 }
@@ -227,8 +228,8 @@ body {
 }
 
 .change-step p {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.625;
     margin-bottom: 20px;
     padding-left: 60px;
 }
@@ -272,7 +273,7 @@ body {
     color: white;
     padding: 6px 16px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     margin-bottom: 16px;
 }
@@ -290,7 +291,7 @@ body {
 
 .card-description {
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.625;
     color: #666;
 }
 
@@ -324,8 +325,8 @@ body {
 }
 
 .feature-title {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
     color: #134958;
     margin-bottom: 8px;
 }
@@ -352,8 +353,8 @@ body {
 }
 
 .info-box p {
-    font-size: 17px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.625;
     margin: 0;
     padding: 0;
 }
@@ -364,8 +365,8 @@ body {
 }
 
 .info-box li {
-    font-size: 17px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.625;
     margin-bottom: 10px;
 }
 
@@ -379,16 +380,16 @@ body {
 }
 
 .impact-section h2 {
-    font-size: 32px;
+    font-size: 24px;
     color: #134958;
     margin-bottom: 30px;
     text-align: center;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .impact-section p {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.625;
     margin-bottom: 20px;
 }
 
@@ -401,10 +402,10 @@ body {
 }
 
 .key-points h3 {
-    font-size: 22px;
+    font-size: 20px;
     color: #28AFCF;
     margin-bottom: 16px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .key-points ul {
@@ -413,8 +414,8 @@ body {
 }
 
 .key-points li {
-    font-size: 17px;
-    line-height: 1.9;
+    font-size: 16px;
+    line-height: 1.625;
     margin-bottom: 12px;
 }
 
@@ -430,17 +431,17 @@ body {
 }
 
 .decision-box h2 {
-    font-size: 32px;
+    font-size: 24px;
     margin-bottom: 20px;
-    font-weight: 800;
+    font-weight: 700;
     color: white !important;
 }
 
 .decision-box p {
-    font-size: 19px;
+    font-size: 18px;
     color: white !important;
     margin-bottom: 30px;
-    line-height: 1.8;
+    line-height: 1.625;
 }
 
 .cta-button {
@@ -610,6 +611,41 @@ body {
         padding: 0 16px;
     }
 }
+
+/* Tablet and up - scale headings */
+@media (min-width: 768px) {
+    .article-title {
+        font-size: 36px;
+    }
+
+    .article-subtitle {
+        font-size: 20px;
+    }
+
+    .changes-list h2,
+    .impact-section h2,
+    .decision-box h2 {
+        font-size: 30px;
+    }
+
+    .change-step h3,
+    .key-points h3 {
+        font-size: 24px;
+    }
+}
+
+/* Desktop - larger headings */
+@media (min-width: 1024px) {
+    .article-title {
+        font-size: 48px;
+    }
+
+    .changes-list h2,
+    .impact-section h2,
+    .decision-box h2 {
+        font-size: 36px;
+    }
+}
 </style>
 
 <div class="entry-content">
@@ -684,10 +720,10 @@ body {
                     <p><strong>Reading & Writing Skills Assessed:</strong></p>
 
                     <ul style="padding-left: 80px; margin-top: 20px;">
-                        <li style="margin-bottom: 12px; font-size: 17px;"><strong>Information and Ideas</strong> — Comprehension and analysis of texts</li>
-                        <li style="margin-bottom: 12px; font-size: 17px;"><strong>Craft and Structure</strong> — Understanding writing techniques</li>
-                        <li style="margin-bottom: 12px; font-size: 17px;"><strong>Expression of Ideas</strong> — Effective communication skills</li>
-                        <li style="margin-bottom: 12px; font-size: 17px;"><strong>Standard English Conventions</strong> — Grammar and usage rules</li>
+                        <li style="margin-bottom: 12px; font-size: 16px; line-height: 1.625;"><strong>Information and Ideas</strong> — Comprehension and analysis of texts</li>
+                        <li style="margin-bottom: 12px; font-size: 16px; line-height: 1.625;"><strong>Craft and Structure</strong> — Understanding writing techniques</li>
+                        <li style="margin-bottom: 12px; font-size: 16px; line-height: 1.625;"><strong>Expression of Ideas</strong> — Effective communication skills</li>
+                        <li style="margin-bottom: 12px; font-size: 16px; line-height: 1.625;"><strong>Standard English Conventions</strong> — Grammar and usage rules</li>
                     </ul>
 
                     <div class="info-box">
@@ -705,11 +741,11 @@ body {
 
                     <p><strong>Digital Features Include:</strong></p>
                     <ul style="padding-left: 80px; margin-top: 20px;">
-                        <li style="margin-bottom: 12px; font-size: 17px;">Built-in timer for each module</li>
-                        <li style="margin-bottom: 12px; font-size: 17px;">Digital highlighting and annotation tools</li>
-                        <li style="margin-bottom: 12px; font-size: 17px;">Built-in Desmos calculator for all math questions</li>
-                        <li style="margin-bottom: 12px; font-size: 17px;">Flag questions for review</li>
-                        <li style="margin-bottom: 12px; font-size: 17px;">Work saved automatically (even if internet drops)</li>
+                        <li style="margin-bottom: 12px; font-size: 16px; line-height: 1.625;">Built-in timer for each module</li>
+                        <li style="margin-bottom: 12px; font-size: 16px; line-height: 1.625;">Digital highlighting and annotation tools</li>
+                        <li style="margin-bottom: 12px; font-size: 16px; line-height: 1.625;">Built-in Desmos calculator for all math questions</li>
+                        <li style="margin-bottom: 12px; font-size: 16px; line-height: 1.625;">Flag questions for review</li>
+                        <li style="margin-bottom: 12px; font-size: 16px; line-height: 1.625;">Work saved automatically (even if internet drops)</li>
                     </ul>
 
                     <div class="info-box">

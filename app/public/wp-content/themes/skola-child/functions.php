@@ -10,6 +10,13 @@
  */
 
 /**
+ * Disable Yoast SEO Schema Output
+ * We have custom, more detailed schema markup for Organization, Service, Course, and FAQPage.
+ * Yoast is used only for: titles, meta descriptions, canonical URLs, and sitemap.
+ */
+add_filter('wpseo_json_ld_output', '__return_false');
+
+/**
  * @snippet       Remove Add Cart, Add View Product @ WooCommerce Loop
  * @how-to        Get CustomizeWoo.com FREE
  * @author        Rodolfo Melogli
