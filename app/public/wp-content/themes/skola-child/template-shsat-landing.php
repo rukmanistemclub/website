@@ -911,7 +911,11 @@ get_header();
         .section-alt h2,
         .combined-approach h2,
         .ready-section h2,
-        .related-title {
+        .related-title,
+        h2.related-title,
+        .course-related .related-title,
+        .section-alt .course-related .related-title,
+        .section-container .course-related .related-title {
             text-align: left !important;
             font-size: 24px !important;
         }
