@@ -216,7 +216,7 @@ get_header();
     .ready-section h2,
     .combined-approach h2,
     .related-title {
-        font-size: 32px !important;
+        /* font-size handled by external CSS for responsive sizing */
         font-weight: 700 !important;
         line-height: 1.3 !important;
         color: #134958 !important;
@@ -495,7 +495,7 @@ get_header();
     }
 
     .combined-approach h2 {
-        font-size: 32px !important;
+        /* font-size handled by external CSS */
         font-weight: 700 !important;
         color: #F0B26B !important;
         margin-bottom: 18px !important;
@@ -729,7 +729,7 @@ get_header();
     .ready-section .section-container h2,
     .ready-section h2 {
         font-family: 'Roboto', sans-serif !important;
-        font-size: 32px !important;
+        /* font-size handled by external CSS */
         font-weight: 700 !important;
         line-height: 1.3 !important;
         color: #FFFFFF !important;
@@ -953,14 +953,8 @@ get_header();
             text-align: center !important;
         }
 
-        /* Section Headings - Mobile responsive (24px) */
-        .section h2,
-        .section-alt h2 {
-            font-size: 24px !important;
-        }
-
+        /* Section Headings - font-size handled by external CSS */
         .combined-approach h2 {
-            font-size: 24px !important;
             margin-bottom: 15px !important;
         }
 
@@ -1012,9 +1006,7 @@ get_header();
             padding: 15px 15px 40px 15px !important;
         }
 
-        .ready-section h2 {
-            font-size: 24px !important;
-        }
+        /* .ready-section h2 font-size handled by external CSS */
 
         .ready-column h3 {
             font-size: 20px !important;
