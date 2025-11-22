@@ -952,6 +952,7 @@ get_header();
         .combined-approach h2 {
             font-size: 32px !important;
             margin-bottom: 15px !important;
+            text-align: left !important;
         }
 
         /* Why Choose Grid */
