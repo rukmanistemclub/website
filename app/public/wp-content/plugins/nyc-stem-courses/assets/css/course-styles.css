@@ -56,6 +56,9 @@ h4, .h4 {
     /* Left-align all headings */
     h1, h2, h3, h4,
     .related-title,
+    h2.related-title,
+    .course-related .related-title,
+    .section-alt .related-title,
     [class*="title"],
     [class*="heading"] {
         text-align: left !important;
@@ -68,6 +71,9 @@ h4, .h4 {
 
     h2, .h2,
     .related-title,
+    h2.related-title,
+    .course-related .related-title,
+    .section-alt .related-title,
     .section-title {
         font-size: 24px !important;
     }
