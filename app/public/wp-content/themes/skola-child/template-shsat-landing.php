@@ -498,10 +498,10 @@ get_header();
         font-size: 32px !important;
         font-weight: 700 !important;
         color: #F0B26B !important;
-        text-align: center !important;
         margin-bottom: 18px !important;
         margin-left: auto !important;
         margin-right: auto !important;
+        /* text-align handled by external CSS */
     }
 
     .combined-approach .approach-list {
