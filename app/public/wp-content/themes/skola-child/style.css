@@ -63,14 +63,6 @@ body{
     margin-bottom: 0 !important;
 }
 
-a.button.product_type_external {
-    background-color: #154957;
-}
-
-.top-hd .elementor-element.elementor-widget-wp-widget-woocommerce_product_search {
-    text-align: right;
-}
-
 .paoc-popup-btn{ font-size:18px; padding:10px 25px !important;}
 
 .paoc-popup-inr .fserv-container label.fserv-label{ font-size:17px !important; color:#000 !important; font-weight:500;}
@@ -261,13 +253,7 @@ a.button.addtocartbutton {
     border-radius: 5px;
     line-height:2.2;
 }
-   /* Elementor element IDs removed - 2025-11-23 (orphaned after PHP template conversion) */
-  /* Reduce "Related products" heading font size */
-  .single-product .related.products h2 {
-      font-size: 24px !important;
-  }
-
-   /* Elementor hero button element IDs removed - 2025-11-23 (now using PHP template buttons) */
+   /* Elementor/WooCommerce dead code removed - 2025-11-23 */
 
   /* NYC STEM Inquiry Button - Base styles */
   .nyc-stem-inquiry-btn,
@@ -416,100 +402,7 @@ a.button.addtocartbutton {
   }
 
 /* Single product "Inquire Now" button color override */
-.single_add_to_cart_button.btn-blue {
-    background-color: #154958 !important;
-}
-
-.single_add_to_cart_button.btn-blue:hover {
-    background-color: #0a242c !important;
-}
-
-/* Keep the text white */
-.single_add_to_cart_button .text-white {
-    color: #fff !important;
-}
-/* ==========================================================================
-   WooCommerce Product Cards - Transform Override Solution (FIXED)
-   ========================================================================== */
-
-/* Show full product titles - ONLY in WooCommerce products */
-.woocommerce .products .woocommerce-loop-product__title.line-clamp-1,
-.woocommerce .products h5.line-clamp-1 {
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    display: -webkit-box !important;
-    white-space: normal !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    line-height: 1.3 !important;
-    min-height: 50px;
-}
-
-/* CRITICAL: Prevent transform animations ONLY on product cards */
-.woocommerce .products .product-wrapper,
-.woocommerce .products .product-wrapper > * {
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
-}
-
-/* Keep product-info in position - prevent sliding */
-.woocommerce .products .product-info,
-.woocommerce .products .product-item .product-info,
-.woocommerce .products .product-item:hover .product-info,
-.woocommerce .products .product-wrapper:hover .product-info {
-    transform: translateY(0) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-    position: relative !important;
-    transition: none !important;
-}
-
-/* Force add-btn to stay hidden and out of flow */
-.woocommerce .products .add-btn,
-.woocommerce .products .product-item .add-btn,
-.woocommerce .products .product-item:hover .add-btn,
-.woocommerce .products .product-wrapper:hover .add-btn {
-    display: none !important;
-    transform: translateY(200px) !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    pointer-events: none !important;
-}
-
-/* Ensure links work in product cards */
-.woocommerce .products .product-info a {
-    pointer-events: auto !important;
-    cursor: pointer !important;
-}
-
-/* Title styling in product cards */
-.woocommerce .products .product-info .woocommerce-loop-product__title {
-    font-size: 1rem !important;
-    line-height: 1.3 !important;
-}
-
-/* Card hover effect */
-.woocommerce .products .product-item:hover .card {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
-    transition: all 0.3s ease !important;
-}
-
-/* Title color on hover */
-.woocommerce .products .product-item:hover .woocommerce-loop-product__title {
-    color: #28AFCF !important;
-    transition: color 0.3s ease !important;
-}
-
-/* Override any position absolute on card-footer children in products */
-.woocommerce .products .card-footer > * {
-    position: relative !important;
-}
+/* WooCommerce styles removed - 2025-11-23 (WooCommerce not installed) */
 
 /* ===========================
    BLOG POST - COMPLETE RESET
@@ -685,7 +578,7 @@ p {
 }
 
 /* Exceptions - Keep original styling */
-.course-card-title, .woocommerce-loop-product__title,
+.course-card-title,
 .hero-section h1, .hero-section h2,
 .nyc-blog-content-container h2, .nyc-blog-content-container h3, .nyc-blog-content-container h4 {
     font-size: inherit !important;
