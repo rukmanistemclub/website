@@ -249,11 +249,35 @@ These override template-specific rules like `.hero-section h1` even though the t
 - Or add `.hero-section h1` rules to design-system.css
 - Or move template styles to course-pages.css
 
+### 20. Site Header Uses Elementor - CANNOT REMOVE
+
+**Discovered 2025-11-23:**
+The site header/navigation is built with **ElementsKit Nav Menu widget** (an Elementor widget). This means:
+
+- ❌ **Cannot fully remove Elementor** plugins without rebuilding header
+- ✅ Can remove Elementor from page content (all pages use PHP templates)
+- ✅ Can remove orphaned Elementor CSS targeting specific widget IDs
+
+**Must KEEP these styles in style.css:**
+```css
+/* Header logo positioning */
+.elementor-widget-image{text-align:center}
+.elementor-widget-image a{display:inline-block}
+.elementor-widget-image img{vertical-align:middle;display:inline-block}
+```
+
+**Never delete:**
+- Elementor plugin
+- Elementor Pro plugin
+- ElementsKit plugin
+
+Until header is rebuilt with pure PHP/CSS.
+
 ---
 
 ## Self-Maintaining Rules
 
-### 20. Update This File During Sessions
+### 21. Update This File During Sessions
 
 If during a session you:
 - Discover a pattern that should be followed

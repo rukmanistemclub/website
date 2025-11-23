@@ -13,7 +13,10 @@ Text Domain:       skola-child
 Tags:              two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, full-width-template, threaded-comments, accessibility-ready, rtl-language-support, footer-widgets, sticky-post, theme-options
 */
 
-/* Elementor widget styles removed - 2025-11-23 (Elementor no longer used) */
+/* Essential Elementor header widget styles - KEEP (header uses Elementor) */
+.elementor-widget-image{text-align:center}
+.elementor-widget-image a{display:inline-block}
+.elementor-widget-image img{vertical-align:middle;display:inline-block}
 
 ul{ list-style:none !important;}
 body{

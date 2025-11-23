@@ -33,8 +33,8 @@
 - **4 "Why Choose" shortcodes** with 95% identical code
 - **~8,000 lines of inline CSS** across templates
 - **Performance score: 55** (FCP: 18.7s, LCP: 31.4s)
-- **2 Elementor plugins** installed but NOT actively used
-- **~2MB unused CSS** being loaded
+- **Elementor plugins** - HEADER USES ELEMENTOR (cannot remove)
+- **~490 lines dead CSS removed** (WooCommerce + orphaned Elementor)
 
 ### Target State
 - **4 base templates** (down from 17)
@@ -42,7 +42,7 @@
 - **1 unified "Why Choose" shortcode** with parameters
 - **0 inline CSS** in templates
 - **Performance score: 90+** (FCP: <3s)
-- **0 Elementor plugins**
+- **Elementor kept for header only** (defer full removal to Phase 5+)
 - **Content editable in WordPress admin** (not in code)
 
 ---
@@ -393,53 +393,60 @@ Field Group: Landing Page Content
 
 ## 🗑️ ELEMENTOR REMOVAL PLAN (UPDATED)
 
+### ⚠️ CRITICAL FINDING (2025-11-23)
+
+**The site HEADER uses Elementor!** The navigation menu is built with ElementsKit Nav Menu widget (`ekit-nav-menu`). This means:
+
+- ❌ **CANNOT fully remove Elementor** without rebuilding header
+- ✅ **CAN remove Elementor from page content** (all pages use PHP templates)
+- ✅ **CAN remove ~380 lines of orphaned Elementor CSS** from style.css
+
 ### Audit Results (2025-11-23)
 
 | Item | Status | Details |
 |------|--------|---------|
-| Elementor plugin | Installed, Active | Can be removed |
-| Elementor Pro plugin | Installed, Active | Can be removed |
+| Elementor plugin | Installed, Active | **KEEP - Header depends on it** |
+| Elementor Pro plugin | Installed, Active | **KEEP - Header depends on it** |
+| ElementsKit plugin | Installed, Active | **KEEP - Nav menu widget** |
 | Pages using Elementor | **NONE** | All converted to PHP templates |
-| Elementor CSS in style.css | ~500 lines | Orphaned, can delete |
-| Elementor JS references | functions.php | Script deferrals only |
+| Header using Elementor | **YES** | ElementsKit Nav Menu widget |
+| Elementor CSS in style.css | ~130 lines remain | Keep header-related styles |
 
-### Removal Steps (In Order)
+### Phase 0 Completed (2025-11-23)
 
-**Step 1: Backup** (5 min)
-```bash
-# Create database backup
-wp db export backup-before-elementor-removal.sql
+- [x] Removed Elementor script exclusions from functions.php
+- [x] Removed ~380 lines orphaned Elementor CSS (widget IDs, SHSAT tabs)
+- [x] Removed ~110 lines WooCommerce dead code (not installed)
+- [x] Removed `.elementor-button` refs from template-shsat-landing.php
+- [x] Removed `.elementor-button` refs from template-shsat-faq.php
+- [x] **RESTORED** essential header styles (`.elementor-widget-image`)
+
+### Styles KEPT in style.css (Header Dependent)
+
+```css
+/* KEEP - Header logo positioning */
+.elementor-widget-image{text-align:center}
+.elementor-widget-image a{display:inline-block}
+.elementor-widget-image img{vertical-align:middle;display:inline-block}
+
+/* KEEP - Header button styles */
+.site-header .elementor-button, header .elementor-button { ... }
+
+/* KEEP - Blog/Home first section styles */
+body.blog .elementor-section:first-child { ... }
 ```
 
-**Step 2: Clean functions.php** (10 min)
-```php
-// REMOVE these lines (282-287):
-'elementor',
-'elementor-frontend',
-'elementor-common',
-'elementor-editor',
-'elementskit',
-```
+### Future: Full Elementor Removal (Phase 5+)
 
-**Step 3: Clean style.css** (2 hours)
-- Remove lines with `.elementor-` selectors
-- Approximately 500 lines to delete
-- Search for: `.elementor`, `elementor-widget`, `elementor-section`
+To fully remove Elementor, must first:
+1. Rebuild header/navigation with pure PHP/CSS
+2. Replace ElementsKit Nav Menu with wp_nav_menu()
+3. Create custom mobile hamburger menu
+4. Test thoroughly across all pages
 
-**Step 4: Clean template references** (30 min)
-- `template-shsat-landing.php` line ~949: Remove `.elementor-button` CSS
-- `template-shsat-faq.php` line ~51: Remove `.elementor-button` reference
-
-**Step 5: Deactivate plugins** (5 min)
-- Deactivate Elementor Pro
-- Deactivate Elementor
-- Test site thoroughly
-
-**Step 6: Delete plugins** (5 min)
-- After 1 week of testing, delete plugin files
-
-### Risk: LOW
-All pages already use custom PHP templates. Elementor is dead weight.
+**Estimated effort:** 4-8 hours
+**Risk:** MEDIUM (header is site-wide)
+**Recommendation:** Defer to later phase, focus on content templates first
 
 ---
 
