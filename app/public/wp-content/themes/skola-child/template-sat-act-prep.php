@@ -114,9 +114,17 @@ get_header();
         width: 100%;
     }
 
+    /* Tablet: 40px (Industry standard) */
     @media (min-width: 768px) {
         .course-hero .hero-content h1 {
-            font-size: 42px;
+            font-size: 40px;
+        }
+    }
+
+    /* Desktop: 48px (Industry standard) */
+    @media (min-width: 1024px) {
+        .course-hero .hero-content h1 {
+            font-size: 48px;
         }
     }
 
@@ -830,9 +838,9 @@ get_header();
             text-align: left !important;
         }
 
-        /* Hero section fonts */
+        /* Hero section fonts - Mobile: 32px (Industry standard) */
         .course-hero .hero-content h1 {
-            font-size: 28px !important;
+            font-size: 32px !important;
             line-height: 1.3 !important;
         }
 

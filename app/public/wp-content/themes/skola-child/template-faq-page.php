@@ -42,37 +42,54 @@ get_header();
     .faq-hero {
         background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
         color: white;
-        padding: 60px 20px;
-        text-align: center;
-        margin: 0 0 60px 0;
+        padding: 40px 0;
     }
 
+    .faq-hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Hero H1 - Mobile first: 32px → 40px (tablet) → 48px (desktop) */
     .faq-hero h1 {
         font-family: 'Roboto', sans-serif !important;
-        font-size: 48px !important;
+        font-size: 32px;
         font-weight: 800 !important;
         line-height: 1.2 !important;
         color: white !important;
-        margin: 0 auto 20px !important;
-        max-width: 900px;
+        margin: 0 0 16px 0 !important;
+        text-align: left;
+    }
+
+    @media (min-width: 768px) {
+        .faq-hero h1 {
+            font-size: 40px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .faq-hero h1 {
+            font-size: 48px;
+        }
     }
 
     .faq-hero p {
         font-family: 'Roboto', sans-serif !important;
-        font-size: 20px !important;
+        font-size: 18px !important;
         font-weight: 400 !important;
         line-height: 1.6 !important;
         color: white !important;
         opacity: 0.95;
-        margin: 0 auto !important;
-        max-width: 100%;
+        margin: 0 !important;
+        text-align: left;
     }
 
     /* FAQ Container */
     .faq-container {
-        max-width: 1000px;
-        margin: 0 auto 80px;
-        padding: 0 20px;
+        max-width: 1200px;
+        margin: 0 auto 40px;
+        padding: 40px 20px 0;
     }
 
     /* Category Headers */
@@ -298,12 +315,14 @@ get_header();
         }
 
         .faq-hero {
-            padding: 30px 16px;
+            padding: 30px 0;
         }
 
-        .faq-hero h1 {
-            font-size: 28px !important;
+        .faq-hero-container {
+            padding: 0 16px;
         }
+
+        /* H1 already 32px from mobile-first base */
 
         .faq-hero p {
             font-size: 16px !important;
@@ -357,8 +376,10 @@ get_header();
 <div class="faq-page-wrapper">
     <!-- Hero Section -->
     <div class="faq-hero">
-        <h1>SAT & ACT Test Prep<br>Frequently Asked Questions</h1>
-        <p>Everything you need to know about choosing the right test, preparing effectively, and achieving your target score.</p>
+        <div class="faq-hero-container">
+            <h1>SAT & ACT Test Prep<br>Frequently Asked Questions</h1>
+            <p>Everything you need to know about choosing the right test, preparing effectively, and achieving your target score.</p>
+        </div>
     </div>
 
     <!-- FAQ Container -->
@@ -390,6 +411,7 @@ get_header();
                         <li>Reading passages are more straightforward</li>
                     </ul>
                     <p>That said, every student is different, and our diagnostic process ensures you choose the right test for your child's strengths.</p>
+                    <p><a href="/resources/sat-vs-act-2025-which-test-is-right-for-you/" style="color: #E67E22;">Learn more about SAT vs ACT differences →</a></p>
                 </div>
             </div>
 
@@ -434,7 +456,7 @@ get_header();
                     </div>
                 </button>
                 <div class="faq-answer">
-                    <p>Take full-length practice tests for both under timed conditions. Compare your scores and which test felt more comfortable. We offer <strong>free diagnostic testing and consultation</strong> to help you decide.</p>
+                    <p>Take full-length practice tests for both under timed conditions. Compare your scores and which test felt more comfortable. We offer <strong>diagnostic testing and consultation</strong> to help you decide.</p>
                 </div>
             </div>
 
@@ -795,7 +817,7 @@ get_header();
                     </div>
                 </button>
                 <div class="faq-answer">
-                    <p>We recommend completing the bootcamp either leading up to your test date or finishing approximately 4-6 weeks before your official test. This timing allows you to:</p>
+                    <p>We recommend completing the bootcamp either leading up to your test date or no later than 2-3 weeks before your official test. This timing allows you to:</p>
                     <ul>
                         <li>Build momentum going into the test</li>
                         <li>Use the final 2-3 weeks for independent review, additional practice, and/or supplemental private tutoring</li>
@@ -874,7 +896,7 @@ $faq_schema_items = array(
     ),
     array(
         'question' => "How do I know which test is right for me?",
-        'answer' => "Take full-length practice tests for both under timed conditions. Compare your scores and which test felt more comfortable. We offer free diagnostic testing and consultation to help you decide."
+        'answer' => "Take full-length practice tests for both under timed conditions. Compare your scores and which test felt more comfortable. We offer diagnostic testing and consultation to help you decide."
     ),
     array(
         'question' => "What if I'm stronger in math?",
@@ -934,7 +956,7 @@ $faq_schema_items = array(
     ),
     array(
         'question' => "When should I take this bootcamp relative to my test date?",
-        'answer' => "We recommend completing the bootcamp either leading up to your test date or finishing approximately 4-6 weeks before your official test. This allows you to build momentum, use final weeks for independent review and private tutoring, and fine-tune your test-day strategy."
+        'answer' => "We recommend completing the bootcamp either leading up to your test date or no later than 2-3 weeks before your official test. This allows you to build momentum, use final weeks for independent review and private tutoring, and fine-tune your test-day strategy."
     )
 );
 

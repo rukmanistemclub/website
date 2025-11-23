@@ -67,13 +67,27 @@ body {
     padding-right: 40px;
 }
 
+/* Hero H1 - Mobile first: 32px → 40px (tablet) → 48px (desktop) */
 .timeline-hero h1 {
-    font-size: 48px;
+    font-size: 32px;
     margin-bottom: 16px;
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: -1px;
     color: white !important;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .timeline-hero h1 {
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .timeline-hero h1 {
+        font-size: 48px;
+    }
 }
 
 .timeline-hero p {
@@ -125,20 +139,23 @@ body {
     color: white !important;
 }
 
-/* Visual Timeline Overview */
+/* Visual Timeline Overview - Compact */
 .timeline-visual {
     background: white;
-    padding: 30px;
+    padding: 20px 30px;
     border-radius: 12px;
     margin-bottom: 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .timeline-visual h2 {
     color: #134958;
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 32px;
+    margin-bottom: 16px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 1.3;
 }
@@ -146,7 +163,7 @@ body {
 .timeline-bars {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 .timeline-bar {
@@ -174,8 +191,8 @@ body {
 }
 
 .bar-fill {
-    height: 40px;
-    border-radius: 20px;
+    height: 32px;
+    border-radius: 16px;
     position: relative;
     overflow: hidden;
     background: #e9ecef;
@@ -183,14 +200,14 @@ body {
 
 .bar-inner {
     height: 100%;
-    border-radius: 20px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.5;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.4;
     transition: width 1s ease;
 }
 
@@ -555,10 +572,7 @@ body {
         padding-right: 0;
     }
 
-    .timeline-hero h1 {
-        font-size: 28px !important;
-        margin-bottom: 12px;
-    }
+    /* H1 handled by mobile-first rules - stays at 32px */
 
     .timeline-hero p {
         font-size: 16px !important;

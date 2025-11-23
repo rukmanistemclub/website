@@ -106,12 +106,20 @@ get_header();
         text-align: left;
     }
 
+    /* Tablet: 40px (Industry standard) */
     @media (min-width: 768px) {
         .course-hero .hero-content h1 {
-            font-size: 48px !important;
+            font-size: 40px !important;
         }
         .hero-container {
             padding: 0 var(--space-6, 24px);
+        }
+    }
+
+    /* Desktop: 48px (Industry standard) */
+    @media (min-width: 1024px) {
+        .course-hero .hero-content h1 {
+            font-size: 48px !important;
         }
     }
 
@@ -205,7 +213,8 @@ get_header();
         gap: 16px;
         justify-content: center;
         flex-wrap: wrap;
-        margin-bottom: 60px;
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     .nav-pill {
@@ -233,6 +242,8 @@ get_header();
         border: 3px solid #28AFCF;
         border-radius: 16px;
         padding: 40px;
+        padding-top: 10px;
+        padding-bottom: 20px;
         margin-bottom: 60px;
         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
@@ -240,8 +251,9 @@ get_header();
     .section-header {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 16px;
-        margin-bottom: 24px;
+        margin-bottom: 12px;
     }
 
     .section-icon {
@@ -254,6 +266,16 @@ get_header();
         color: #134958;
         line-height: 1.3;
         text-align: center;
+    }
+
+    /* Mobile: Left align section header */
+    @media (max-width: 768px) {
+        .section-header {
+            justify-content: flex-start;
+        }
+        .section-title {
+            text-align: left;
+        }
     }
 
     .overview-content p {
@@ -772,18 +794,23 @@ get_header();
         font-size: 18px;
     }
 
-    /* CTA Section */
+    /* CTA Section - Full Width */
     .cta-section {
         background: linear-gradient(135deg, #134958, #28AFCF);
         color: white;
         text-align: center;
-        padding: 60px 40px;
-        border-radius: 3px;
-        margin-bottom: 60px;
+        padding: 40px 0;
+        margin: 0;
+    }
+
+    .cta-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
     }
 
     .cta-section h2 {
-        font-size: 40px;
+        font-size: 32px;
         margin-bottom: 16px;
         color: white !important;
     }
@@ -979,12 +1006,11 @@ get_header();
         }
     }
 
-    /* Testimonials Section */
+    /* Testimonials Section - Full Width */
     .nyc-testimonials-section {
         background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-        padding: 80px 20px 0;
-        margin: 0 -20px 0;
-        border-radius: 16px 16px 0 0;
+        padding: 40px 0;
+        margin: 0;
     }
 
     .nyc-testimonials-container {
@@ -1068,21 +1094,25 @@ get_header();
             grid-template-columns: 1fr;
         }
 
+        /* Hide pill navigation on mobile */
         .quick-nav {
-            flex-direction: column;
+            display: none;
         }
 
-        .nav-pill {
-            width: 100%;
-            text-align: center;
+        .cta-section {
+            padding: 30px 0;
+        }
+
+        .cta-inner {
+            padding: 0 16px;
         }
 
         .nyc-testimonials-section {
-            padding: 60px 20px 0;
+            padding: 30px 0;
         }
 
         .nyc-testimonials-title {
-            font-size: 2rem;
+            font-size: 24px !important;
         }
     }
 </style>
@@ -1111,7 +1141,7 @@ get_header();
                 </div>
             </section>
 
-            <div class="container" style="padding-top: 40px;">
+            <div class="container" style="padding-top: 5px;">
 
                 <!-- Quick Navigation -->
                 <div class="quick-nav">
@@ -1285,25 +1315,6 @@ get_header();
                     <div class="faq-list">
                         <div class="faq-item">
                             <button class="faq-question">
-                                What sections are on the ISEE test?
-                                <span class="faq-toggle">▸</span>
-                            </button>
-                            <div class="faq-answer">
-                                <div class="faq-answer-content">
-                                    <p>The ISEE consists of five sections:</p>
-                                    <ul>
-                                        <li><strong>Verbal Reasoning:</strong> 40 questions in 20 minutes testing word meanings, relationships, and sentence completion</li>
-                                        <li><strong>Quantitative Reasoning:</strong> 37 questions in 35 minutes evaluating mathematical problem-solving</li>
-                                        <li><strong>Reading Comprehension:</strong> 36 questions in 35 minutes measuring understanding of passages across literature, science, history, and current events</li>
-                                        <li><strong>Mathematics Achievement:</strong> 47 questions in 40 minutes testing knowledge across number operations, algebra, geometry, measurement, data analysis, and probability</li>
-                                        <li><strong>Essay (Unscored):</strong> 1 prompt in 30 minutes sent to schools to demonstrate writing ability</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question">
                                 When should I start preparing for the ISEE?
                                 <span class="faq-toggle">▸</span>
                             </button>
@@ -1357,17 +1368,20 @@ get_header();
                     </div>
                 </div>
 
-                <!-- CTA Section -->
-                <div class="cta-section">
-                    <h2 style="color: white;">Ready to Begin Your ISEE Journey?</h2>
-                    <p style="color: white;">Contact NYC STEM Club today to schedule a diagnostic assessment and learn more about our comprehensive ISEE preparation programs for all three levels.</p>
+            </div>
+
+            <!-- CTA Section - Full Width -->
+            <section class="cta-section">
+                <div class="cta-inner">
+                    <h2>Ready to Begin Your ISEE Journey?</h2>
+                    <p>Contact NYC STEM Club today to schedule a diagnostic assessment and learn more about our comprehensive ISEE preparation programs for all three levels.</p>
                     <?php echo do_shortcode('[inquiry_button]'); ?>
                 </div>
+            </section>
 
-                <!-- Testimonials Section -->
-                <?php echo do_shortcode('[testimonials]'); ?>
+            <!-- Testimonials Section -->
+            <?php echo do_shortcode('[testimonials]'); ?>
 
-            </div>
         </article>
     </main>
 </div>
@@ -1401,10 +1415,6 @@ document.addEventListener('DOMContentLoaded', function() {
  * Generates JSON-LD structured data for ISEE FAQs on this page
  */
 $faq_schema_items = array(
-    array(
-        'question' => "What sections are on the ISEE test?",
-        'answer' => "The ISEE consists of five sections: Verbal Reasoning (40 questions in 20 minutes testing word meanings, relationships, and sentence completion), Quantitative Reasoning (37 questions in 35 minutes evaluating mathematical problem-solving), Reading Comprehension (36 questions in 35 minutes measuring understanding of passages across literature, science, history, and current events), Mathematics Achievement (47 questions in 40 minutes testing knowledge across number operations, algebra, geometry, measurement, data analysis, and probability), and Essay (1 prompt in 30 minutes, unscored but sent to schools to demonstrate writing ability)."
-    ),
     array(
         'question' => "When should I start preparing for the ISEE?",
         'answer' => "We recommend starting 12 months before the test with diagnostic assessment and vocabulary building. At 9-10 months, focus on mastering content and test-taking strategies. At 6-8 months, tackle challenging problems and begin full-length practice tests. At 3-5 months, increase practice test frequency to bi-weekly. In the final 8-12 weeks, take weekly practice tests under actual conditions. The final 2 weeks should be light review only - focus on rest and confidence-building."

@@ -3,7 +3,167 @@
 > **DO NOT DELETE** - Reference document for future refactoring work
 
 **Created:** 2025-11-21
+**Updated:** 2025-11-22
 **Status:** Planned - Not Started
+
+---
+
+## 🚨 CRITICAL: Typography Architecture Breakdown
+
+### The Problem (As of 2025-11-22)
+
+**708 hardcoded font-size declarations across 17 templates, with 0 CSS variable usage.**
+
+This happened because inline `<style>` blocks were added to each template instead of using the design system. The result is 4 layers of CSS fighting each other.
+
+### Current Typography Chaos
+
+#### Layer 1: design-system.css (Good - Source of Truth)
+```css
+--text-xs: 0.75rem;     /* 12px */
+--text-sm: 0.875rem;    /* 14px */
+--text-base: 1rem;      /* 16px */
+--text-lg: 1.125rem;    /* 18px */
+--text-xl: 1.25rem;     /* 20px */
+--text-2xl: 1.5rem;     /* 24px */
+--text-3xl: 1.875rem;   /* 30px */
+--text-4xl: 2.25rem;    /* 36px */
+--text-5xl: 3rem;       /* 48px */
+```
+
+#### Layer 2: course-pages.css (Partially uses variables)
+- ~100 font-size declarations
+- Some use `var(--text-*)`, some hardcoded
+
+#### Layer 3: course-styles.css - Plugin (All hardcoded)
+- ~50 font-size declarations
+- Uses `28px` for H1 mobile (should be 32px)
+- Conflicts with theme CSS
+
+#### Layer 4: Templates (ALL hardcoded - THE MAIN PROBLEM)
+
+| Template | font-size count | Uses CSS Variables |
+|----------|-----------------|-------------------|
+| template-sat-act-prep.php | 123 | ❌ NO |
+| template-act-sat-foundational.php | 121 | ❌ NO |
+| template-isee.php | 58 | ❌ NO |
+| template-testing-timeline.php | 58 | ❌ NO |
+| template-shsat-landing.php | 60 | ❌ NO |
+| template-sat-vs-act.php | 56 | ❌ NO |
+| template-digital-sat.php | 49 | ❌ NO |
+| template-admissions-counseling.php | 26 | ❌ NO |
+| template-shsat-faq.php | 25 | ❌ NO |
+| template-simple-page.php | 25 | ❌ NO |
+| template-homepage.php | 19 | ❌ NO |
+| template-faq-page.php | 18 | ❌ NO |
+| template-enhanced-act.php | 18 | ❌ NO |
+| template-resources.php | 13 | ❌ NO |
+| template-academic-enrichment.php | 13 | ❌ NO |
+| template-ela-enrichment.php | 13 | ❌ NO |
+| template-math-enrichment.php | 13 | ❌ NO |
+| **TOTAL** | **708** | **0 variables** |
+
+### 22 Different Font Sizes in Use (Should be 9)
+
+| Count | Size | Standard? | Should be |
+|-------|------|-----------|-----------|
+| 207 | 16px | ✅ | --text-base |
+| 146 | 18px | ✅ | --text-lg |
+| 70 | 24px | ✅ | --text-2xl |
+| 61 | 14px | ✅ | --text-sm |
+| 51 | 32px | ✅ | H1 mobile |
+| 28 | 20px | ✅ | --text-xl |
+| 21 | 48px | ✅ | --text-5xl |
+| 14 | 40px | ✅ | H1 tablet |
+| 12 | 28px | ⚠️ | Change to 24px or 32px |
+| 10 | 36px | ✅ | --text-4xl |
+| 10 | 22px | ⚠️ | Change to 20px or 24px |
+| 10 | 15px | ⚠️ | Change to 14px or 16px |
+| 6 | 13px | ⚠️ | Change to 12px or 14px |
+| 4 | 12px | ✅ | --text-xs |
+| 3 | 38px | ⚠️ | Change to 36px or 40px |
+| 2 | 56px | ⚠️ | Non-standard, remove |
+| 2 | 42px | ⚠️ | Change to 40px or 48px |
+| 1 | 80px | ⚠️ | Non-standard, remove |
+| 1 | 64px | ⚠️ | Non-standard, remove |
+| 1 | 30px | ✅ | --text-3xl |
+| 1 | 26px | ⚠️ | Change to 24px |
+| 1 | 17px | ⚠️ | Change to 16px or 18px |
+
+### Intended Typography Standards
+
+| Element | Mobile (<768px) | Tablet (768-1024px) | Desktop (1024px+) |
+|---------|-----------------|---------------------|-------------------|
+| H1 Hero | 32px | 40px | 48px |
+| H2 Section | 24px | 28px | 36px |
+| H3 Subsection | 20px | 24px | 24px |
+| H4 Minor | 18px | 20px | 20px |
+| Body | 16px | 16px | 16px |
+| Lead/Excerpt | 18px | 18px | 18px |
+| Small | 14px | 14px | 14px |
+| Caption | 12px | 12px | 12px |
+
+### Missing from design-system.css
+
+Hero-specific variables that should exist but don't:
+```css
+--hero-h1-mobile: 32px;
+--hero-h1-tablet: 40px;
+--hero-h1-desktop: 48px;
+```
+
+### Fix Priority
+
+1. **HIGH:** Add missing variables to design-system.css
+2. **HIGH:** Update course-styles.css (plugin) to use variables
+3. **MEDIUM:** Remove inline `<style>` blocks from templates - move to course-pages.css
+4. **MEDIUM:** Standardize non-standard font sizes (22px→24px, 28px→24px, etc.)
+5. **LOW:** Audit and remove !important declarations once cascade is fixed
+
+### Root Cause
+
+Each template was given its own `<style>` block with hardcoded values instead of:
+1. Using CSS classes from design-system.css
+2. Using CSS variables
+3. Adding new styles to the central stylesheet
+
+This must stop. **All future styling must go in CSS files, not inline `<style>` blocks.**
+
+---
+
+## ⛔ RULES FOR CLAUDE CODE (READ THIS FIRST)
+
+**Copy this into any new Claude Code session when working on this project:**
+
+```
+MANDATORY RULES FOR NYC STEM CLUB PROJECT:
+
+1. NO INLINE <style> BLOCKS IN TEMPLATES
+   - All CSS goes in course-pages.css or design-system.css
+   - Never add font-size, color, or spacing directly in PHP templates
+
+2. USE CSS VARIABLES FOR TYPOGRAPHY
+   - font-size: var(--text-lg)  ✅
+   - font-size: 18px            ❌
+
+3. RESPONSIVE FONT SIZES (Mobile First)
+   - H1 Hero: 32px → 40px (768px) → 48px (1024px)
+   - H2: 24px → 28px → 36px
+   - H3: 20px → 24px
+   - Body: 16px (never smaller)
+
+4. BEFORE ADDING ANY CSS:
+   - Check if a class already exists in course-pages.css
+   - Check if a variable exists in design-system.css
+   - If not, ADD IT THERE, not inline
+
+5. SINGLE SOURCE OF TRUTH:
+   - design-system.css = variables and base styles
+   - course-pages.css = component styles
+   - Templates = HTML structure only, NO <style> blocks
+
+Read REFACTORING-TODO.md before making CSS changes.
+```
 
 ---
 
@@ -83,13 +243,84 @@ Hero section styles are duplicated across landing page templates:
 - `template-shsat-landing.php`
 - `template-sat-act-prep.php`
 - `template-digital-sat.php`
-- etc.
+- `template-academic-enrichment.php`
+- `template-math-enrichment.php`
+- `template-ela-enrichment.php`
+- `template-admissions-counseling.php`
+- `template-resources.php`
+
+**Current state:** Hero H1 typography defined in 9+ separate inline `<style>` blocks.
 
 ### Solution
 Create unified hero component with variants:
 - Standard hero (left-aligned, single column)
 - Hero with track record stats
 - Hero with narrative stats (like SHSAT)
+
+### Typography Centralization (Priority)
+
+**Step 1: Add to `design-system.css`:**
+
+```css
+/* ==============================================================================
+   HERO H1 TYPOGRAPHY - Single Source of Truth
+   Mobile first: 32px → 40px (tablet) → 48px (desktop)
+   ============================================================================== */
+
+.hero h1,
+.hero-section h1,
+.shsat-hero h1,
+.course-hero h1,
+.course-hero .hero-content h1,
+.admissions-counseling-page .hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .hero h1,
+    .hero-section h1,
+    .shsat-hero h1,
+    .course-hero h1,
+    .course-hero .hero-content h1,
+    .admissions-counseling-page .hero-content h1 {
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero h1,
+    .hero-section h1,
+    .shsat-hero h1,
+    .course-hero h1,
+    .course-hero .hero-content h1,
+    .admissions-counseling-page .hero-content h1 {
+        font-size: 48px;
+    }
+}
+```
+
+**Step 2: Remove inline h1 styles from all templates**
+
+Remove the following from each template's `<style>` block:
+- `.hero h1 { font-size: ... }`
+- `.hero-section h1 { font-size: ... }`
+- `.course-hero .hero-content h1 { font-size: ... }`
+- All related media query overrides
+
+**Step 3: Remove duplicate rules from course-pages.css**
+
+The tablet/desktop h1 rules at the end of course-pages.css can be removed once centralized.
+
+### Completed (2025-11-22)
+- [x] Standardized all hero H1 to 32px/40px/48px
+- [x] Added left-alignment for mobile heroes
+- [x] Removed all 28px small-mobile overrides
+- [x] Created TYPOGRAPHY-STANDARDS.md documentation
 
 ---
 

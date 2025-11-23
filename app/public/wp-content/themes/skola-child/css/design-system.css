@@ -227,6 +227,188 @@ p {
     }
 }
 
+/* ==============================================================================
+   HERO TYPOGRAPHY - System-Wide Rules
+   Mobile first: 32px → 40px (tablet) → 48px (desktop)
+   These override generic h1 rules for all hero sections site-wide
+   ============================================================================== */
+
+/* Hero H1 - All variants */
+.hero-section h1,
+.course-hero h1,
+.course-hero .hero-content h1,
+.shsat-hero h1,
+.hero h1,
+.hero-content h1,
+.admissions-counseling-page .hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: var(--font-extrabold);
+    line-height: var(--leading-tight);
+    color: white;
+    text-align: left;
+    margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .hero-section h1,
+    .course-hero h1,
+    .course-hero .hero-content h1,
+    .shsat-hero h1,
+    .hero h1,
+    .hero-content h1,
+    .admissions-counseling-page .hero-content h1 {
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-section h1,
+    .course-hero h1,
+    .course-hero .hero-content h1,
+    .shsat-hero h1,
+    .hero h1,
+    .hero-content h1,
+    .admissions-counseling-page .hero-content h1 {
+        font-size: 48px;
+    }
+}
+
+/* Hero Subtitle/Excerpt */
+.hero-section .hero-subtitle,
+.hero-section .hero-excerpt,
+.course-hero .hero-tagline,
+.course-hero .hero-excerpt,
+.hero-tagline,
+.hero-excerpt {
+    font-size: var(--text-lg);
+    font-weight: var(--font-normal);
+    line-height: var(--leading-relaxed);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-4);
+}
+
+@media (max-width: 767px) {
+    .hero-section .hero-subtitle,
+    .hero-section .hero-excerpt,
+    .course-hero .hero-tagline,
+    .course-hero .hero-excerpt,
+    .hero-tagline,
+    .hero-excerpt {
+        font-size: var(--text-base);
+    }
+}
+
+/* ==============================================================================
+   SECTION TYPOGRAPHY - System-Wide Rules
+   H2 in sections: 24px → 28px → 36px
+   ============================================================================== */
+
+.section h2,
+.section-alt h2,
+.content-section h2,
+.faq-section h2,
+.faq-intro h2,
+.testimonials-section h2,
+.course-cta h2,
+.cta-section h2,
+.course-related h2,
+.why-choose-section h2,
+.programs-section h2,
+.ready-section h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .section h2,
+    .section-alt h2,
+    .content-section h2,
+    .faq-section h2,
+    .faq-intro h2,
+    .testimonials-section h2,
+    .course-cta h2,
+    .cta-section h2,
+    .course-related h2,
+    .why-choose-section h2,
+    .programs-section h2,
+    .ready-section h2 {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section h2,
+    .section-alt h2,
+    .content-section h2,
+    .faq-section h2,
+    .faq-intro h2,
+    .testimonials-section h2,
+    .course-cta h2,
+    .cta-section h2,
+    .course-related h2,
+    .why-choose-section h2,
+    .programs-section h2,
+    .ready-section h2 {
+        font-size: var(--text-4xl);
+    }
+}
+
+/* Section H3 */
+.section h3,
+.section-alt h3,
+.content-section h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+}
+
+@media (min-width: 768px) {
+    .section h3,
+    .section-alt h3,
+    .content-section h3 {
+        font-size: var(--text-2xl);
+    }
+}
+
+/* Body text in sections */
+.section p,
+.section-alt p,
+.content-section p {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+}
+
+/* ==============================================================================
+   MOBILE ALIGNMENT - Left-align everything on mobile
+   ============================================================================== */
+
+@media (max-width: 767px) {
+    .hero-section,
+    .hero-section h1,
+    .hero-section .hero-subtitle,
+    .course-hero,
+    .course-hero h1,
+    .course-hero .hero-tagline,
+    .hero-content,
+    .hero-content h1,
+    .section h2,
+    .section-alt h2,
+    .faq-section h2,
+    .faq-intro h2,
+    .testimonials-section h2,
+    .cta-section h2,
+    .course-related h2 {
+        text-align: left;
+    }
+}
+
 /* Links */
 a {
     color: var(--color-accent);

@@ -83,7 +83,16 @@ get_header();
         width: 100% !important;
     }
 
+    /* Tablet: 40px (Industry standard) */
     @media (min-width: 768px) {
+        .shsat-hero h1,
+        .shsat-hero .hero-container h1 {
+            font-size: 40px !important;
+        }
+    }
+
+    /* Desktop: 48px (Industry standard) */
+    @media (min-width: 1024px) {
         .shsat-hero h1,
         .shsat-hero .hero-container h1 {
             font-size: 48px !important;
@@ -492,6 +501,8 @@ get_header();
         background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
         padding: 15px 20px 30px 20px;
         text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     .combined-approach h2 {
@@ -860,16 +871,7 @@ get_header();
 
     /* Responsive Styles */
     @media (max-width: 992px) {
-        /* Hero Section */
-        .shsat-hero h1,
-        .shsat-hero .hero-container h1 {
-            font-size: 36px !important;
-        }
-
-        .shsat-hero h2,
-        .shsat-hero .hero-container h2 {
-            font-size: 28px !important;
-        }
+        /* Hero Section - removed h1/h2 overrides, now handled by design-system.css */
 
         .shsat-hero {
             padding: 40px 20px !important;
@@ -923,11 +925,7 @@ get_header();
             padding: 30px 15px !important;
         }
 
-        .shsat-hero h1,
-        .shsat-hero .hero-container h1 {
-            font-size: 28px !important;
-            margin-bottom: 15px !important;
-        }
+        /* H1 now handled by mobile-first rules at top - stays at 32px */
 
         .shsat-hero h2,
         .shsat-hero .hero-container h2 {
@@ -1054,7 +1052,7 @@ get_header();
             <!-- CTA Buttons -->
             <div class="hero-buttons">
                 <?php echo do_shortcode('[inquiry_button]'); ?>
-                <?php echo do_shortcode('[inquiry_button text="Jump to Courses" url="#SHSATPrograms" color="teal"]'); ?>
+                <?php echo do_shortcode('[inquiry_button text="Jump to Courses" url="#shsat-programs" color="teal"]'); ?>
             </div>
         </div>
     </section>

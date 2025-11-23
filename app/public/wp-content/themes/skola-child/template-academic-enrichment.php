@@ -59,14 +59,30 @@ body {
     padding-right: 20px;
 }
 
+/* Hero H1 - Mobile first: 32px (Industry standard) */
 .hero h1 {
     font-family: 'Roboto', sans-serif !important;
-    font-size: 48px !important;
+    font-size: 32px !important;
     font-weight: 800 !important;
     margin-bottom: 16px !important;
     line-height: 1.2 !important;
     letter-spacing: -1px;
     color: #FFFFFF !important;
+    text-align: left !important;
+}
+
+/* Tablet: 40px (Industry standard) */
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 40px !important;
+    }
+}
+
+/* Desktop: 48px (Industry standard) */
+@media (min-width: 1024px) {
+    .hero h1 {
+        font-size: 48px !important;
+    }
 }
 
 .hero .subtitle {
@@ -158,10 +174,7 @@ body {
         padding: 30px 0;
     }
 
-    .hero h1 {
-        font-size: 32px !important;
-        margin-bottom: 12px !important;
-    }
+    /* H1 size now handled by mobile-first rules above */
 
     .hero .subtitle {
         font-size: 16px !important;
@@ -205,9 +218,7 @@ body {
         padding: 25px 0;
     }
 
-    .hero h1 {
-        font-size: 28px !important;
-    }
+    /* H1 stays at 32px on small mobile for readability */
 
     .hero .subtitle {
         font-size: 14px !important;

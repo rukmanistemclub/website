@@ -36,10 +36,6 @@
     padding-bottom: 0;
     padding-left: var(--space-4);
     padding-right: var(--space-4);
-    display: flex;
-    flex-direction: column !important; /* Single column on all devices */
-    align-items: flex-start !important;
-    gap: 0 !important;
 }
 
 @media (min-width: 768px) {
@@ -1803,13 +1799,13 @@ Example HTML structure for Option B:
     }
 
     /* MOBILE FONT SIZES - Responsive typography */
-    /* H1 - Hero titles */
+    /* H1 - Hero titles (Industry standard: 32px mobile) */
     .course-hero h1,
     .course-hero .hero-content h1,
     .course-hero.hero-centered .hero-content h1,
     .hero-content h1,
     h1 {
-        font-size: 28px !important;
+        font-size: 32px !important;
     }
 
     /* H2 - Section titles */
@@ -1919,6 +1915,32 @@ Example HTML structure for Option B:
     footer *,
     footer a {
         text-align: center !important;
+    }
+}
+
+/* ==============================================================================
+   TABLET+ TYPOGRAPHY (768px+)
+   Industry standard: H1 = 40px on tablet
+   ============================================================================== */
+@media (min-width: 768px) {
+    .course-hero h1,
+    .course-hero .hero-content h1,
+    .course-hero.hero-centered .hero-content h1,
+    .hero-content h1 {
+        font-size: 40px !important;
+    }
+}
+
+/* ==============================================================================
+   DESKTOP TYPOGRAPHY (1024px+)
+   Industry standard: H1 = 48px on desktop
+   ============================================================================== */
+@media (min-width: 1024px) {
+    .course-hero h1,
+    .course-hero .hero-content h1,
+    .course-hero.hero-centered .hero-content h1,
+    .hero-content h1 {
+        font-size: 48px !important;
     }
 }
 

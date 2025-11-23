@@ -46,25 +46,46 @@ get_header();
     .hero {
         background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
         color: white;
-        padding: 40px 20px;
-        text-align: center;
+        padding: 40px 0;
     }
 
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Hero H1 - Mobile first: 32px (Industry standard) */
     .hero h1 {
-        font-size: 48px;
+        font-size: 32px;
         font-weight: 800;
         line-height: 1.2;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         color: white;
         letter-spacing: -1px;
+        text-align: left;
+    }
+
+    /* Tablet: 40px (Industry standard) */
+    @media (min-width: 768px) {
+        .hero h1 {
+            font-size: 40px;
+        }
+    }
+
+    /* Desktop: 48px (Industry standard) */
+    @media (min-width: 1024px) {
+        .hero h1 {
+            font-size: 48px;
+        }
     }
 
     .hero p {
         font-size: 18px;
         line-height: 1.6;
-        max-width: 800px;
-        margin: 0 auto;
+        margin: 0;
         color: white;
+        text-align: left;
     }
 
     /* Main Content */
@@ -104,7 +125,7 @@ get_header();
 
     .resource-item {
         border-bottom: 1px solid #e2e8f0;
-        padding: 0.6rem 0;
+        padding: 12px 0;
         transition: all 0.2s ease;
     }
 
@@ -113,7 +134,7 @@ get_header();
     }
 
     .resource-item:hover {
-        padding-left: 1rem;
+        padding-left: 12px;
         background: #f8fafc;
     }
 
@@ -123,24 +144,24 @@ get_header();
         color: inherit;
     }
 
-    .resource-link h3 {
-        font-size: 24px;
+    .resource-link h4 {
+        font-size: 18px;
         color: #134958;
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 4px 0;
         font-weight: 600;
-        line-height: 1.3;
+        line-height: 1.4;
         transition: color 0.2s ease;
     }
 
-    .resource-link:hover h3 {
+    .resource-link:hover h4 {
         color: #28AFCF;
     }
 
     .resource-description {
-        color: #333;
-        line-height: 1.6;
+        color: #64748b;
+        line-height: 1.5;
         margin: 0;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     /* Category Sections */
@@ -148,63 +169,44 @@ get_header();
         margin-bottom: 16px;
     }
 
-    .category-header {
-        margin-bottom: 12px;
-        padding-bottom: 6px;
-        border-bottom: 3px solid #28AFCF;
-        text-align: center;
-    }
-
-    .category-header h2 {
-        font-size: 32px;
-        color: #134958;
-        margin: 0;
-        font-weight: 700;
-        line-height: 1.3;
-    }
-
 
     /* Responsive */
     @media (max-width: 768px) {
         /* Left-align all content on mobile */
-        .hero,
-        .hero h1,
-        .hero p,
-        .resources-container,
         .section-intro,
         .section-intro h2,
         .section-intro p,
-        .category-header,
-        .category-header h2,
-        .resource-link h3,
+        .resource-link h4,
         .resource-description {
             text-align: left !important;
         }
 
         .hero {
-            padding: 30px 16px;
+            padding: 30px 0;
         }
 
-        .hero h1 {
-            font-size: 28px !important;
+        .hero-container {
+            padding: 0 16px;
         }
 
         .hero p {
             font-size: 16px !important;
-            margin: 0;
         }
 
         .resources-container {
             padding: 20px 16px;
         }
 
-        .section-intro h2,
-        .category-header h2 {
-            font-size: 24px !important;
+        .resource-item {
+            padding: 10px 0;
         }
 
-        .resource-link h3 {
-            font-size: 20px !important;
+        .resource-link h4 {
+            font-size: 16px !important;
+        }
+
+        .resource-description {
+            font-size: 13px !important;
         }
     }
 </style>
@@ -215,7 +217,9 @@ get_header();
         <article>
             <!-- Hero Section -->
             <section class="hero">
-                <h1>Resources</h1>
+                <div class="hero-container">
+                    <h1>Resources</h1>
+                </div>
             </section>
 
             <!-- Main Content -->
@@ -240,9 +244,6 @@ get_header();
                 ?>
                     <!-- All Resources -->
                     <section class="category-section">
-                        <div class="category-header">
-                            <h2>Available Resources</h2>
-                        </div>
                         <ul class="resources-list">
                             <?php while ($resources_query->have_posts()) : $resources_query->the_post();
                                 $description = get_post_meta(get_the_ID(), 'resource_description', true);
@@ -253,7 +254,7 @@ get_header();
                             ?>
                                 <li class="resource-item">
                                     <a href="<?php the_permalink(); ?>" class="resource-link">
-                                        <h3><?php the_title(); ?></h3>
+                                        <h4><?php the_title(); ?></h4>
                                         <p class="resource-description"><?php echo esc_html($description); ?></p>
                                     </a>
                                 </li>

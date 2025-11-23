@@ -57,16 +57,36 @@ get_header();
     .faq-hero {
         background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
         color: white;
-        padding: 40px 10px;
-        text-align: center;
+        padding: 40px 20px;
+        text-align: left;
     }
 
+    .faq-hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Hero H1 - Mobile first: 32px → 40px (tablet) → 48px (desktop) */
     .faq-hero h1 {
-        font-size: 48px;
+        font-size: 32px;
         font-weight: 800;
         line-height: 1.2;
         margin-bottom: 20px;
         color: white;
+        text-align: left;
+    }
+
+    @media (min-width: 768px) {
+        .faq-hero h1 {
+            font-size: 40px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .faq-hero h1 {
+            font-size: 48px;
+        }
     }
 
     .faq-hero .subtitle {
@@ -74,8 +94,7 @@ get_header();
         line-height: 1.6;
         color: white !important;
         opacity: 0.95;
-        max-width: 800px;
-        margin: 0 auto;
+        text-align: left;
     }
 
     /* FAQ Container */
@@ -270,6 +289,24 @@ get_header();
         margin-bottom: 0 !important;
     }
 
+    /* Link colors */
+    .faq-answer a.link-teal {
+        color: #28AFCF;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .faq-answer a.link-teal:hover {
+        text-decoration: underline;
+    }
+    .faq-answer a.link-orange {
+        color: #FF7F07;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .faq-answer a.link-orange:hover {
+        text-decoration: underline;
+    }
+
     /* Tables - compact and indented like bullets */
     .faq-answer table {
         width: 100%;
@@ -438,10 +475,7 @@ get_header();
             padding: 30px 16px;
         }
 
-        .faq-hero h1 {
-            font-size: 28px !important;
-            line-height: 1.3 !important;
-        }
+        /* H1 handled by mobile-first rules - stays at 32px */
 
         .faq-hero .subtitle {
             font-size: 16px !important;
@@ -500,8 +534,10 @@ get_header();
 
         <!-- Hero Section -->
         <section class="faq-hero">
-            <h1>SHSAT – Frequently Asked Questions (FAQs)</h1>
-            <p class="subtitle">Get answers to the most common questions about SHSAT preparation, test format, specialized high schools, and the admissions process.</p>
+            <div class="faq-hero-container">
+                <h1>SHSAT – Frequently Asked Questions (FAQs)</h1>
+                <p class="subtitle">Get answers to the most common questions about SHSAT preparation, test format, specialized high schools, and the admissions process.</p>
+            </div>
         </section>
 
         <!-- FAQ Container -->
@@ -791,7 +827,7 @@ get_header();
                     <ul>
                         <li>Students take the test on DOE-provided computers (at their school or at a testing center)</li>
                         <li>Cannot use personal devices</li>
-                        <li>Practice Resources: NYC SHSAT Practice Tests | Tutorial</li>
+                        <li>Practice Resources: <a href="https://nycshsat.myassessmentsupport.com/practice-tests/" target="_blank" rel="noopener" class="link-teal">NYC SHSAT Practice Tests</a> | <a href="https://srt.testnav.com/ny-shsat/ny-shsat-srt.html" target="_blank" rel="noopener" class="link-orange">Tutorial</a></li>
                     </ul>
                 </div>
             </div>

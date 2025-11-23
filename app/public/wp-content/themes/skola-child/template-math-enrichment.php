@@ -51,9 +51,10 @@ body {
     margin-bottom: 0;
 }
 
+/* Hero H1 - Mobile first: 32px (Industry standard) */
 .hero-section h1 {
     font-family: 'Roboto', sans-serif;
-    font-size: 48px;
+    font-size: 32px;
     font-weight: 800;
     line-height: 1.2;
     color: white !important;
@@ -62,6 +63,21 @@ body {
     max-width: 1200px;
     padding-left: 20px;
     padding-right: 20px;
+    text-align: left !important;
+}
+
+/* Tablet: 40px (Industry standard) */
+@media (min-width: 768px) {
+    .hero-section h1 {
+        font-size: 40px;
+    }
+}
+
+/* Desktop: 48px (Industry standard) */
+@media (min-width: 1024px) {
+    .hero-section h1 {
+        font-size: 48px;
+    }
 }
 
 /* Intro Section */
@@ -198,10 +214,7 @@ body {
         padding: 30px 0;
     }
 
-    .hero-section h1 {
-        font-size: 32px !important;
-        margin-bottom: 12px !important;
-    }
+    /* H1 size now handled by mobile-first rules above */
 
     .intro-section {
         margin: 30px 0 40px;
@@ -232,9 +245,7 @@ body {
         padding: 25px 0;
     }
 
-    .hero-section h1 {
-        font-size: 28px !important;
-    }
+    /* H1 stays at 32px on small mobile for readability */
 
     .cta-section h2 {
         font-size: 22px !important;

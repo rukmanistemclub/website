@@ -71,14 +71,31 @@ get_header();
         display: block !important;
     }
 
+    /* Hero H1 - Mobile first: 32px (Industry standard) */
+    /* !important needed to override design-system.css generic h1 rules */
     .admissions-counseling-page .hero-content h1 {
         font-family: 'Roboto', sans-serif;
-        font-size: 48px;
+        font-size: 32px !important;
         font-weight: 800;
         margin-bottom: 16px;
         line-height: 1.2;
         letter-spacing: -1px;
         color: #FFFFFF;
+        text-align: left !important;
+    }
+
+    /* Tablet: 40px (Industry standard) */
+    @media (min-width: 768px) {
+        .admissions-counseling-page .hero-content h1 {
+            font-size: 40px !important;
+        }
+    }
+
+    /* Desktop: 48px (Industry standard) */
+    @media (min-width: 1024px) {
+        .admissions-counseling-page .hero-content h1 {
+            font-size: 48px !important;
+        }
     }
 
     .admissions-counseling-page .hero-content .subtitle {
@@ -235,11 +252,7 @@ get_header();
             padding: 30px 0;
         }
 
-        .admissions-counseling-page .hero-content h1 {
-            font-size: 28px !important;
-            margin-bottom: 12px !important;
-            text-align: left !important;
-        }
+        /* H1 size now handled by mobile-first rules - stays at 32px */
 
         .admissions-counseling-page .hero-content .subtitle {
             font-size: 16px !important;
@@ -321,9 +334,7 @@ get_header();
             padding: 25px 0;
         }
 
-        .admissions-counseling-page .hero-content h1 {
-            font-size: 28px !important;
-        }
+        /* H1 stays at 32px on small mobile for readability */
 
         .admissions-counseling-page .hero-content .subtitle {
             font-size: 14px !important;

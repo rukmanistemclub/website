@@ -339,13 +339,15 @@ p {
     justify-content: center;
 }
 
+/* Hero H1 - Mobile first: 32px (handled by responsive rules later in file) */
 .course-hero .hero-content h1 {
-    font-size: 48px !important;
+    font-size: 32px !important;
     font-weight: 800 !important;
     color: #ffffff !important;
     margin-bottom: 20px;
     line-height: 1.2;
     letter-spacing: -1px;
+    text-align: left !important;
 }
 
 .hero-content .highlight {
@@ -3262,17 +3264,40 @@ p {
    =========================== */
 
 /* EXCEPTION: Preserve ALL Hero section styles - must come first */
-/* Hero H1 - 48px */
+/* Hero H1 - Mobile first: 32px → 40px (tablet) → 48px (desktop) */
 .course-hero .hero-content h1,
 .hero-content h1,
 .faq-hero h1,
 .elementor .course-hero h1,
 .elementor .hero-content h1 {
-    font-size: 48px !important;
+    font-size: 32px !important;
     font-weight: 800 !important;
     line-height: 1.2 !important;
     color: #ffffff !important;
     font-family: 'Roboto', sans-serif !important;
+    text-align: left !important;
+}
+
+/* Tablet: 40px */
+@media (min-width: 768px) {
+    .course-hero .hero-content h1,
+    .hero-content h1,
+    .faq-hero h1,
+    .elementor .course-hero h1,
+    .elementor .hero-content h1 {
+        font-size: 40px !important;
+    }
+}
+
+/* Desktop: 48px */
+@media (min-width: 1024px) {
+    .course-hero .hero-content h1,
+    .hero-content h1,
+    .faq-hero h1,
+    .elementor .course-hero h1,
+    .elementor .hero-content h1 {
+        font-size: 48px !important;
+    }
 }
 
 /* Hero H2 - When hero title is H2 instead of H1 */

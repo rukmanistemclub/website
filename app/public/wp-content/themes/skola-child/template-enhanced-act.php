@@ -44,26 +44,39 @@ get_header();
     article .hero {
         background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
         color: white;
-        padding: 24px 0;
-        text-align: center;
+        padding: 40px 0;
     }
 
+    /* Hero H1 - Mobile first: 32px → 40px → 48px */
     article .hero h1 {
-        font-size: 48px;
+        font-size: 32px;
         font-weight: 800;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         line-height: 1.2;
         letter-spacing: -1px;
         color: white !important;
+        text-align: left;
+    }
+
+    @media (min-width: 768px) {
+        article .hero h1 {
+            font-size: 40px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        article .hero h1 {
+            font-size: 48px;
+        }
     }
 
     article .hero .subtitle {
         font-size: 18px;
         line-height: 1.6;
         opacity: 0.95;
-        max-width: 700px;
-        margin: 0 auto;
+        margin: 0;
         color: white !important;
+        text-align: left;
     }
 
     /* Content Sections */
@@ -363,9 +376,6 @@ get_header();
     /* Responsive */
     @media (max-width: 768px) {
         /* Left-align all content on mobile */
-        article .hero,
-        article .hero h1,
-        article .hero .subtitle,
         article section,
         article h2,
         article h3,
@@ -392,12 +402,10 @@ get_header();
         }
 
         article .hero {
-            padding: 30px 16px;
+            padding: 30px 0;
         }
 
-        article .hero h1 {
-            font-size: 28px !important;
-        }
+        /* H1 already 32px from mobile-first base */
 
         article .hero .subtitle {
             font-size: 16px !important;
@@ -474,9 +482,9 @@ get_header();
         <div class="highlight-box">
             <h4>Key Changes at a Glance</h4>
             <ul>
-                <li>131 questions instead of 215 (44-84 fewer questions)</li>
+                <li>131 questions instead of 215 (44 fewer questions in core test; 84 fewer if comparing core-only to legacy with Science)</li>
                 <li>125 minutes instead of 175 minutes (50 minutes shorter without Science)</li>
-                <li>~57 seconds per question vs. ~49 seconds (18% more time)</li>
+                <li>~57 seconds per question vs. ~49 seconds (18% more time overall; varies by section)</li>
                 <li>Science section is now optional</li>
                 <li>Composite score based on 3 sections (English, Math, Reading) instead of 4</li>
                 <li>Math has 4 answer choices instead of 5</li>
@@ -506,8 +514,8 @@ get_header();
                     <tr>
                         <td><strong>English</strong></td>
                         <td>75 questions, 45 minutes</td>
-                        <td>60 questions, 36 minutes</td>
-                        <td>Slightly more time per question. Content unchanged.</td>
+                        <td>50 questions, 35 minutes</td>
+                        <td>Slightly less time per question. Content unchanged.</td>
                     </tr>
                     <tr>
                         <td><strong>Math</strong></td>
@@ -518,8 +526,8 @@ get_header();
                     <tr>
                         <td><strong>Reading</strong></td>
                         <td>40 questions, 35 minutes</td>
-                        <td>26 questions, 39 minutes</td>
-                        <td>Shorter passages, more time per question. Passage types unchanged.</td>
+                        <td>36 questions, 40 minutes</td>
+                        <td>More time per question. Passage types unchanged.</td>
                     </tr>
                     <tr>
                         <td><strong>Science</strong></td>
@@ -555,7 +563,7 @@ get_header();
             </table>
         </div>
 
-        <p style="margin-top: 30px;"><strong>Superscoring:</strong> You can superscore across any ACT test dates—legacy or Enhanced. Nearly all colleges accept superscores combining your highest English, Math, and Reading from different tests.</p>
+        <p style="margin-top: 30px;"><strong>Superscoring:</strong> You can superscore across any ACT test dates—legacy or Enhanced. Many colleges accept superscores combining your highest English, Math, and Reading from different tests. Verify each school's superscore policy, as requirements vary.</p>
     </div>
 </section>
 
@@ -595,7 +603,7 @@ get_header();
 <section style="background: linear-gradient(135deg, #134958 0%, #28AFCF 100%); padding: 20px 0; text-align: center;">
     <div class="act-content-wrapper">
         <h2 style="color: white !important; border-bottom: none; display: block; padding-bottom: 0;">Ready to Master the Enhanced ACT?</h2>
-        <p style="color: white !important; max-width: 1200px; margin: 0 auto 20px; opacity: 0.95;">Our Enhanced ACT prep program is fully updated for the 2025 format. We'll help you navigate the new structure, make strategic decisions about the Science section, and achieve your target score efficiently. Our program includes full-length practice tests in Enhanced ACT format (both with and without Science), strategic guidance on the Science section decision, timing drills optimized for the new structure, math strategies for 4-choice questions, approaches for shorter Reading passages, and comprehensive review of all content areas.</p>
+        <p style="color: white !important; max-width: 1200px; margin: 0 auto 20px; opacity: 0.95; text-align: left;">Our Enhanced ACT prep program is fully updated for the 2025 format. We'll help you navigate the new structure, make strategic decisions about the Science section, and achieve your target score efficiently. Our program includes full-length practice tests in Enhanced ACT format (both with and without Science), strategic guidance on the Science section decision, timing drills optimized for the new structure, math strategies for 4-choice questions, approaches for shorter Reading passages, and comprehensive review of all content areas.</p>
         <?php echo do_shortcode('[inquiry_button]'); ?>
     </div>
 </section>

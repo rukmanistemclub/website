@@ -88,8 +88,7 @@ body {
 /* Article Hero Section */
 .article-hero {
     background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
-    padding: 60px 20px 50px;
-    text-align: center;
+    padding: 40px 0;
     color: white;
     position: relative;
     overflow: hidden;
@@ -113,8 +112,9 @@ body {
 }
 
 .hero-content {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
     position: relative;
     z-index: 1;
 }
@@ -130,12 +130,14 @@ body {
     margin-bottom: 20px;
 }
 
+/* Article Title (H1) - Mobile first: 32px → 40px (tablet) → 48px (desktop) */
 .article-title {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 800;
     margin-bottom: 16px;
-    line-height: 1.25;
+    line-height: 1.2;
     color: white !important;
+    text-align: left;
 }
 
 .article-subtitle {
@@ -143,6 +145,7 @@ body {
     opacity: 0.95;
     margin-bottom: 24px;
     line-height: 1.625;
+    text-align: left;
 }
 
 .timeline-badge {
@@ -157,9 +160,9 @@ body {
 
 /* Main Article Container */
 .article-container {
-    max-width: 1000px;
-    margin: -30px auto 60px;
-    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 40px 20px 0;
 }
 
 .lead-intro {
@@ -524,11 +527,7 @@ body {
     }
 
     /* Hero section fonts */
-    .article-hero .article-title,
-    .article-title {
-        font-size: 28px !important;
-        line-height: 1.3 !important;
-    }
+    /* H1 handled by mobile-first rules - stays at 32px */
 
     .article-hero .article-subtitle,
     .article-subtitle {
@@ -574,7 +573,11 @@ body {
     }
 
     .article-hero {
-        padding: 30px 16px;
+        padding: 30px 0;
+    }
+
+    .hero-content {
+        padding: 0 16px;
     }
 
     .lead-intro {
@@ -615,7 +618,7 @@ body {
 /* Tablet and up - scale headings */
 @media (min-width: 768px) {
     .article-title {
-        font-size: 36px;
+        font-size: 40px;
     }
 
     .article-subtitle {
