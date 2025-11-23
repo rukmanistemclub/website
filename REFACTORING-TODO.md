@@ -69,17 +69,10 @@
 1. **Remove Elementor plugins** (see Section 6)
    - Instantly removes ~500KB unused JS/CSS
 
-2. **Add browser caching headers**
-   ```apache
-   # Add to .htaccess
-   <IfModule mod_expires.c>
-       ExpiresActive On
-       ExpiresByType text/css "access plus 1 year"
-       ExpiresByType application/javascript "access plus 1 year"
-       ExpiresByType image/png "access plus 1 year"
-       ExpiresByType image/jpeg "access plus 1 year"
-   </IfModule>
-   ```
+2. **Browser caching headers** → MOVED TO FINAL PHASE
+   - Server-specific (Apache .htaccess vs nginx conf)
+   - Do after all other optimizations complete
+   - See Final Phase section
 
 3. **Defer non-critical CSS**
    - Move component CSS to async loading
@@ -706,14 +699,17 @@ NO INLINE <style> BLOCKS IN ANY TEMPLATE
 - [ ] Git commit
 
 ### Day 4-5: Performance Fixes
-- [ ] Add browser caching headers
+- [x] Remove orphaned CSS (~490 lines) ✅ DONE
 - [ ] Add image dimensions to all <img> tags
 - [ ] Run Lighthouse, document improvement
 - [ ] Git commit
 
 ### Phase 0 Complete Checklist
-- [ ] Elementor plugins deactivated
-- [ ] No visual regressions
+- [x] Elementor orphaned CSS removed ✅
+- [x] WooCommerce dead code removed ✅
+- [x] Header styles preserved ✅
+- [x] Documentation updated ✅
+- [ ] No visual regressions (testing)
 - [ ] Performance score improved
 - [ ] All changes committed
 ```
@@ -1003,6 +999,48 @@ Steps:
 
 Goal: End user can edit all page content without code changes.
 ```
+
+---
+
+## 🏁 FINAL PHASE: Server Optimization
+
+> **Do this LAST after all other phases complete**
+
+### Browser Caching Headers
+
+Configuration depends on server type. Check which server your host uses.
+
+**For Apache (.htaccess):**
+```apache
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+```
+
+**For nginx (nginx.conf or site config):**
+```nginx
+location ~* \.(css|js|png|jpg|jpeg|webp|woff2)$ {
+    expires 1y;
+    add_header Cache-Control "public, immutable";
+}
+```
+
+**For Local by Flywheel:**
+- Local uses nginx by default
+- Config at: `conf/nginx/site.conf.hbs`
+- Or switch to Apache in Local preferences
+
+### Final Performance Checklist
+- [ ] Browser caching configured for production server
+- [ ] All images have explicit dimensions
+- [ ] Final Lighthouse score documented
+- [ ] Before/after comparison documented
 
 ---
 
