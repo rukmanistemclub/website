@@ -279,16 +279,11 @@ function nycstemclub_defer_scripts($tag, $handle) {
         'wp-backbone',
         'moment',
         'tinymce',
-        'elementor',
-        'elementor-frontend',
-        'elementor-common',
-        'elementor-editor',
-        'elementskit',
         'marionette'
     );
 
-    // Don't defer scripts in admin or Elementor editor
-    if (is_admin() || (isset($_GET['action']) && $_GET['action'] === 'elementor')) {
+    // Don't defer scripts in admin
+    if (is_admin()) {
         return $tag;
     }
 

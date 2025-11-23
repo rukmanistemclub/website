@@ -13,18 +13,7 @@ Text Domain:       skola-child
 Tags:              two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, full-width-template, threaded-comments, accessibility-ready, rtl-language-support, footer-widgets, sticky-post, theme-options
 */
 
-.elementor-widget-image{text-align:center}
-.elementor-widget-image a{display:inline-block}
-.elementor-widget-image a img[src$=".svg"]{width:48px}
-.elementor-widget-image img{vertical-align:middle;display:inline-block}
-
-.elementor-heading-title{padding:0;margin:0;line-height:1}
-.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}
-.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}
-.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}
-.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}
-.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}
-.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
+/* Elementor widget styles removed - 2025-11-23 (Elementor no longer used) */
 
 ul{ list-style:none !important;}
 body{
@@ -272,137 +261,30 @@ a.button.addtocartbutton {
     border-radius: 5px;
     line-height:2.2;
 }
-   /* Very compact version */
-  .single-product .elementor-section.elementor-element-2055c03 {
-      padding-top: 15px !important;
-      padding-bottom: 15px !important;
-      min-height: auto !important;
-  }
-
-  .single-product .elementor-element-78249c9 {
-      padding: 5px !important;
-  }
-
-  .single-product .elementor-element-6435f85 {
-      margin: 0 !important;
-  }
+   /* Elementor element IDs removed - 2025-11-23 (orphaned after PHP template conversion) */
   /* Reduce "Related products" heading font size */
   .single-product .related.products h2 {
       font-size: 24px !important;
   }
 
-   /* Make both View Our Programs and Inquire Now buttons same width and font size */
+   /* Elementor hero button element IDs removed - 2025-11-23 (now using PHP template buttons) */
 
-  /* View Our Programs button - fixed 200px width */
-  .elementor-button-link[href="#programs"],
-  .elementor-button-link[href*="programs"] {
-      white-space: nowrap !important;
-      padding: 12px 24px !important;
-      font-size: 18px !important;
-      font-weight: 700 !important;
-      text-align: center !important;
-      display: inline-block !important;
-      margin-bottom: 6px !important;
-      width: 200px !important;
-      min-width: 200px !important;
-      box-sizing: border-box !important;
-  }
-
-  /* NYC STEM Inquiry Button - Override inline styles to match View Our Programs button */
+  /* NYC STEM Inquiry Button - Base styles */
   .nyc-stem-inquiry-btn,
   a.nyc-stem-inquiry-btn {
       min-width: 180px !important;
       width: auto !important;
       display: inline-block !important;
       text-align: center !important;
-      font-family: Georgia, 'Times New Roman', serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 18px !important;
       font-weight: 700 !important;
-  }
-
-  /* Hero section button alignment - make symmetric */
-  /* Target the inner section containing both button columns */
-  .elementor-element-bd02305 {
-      justify-content: center !important;
-      align-items: center !important;
-      gap: 0 !important;
-      column-gap: 0 !important;
-  }
-
-  .elementor-element-bd02305 .elementor-container {
-      gap: 0 !important;
-      column-gap: 0 !important;
-  }
-
-  /* Center align both button columns with 7.5px margin each (15px total gap) */
-  .elementor-element-d415932,
-  .elementor-element-34ea019 {
-      text-align: center !important;
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      padding: 0 !important;
-  }
-
-  /* Add 7.5px margin to create 15px gap between buttons */
-  .elementor-element-d415932 {
-      margin-right: 7.5px !important;
-  }
-
-  .elementor-element-34ea019 {
-      margin-left: 7.5px !important;
-  }
-
-  /* Center the button wrappers */
-  .elementor-element-d415932 .elementor-widget-container,
-  .elementor-element-34ea019 .elementor-widget-container {
-      display: flex !important;
-      justify-content: center !important;
-      width: 100% !important;
-  }
-
-  /* Center the button wrapper specifically */
-  .elementor-element-b52c7aa .elementor-button-wrapper {
-      justify-content: center !important;
-  }
-
-  /* Make both buttons same height - match line-height */
-  .elementor-button-link[href="#programs"],
-  .elementor-button-link[href*="programs"],
-  .nyc-stem-inquiry-btn,
-  a.nyc-stem-inquiry-btn {
       line-height: 1.8 !important;
       height: auto !important;
   }
 
-  /* Mobile responsive buttons - Hero section */
+  /* Mobile responsive buttons */
   @media (max-width: 768px) {
-      /* Stack buttons vertically on mobile */
-      .elementor-element-bd02305 {
-          flex-direction: column !important;
-      }
-
-      .elementor-element-bd02305 .elementor-container {
-          flex-direction: column !important;
-      }
-
-      .elementor-element-d415932,
-      .elementor-element-34ea019 {
-          width: 100% !important;
-          max-width: 100% !important;
-          margin: 0 !important;
-          margin-bottom: 10px !important;
-      }
-
-      /* Make buttons full width on mobile */
-      .elementor-button-link[href="#programs"],
-      .elementor-button-link[href*="programs"] {
-          width: 100% !important;
-          max-width: 280px !important;
-          padding: 14px 20px !important;
-          font-size: 16px !important;
-      }
-
       .nyc-stem-inquiry-btn,
       a.nyc-stem-inquiry-btn {
           width: 100% !important;
@@ -740,291 +622,10 @@ a.button.addtocartbutton {
     border-top: 2px solid #e9ecef !important;
 }
 
-/* ===========================
-   SHSAT PREPARATION PROGRAMS SECTION - Light Blue Background
-   Target section ID: ea1d316
-   =========================== */
-
-.elementor-element-ea1d316 {
-    background-color: #CDE9F6 !important;
-}
-
-/* ===========================
-   SHSAT PAGE - CUSTOM TABS STYLING
-   Target specific widget ID: 78fc5ee
-   =========================== */
-
-/* Container styling - transparent background */
-.elementor-element-78fc5ee {
-    background: transparent !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-}
-
-.elementor-element-78fc5ee .elementor-widget-container {
-    background: transparent !important;
-}
-
-/* Tab Navigation styling */
-.elementor-element-78fc5ee .elementor-tabs-wrapper {
-    display: flex !important;
-    background: transparent !important;
-    gap: 0 !important;
-    border-bottom: none !important;
-}
-
-/* Individual tab buttons */
-.elementor-element-78fc5ee .elementor-tab-title {
-    flex: 1 !important;
-    padding: 15px 20px !important;
-    background: transparent !important;
-    border: none !important;
-    color: #134958 !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    position: relative !important;
-    text-align: center !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-}
-
-/* Tab button hover state */
-.elementor-element-78fc5ee .elementor-tab-title:hover {
-    background: rgba(255,255,255,0.3) !important;
-}
-
-/* Active tab button */
-.elementor-element-78fc5ee .elementor-tab-title.elementor-active {
-    background: white !important;
-    color: #134958 !important;
-    border: 3px solid #28AFCF !important;
-    border-bottom: none !important;
-    position: relative !important;
-    z-index: 10 !important;
-}
-
-/* Force top border on active tab - more specific selector */
-.elementor-element-78fc5ee .elementor-tabs-wrapper .elementor-tab-title.elementor-active {
-    border-top: 3px solid #28AFCF !important;
-}
-
-/* Tab content wrapper */
-.elementor-element-78fc5ee .elementor-tabs-content-wrapper {
-    background: white !important;
-    border-left: 3px solid #28AFCF !important;
-    border-right: 3px solid #28AFCF !important;
-    border-bottom: 3px solid #28AFCF !important;
-    border-top: none !important;
-    margin-top: 0 !important;
-    padding: 12px 15px !important;
-}
-
-/* Individual tab content panels */
-.elementor-element-78fc5ee .elementor-tab-content {
-    padding: 0 !important;
-    border: none !important;
-}
-
-/* Typography inside tabs */
-.elementor-element-78fc5ee .elementor-tab-content h2 {
-    color: #28AFCF !important;
-    font-size: 19px !important;
-    font-weight: 600 !important;
-    margin-bottom: 8px !important;
-}
-
-.elementor-element-78fc5ee .elementor-tab-content h3 {
-    color: #28AFCF !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    margin: 10px 0 6px 0 !important;
-}
-
-.elementor-element-78fc5ee .elementor-tab-content p {
-    font-weight: 400 !important;
-    color: #333 !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-    margin-bottom: 6px !important;
-}
-
-.elementor-element-78fc5ee .elementor-tab-content p strong {
-    font-weight: 600 !important;
-    color: #134958 !important;
-}
-
-/* Content grid layout */
-.elementor-element-78fc5ee .content-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 15px !important;
-    margin-top: 8px !important;
-}
-
-.elementor-element-78fc5ee .full-width {
-    grid-column: 1 / -1 !important;
-}
-
-/* Section boxes with gray background */
-.elementor-element-78fc5ee .section-box {
-    background: #f8f9fa !important;
-    padding: 10px !important;
-    border-radius: 4px !important;
-    border-left: 3px solid #28AFCF !important;
-}
-
-.elementor-element-78fc5ee .section-box h3 {
-    margin-top: 0 !important;
-}
-
-/* Lists with custom checkmarks */
-.elementor-element-78fc5ee ul {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 6px 0 !important;
-}
-
-.elementor-element-78fc5ee ul li {
-    padding: 4px 0 !important;
-    padding-left: 20px !important;
-    position: relative !important;
-    font-weight: 400 !important;
-    color: #333 !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-}
-
-.elementor-element-78fc5ee ul li::before {
-    content: "✓" !important;
-    position: absolute !important;
-    left: 0 !important;
-    color: #28AFCF !important;
-    font-weight: 700 !important;
-    font-size: 14px !important;
-}
-
-/* Nested lists */
-.elementor-element-78fc5ee ul li ul {
-    margin-top: 4px !important;
-    margin-bottom: 4px !important;
-}
-
-.elementor-element-78fc5ee ul li ul li {
-    padding: 3px 0 3px 18px !important;
-    font-size: 13px !important;
-}
-
-.elementor-element-78fc5ee ul li ul li::before {
-    content: "•" !important;
-    color: #134958 !important;
-    font-weight: 400 !important;
-    font-size: 12px !important;
-}
-
-/* Best For box - orange */
-.elementor-element-78fc5ee .best-for {
-    background: #FFF3E0 !important;
-    border-left: 3px solid #FF7F07 !important;
-    padding: 8px 12px !important;
-    margin-top: 10px !important;
-    font-weight: 400 !important;
-    color: #333 !important;
-    font-size: 14px !important;
-}
-
-.elementor-element-78fc5ee .best-for strong {
-    font-weight: 600 !important;
-    color: #134958 !important;
-}
-
-/* Italic note boxes */
-.elementor-element-78fc5ee .note-italic {
-    font-style: italic !important;
-    font-weight: 400 !important;
-    color: #555 !important;
-    margin: 10px 0 !important;
-    font-size: 13px !important;
-    padding: 10px !important;
-    background: #f8f9fa !important;
-    border-radius: 4px !important;
-}
-
-/* Intro text */
-.elementor-element-78fc5ee .intro-text {
-    font-weight: 400 !important;
-    color: #333 !important;
-    font-size: 14px !important;
-    margin-bottom: 6px !important;
-}
-
-/* Schedule info inline boxes */
-.elementor-element-78fc5ee .schedule-inline {
-    background: transparent !important;
-    padding: 10px 15px !important;
-    border-radius: 4px !important;
-    border-left: 3px solid #134958 !important;
-    margin-bottom: 15px !important;
-}
-
-.elementor-element-78fc5ee .schedule-inline p {
-    margin: 0 !important;
-    font-size: 14px !important;
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-    .elementor-element-78fc5ee .elementor-tabs-wrapper {
-        flex-direction: column !important;
-    }
-
-    .elementor-element-78fc5ee .elementor-tab-title {
-        padding: 12px 15px !important;
-        font-size: 14px !important;
-    }
-
-    .elementor-element-78fc5ee .elementor-tab-title.elementor-active {
-        border: 2px solid #28AFCF !important;
-    }
-
-    .elementor-element-78fc5ee .elementor-tabs-content-wrapper {
-        padding: 15px !important;
-    }
-
-    .elementor-element-78fc5ee .content-grid {
-        grid-template-columns: 1fr !important;
-        gap: 15px !important;
-    }
-
-    .elementor-element-78fc5ee .elementor-tab-content h2 {
-        font-size: 17px !important;
-    }
-
-    .elementor-element-78fc5ee .elementor-tab-content h3 {
-        font-size: 15px !important;
-    }
-}
-
-/* Page-specific overrides removed - now using global benefit card styles from course-styles.css */
-
 /* ==============================================================================
-   GLOBAL CONTAINER WIDTH - 1200px
-   ============================================================================== */
-
-/* Override Elementor's default 1140px to 1200px */
-.elementor-section.elementor-section-boxed > .elementor-container {
-    max-width: 1200px !important;
-}
-
-/* Also apply to inner sections */
-.elementor-section.elementor-section-boxed .elementor-container {
-    max-width: 1200px !important;
-}
-
-/* ==============================================================================
-   END CONTAINER WIDTH
+   SHSAT/Elementor element ID styles removed - 2025-11-23
+   (~270 lines of orphaned CSS for element IDs ea1d316, 78fc5ee, etc.)
+   These were targeting Elementor widgets that no longer exist after PHP template conversion.
    ============================================================================== */
 
 /* ==============================================================================
@@ -1086,7 +687,6 @@ p {
 /* Exceptions - Keep original styling */
 .course-card-title, .woocommerce-loop-product__title,
 .hero-section h1, .hero-section h2,
-.elementor-element-78fc5ee h2, .elementor-element-78fc5ee h3, .elementor-element-78fc5ee h4,
 .nyc-blog-content-container h2, .nyc-blog-content-container h3, .nyc-blog-content-container h4 {
     font-size: inherit !important;
     margin: inherit !important;
@@ -1098,86 +698,11 @@ p {
    ============================================================================== */
 
 /* ==============================================================================
-   FORCE WHITE TEXT - Specific Elements on SHSAT Page
+   SHSAT Elementor element IDs removed - 2025-11-23
+   (~75 lines of orphaned CSS for element IDs 8b4278b, 5f62b9f, dfeb9da, etc.)
    ============================================================================== */
 
-/* Force the H2 "90%+ Specialized..." to white */
-#elementor .elementor-element-8b4278b .elementor-heading-title,
-#elementor .elementor-element-8b4278b h2,
-.elementor-element-8b4278b .elementor-heading-title,
-.elementor-element-8b4278b h2 {
-    color: #FFFFFF !important;
-}
-
-/* Force the paragraph "NYC STEM CLUB has helped..." to white */
-#elementor .elementor-element-5f62b9f,
-#elementor .elementor-element-5f62b9f p,
-.elementor-element-5f62b9f,
-.elementor-element-5f62b9f p,
-.elementor-element-5f62b9f .elementor-text-editor {
-    color: #FFFFFF !important;
-}
-
-/* SHSAT Page - Dark sections with white text */
-
-/* Combined Approach heading */
-.elementor-element-dfeb9da .elementor-heading-title,
-.elementor-element-dfeb9da h1,
-.elementor-element-dfeb9da h2,
-.elementor-element-dfeb9da h3 {
-    color: #FFFFFF !important;
-}
-
-/* Combined Approach text */
-.elementor-element-8d6651e,
-.elementor-element-8d6651e p,
-.elementor-element-8d6651e li,
-.elementor-element-8d6651e .elementor-text-editor {
-    color: #FFFFFF !important;
-}
-
-/* Ready to Start Your SHSAT Journey? */
-.elementor-element-106c474 .elementor-heading-title,
-.elementor-element-106c474 h1,
-.elementor-element-106c474 h2,
-.elementor-element-106c474 h3 {
-    color: #FFFFFF !important;
-}
-
-/* When to Start Preparing */
-.elementor-element-9b6a62d .elementor-heading-title,
-.elementor-element-9b6a62d h1,
-.elementor-element-9b6a62d h2,
-.elementor-element-9b6a62d h3 {
-    color: #FFFFFF !important;
-}
-
-/* Next Steps */
-.elementor-element-3912da7 .elementor-heading-title,
-.elementor-element-3912da7 h1,
-.elementor-element-3912da7 h2,
-.elementor-element-3912da7 h3 {
-    color: #FFFFFF !important;
-}
-
-/* Match Questions font size to Join the 90%+ */
-.elementor-element-7247a4a,
-.elementor-element-7247a4a p {
-    font-size: 25px !important;
-}
-
-/* Remove padding between lines in Ready to Start Your SHSAT Journey section */
-.elementor-element-106c474,
-.elementor-element-9b6a62d,
-.elementor-element-3912da7,
-.elementor-element-7247a4a {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-/* White text class - add "white-text" CSS class to any Elementor section/column */
+/* White text utility class - add "white-text" CSS class to any section */
 .white-text h1,
 .white-text h2,
 .white-text h3,

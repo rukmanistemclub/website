@@ -945,8 +945,7 @@ get_header();
 
         /* Make inquiry button full width on mobile too */
         .hero-buttons .inquiry-button,
-        .hero-buttons .nyc-stem-inquiry-btn,
-        .hero-buttons a.elementor-button {
+        .hero-buttons .nyc-stem-inquiry-btn {
             width: 100% !important;
             max-width: 100% !important;
             min-width: 100% !important;
