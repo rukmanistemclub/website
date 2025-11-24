@@ -103,6 +103,10 @@ class NYC_STEM_Courses {
         require_once NYC_STEM_COURSES_PATH . 'includes/migration.php';
         // Load unified Why Choose shortcode (Phase 1 refactoring)
         require_once NYC_STEM_COURSES_PATH . 'includes/shortcodes/why-choose-unified.php';
+        // Load FAQ section shortcode (Phase 2 refactoring)
+        require_once NYC_STEM_COURSES_PATH . 'includes/shortcodes/faq-section.php';
+        // Load CTA section shortcode (Phase 2 refactoring)
+        require_once NYC_STEM_COURSES_PATH . 'includes/shortcodes/cta-section.php';
     }
 
     /**
