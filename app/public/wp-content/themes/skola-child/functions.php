@@ -645,6 +645,23 @@ function nycstemclub_enqueue_course_pages_styles() {
 
 /**
  * ==============================================================================
+ * NYC STEM Club Reusable Components
+ * FAQ, Why Choose, CTA, Testimonials component styles
+ * Created: 2025-11-23 (Phase 1 Refactoring)
+ * ==============================================================================
+ */
+add_action('wp_enqueue_scripts', 'nycstemclub_enqueue_components_styles', 1001);
+function nycstemclub_enqueue_components_styles() {
+    wp_enqueue_style(
+        'nyc-components',
+        get_stylesheet_directory_uri() . '/css/components.css',
+        array('nyc-design-system'),
+        filemtime(get_stylesheet_directory() . '/css/components.css')
+    );
+}
+
+/**
+ * ==============================================================================
  * Redirect Product Categories to Course Categories
  * ==============================================================================
  */

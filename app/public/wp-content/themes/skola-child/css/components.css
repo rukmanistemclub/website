@@ -1,0 +1,502 @@
+/* ==============================================================================
+   NYC STEM CLUB - REUSABLE COMPONENTS
+   Extracted from inline CSS in shortcodes and templates
+
+   Created: 2025-11-23 (Phase 1 Refactoring)
+   ============================================================================== */
+
+/* ==============================================================================
+   WHY CHOOSE SECTION
+   Used by: [why_choose type="sat_act|shsat|isee|enrichment"]
+   ============================================================================== */
+
+.why-choose-section {
+    padding: var(--space-12) var(--space-4);
+    background-color: var(--color-background);
+}
+
+.why-choose-container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+}
+
+/* Header */
+.why-choose-header {
+    text-align: center;
+    margin-bottom: var(--space-10);
+}
+
+.why-choose-header h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-4);
+}
+
+.why-choose-header p {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    font-weight: var(--font-normal);
+    color: var(--color-text-light);
+    line-height: var(--leading-relaxed);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Benefits Grid - 4 columns on desktop */
+.why-choose-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+}
+
+@media (min-width: 640px) {
+    .why-choose-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .why-choose-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Benefit Cards */
+.why-choose-card {
+    background: #EFF8FB;
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--color-accent);
+    text-align: left;
+    transition: all var(--transition-base);
+    min-height: 140px;
+}
+
+.why-choose-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Color variants for cards */
+.why-choose-card--teal {
+    border-top-color: var(--color-accent);
+}
+
+.why-choose-card--orange {
+    border-top-color: var(--color-orange);
+}
+
+.why-choose-card--gold {
+    border-top-color: #F0B268;
+}
+
+.why-choose-card--green {
+    border-top-color: var(--color-success);
+}
+
+/* Card Icon */
+.why-choose-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: var(--radius-md);
+    margin-right: var(--space-3);
+    float: left;
+    flex-shrink: 0;
+}
+
+.why-choose-card__icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.why-choose-card__icon--teal {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+}
+
+.why-choose-card__icon--orange {
+    background: linear-gradient(135deg, var(--color-orange), #e66f00);
+}
+
+.why-choose-card__icon--gold {
+    background: linear-gradient(135deg, #F0B268, #d99d52);
+}
+
+.why-choose-card__icon--green {
+    background: linear-gradient(135deg, var(--color-success), #1e7e34);
+}
+
+/* Card Title */
+.why-choose-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--color-primary);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-2);
+    margin-top: 0;
+    margin-left: 50px;
+    text-align: left;
+}
+
+/* Card Description */
+.why-choose-card__desc {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-normal);
+    color: var(--color-text);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+    clear: both;
+}
+
+/* Badge at bottom */
+.why-choose-badge {
+    background: linear-gradient(135deg, var(--color-primary), #1a5f73);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
+    text-align: center;
+    box-shadow: 0 6px 25px rgba(19, 73, 88, 0.3);
+}
+
+.why-choose-badge__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.why-choose-badge__icon {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.why-choose-badge__icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.why-choose-badge__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: white;
+}
+
+.why-choose-badge__text {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-normal);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    .why-choose-section {
+        padding: var(--space-8) var(--space-4);
+    }
+
+    .why-choose-header h2 {
+        font-size: var(--text-2xl);
+        text-align: left;
+    }
+
+    .why-choose-header p {
+        font-size: var(--text-base);
+        text-align: left;
+    }
+
+    .why-choose-card {
+        padding: var(--space-4);
+        min-height: auto;
+    }
+
+    .why-choose-card__title {
+        font-size: var(--text-lg);
+    }
+
+    .why-choose-card__desc {
+        font-size: var(--text-sm);
+    }
+
+    .why-choose-badge {
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .why-choose-badge__content {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .why-choose-badge__title {
+        font-size: var(--text-base);
+    }
+
+    .why-choose-badge__text {
+        font-size: var(--text-sm);
+    }
+}
+
+/* ==============================================================================
+   FAQ ACCORDION
+   Used by: [faq_section] and FAQ templates
+   ============================================================================== */
+
+.faq-section {
+    padding: var(--space-12) var(--space-4);
+    background-color: var(--color-background-alt);
+}
+
+.faq-container {
+    max-width: var(--container-lg);
+    margin: 0 auto;
+}
+
+.faq-intro {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.faq-intro h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+}
+
+.faq-intro p {
+    font-size: var(--text-lg);
+    color: var(--color-text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-3);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: var(--space-4) var(--space-5);
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--color-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color var(--transition-fast);
+}
+
+.faq-question:hover {
+    background-color: var(--color-background-alt);
+}
+
+.faq-question__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    transition: transform var(--transition-base);
+}
+
+.faq-item.active .faq-question__icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 var(--space-5) var(--space-5);
+    color: var(--color-text);
+    line-height: var(--leading-relaxed);
+    display: none;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-answer p {
+    margin-bottom: var(--space-3);
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile FAQ adjustments */
+@media (max-width: 767px) {
+    .faq-section {
+        padding: var(--space-8) var(--space-4);
+    }
+
+    .faq-intro h2 {
+        font-size: var(--text-2xl);
+        text-align: left;
+    }
+
+    .faq-intro p {
+        font-size: var(--text-base);
+        text-align: left;
+    }
+
+    .faq-question {
+        font-size: var(--text-base);
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .faq-answer {
+        padding: 0 var(--space-4) var(--space-4);
+        font-size: var(--text-sm);
+    }
+}
+
+/* ==============================================================================
+   CTA SECTION
+   Used by: Final CTA sections on landing pages
+   ============================================================================== */
+
+.cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    padding: var(--space-12) var(--space-4);
+    text-align: center;
+    color: white;
+}
+
+.cta-container {
+    max-width: var(--container-lg);
+    margin: 0 auto;
+}
+
+.cta-section h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: white;
+    margin-bottom: var(--space-4);
+}
+
+.cta-section p {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto var(--space-6);
+    line-height: var(--leading-relaxed);
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: center;
+}
+
+@media (min-width: 640px) {
+    .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* Mobile CTA adjustments */
+@media (max-width: 767px) {
+    .cta-section {
+        padding: var(--space-8) var(--space-4);
+    }
+
+    .cta-section h2 {
+        font-size: var(--text-2xl);
+        text-align: left;
+    }
+
+    .cta-section p {
+        font-size: var(--text-base);
+        text-align: left;
+    }
+
+    .cta-buttons {
+        align-items: flex-start;
+    }
+}
+
+/* ==============================================================================
+   TESTIMONIALS SECTION
+   Used by: [testimonials] shortcode
+   ============================================================================== */
+
+.testimonials-section {
+    padding: var(--space-12) var(--space-4);
+    background-color: var(--color-background);
+}
+
+.testimonials-container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+}
+
+.testimonials-section h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--color-accent);
+}
+
+.testimonial-card__quote {
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--color-text);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+}
+
+.testimonial-card__author {
+    font-weight: var(--font-semibold);
+    color: var(--color-primary);
+}
+
+.testimonial-card__role {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+}
+
+/* Mobile testimonials adjustments */
+@media (max-width: 767px) {
+    .testimonials-section {
+        padding: var(--space-8) var(--space-4);
+    }
+
+    .testimonials-section h2 {
+        font-size: var(--text-2xl);
+        text-align: left;
+    }
+
+    .testimonial-card {
+        padding: var(--space-4);
+    }
+
+    .testimonial-card__quote {
+        font-size: var(--text-base);
+    }
+}

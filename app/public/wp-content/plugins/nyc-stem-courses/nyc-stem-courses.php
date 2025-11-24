@@ -101,6 +101,8 @@ class NYC_STEM_Courses {
         // Load organized ACF fields (complete field set)
         require_once NYC_STEM_COURSES_PATH . 'includes/acf-fields-organized.php';
         require_once NYC_STEM_COURSES_PATH . 'includes/migration.php';
+        // Load unified Why Choose shortcode (Phase 1 refactoring)
+        require_once NYC_STEM_COURSES_PATH . 'includes/shortcodes/why-choose-unified.php';
     }
 
     /**
