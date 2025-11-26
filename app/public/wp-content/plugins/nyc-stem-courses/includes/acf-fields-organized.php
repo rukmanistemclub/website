@@ -574,4 +574,128 @@ function nyc_stem_register_organized_course_fields() {
         'label_placement' => 'top',
         'instruction_placement' => 'label',
     ));
+
+    // ================================================
+    // RESOURCE PAGE FIELDS
+    // For template-resource-page.php
+    // ================================================
+    acf_add_local_field_group(array(
+        'key' => 'group_resource_page',
+        'title' => '📚 Resource Page Content',
+        'fields' => array(
+
+            // Hero Section
+            array(
+                'key' => 'field_resource_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'resource_hero_title',
+                'type' => 'text',
+                'instructions' => 'Main heading at top of page. Leave empty to use page title.',
+                'placeholder' => 'Understanding the Enhanced ACT',
+            ),
+            array(
+                'key' => 'field_resource_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'resource_hero_subtitle',
+                'type' => 'textarea',
+                'instructions' => 'Brief description shown below the title.',
+                'rows' => 2,
+                'placeholder' => 'Everything you need to know about the 2025 ACT changes',
+            ),
+
+            // Main Content
+            array(
+                'key' => 'field_resource_content',
+                'label' => 'Main Content',
+                'name' => 'resource_content',
+                'type' => 'wysiwyg',
+                'instructions' => 'The main article content. Use headings, lists, tables, etc. You can add CSS classes like "highlight-box" or "warning-box" to divs.',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+            ),
+
+            // FAQ Section
+            array(
+                'key' => 'field_resource_show_faq',
+                'label' => 'Show FAQ Section',
+                'name' => 'resource_show_faq',
+                'type' => 'true_false',
+                'instructions' => 'Display an FAQ section before the CTA.',
+                'default_value' => 0,
+                'ui' => 1,
+            ),
+            array(
+                'key' => 'field_resource_faq_type',
+                'label' => 'FAQ Type',
+                'name' => 'resource_faq_type',
+                'type' => 'select',
+                'instructions' => 'Select predefined FAQ content.',
+                'choices' => array(
+                    'shsat' => 'SHSAT FAQs',
+                    'sat_act' => 'SAT/ACT FAQs',
+                    'isee' => 'ISEE FAQs',
+                    'enhanced_act' => 'Enhanced ACT FAQs',
+                ),
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_resource_show_faq',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+            ),
+
+            // CTA Section
+            array(
+                'key' => 'field_resource_cta_type',
+                'label' => 'CTA Section Type',
+                'name' => 'resource_cta_type',
+                'type' => 'select',
+                'instructions' => 'Select which call-to-action to display at bottom.',
+                'choices' => array(
+                    'enrollment' => 'General Enrollment',
+                    'shsat' => 'SHSAT Specific',
+                    'sat_act' => 'SAT/ACT Specific',
+                    'digital_sat' => 'Digital SAT Specific',
+                    'enhanced_act' => 'Enhanced ACT Specific',
+                    'sat_vs_act' => 'SAT vs ACT Page',
+                    'testing_timeline' => 'Testing Timeline Page',
+                    'shsat_faq' => 'SHSAT FAQ Page',
+                    'contact' => 'Contact Us',
+                ),
+                'default_value' => 'enrollment',
+            ),
+
+            // Schema Type
+            array(
+                'key' => 'field_resource_schema_type',
+                'label' => 'Schema Type (SEO)',
+                'name' => 'resource_schema_type',
+                'type' => 'select',
+                'instructions' => 'Type of structured data for search engines.',
+                'choices' => array(
+                    'Article' => 'Article',
+                    'none' => 'None',
+                ),
+                'default_value' => 'Article',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-resource-page.php',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+    ));
 }

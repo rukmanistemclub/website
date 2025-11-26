@@ -20,7 +20,7 @@ function nyc_stem_get_cta_content($type) {
     $ctas = array(
         'enrollment' => array(
             'title' => 'Ready to Get Started?',
-            'subtitle' => 'Take the first step toward your academic goals. Contact us today for a free consultation.',
+            'subtitle' => 'Take the first step toward your academic goals. Contact us to learn more.',
             'button_text' => 'Schedule Free Consultation',
             'button_url' => '/enrollment/',
             'button_style' => 'orange'
@@ -45,6 +45,47 @@ function nyc_stem_get_cta_content($type) {
             'button_text' => 'Contact Us',
             'button_url' => '/contact/',
             'button_style' => 'teal'
+        ),
+        'enhanced_act' => array(
+            'title' => 'Ready to Master the Enhanced ACT?',
+            'subtitle' => 'Our Enhanced ACT prep program is fully updated for the 2025 format. We\'ll help you navigate the new structure, make strategic decisions about the Science section, and achieve your target score efficiently.',
+            'button_text' => 'Get Started',
+            'button_url' => '/enrollment/?course_name=ACT+Prep',
+            'button_style' => 'orange'
+        ),
+        'digital_sat' => array(
+            'title' => 'Ready to Master the Digital SAT?',
+            'subtitle' => 'NYC STEM Club\'s expert instructors are fully trained on the Digital SAT format. Our comprehensive prep program combines content mastery with digital test-taking strategies to maximize your score.',
+            'button_text' => 'Inquire Now',
+            'button_url' => '/enrollment/',
+            'button_style' => 'orange',
+            'button2_text' => 'View Programs',
+            'button2_url' => '/sat-act-test-prep/',
+            'button2_style' => 'teal'
+        ),
+        'sat_vs_act' => array(
+            'title' => 'Ready to Find Your Best Test?',
+            'subtitle' => 'We offer free diagnostic testing and consultation to help you choose the right test and create a personalized prep plan.',
+            'button_text' => 'Inquire Now',
+            'button_url' => '/enrollment/',
+            'button_style' => 'orange',
+            'button2_text' => 'View SAT/ACT Prep Program',
+            'button2_url' => '/courses/sat-act-prep-course/',
+            'button2_style' => 'teal'
+        ),
+        'testing_timeline' => array(
+            'title' => 'Ready to Start Your Test Prep Journey?',
+            'subtitle' => 'Let NYC STEM Club help you create a personalized preparation timeline for your student\'s success.',
+            'button_text' => 'Inquire Now',
+            'button_url' => '/enrollment/',
+            'button_style' => 'white'
+        ),
+        'shsat_faq' => array(
+            'title' => 'Ready to Start Your SHSAT Prep Journey?',
+            'subtitle' => 'Join the program where 90%+ of students gain admission to NYC specialized high schools and 50%+ qualify for Stuyvesant.',
+            'button_text' => 'Inquire Now',
+            'button_url' => '/enrollment/',
+            'button_style' => 'orange'
         )
     );
 
@@ -62,30 +103,23 @@ function nyc_stem_cta_section_shortcode($atts) {
         'type' => '',
         'title' => '',
         'subtitle' => '',
-        'button_text' => 'Get Started',
-        'button_url' => '/enrollment/',
-        'button_style' => 'orange',  // orange, teal, dark-teal
-        'secondary_button_text' => '',
-        'secondary_button_url' => '',
+        'button2_text' => '',
+        'button2_url' => '',
+        'button2_style' => 'teal',
     ), $atts, 'cta_section');
 
     // If type is specified, get predefined content
+    $content = array();
     if (!empty($atts['type'])) {
         $content = nyc_stem_get_cta_content($atts['type']);
         // Only use predefined values if not explicitly set
         if (empty($atts['title'])) $atts['title'] = $content['title'];
         if (empty($atts['subtitle'])) $atts['subtitle'] = $content['subtitle'];
-        if ($atts['button_text'] === 'Get Started') $atts['button_text'] = $content['button_text'];
-        if ($atts['button_url'] === '/enrollment/') $atts['button_url'] = $content['button_url'];
-        if ($atts['button_style'] === 'orange') $atts['button_style'] = $content['button_style'];
-    }
-
-    // Determine button class
-    $button_class = 'nyc-stem-inquiry-btn';
-    if ($atts['button_style'] === 'teal') {
-        $button_class .= ' btn-teal';
-    } elseif ($atts['button_style'] === 'dark-teal') {
-        $button_class .= ' btn-dark-teal';
+        if (empty($atts['button2_text']) && !empty($content['button2_text'])) {
+            $atts['button2_text'] = $content['button2_text'];
+            $atts['button2_url'] = $content['button2_url'];
+            $atts['button2_style'] = $content['button2_style'];
+        }
     }
 
     ob_start();
@@ -102,14 +136,9 @@ function nyc_stem_cta_section_shortcode($atts) {
             <?php endif; ?>
 
             <div class="cta-buttons">
-                <a href="<?php echo esc_url($atts['button_url']); ?>" class="<?php echo esc_attr($button_class); ?>">
-                    <?php echo esc_html($atts['button_text']); ?>
-                </a>
-
-                <?php if (!empty($atts['secondary_button_text']) && !empty($atts['secondary_button_url'])): ?>
-                <a href="<?php echo esc_url($atts['secondary_button_url']); ?>" class="nyc-stem-inquiry-btn btn-teal">
-                    <?php echo esc_html($atts['secondary_button_text']); ?>
-                </a>
+                <?php echo do_shortcode('[inquiry_button]'); ?>
+                <?php if (!empty($atts['button2_text']) && !empty($atts['button2_url'])): ?>
+                <?php echo do_shortcode('[inquiry_button text="' . esc_attr($atts['button2_text']) . '" url="' . esc_attr($atts['button2_url']) . '" color="' . esc_attr($atts['button2_style']) . '"]'); ?>
                 <?php endif; ?>
             </div>
 

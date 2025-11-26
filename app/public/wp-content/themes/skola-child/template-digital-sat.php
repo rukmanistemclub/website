@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Digital SAT Full Width
- * Description: Custom full-width template for Digital SAT blog post
+ * Description: Complete guide to the Digital SAT format
  */
 
 get_header(); ?>

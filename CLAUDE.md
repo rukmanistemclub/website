@@ -176,7 +176,7 @@ See `REFACTORING-TODO.md` for:
 | File | Location | Purpose |
 |------|----------|---------|
 | REFACTORING-TODO.md | Project root | Full refactoring plan |
-| TYPOGRAPHY-STANDARDS.md | skola-child/ | Typography reference |
+| TYPOGRAPHY.md | Project root | Typography system (single source of truth) |
 | design-system.css | skola-child/css/ | CSS variables (source of truth) |
 | course-pages.css | skola-child/css/ | Component styles |
 | course-styles.css | plugin/assets/css/ | Plugin styles |
@@ -208,7 +208,7 @@ git status | grep -E "(test-|check-|clear-|update-|debug-|\.backup|archive-|\.wp
 ### 16. Files to NEVER Delete
 - `CLAUDE.md` - This file
 - `REFACTORING-TODO.md` - Technical debt tracking
-- `TYPOGRAPHY-STANDARDS.md` - Design reference
+- `TYPOGRAPHY.md` - Typography system reference
 - Any file in `css/` folder
 - Any `template-*.php` file
 - `functions.php`
