@@ -5,57 +5,6 @@
  */
 
 get_header();
-
-// Add structured data (Schema.org) for SEO
-if (have_posts()) {
-    the_post();
-    $schema_data = array(
-        '@context' => 'https://schema.org',
-        '@type' => 'Article',
-        'headline' => get_the_title(),
-        'author' => array(
-            '@type' => 'Organization',
-            'name' => 'NYC STEM Club',
-            'url' => home_url()
-        ),
-        'publisher' => array(
-            '@type' => 'Organization',
-            'name' => 'NYC STEM Club',
-            'logo' => array(
-                '@type' => 'ImageObject',
-                'url' => get_site_icon_url()
-            )
-        ),
-        'datePublished' => get_the_date('c'),
-        'dateModified' => get_the_modified_date('c'),
-        'mainEntityOfPage' => get_permalink(),
-        'description' => get_the_excerpt(),
-    );
-
-    // Add image if available
-    if (has_post_thumbnail()) {
-        $schema_data['image'] = array(
-            '@type' => 'ImageObject',
-            'url' => get_the_post_thumbnail_url(get_the_ID(), 'large'),
-            'width' => 1200,
-            'height' => 630
-        );
-    }
-
-    // Add categories and tags
-    $categories = get_the_category();
-    if (!empty($categories)) {
-        $schema_data['articleSection'] = $categories[0]->name;
-    }
-
-    $tags = get_the_tags();
-    if ($tags) {
-        $schema_data['keywords'] = implode(', ', wp_list_pluck($tags, 'name'));
-    }
-
-    echo '<script type="application/ld+json">' . wp_json_encode($schema_data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>';
-    rewind_posts();
-}
 ?>
 
 <div id="primary" class="content-area nyc-custom-blog">
