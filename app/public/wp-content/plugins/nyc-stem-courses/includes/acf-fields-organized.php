@@ -573,6 +573,7 @@ function nyc_stem_register_organized_course_fields() {
         'style' => 'default',
         'label_placement' => 'top',
         'instruction_placement' => 'label',
+        'hide_on_screen' => array(), // Explicitly show all default WordPress elements including Excerpt
     ));
 
     // ================================================

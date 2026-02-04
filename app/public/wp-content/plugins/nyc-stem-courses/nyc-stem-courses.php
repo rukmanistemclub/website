@@ -1113,13 +1113,13 @@ class NYC_STEM_Courses {
         // Define schools with their URLs (in order of competitiveness)
         $schools = array(
             array('name' => 'Stuyvesant', 'url' => 'https://stuy.enschool.org/'),
-            array('name' => 'Bronx Science', 'url' => 'https://www.bxsci.edu/'),
+            array('name' => 'Bronx Science', 'url' => 'https://bxscience.edu/'),
             array('name' => 'Brooklyn Tech', 'url' => 'https://www.bths.edu/'),
             array('name' => 'Brooklyn Latin', 'url' => 'https://www.brooklynlatin.org/'),
             array('name' => 'HSMSE @ City College', 'url' => 'https://hsmse.org/'),
             array('name' => 'Queens Science @ York', 'url' => 'https://www.qhss.org/'),
             array('name' => 'Staten Island Tech', 'url' => 'https://www.siths.org/'),
-            array('name' => 'HSAS @ Lehman', 'url' => 'https://www.lehman.edu/lehman-high-school-american-studies/'),
+            array('name' => 'HSAS @ Lehman', 'url' => 'https://hsas-lehman.org/'),
         );
 
         ob_start();

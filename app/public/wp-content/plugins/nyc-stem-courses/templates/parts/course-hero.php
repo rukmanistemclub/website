@@ -6,6 +6,16 @@
 // Get hero stats (mini stats in left column)
 $hero_stats = get_field('hero_stats');
 
+// Override hero_stats for specific courses (workaround for ACF Free not supporting repeaters)
+$post_slug = get_post_field('post_name', get_the_ID());
+if ($post_slug === 'shsat-fall-bootcamp') {
+    $hero_stats = array(
+        array('number' => '16-20', 'label' => 'Sessions', 'icon_svg' => ''),
+        array('number' => '8-10', 'label' => 'Weeks', 'icon_svg' => ''),
+        array('number' => '2-3', 'label' => 'Full Length Digital Tests', 'icon_svg' => ''),
+    );
+}
+
 // Get hero card stats from ACF fields
 $hero_card_title = get_field('hero_card_title');
 $hero_card_stats = array();

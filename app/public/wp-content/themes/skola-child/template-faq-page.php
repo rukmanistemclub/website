@@ -835,7 +835,7 @@ get_header();
     <div class="faq-cta">
         <div class="faq-cta-content">
             <h2>Still Have Questions?</h2>
-            <p>Schedule a free consultation with our test prep experts. We'll assess your needs, answer your questions, and create a personalized plan to help you achieve your target score.</p>
+            <p>Schedule a consultation with our test prep experts. We'll assess your needs, answer your questions, and create a personalized plan to help you achieve your target score.</p>
             <?php echo do_shortcode('[inquiry_button rounded="no"]'); ?>
         </div>
     </div>

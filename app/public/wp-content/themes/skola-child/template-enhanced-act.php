@@ -729,4 +729,70 @@ function toggleFAQ(element) {
 }
 </script>
 
+<!-- FAQPage Schema for AEO -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Do colleges treat Enhanced ACT scores differently?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The Enhanced ACT and legacy ACT are considered equivalent by colleges. Your scores are valued the same regardless of which version you took. Legacy ACT scores remain fully valid, and most colleges superscore across versions."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is the Enhanced ACT easier?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not easier, but more manageable. You have fewer questions and more time per question, which can reduce careless errors. However, content difficulty remains the same. The Enhanced ACT maintains the same academic rigor—you just have better pacing and less mental fatigue."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I still use my old ACT prep books?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Partially. The content and question types are the same, but the number of questions, timing, and structure have changed. You can use old materials for content review, but you'll need updated materials for accurate practice test simulation and timing strategies."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What if my target school requires the ACT Science section?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Check each school's specific requirements. Most schools that previously required the full ACT have clarified their policies for the Enhanced ACT. Many now accept scores with or without Science. Visit admissions websites or contact offices directly."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Should I retake if I took the legacy ACT?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Only if you believe you can significantly improve your core section scores (English, Math, Reading). The format change alone isn't a reason to retake if you're already at your target score. However, if you struggled with time management or Science dragged down your composite, the Enhanced ACT might work better for you."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "When did the Enhanced ACT roll out?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "April 2025: Enhanced ACT launched for national (Saturday) online/digital testing. September 2025: All national tests (Saturday, paper and digital) transitioned to Enhanced ACT. Spring 2026: School day testing (state and district) transitions to Enhanced ACT. If you're testing fall 2025 or beyond, you'll be taking the Enhanced ACT."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can international students take the Enhanced ACT?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. International testing transitioned to the Enhanced ACT in September 2025. All international ACT testing is digital/online only."
+            }
+        }
+    ]
+}
+</script>
+
 <?php get_footer();

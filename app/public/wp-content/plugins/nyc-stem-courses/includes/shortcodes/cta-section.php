@@ -65,12 +65,12 @@ function nyc_stem_get_cta_content($type) {
         ),
         'sat_vs_act' => array(
             'title' => 'Ready to Find Your Best Test?',
-            'subtitle' => 'We offer free diagnostic testing and consultation to help you choose the right test and create a personalized prep plan.',
+            'subtitle' => 'We offer diagnostic testing and consultation to help you choose the right test and create a personalized prep plan.',
             'button_text' => 'Inquire Now',
             'button_url' => '/enrollment/',
             'button_style' => 'orange',
             'button2_text' => 'View SAT/ACT Prep Program',
-            'button2_url' => '/courses/sat-act-prep-course/',
+            'button2_url' => '/sat-act-test-prep/',
             'button2_style' => 'teal'
         ),
         'testing_timeline' => array(

@@ -831,56 +831,6 @@ get_header();
         font-size: 0.85rem;
     }
 
-    /* CTA Section - Full Width */
-    .cta-section {
-        background: linear-gradient(135deg, #134958 0%, #28AFCF 100%);
-        color: white;
-        text-align: center;
-        padding: 40px 0;
-        margin: 0;
-    }
-
-    .cta-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .cta-section h2 {
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 1.3;
-        color: white !important;
-        margin: 0 0 16px 0;
-    }
-
-    @media (min-width: 768px) {
-        .cta-section h2 {
-            font-size: 28px;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .cta-section h2 {
-            font-size: 36px;
-        }
-    }
-
-    .cta-section p {
-        font-size: 16px;
-        color: white !important;
-        max-width: 700px;
-        margin: 0 auto 2rem;
-        line-height: 1.6;
-    }
-
-    .cta-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
     /* Testimonials Section - Full Width */
     .nyc-testimonials-section {
         background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
@@ -967,19 +917,6 @@ get_header();
             display: none;
         }
 
-        .cta-section {
-            padding: 30px 0;
-        }
-
-        .cta-inner {
-            padding: 0 16px;
-        }
-
-        .cta-buttons {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
         .nyc-testimonials-section {
             padding: 30px 0;
         }
@@ -987,6 +924,16 @@ get_header();
         .nyc-testimonials-title {
             font-size: 24px !important;
         }
+    }
+
+    /* CTA Section Button Fix - ensure buttons are clickable */
+    .cta-section .cta-buttons a,
+    .cta-section .cta-buttons .nyc-stem-inquiry-btn {
+        position: relative;
+        z-index: 10;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        display: inline-flex !important;
     }
 </style>
 
@@ -1223,7 +1170,7 @@ get_header();
                             </div>
                         </button>
                         <div class="faq-answer">
-                            <p>Take full-length practice tests for both under timed conditions. Compare your scores and which test felt more comfortable. We offer <strong>free diagnostic testing and consultation</strong> to help you decide.</p>
+                            <p>Take full-length practice tests for both under timed conditions. Compare your scores and which test felt more comfortable. We offer <strong>diagnostic testing and consultation</strong> to help you decide.</p>
                         </div>
                     </div>
                     <div class="faq-card">
@@ -1314,16 +1261,7 @@ get_header();
             </div>
 
             <!-- CTA Section - Full Width -->
-            <section class="cta-section">
-                <div class="cta-inner">
-                    <h2>Ready to Find Your Best Test?</h2>
-                    <p>We offer <strong>free diagnostic testing and consultation</strong> to help you choose the right test and create a personalized prep plan.</p>
-                    <div class="cta-buttons">
-                        <?php echo do_shortcode('[inquiry_button]'); ?>
-                        <?php echo do_shortcode('[inquiry_button color="teal" text="View SAT/ACT Prep Program" url="/courses/sat-act-prep-course/"]'); ?>
-                    </div>
-                </div>
-            </section>
+            <?php echo do_shortcode('[cta_section type="sat_vs_act"]'); ?>
 
             <!-- Testimonials Section -->
             <?php echo do_shortcode('[testimonials]'); ?>
@@ -1345,6 +1283,80 @@ function toggleFAQ(button) {
     if (question) {
         question.setAttribute('aria-expanded', isActive ? 'false' : 'true');
     }
+}
+</script>
+
+<!-- FAQPage Schema for AEO -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What's the difference between the SAT and ACT? Which should my child take?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Both tests are widely accepted by colleges, but they have distinct differences. The ACT tends to be more straightforward with direct reading passages and consistent scoring, while the SAT provides more time per question but can have more ambiguous passages. We help you decide through diagnostic testing—after your child takes practice tests for both exams, we analyze their performance and recommend the test where they'll reach their target score most efficiently."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do colleges prefer one test over the other?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. All U.S. colleges accept both SAT and ACT equally. There's no admissions advantage to either test. Choose based on which test format suits your strengths better."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I take both SAT and ACT tests?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Some students do take both and submit the higher score, but most take diagnostic tests at the beginning and focus their prep on the one they perform better on."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I know which test is right for me?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Take full-length practice tests for both under timed conditions. Compare your scores and which test felt more comfortable. NYC STEM Club offers diagnostic testing and consultation to help you decide."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you help students choose between the SAT and ACT?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer complete flexibility and help you make the best strategic decision. Our process includes dual diagnostic testing, performance analysis comparing scores and section strengths across both tests, personalized recommendations, and combo prep options. Many students start with ACT prep (which covers more advanced math) and can easily pivot to SAT if needed."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What if I'm stronger in math - should I take the SAT?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If math is your superpower, the SAT's 50% math weighting works in your favor. However, many strong math students actually prefer the ACT—since they don't need to focus heavily on the math component (it's straightforward for them), they can dedicate prep time to English. The ACT's balanced scoring means math excellence still helps significantly while requiring less focused study."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is the ACT Science section hard?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Science section doesn't test memorized facts—it tests reading charts and graphs, which is a highly learnable skill. Plus, it's now optional with the Enhanced ACT! Most students improve their Science scores significantly with proper prep."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "When should I start SAT or ACT prep?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If you're taking Algebra 2 in sophomore year, starting ACT prep then creates a double win: the training helps with both your ACT preparation and your school grades. The majority of our students achieve a 34+ before entering junior year, giving them one less thing to stress about during their busiest academic year."
+            }
+        }
+    ]
 }
 </script>
 

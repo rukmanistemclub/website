@@ -1215,7 +1215,7 @@ get_header();
                 <div class="ready-column">
                     <h3>Next Steps</h3>
                     <ul>
-                        <li>1. Schedule a free consultation</li>
+                        <li>1. Schedule a consultation</li>
                         <li>2. Take our diagnostic assessment</li>
                         <li>3. Receive personalized program recommendation</li>
                         <li>4. Enroll and begin your journey</li>
@@ -1225,7 +1225,7 @@ get_header();
 
             <div class="ready-footer">
                 <p>Located in Financial District, Manhattan • Serving all NYC boroughs</p>
-                <p>Questions? Check our <a href="/shsat-faq/">SHSAT FAQ</a> or <a href="/contact/">Contact Us</a> directly.</p>
+                <p>Questions? Check our <a href="/resources/shsat-frequently-asked-questions-faqs2/">SHSAT FAQ</a> or <a href="/contact/">Contact Us</a> directly.</p>
                 <?php echo do_shortcode('[inquiry_button]'); ?>
             </div>
         </div>
@@ -1261,7 +1261,7 @@ get_header();
                 <a href="https://www.riverdale.edu/" target="_blank" rel="noopener noreferrer">Riverdale</a> •
                 <a href="https://www.regis.org/" target="_blank" rel="noopener noreferrer">Regis</a> •
                 <a href="https://www.collegiateschool.org/" target="_blank" rel="noopener noreferrer">Collegiate</a> •
-                <a href="https://www.stpetersprep.org/" target="_blank" rel="noopener noreferrer">St. Peter's Prep</a> •
+                <a href="https://spprep.org/" target="_blank" rel="noopener noreferrer">St. Peter's Prep</a> •
                 <a href="https://www.xavierhs.org/" target="_blank" rel="noopener noreferrer">Xavier</a>
             </p>
         </div>
