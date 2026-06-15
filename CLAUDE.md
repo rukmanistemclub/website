@@ -301,3 +301,43 @@ This document should grow smarter over time, not stay static.
 5. Follow established patterns
 6. Test on mobile
 7. Clean up temp files before commit
+
+---
+
+## Deployment & Caching (IMPORTANT)
+
+- **Host = RoseHosting; site is behind Cloudflare** (pages cached ~1 hr). Deploy = upload
+  changed files via the host **File Manager** (no git-based deploy). After uploading, changes
+  won't show for logged-out visitors until cache is cleared.
+- **Clearing cache:** WP Rocket → **"Clear Cache"** ONLY. **NEVER** use "Clear and Preload" —
+  the preload crawl overloads the shared server and returns **HTTP 502**. Then ask RoseHosting
+  to **purge Cloudflare**.
+- **"Shows on desktop but not mobile/phone" is almost always caching, not responsive CSS** —
+  logged-in admin bypasses cache; logged-out visitors get the cached copy. Test in a
+  logged-out incognito window before assuming a CSS bug.
+
+## CSS Gotcha: WP Rocket "Remove Unused CSS" strips new `<style>`-block classes
+
+When you add a **new** CSS class in a template `<style>` block, WP Rocket's Remove-Unused-CSS
+can strip it, so the text renders unstyled (e.g. dark text on a dark hero). Also,
+`design-system.css` has generic `h1/h2/p` color rules that override template colors.
+
+**Fix for critical colors/backgrounds: use inline `style="..."` (with `!important` for colors).**
+Inline styles survive RUCSS and beat the global rules. See `template-hunter-prep.php` (inline
+white on hero subtitle + CTA) for the pattern.
+
+## Hunter Admissions pages (added 2026-06)
+
+Mirrors the SHSAT structure: **one landing page + course cards -> course pages**.
+- Landing page: `template-hunter-prep.php` (Template Name "Hunter Prep Landing Page"),
+  page slug `hunter-college-high-school-prep`. Hero + exam info +
+  `[course_category category="hunter-admissions"]` card grid + FAQ + CTA.
+- Two `course` CPT entries in the **`hunter-admissions`** category (Pre-Hunter Summer,
+  Hunter Prep Fall). Schedules live in the ACF **course_description** field, bootcamp-style
+  ("Sample Schedule: ... Inquire"). Badges: course_duration + class_format (Group).
+- `/courses/` archive order is hardcoded in
+  `plugins/nyc-stem-courses/templates/archive-course.php` (`$category_order`) — Hunter added
+  after SAT/ACT.
+- `course-benefits.php` ("Why Choose") falls back to `[why_choose_sat_act]` for unknown
+  categories — it is now gated so SAT/ACT only shows on SAT/ACT courses (not Hunter).
+- Course CPT cards link to the course's own page via `get_permalink()` (no custom-URL field).
