@@ -107,6 +107,8 @@ class NYC_STEM_Courses {
         require_once NYC_STEM_COURSES_PATH . 'includes/shortcodes/faq-section.php';
         // Load CTA section shortcode (Phase 2 refactoring)
         require_once NYC_STEM_COURSES_PATH . 'includes/shortcodes/cta-section.php';
+        // Load enrollment form handler (multi-destination form submission)
+        require_once NYC_STEM_COURSES_PATH . 'includes/enrollment-form-handler.php';
     }
 
     /**
@@ -468,6 +470,25 @@ class NYC_STEM_Courses {
             'sanitize_callback' => 'sanitize_text_field',
             'default' => '50px'
         ));
+
+        // Enrollment Form Settings
+        register_setting('nyc_stem_settings', 'nyc_stem_freshsales_api_key', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => ''
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_freshsales_domain', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => ''
+        ));
+
+        register_setting('nyc_stem_settings', 'nyc_stem_enrollment_email', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_email',
+            'default' => ''
+        ));
     }
 
     /**
@@ -712,6 +733,70 @@ class NYC_STEM_Courses {
                         </td>
                     </tr>
                 </table>
+
+                <hr style="margin: 40px 0;">
+
+                <h2>📝 Enrollment Form Settings</h2>
+                <p class="description">Configure the custom enrollment form to post to Freshsales and email backup.</p>
+                <table class="form-table">
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_freshsales_domain">Freshsales Domain</label>
+                        </th>
+                        <td>
+                            <input type="text"
+                                   id="nyc_stem_freshsales_domain"
+                                   name="nyc_stem_freshsales_domain"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_freshsales_domain', '')); ?>"
+                                   class="regular-text"
+                                   placeholder="yourcompany">
+                            <p class="description">
+                                Your Freshsales subdomain (e.g., if your URL is <code>yourcompany.freshsales.io</code>, enter <code>yourcompany</code>)
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_freshsales_api_key">Freshsales API Key</label>
+                        </th>
+                        <td>
+                            <input type="password"
+                                   id="nyc_stem_freshsales_api_key"
+                                   name="nyc_stem_freshsales_api_key"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_freshsales_api_key', '')); ?>"
+                                   class="regular-text"
+                                   placeholder="Your API key">
+                            <p class="description">
+                                Get this from Freshsales: Settings → API Settings → Your API Key
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="nyc_stem_enrollment_email">Backup Email</label>
+                        </th>
+                        <td>
+                            <input type="email"
+                                   id="nyc_stem_enrollment_email"
+                                   name="nyc_stem_enrollment_email"
+                                   value="<?php echo esc_attr(get_option('nyc_stem_enrollment_email', get_option('admin_email'))); ?>"
+                                   class="regular-text"
+                                   placeholder="<?php echo esc_attr(get_option('admin_email')); ?>">
+                            <p class="description">
+                                Email address to receive enrollment notifications as backup. Defaults to admin email.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <div style="padding: 15px; background: #fff8e1; border-left: 4px solid #ffc107; margin-top: 20px;">
+                    <strong>📋 To use the custom enrollment form:</strong>
+                    <ol style="margin: 10px 0 0 20px;">
+                        <li>Create a new page in WordPress</li>
+                        <li>Set the page template to <strong>"Student Enrollment (Custom Form)"</strong></li>
+                        <li>Publish and test the form</li>
+                    </ol>
+                    <p style="margin-top: 10px;">The form will submit to Freshsales, send email backup, and save to database for redundancy.</p>
+                </div>
 
                 <?php submit_button('Save Global Settings'); ?>
             </form>
@@ -1328,7 +1413,7 @@ class NYC_STEM_Courses {
         $output .= '</div>';
         $output .= '</div>';
 
-        // Card 4: Digital SHSAT Ready
+        // Card 4: Our Own Adaptive Platform
         $output .= '<div class="benefit-card">';
         $output .= '<div style="text-align: left;">';
         $output .= '<div class="benefit-icon">';
@@ -1336,8 +1421,8 @@ class NYC_STEM_Courses {
         $output .= '<path d="M17 1.01L7 1C5.9 1 5 1.9 5 3V21C5 22.1 5.9 23 7 23H17C18.1 23 19 22.1 19 21V3C19 1.9 18.1 1.01 17 1.01M17 19H7V5H17V19M16 13H13V16H11V13H8V11H11V8H13V11H16V13Z"/>';
         $output .= '</svg>';
         $output .= '</div>';
-        $output .= '<h3>Digital SHSAT Ready</h3>';
-        $output .= '<p>Extensive practice on authentic digital platform to prepare for the real test experience.</p>';
+        $output .= '<h3>Our Own Adaptive Platform</h3>';
+        $output .= '<p>The SHSAT goes computer-adaptive in 2026. Students practice on the adaptive platform we built ourselves &mdash; answers lock as students move forward, every question rigorous, no surprises on test day.</p>';
         $output .= '</div>';
         $output .= '</div>';
 
@@ -1350,7 +1435,7 @@ class NYC_STEM_Courses {
         $output .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#28AFCF" width="32" height="32">';
         $output .= '<path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>';
         $output .= '</svg>';
-        $output .= '<span class="badge-title">Fully Updated for Digital SHSAT Format</span>';
+        $output .= '<span class="badge-title">Built for the 2026 Adaptive SHSAT</span>';
         $output .= '</div>';
         $output .= '<span class="badge-subtitle">Our curriculum reflects all the latest test format changes to ensure you\'re fully prepared.</span>';
         $output .= '</div>';

@@ -738,8 +738,10 @@ get_header();
                     <ul>
                         <li>Standard time: 180 minutes (3 hours) total</li>
                         <li>Extended time: 1.5x or double time available for eligible students</li>
-                        <li>Flexible timing: Students can allocate time between sections as they choose (no fixed time per section)</li>
+                        <li><strong>For the fall 2025 test:</strong> Flexible timing &mdash; students can allocate time between sections as they choose (no fixed time per section)</li>
                     </ul>
+
+                    <p><strong>Note for fall 2026 and beyond:</strong> with the move to a computer-adaptive format, the structure and test-taking experience change from what's shown below, which reflects the fall 2025 linear test. See our <a href="/shsat-adaptive-test-2026/" class="link-teal">2026 adaptive guide</a>.</p>
 
                     <p><strong>Test Structure:</strong></p>
                     <table>
@@ -797,18 +799,20 @@ get_header();
                     <p>Starting in fall 2025, the SHSAT is now <strong>fully digital</strong> and taken on a computer. This change aligns with other major standardized tests like the SAT, PSAT, and New York State tests, which have all moved to computer-based formats.</p>
 
                     <p><strong>What This Means for Your Child:</strong></p>
-                    <p>The digital format allows students to:</p>
+                    <p><strong>For the fall 2025 digital test, students could:</strong></p>
                     <ul>
-                        <li>Move freely between questions and sections (just like paper tests)</li>
+                        <li>Move freely between questions and sections</li>
                         <li>Zoom, highlight, and take notes on the digital platform</li>
                         <li>Flag questions to review later</li>
                         <li>Choose which section (ELA or Math) to start with</li>
                     </ul>
 
+                    <p><strong>Beginning fall 2026, the SHSAT is moving to a computer-adaptive format.</strong> This changes how the test feels and how students should prepare &mdash; see our guide: <a href="/shsat-adaptive-test-2026/" class="link-teal">The SHSAT Is Going Adaptive</a>.</p>
+
                     <p><strong>"My child isn't comfortable with computers – will they be okay?"</strong></p>
                     <p>This is a common concern! Here's the good news:</p>
                     <ul>
-                        <li>Free online practice tests are available that look exactly like the real test</li>
+                        <li>Official practice resources are available from the DOE &mdash; and our own platform gives students far deeper practice under realistic conditions</li>
                         <li>Students can practice as many times as they want before test day</li>
                     </ul>
 
@@ -872,6 +876,8 @@ get_header();
                     These challenges can be best mitigated by proper practice. The students who will struggle most are those who practice only on paper and walk into a digital test cold. Set them up with the right tools for success.</p>
 
                     <p>Students who have been with us for over 6 months have had ample practice with the digital format and are very comfortable with navigating the test and pacing themselves.</p>
+
+                    <p><strong>Looking ahead to 2026:</strong> last year our students gained confidence on a digital platform built to closely reflect test conditions. This year we go further &mdash; students now practice on <a href="/shsat-adaptive-test-2026/" class="link-teal">our own adaptive platform</a>, where answers lock once a student moves on &mdash; just like the real test day.</p>
                 </div>
             </div>
 
@@ -1036,7 +1042,7 @@ get_header();
                             </tr>
                             <tr>
                                 <td>Scoring</td>
-                                <td>400-800 scale</td>
+                                <td>Scaled composite score (cutoffs vary each year)</td>
                                 <td>Percentile rankings (Stanine Score)</td>
                             </tr>
                         </tbody>
@@ -1177,15 +1183,15 @@ $faq_schema_items = array(
     ),
     array(
         'question' => "How long is the SHSAT? What's the format?",
-        'answer' => "The SHSAT is a 3-hour computer-based exam with two sections: ELA (57 questions, 47 scored) and Math (57 questions, 47 scored). Students can allocate time between sections as they choose. ELA covers reading comprehension and revising/editing. Math covers word problems, arithmetic, algebra, geometry, probability, and statistics."
+        'answer' => "For the fall 2025 test, the SHSAT is a 3-hour computer-based exam with two sections: ELA (57 questions, 47 scored) and Math (57 questions, 47 scored), with students able to allocate time between sections as they choose. ELA covers reading comprehension and revising/editing. Math covers word problems, arithmetic, algebra, geometry, probability, and statistics. Beginning fall 2026, the SHSAT moves to a computer-adaptive format, which changes the structure and test-taking experience; see our 2026 adaptive guide."
     ),
     array(
         'question' => "Is the SHSAT still a paper test, or is it digital now?",
-        'answer' => "Starting in fall 2025, the SHSAT is fully digital and taken on a computer. The digital format allows students to zoom, highlight, take notes, flag questions, and choose which section to start with. Free online practice tests are available that look exactly like the real test."
+        'answer' => "Through fall 2025 the SHSAT was a fully digital test taken on a computer, where students could zoom, highlight, take notes, flag questions, and choose which section to start with. Beginning fall 2026, the SHSAT is moving to a computer-adaptive format, which changes how the test feels and how students should prepare. Official practice resources are available from the DOE, and our own platform gives students far deeper practice under realistic conditions. See our guide: The SHSAT Is Going Adaptive."
     ),
     array(
         'question' => "What challenges did students face when practicing with the digital SHSAT format?",
-        'answer' => "Common challenges include screen fatigue (overcome with practice and micro-breaks), digital math scratch work (students learn to use both digital notepad and scratch paper), navigation and time management (becomes automatic after practice), and over-using digital tools (we teach strategic tool use). These challenges are best mitigated by proper practice with the digital format."
+        'answer' => "Common challenges include screen fatigue (overcome with practice and micro-breaks), digital math scratch work (students learn to use both digital notepad and scratch paper), navigation and time management (becomes automatic after practice), and over-using digital tools (we teach strategic tool use). These challenges are best mitigated by proper practice with the digital format. Looking ahead to 2026, students now practice on our own adaptive platform, where answers lock once a student moves on, just like the real test day."
     ),
     array(
         'question' => "What if my child is struggling in math or reading?",

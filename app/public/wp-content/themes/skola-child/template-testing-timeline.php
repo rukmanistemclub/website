@@ -904,6 +904,10 @@ html {
                     The SHSAT (Specialized High Schools Admissions Test) determines admission to NYC's elite specialized high schools including Stuyvesant, Bronx Science, and Brooklyn Tech. Students typically take it in the fall of 8th or 9th grade, but optimal preparation begins much earlier.
                 </p>
 
+                <p style="background: #fff6ee; border-left: 5px solid #FF7F07; padding: 16px 20px; margin: 0 0 25px 0; font-size: 16px; line-height: 1.6; color: #333;">
+                    <strong style="color: #FF7F07;">Note for fall 2026 and beyond:</strong> the SHSAT is moving to a computer-adaptive format. This changes how students should prepare &mdash; see our <a href="/shsat-adaptive-test-2026/" style="color: #28AFCF; font-weight: 600;">2026 adaptive guide</a>.
+                </p>
+
                 <div class="prep-timeline">
                     <h4>Recommended Preparation Timeline</h4>
                     <div class="timeline-steps">

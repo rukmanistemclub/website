@@ -65,6 +65,7 @@ get_header();
                 'shsat' => 'SHSAT Prep',
                 'isee-prep' => 'ISEE Prep',
                 'sat-act-prep' => 'SAT/ACT Prep',
+                'hunter-admissions' => 'Hunter Prep',
                 'ap' => 'AP Courses',
                 'enrichment' => 'Academic Enrichment',
                 'admissions-counseling' => 'Admissions Counseling',

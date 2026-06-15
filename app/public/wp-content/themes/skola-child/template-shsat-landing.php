@@ -1038,7 +1038,9 @@ get_header();
     <!-- Hero Section -->
     <section class="shsat-hero">
         <div class="hero-container">
-            <h1>Digital SHSAT Prep</h1>
+            <h1>Computer-Adaptive SHSAT Prep <span style="color: #FF7F07;">(New &middot; 2026)</span></h1>
+
+            <p style="background: #fff6ee; border-left: 5px solid #FF7F07; padding: 16px 20px; margin: 0 0 24px 0; font-size: 16px; line-height: 1.6; color: #333;"><strong style="color: #FF7F07;">The SHSAT is now computer-adaptive.</strong> Prepare on our proprietary adaptive practice platform &mdash; designed to get your child fully ready for the new format. <a href="/shsat-adaptive-test-2026/" style="color: #28AFCF; font-weight: 600;">See how &rarr;</a></p>
 
             <!-- Stats Narrative -->
             <div class="hero-stats-narrative">
@@ -1157,7 +1159,7 @@ get_header();
 
                         <h4>What to Expect:</h4>
                         <ul>
-                            <li>Full-length digital practice tests (6+ exams)</li>
+                            <li>Full-length practice tests on our own adaptive platform (6+ exams), in conditions that mirror the real exam</li>
                             <li>Detailed score analysis and personalized feedback</li>
                             <li>Individual weakness targeting and improvement plans</li>
                             <li>Test day simulation and environment familiarization</li>
